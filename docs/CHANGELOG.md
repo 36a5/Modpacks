@@ -19,6 +19,26 @@
 - Phase 5: Create 6.0.8 + 13 addons, Valkyrien Skies 2.4.11 + Eureka + Clockwork 0.5.6 +
   Trackwork + Immersive Aircraft, Macaw's suite + building mods, Chunky/LuckPerms/FTB Backups.
 
+### Phase 6b: RLCraft progression pass (in-game feedback)
+
+The 1.12-vs-1.20.1 question was re-opened and settled with evidence: **1.20.1 keeps everything**.
+The Lycanites 1.20.1 jar was inspected directly rather than trusted — it ships 287 creature
+definitions, 6 dungeon schematics, a `DeferredBossSpawner` that puts a boss on each dungeon
+floor, all three raid bosses, the equipment forge tiers, soulstones and mounts. Dungeons are on
+by default. No rebuild on 1.12 required.
+
+- **Progression: PMMO → Reskillable Reimagined 4.6.6.** The actual Reskillable lineage has a
+  1.20.1 build, with skill-gated items/blocks — the RLCraft mechanic, not an approximation.
+- **Primitive start: No Tree Punching 7.1.0.** Verified this is the exact mod RLCraft uses for
+  knapping flint into shards, crafting a flint knife, and cutting grass for plant fiber.
+- **Animations: Mo' Bends [Unofficial Modern Port] 5.1.5.** Removed Not Enough Animations and
+  First-person Model, which overlapped with it. Client-side only, so it costs the server nothing.
+- **ItemPhysic Full 1.8.13** — items lie flat on the ground and are picked up with right-click.
+- **Dynamic Trees actually fells trees now.** It was installed but inert:
+  `replaceVanillaSapling = false` meant player-planted trees stayed static vanilla trees. Shipped
+  config turns it on, and added **Dynamic Trees Plus** + **Dynamic Trees – Biomes O' Plenty** so
+  the pack's BOP trees are dynamic too, not just vanilla species.
+
 ### Phase 6a: shaders + server security
 - Shaderpacks shipped preinstalled: Complementary Unbound, Photon, Solas (loaded by Oculus).
 - **No OptiFine, by necessity**: it is incompatible with Valkyrien Skies and conflicts with

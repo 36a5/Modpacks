@@ -1,0 +1,13 @@
+name = "Mo' Bends [UNOFFICIAL MODERN PORT]"
+filename = "MoBends-forge-1.20.1-5.1.5.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/rNRqFWLv/versions/M0l996e0/MoBends-forge-1.20.1-5.1.5.jar"
+hash-format = "sha512"
+hash = "cafbe1969fc12510d7fde61ce7305f40db4513e795f6665f1c17af65b98fbe76a364b77a4045c86575a72132b285afbfac5f591977da62b3d6bfd72ab8c4a42e"
+
+[update]
+[update.modrinth]
+mod-id = "rNRqFWLv"
+version = "M0l996e0"
