@@ -4,7 +4,7 @@ rem Run this any time to install the pack or pull the latest update.
 rem Requirements: Java 17+ installed, Forge 1.20.1 profile created in TLauncher once.
 
 setlocal
-set "PACK_URL=https://REPLACE-ME.github.io/al-shabab/pack.toml"
+set "PACK_URL=https://36a5.github.io/Modpacks/pack.toml"
 set "GAME_DIR=%APPDATA%\.minecraft"
 
 if not "%~1"=="" set "GAME_DIR=%~1"

@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/run" 2>/dev/null || { mkdir -p "$(dirname "$0")/run"; cd "$(dirname "$0")/run"; }
 
 # ── Settings ────────────────────────────────────────────────────────────────
-PACK_URL="${PACK_URL:-https://REPLACE-ME.github.io/al-shabab/pack.toml}"
+PACK_URL="${PACK_URL:-https://36a5.github.io/Modpacks/pack.toml}"
 MC_VERSION="1.20.1"
 FORGE_VERSION="47.4.18"
 MEMORY="${MEMORY:-8G}"

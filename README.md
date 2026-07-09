@@ -14,6 +14,8 @@ Create + physics-vehicles tech stack.
 | `docs/` | RLCraft coverage ledger, changelog, design docs |
 | `.github/workflows/` | CI: validate + exports on push, GitHub Release on tag, pack hosting on Pages |
 
+**Setup, server commands, and player install steps: [docs/SETUP.md](docs/SETUP.md).**
+
 ## How distribution works
 
 `pack/` is published to GitHub Pages. From that one URL: the server self-updates on every

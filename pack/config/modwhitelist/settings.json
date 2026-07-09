@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "al Shabab mod enforcement.",
+    "",
+    "strict=false is DELIBERATE. In strict mode only mods listed in the *_required/optional",
+    "files are allowed, and those files ship empty -- turning strict on now would kick every",
+    "player including the admin. We run in deny-list mode until the allow-list is generated.",
+    "",
+    "To upgrade to strict (recommended once the pack is stable):",
+    "  1. set collectMode=true and put your player UUID in collectWhitelist",
+    "  2. join once from a clean install of the official pack",
+    "  3. the mod rewrites both_side_required.json / client_optional.json / server_only.json",
+    "  4. move any client-only mandatory mods into client_required.json",
+    "  5. set collectMode=false and strict=true, commit the generated files, ship the update",
+    "",
+    "Deny-list mode blocks known cheat mod ids. A renamed cheat jar can slip past it -- the",
+    "whitelist and the Auth mod are what actually keep a friends server safe, and AntiXray is",
+    "what stops xray regardless of what the client runs."
+  ],
+  "strict": false,
+  "strictFiles": false,
+  "collectMode": false,
+  "collectWhitelist": [],
+  "customMessage": "This server runs the official al Shabab modpack. Cheat mods are not allowed. Reinstall the pack with update.bat or your launcher.",
+  "packLink": "https://github.com/36a5/Modpacks"
+}

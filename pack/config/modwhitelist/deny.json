@@ -1,0 +1,35 @@
+{
+  "_comment": [
+    "Hard block list, matched on mod id. Players running any of these are disconnected on join.",
+    "Ore xray specifically is defeated server-side by AntiXray -- this list is defence in depth",
+    "for the mods that AntiXray cannot address (freecam, fullbright, aimbot, autoclickers)."
+  ],
+  "mods": [
+    "xray",
+    "advancedxray",
+    "xraymod",
+    "xrayultimate",
+    "oresee",
+    "fullbright",
+    "fullbrighttoggle",
+    "gammautils",
+    "brightnesscontrol",
+    "freecam",
+    "freelook",
+    "baritone",
+    "autofish",
+    "autoclicker",
+    "killaura",
+    "aimbot",
+    "wurst",
+    "meteorclient",
+    "impact",
+    "seedcracker",
+    "seedcrackerx",
+    "nofog",
+    "entityradar",
+    "playerradar",
+    "chestesp"
+  ],
+  "files": []
+}

@@ -1,0 +1,34 @@
+# al Shabab — AntiXray (DrexHD)
+#
+# The server replaces hidden ore blocks with fake stone inside the chunk packets it sends.
+# An xray resource pack renders exactly what the server sent, so it sees nothing. This is the
+# ONLY approach that stops texture-pack xray; a client mod-whitelist cannot.
+#
+# The top-level `enabled` is the DEFAULT applied to any dimension without its own section.
+# The mod ships it as false, which would leave every modded dimension (Twilight Forest,
+# Aether, Blue Skies, Undergarden, Bumblezone, Deeper and Darker) completely unprotected.
+# We default it to true so new dimensions are covered automatically.
+enabled = true
+engineMode = 3
+maxBlockHeight = 320
+updateRadius = 2
+lavaObscures = false
+hiddenBlocks = ["#forge:ores", "raw_copper_block", "raw_iron_block", "raw_gold_block"]
+replacementBlocks = ["stone", "deepslate", "andesite", "calcite", "diorite", "dirt", "granite", "gravel", "sand", "tuff", "mossy_cobblestone", "obsidian", "clay", "infested_stone", "amethyst_block", "budding_amethyst", "chest"]
+
+[overworld]
+enabled = true
+engineMode = 3
+maxBlockHeight = 320
+updateRadius = 2
+lavaObscures = false
+hiddenBlocks = ["#forge:ores", "raw_copper_block", "raw_iron_block", "raw_gold_block"]
+replacementBlocks = ["stone", "deepslate", "andesite", "calcite", "diorite", "dirt", "granite", "gravel", "sand", "tuff", "mossy_cobblestone", "obsidian", "clay", "infested_stone", "amethyst_block", "budding_amethyst", "chest"]
+
+[the_nether]
+enabled = true
+engineMode = 1
+maxBlockHeight = 128
+updateRadius = 2
+lavaObscures = true
+hiddenBlocks = ["ancient_debris", "nether_quartz_ore", "nether_gold_ore", "gold_block", "gilded_blackstone"]

@@ -19,6 +19,24 @@
 - Phase 5: Create 6.0.8 + 13 addons, Valkyrien Skies 2.4.11 + Eureka + Clockwork 0.5.6 +
   Trackwork + Immersive Aircraft, Macaw's suite + building mods, Chunky/LuckPerms/FTB Backups.
 
+### Phase 6a: shaders + server security
+- Shaderpacks shipped preinstalled: Complementary Unbound, Photon, Solas (loaded by Oculus).
+- **No OptiFine, by necessity**: it is incompatible with Valkyrien Skies and conflicts with
+  Create. Embeddium + Oculus already provide better performance and load the same shaderpacks.
+- **AntiXray** (server-side ore obfuscation) — the only thing that defeats xray *resource
+  packs*, which no client-side mod check can catch. Shipped config sets the global default to
+  `enabled = true`; the mod's own default of `false` would have left every modded dimension
+  (Twilight Forest, Aether, Blue Skies, Undergarden, Bumblezone, Deeper and Darker) unprotected.
+- **Mod Whitelist** — kicks clients running blacklisted cheat mods (freecam, fullbright,
+  killaura, baritone, radar/ESP). Shipped with `strict: false`; the mod's default of
+  `strict: true` combined with its empty allow-lists would have kicked every player, admin
+  included. Upgrade path to strict mode documented in the config and in `SETUP.md`.
+- **Auth** (server-side password login) — required because `online-mode=false` lets anyone
+  connect under any username. Chosen over Simple Login because Auth is server-side only:
+  players install nothing, which matters most for the TLauncher crowd.
+- Pack URL wired to `https://36a5.github.io/Modpacks/pack.toml` in both server scripts and the
+  TLauncher updater.
+
 ### Compatibility fixes (found by the server boot gate)
 - **Canary × Valkyrien Skies**: Canary merges `PoiManager#getInRange`, so VS2's
   `feature.poi.MixinPOIManager` fails to inject and the server hard-crashes at world load
