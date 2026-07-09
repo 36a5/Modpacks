@@ -14,7 +14,7 @@ hash = "ef8eeb57cab510140298a5e8b069024c9bff2dcc5022ad921445357b88249949"
 
 [[files]]
 file = "config/lycanitesmobs-common.toml"
-hash = "b47143b23c421425f11b8ada86d36615025f0a03862acc10ff6dc4c671c22ff7"
+hash = "2a0de8bf23b54bf5d4b8ca3cf25d8212244963a66ebcc8152c47d3cd6ce484a5"
 
 [[files]]
 file = "config/modwhitelist/deny.json"
@@ -26,367 +26,367 @@ hash = "27371c48c62fba5db4c36be708bc9b0cd70a7202d0207a96d580867ffbb5ae90"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/apotheosis/worldgen/structure_set/tower_leaf.json"
-hash = "2cf77985482157317807f2070890fb18f937da046c7966914fdac9a847d6eeaf"
+hash = "591f629e56cd3c47f38e7e871a5fd9bba67b49eff2bfcc673d9a5eb9cc2fbae6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/apotheosis/worldgen/structure_set/tower_main.json"
-hash = "0113beb8513b832ef20451840a1aaa8250182fd87afbd3428443296123c97ad2"
+hash = "19d378828dbbc01256b7c9dd7b0f92bd1b206ad45042fd8591771b5d61dae06f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/apotheosis/worldgen/structure_set/tower_sand.json"
-hash = "923c1d69e6c93a672fc42778ee020aed4a60d912490a65072b7a1d7c7237b281"
+hash = "a135c1c53309d77df4f36b5cb74d175af5ccf0b0f69596edf52441362cd3e73f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/apotheosis/worldgen/structure_set/tower_spruce.json"
-hash = "4577543f1a56fd5a7894b1485235f3b32401f54e25618bb5f99f8eaa58dc508d"
+hash = "0d65b972f099c8250b544d2e0cd083230eb0a61161efbb22d51904364ad90460"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/battle_towers/worldgen/structure_set/overworld.json"
-hash = "ba324ab7563a1a356eec807621b3291dd2f6070349ae9e3f59fe46ed7fe16984"
+hash = "0cf8ae1bfffaec5d5da50382e2566a66f88665710d32959526a389149df8b9f6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterdeserttemples/worldgen/structure_set/desert_temples.json"
-hash = "99ffa5d44cd0337e64ca99a294c9952157263721b649bb455211795ca0f7d0d4"
+hash = "4eab339092f6d68abc8dc66329007358e9930a9ce99afc25bd36614a6ea9a826"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterdungeons/worldgen/structure_set/skeleton_dungeons.json"
-hash = "a7d069950c38959f10154b40117262460116cdd0d98700d3f6f3b2cb076c229c"
+hash = "279bd15c194b3e879b7b22318acec101b725b92c2ee1b24c91fd1777bb37fb94"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterdungeons/worldgen/structure_set/small_nether_dungeons.json"
-hash = "ba1c627680c6f354ef5e8c8db9e935a5320f3dbcf46ea3e2332047585e017168"
+hash = "40c7da7f18be1a011a40da1bcab2906d80b3d901b2e9ccd20b13873bf64f8003"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterdungeons/worldgen/structure_set/spider_dungeons.json"
-hash = "0440b27743ef520a9eba42648998010bfe53ea108e6ec1539fcf409981b2baab"
+hash = "cdbf6c03b355580befec36e045d37901d458d6e33f8cddc57579086c96db5ac6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterdungeons/worldgen/structure_set/zombie_dungeons.json"
-hash = "5e04f7d1eb1808308ba8ef3606deb043966cf6cd9c3a062dc406ed296572705a"
+hash = "37f1adb076fe5fbf1492e135af682c308be41baf9628e9154f64a345a8c8370d"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterjungletemples/worldgen/structure_set/jungle_temples.json"
-hash = "dd441d7187af32b140ca2cf5adea70083cafe59d11b4919400f5342e88d22413"
+hash = "ebf2606b1f20f738712896b755f589d70384b08568e0d66ad63571271f1811c1"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterwitchhuts/worldgen/structure_set/witch_circle.json"
-hash = "01cc79ca5d21cc46aa74bad13b9f5e115533f9c9db0dc8a867f3b9a764f0e58b"
+hash = "fb5cfc3b6067157b918f8546d3a9e1eb11d77bb8bd21df508930a7d4fa2a3bc6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/betterwitchhuts/worldgen/structure_set/witch_hut.json"
-hash = "a18d923e00b46e5038efe3150156ba8a20029c6128ce9491d86a9155b93dda78"
+hash = "04fa53f7b8b944039381eda4972baf87caf1cde7298d40b52f72c923b8f49e09"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/clown_caravan_plains.json"
-hash = "b36a163c94fac9155ce9f1353923598181081cace4092855c16aff86b2faeafc"
+hash = "ebe06daf03b1edbf7a8a5cd8823fe17d015b9b0c2940eb4ad9b1b882636a4731"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/clown_caravan_savanna.json"
-hash = "7c64e706325f6218f92e8f444124410ce9dcc22840da454408faadf365ae01a4"
+hash = "4027309327b5b95600ed8a8d1ec55c990884b48a04fc891e44b1eb3dee454e83"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/clown_caravan_taiga.json"
-hash = "43d42e04a34c130a7ca379ef19e36d7bdbd8f246e3345cf1c4923dfb578463b5"
+hash = "a6b21f3db10513af12e0496798058cf2359df1b6d28a02eff6f70e9bace9b0d2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/dark_tower_forest.json"
-hash = "b23a934e0ac93b29cfe3e1ff23cddfd3f0c22f2a3455e708b5150045acc90e04"
+hash = "851d4ddfadbecefce49cf6e9b1285c946bf443e2d2db87cffc1ad050cd267704"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/dark_tower_plain.json"
-hash = "dc0dfb0a1f1b8393fa9a53cd8fb5c7ab89d0c5366c780858107b7b922937dc61"
+hash = "ba7216c73f8d5c10ee0659319fca53a3e8ca688d03386a913303e0e5e1f41bf2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/dark_tower_taiga.json"
-hash = "5e9aa01f652dc9c35fc6244f9969f7b16ca362b43891f58a3d0bb81386eb2dd0"
+hash = "40314c0ccdb360d4c86287785387cbea0574407976c4ae18d2666db9123f5046"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/farm.json"
-hash = "9b4b6ec3ab3b9e615477c5b974ea8e856748fcd3e6cef9e1e6b699e74dfc4250"
+hash = "16289c70481f51c18d4bc62e8da076f6eca0a6bd450497f9c19a493b5a066171"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/firewell.json"
-hash = "5137618b641ac6b5bd23345f7148b8ce3a0703331362c7486842bc71a8dacc57"
+hash = "dd5c88ce9443e6543f353f7ca0852de3ed5f97dbd4db64887767d4d9fd4c6d0a"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_2003wise.json"
-hash = "821a8480e428f87d054b3cc6218ce7895b792917a07bb572c5d40c8817a028c0"
+hash = "7657b71da76097705f51401f4a807cbca9e59c9ffe1f7d8c50a73cae17f6c2fb"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_2_dling.json"
-hash = "e8be12338bd38e07857e54ab05e18242f0a34f9563948a1cb76d906b1d169977"
+hash = "d26c84eea67ff0095c3d9be5f20efae68067d7406988d6caf1867e051ccbf42b"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_d_4rk_devil_x.json"
-hash = "19b48f54ae0af640a1f75292b2fdeebc128bd375a307991cebc83f4d909fa390"
+hash = "d57ff3f859b05702bbe91f4a2d9e3bb16f4d4b993883fd94ab042cbab00bed76"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_darktitan.json"
-hash = "1fe80617dd207bd28fdfb860d437a8435aa756f4baa6ccf9ec33588b066fa8d3"
+hash = "e0374aabc1810ce3de2599ff198836579659305c3f6e6d533531bb64f60f69a9"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_derivas.json"
-hash = "263e7baccea887ca41119aba171d5c2e10f1ce365e974368d12000872628f799"
+hash = "70d514677f5829a8d9bfd072a55b2fda84e96287b9a2c413cc2e62bd61bd0400"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_euthymia.json"
-hash = "107961a9902445150f71067839e89178a89e1b4959916640c9de6a9ee115426f"
+hash = "642bc2dcb980cde5a8dd6017e1ff63898cef01c96dc764bdeae635f7642914c6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_feral.json"
-hash = "ee3aca747ee01fb5871d0249c7b130a26c24e37a17a8ea20a330259a5e13c8f6"
+hash = "c98d621df9e47778f1a9e4482b0cc2601124d61a8b311259df45f802b2d7d09e"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_fubuki_banzai.json"
-hash = "fcb1c71b56e580e70c40c5f36b325dd7cd7ae198185c64b8dc623de8d21fb54d"
+hash = "7fd69662768bf6799a73047d4a42da068781b4b9b4cb209ca45f2b8d672d17a1"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_memesus.json"
-hash = "9dcc77a386475a451f13a09a013313c1aa24fa1bdf983fa33461bb9c80326d14"
+hash = "e834fee7d3b50bb68417594fe669d48cbfb4b9e2dcd760c85c02ca4fd4ebde45"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_mike_and_rory.json"
-hash = "b04b5e7a1a86fa8412f945a1373702991766081c49e94b057f4b89d22c58ce29"
+hash = "ba51356ac153ef9bfcde7f60d698f790b9014e66d338ea62b9a4670d02226d0c"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_nino_4416.json"
-hash = "c8f9bde276bdb7d536fe9a32e12861013672d9876ed9651c157661d2ce3e3f1d"
+hash = "ebe9be572553514e1ea264b18b161e7045b03d36c98457f3fd8d3c48b9d2278e"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_orion.json"
-hash = "7c45ae0120b8b0acad9a187bbfd62305c5dda7742a605e1926f33efca18fa0ba"
+hash = "5c4d74a09b689779e1d8aab0fd3666bbc8bba90c199dd212a4eed44dd34acbd4"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_petasi.json"
-hash = "a694d4345bf01b9d60ea9d8b3abcabaec7778d32bb59ba400c603ba4baa850c4"
+hash = "d6988c44678e7b5d1ec49ef93e08a3c3f3f54e4cdfabf786ca334a594ef90c66"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_plug.json"
-hash = "3b3f94009d2a74f66e38ec2f855a35bbec9fcddbe8b037b4bfe4e9dae3c779bc"
+hash = "ab45f43f70196ea8b2c0b33a3e68522b1c5fea44db73cbd17b0ed24c8ca32943"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_rotborne.json"
-hash = "e853d93d6bbe36fd2de8f564fc5aaddf5d65a67c92f0a81c2830eb862cab6b23"
+hash = "20ce6530dfb64d096aa1a564725dec9cebcabd238395b7e140bbfaa741dd8b3b"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_somfunambulist.json"
-hash = "0312191abf840f21b07b98492d878b20edfc375831b438aab3279a462b9c53fe"
+hash = "1626e688370cb7ca82ac0424ae7cd2b3817231574d47dd2d1946c20730062f90"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_tem_187.json"
-hash = "34d19a35a1a4986f0c3ea0472b88e463f7bc43cb824cc979a35be7add62031fd"
+hash = "63dd006dea21b647d164da2443df216be885fe03467760539dc9b2e3cc5fc238"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/grave_the_gentleman_frog.json"
-hash = "c27de6dfff764f38aa571743063e28a80838aedc14ae6ed8a83115042e1e98a1"
+hash = "c8d25e42aa20c22995bd57d1edb6b3375c0ee26483a7af6e109096a3281c6e81"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/gravecarrionexe.json"
-hash = "a27f8d29b3bac4b7e8f7aa5bb165b997a558eb803190925d33440d7571aa8d2e"
+hash = "0ed80d89fa38fed50e46059bc409845f7afec56a0603041b7b99ab4d3d4e9e16"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/infernal_pumpkin.json"
-hash = "11c35b3e0a42148a4d7ac1eb66a26cf40eabca979d601ea9e7fe710ffb536acd"
+hash = "6d18e398d34217dd4005afbca2376404d67526397168b9997ae5a502ea18697e"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/mound_of_hounds.json"
-hash = "2c4e223d145ad5b5f0677850d222993b7d4fe36231277e5b60d6c754a9bfb7a2"
+hash = "b5dc0d690a882b05e9a6cb543a133af86beeff05b48526ba0b0c88d02d55270b"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/observation_tower_forest.json"
-hash = "3325b391b62b7ba403dc0c8641631b4d6f8144b58e83a11c81f58f0f4abf39f8"
+hash = "03b4bd4d69363814c23a82ecc82a6bdd9a26adad2147b4b49e9975d4cd727cff"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/born_in_chaos_v1/worldgen/structure_set/observation_tower_plains.json"
-hash = "6e375999f3201ed144023ab97d9dcb5a423e4c6bed207702419c499e618b64b8"
+hash = "b8d49e4265b9167352b8db487fcce6a2469a30d1090e6e32c6252f2a7cb77f8c"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/abandoned_structures.json"
-hash = "2e40df50b6a04289a6242c143f00f2bf98acb1112ef414edba49bb689729001e"
+hash = "958f52537e0eba5c59e124dbc7ebb21e988b53c47856f5384875e8b312f9b5ed"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/acropolis.json"
-hash = "94793e45e6de555228323532c07ac120dccdc95a899be9ccd667d537f73248a0"
+hash = "8bfffe52c382fbbc8a15790232f9f1ca6ff4427e4ed02074f3c6122e00956607"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/amethyst_nest.json"
-hash = "14f0680650b3910c26a8038296d40234dc36a80fa62d7c6381727dcfb892d643"
+hash = "a325be2296fff3655cc63ca2d5652cf655076fed0dc33f90497d2c7f3c0fd9d2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/ancient_factory.json"
-hash = "d0adedf763ac0b90edd54d06fdcedbdeaa638b45c38617eddfc2f5f883daa3f9"
+hash = "76810b2a505d70564dd8748e1fb7eec9adcb9e8d4548a3aa7b577da82cdc4f6f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/burning_arena.json"
-hash = "e2c5f9a4d57a5b2c9b9824f3506a5cf35246eb24d0694bd2710adffa26928e89"
+hash = "ee8223dde719eac37fa2045f630e906b78056e64264c569228959ca3f577bb11"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/cursed_pyramid.json"
-hash = "08c083d38f3f5ab4913a5ffc6d8485d7af1c6b8d997175073d68cb2ba6ed6a37"
+hash = "b0480c1c5dc36f6ed92181183c6c1f138d3cff3f99114d819ca7cebbc526cef7"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/desert_structures.json"
-hash = "3265db90893a7e8b7112c9b4f120004d39a95a91762ac81a5e646d6165975d73"
+hash = "eb0a2175194cd5068bb4de2a9387627a9d7c82d6e441408bb7564761644307a6"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/frosted_prison.json"
-hash = "9f27f13010183d0d1bcf1e944a925f1357d29f3195d934a406611e5f52f0e9b6"
+hash = "4ee6dcaff9d57f887138ba5d056465a8e9a6e7d54a40e7803e734f06d43f717b"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/ruined_citadel.json"
-hash = "023a476ace5cfa45fce77889abaf2dc344c4256ee1666aa5b2a368d294b3a163"
+hash = "f8cd031b921a2ebb7f1a0f1ceaec8b3faad5710da745549e9726e116b591e05f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/soul_black_smith.json"
-hash = "4866a22336a19abbc136ae305f129339d584f042d556e36b004dc0c3724c3ea5"
+hash = "b0f10bcc67cd33948a1372e32398815acf588075da6a0421625c90d27f41b0f5"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/cataclysm/worldgen/structure_set/sunken_city.json"
-hash = "72294645bbda62d2020fe36838317ea26b8180e33b0246fc4d4f22ceef96b051"
+hash = "a193858bff452747c2ab4abbaee4cc6aaab936825409822a8f8aab5f106b7719"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/ctov/worldgen/structure_set/pillager_outposts.json"
-hash = "0c3be50a2c3c26cd332bc63116c1d383b5b87dc91acbc1ccfdcc4c4544ef1f09"
+hash = "c2e67c0a4a9a42785919a58d774e3d78fceffc4e9ffd00fcc92d5beafb1e0dd0"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/ctov/worldgen/structure_set/villages.json"
-hash = "8429d5c1761c120f37bd42d0f160eed5812e6756960e1ed307a9102770842813"
+hash = "a48f65318bcaee9b995a46d7661ef830a192090b1e3204b138131d09a6b1754c"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/dldungeonsjbg/worldgen/structure_set/dldungeons.json"
-hash = "760c97880e4fe879f6fecf07ffc73e7d9285f249492ab2a46e3742327d5a15b8"
+hash = "d1280bda262be02d7ba5303679991fbf829249a5ec90513f610f2d3438005c8a"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/dungeons_arise/worldgen/structure_set/major_structures.json"
-hash = "7c2a8da2c45b760b9c23b00bf65566a19cc21874240c552859b7166fdf730f21"
+hash = "31fc1aadb064ebefc46ca2751b675329eee71b211bad95215a7865ccac7290f9"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/dungeons_arise/worldgen/structure_set/minor_structures.json"
-hash = "4a44fe4fa56892eb6ba9909af90050b7bc1d0911356675df05396ff0eae237b5"
+hash = "7501bd050ce59497a54d10b39c3b8f4969eda1815032ca57f28fb2c15ad74c6a"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/dragon_cave.json"
-hash = "2c3c74e2bf483d23e0ee309e10a15e8f62c794abd73400e92f532af4d9ab6bc4"
+hash = "449ed1006894809bf7149e8ebd2c2ae1f0bad6429ade639c4233cd9e7eff1fb0"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/dragon_roost.json"
-hash = "e6e50c7d72f337aff164671880527b8f20b73384007aea46c5f2cba9af54ca68"
+hash = "1f33ec93e99f1a9aea5eaf5df6f9360efe515765332c41b5e89b56612ffc2827"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/gorgon_temple.json"
-hash = "da48763d069e2615bbac28cfe37d2432e555234a3806d84aaf6158c9d2faf696"
+hash = "d0989107eb246b566046edf86afe26e401cdef2229181a796173dd1e3e50abd8"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/graveyard.json"
-hash = "2a4ecb4ced5a74802cfd63eb9e742fb37ac561c644b041a3bba00157f91413c1"
+hash = "2dd32e74c6bddecec2c279db6c4e62ce619511c6aca04fe9fc6cdd65cc955a59"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/mausoleum.json"
-hash = "2a8c6d10b4505b93683df0129e5e09e0e26e0546676db5853c7e0e0c4d73e050"
+hash = "267234633f8a869f08ca028ebbfc6b54d539b13a4a223b13af8ad12abe648fde"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/iceandfire/worldgen/structure_set/siren_island.json"
-hash = "c043d2d9b63d560ad607f705cde41385807f91083c0b1424469443b420f9f688"
+hash = "17d84b9e7b849c2e096ca4b57ffbecf52af9fcb49ee763a6e9baf7bc8f71c27c"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/mowziesmobs/worldgen/structure_set/frostmaw_spawns.json"
-hash = "dec5647148241c66be6bf8c1af9123251a4aa6506a17f81dd7267c8a20f547c5"
+hash = "28f94ffbbb1d878f3ff2b40bf7462ab87f7e92e22effc4bfff20cc03e3dd1d78"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/mowziesmobs/worldgen/structure_set/monasteries.json"
-hash = "c17376adfc2638d26cbba33dc83a4f43981f456e0a1132e625260a54c24860fd"
+hash = "f7ffbaa0b0cf0f9b6a700f7e13f6760c9b72e12c036eb2b7cce1f6275686df00"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/mowziesmobs/worldgen/structure_set/umvuthana_groves.json"
-hash = "3e8b2a44cb592acf93e0e4ca05ad42dbac250bbf2eae8371853beaac57e6c326"
+hash = "b0d93f32b3090e05a2d382ec989464c0a14366c09711cbdd5976491c1e148be1"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/mowziesmobs/worldgen/structure_set/wrought_chambers.json"
-hash = "d12872371985c2a402110a83d4565fd92147cf0170948728f7a5d32b6bfb1caa"
+hash = "a46e38bd104a3cba4e8bb76d7982a196f6ff84ade7e340aa8336c9e3fda1cef2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory/worldgen/structure_set/mid_rare_ruin.json"
-hash = "01fa87be2f92187b97a5b089c97269b346d32e53ebe314682fe67036b78f9094"
+hash = "006b742f610c3785e26559f63e981c32cd7ce5ca389967140530c12c591a01d2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory/worldgen/structure_set/old_manor.json"
-hash = "ae37e4517a373b7cfa3cafe43311ff27fc3f1282a079e0577c25b1ef0d0b137f"
+hash = "d53eddd5c5a046ded9d0af6d371c93063b66fca1a2decb03b1488c9d88cce99e"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory/worldgen/structure_set/outcast_villager.json"
-hash = "39ca55fe07f2ece0d6834910c0fce162ea301c88d5778b65eeff5eb5c521097c"
+hash = "9c371a3ab0ac6eb10dbc54bdaee37dba55288e12177f25684854261c6802ffba"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory/worldgen/structure_set/ruin.json"
-hash = "49d635e772f525d8ea2465134e9712a1db79116713a470c475e1218327ff6047"
+hash = "b06370dc53e107fe0e0dd981540fa536f5145714751ccbd0cff669164346ed77"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory/worldgen/structure_set/ruin_quiet.json"
-hash = "996afd379fe77565e92a428e4831b453f8f5ae6ffe27c21158521b64906e65f3"
+hash = "f702586d2b7599792ce5a989d612ea6324ac16669a5e9eeb70b6c0aef6ffb703"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory_towers/worldgen/structure_set/end_towers.json"
-hash = "1c3083435e2e872a8615ff7ef9047ac1c9d51a9d722d444ad80f6f1482bbd4cc"
+hash = "a8478d2310396aedec02b869a82edb0b63b420584e4448c883f4ad4aae4d36c0"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory_towers/worldgen/structure_set/nether_towers.json"
-hash = "ec3eac684d73db7601a6abfb100f67ecce9b75be03d5d149840bd2a83f68a705"
+hash = "da3586e55806764ccb06965e34112756d54fa61289e881fe413e6d3871fa3f5f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory_towers/worldgen/structure_set/rare_towers.json"
-hash = "6db47212a795571abf6375a2cf2c3336bdd2c765834c585e2a115d3ea4661f93"
+hash = "16dd050d555cb7a45f6db9cf69497e3031270210e7cdefa5a16213bf699b2542"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory_towers/worldgen/structure_set/towers.json"
-hash = "66c22791efc82db31a3f31a54918ae3228c506b772121d5a5e926f43aa90a029"
+hash = "6f0470e7f03d60be134cafe030ec7a1b8cbd8bed8ac4b7a22010c7d2bd14d5a1"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/structory_towers/worldgen/structure_set/ultra_rare_towers.json"
-hash = "cb3e5c9b539dbb68d5ab25f185eeba5bf2384068b393a1bba2199f4a672ead89"
+hash = "d7de36add234c06ed15b775afe6e8db7b9efab5ca4b6315d4f5cf362af523633"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/supplementaries/worldgen/structure_set/way_signs.json"
-hash = "5f46c6c60271c5ab117a7e40ab19c8da891c05bbc3eb99c0b136a83c704a8113"
+hash = "6c10e7ded1da4f7c8229e93aadf8713fdbd113f9bd11fb67f476ae81c126a21f"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/terralith/worldgen/structure_set/mage.json"
-hash = "e4160010b692509777f81c88e98f92581755cc57cc860258a7e850e849aea0c9"
+hash = "bb3a7181cd424b410279aa62668a35972598f68595cb799cc12854d3701c251d"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/terralith/worldgen/structure_set/rare_dungeon.json"
-hash = "30c90a2a26dae02a3909b3b63fd712680b7bfeea02f1ff5c3c89c73073228124"
+hash = "ef79e0d7a8828d028f02f5f8f8f163d65f77a69e5ea96700b85be81e10984f9e"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/terralith/worldgen/structure_set/rare_village.json"
-hash = "1fcf734bd7d34f49df000d4738967d5f21b806a3d73ebfb2da3ceb6bd0ec91fc"
+hash = "744f61e2832c5832c33cffd7b434aaaac9078ff1b849104c4a54189eb8c0dfaa"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/terralith/worldgen/structure_set/regular.json"
-hash = "d206ad7ce502b8614d6dc23da6541a43f385f4d8e15df55a9d05fdd171242ed7"
+hash = "bbf3dda68a21046011665ee7be68010697ed66911f48f0146cc4de77a6c67c34"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/terralith/worldgen/structure_set/rubble.json"
-hash = "528e3a3fde50a2548186085bf37d7d67ba7a22cb35a7f411f70ae679c77e8957"
+hash = "fda1ce9d8cc423514a75bc62157bb5471e6f9d40449c38f5bae81368bc5593b2"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/tombstone/worldgen/structure_set/abandoned_grave.json"
-hash = "37415faa7a52ef1671d183691bd366cf1b0f4edc6eabfe5c3571c78eac55cc32"
+hash = "673fbbf7eb90c975a64013d287c49126cd3f6264d1151f4198daefad47441ddd"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/towns_and_towers/worldgen/structure_set/other.json"
-hash = "e13c494ad50533955e32ed978c390a393a4634696309556913b08dfc0a4cfd15"
+hash = "c90e435185eec5a905e3e0c03dc6a4b8803e4521d6beb0c59810af89be6cd1c3"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/towns_and_towers/worldgen/structure_set/towers.json"
-hash = "96d64b5c5ee0bba37d3f20460e44caed1f278454b1c80b21423f9aef79dae36c"
+hash = "8912e0fb856a5fbbc66af6a546d2cf11a56f0f31ee01252fb1e0df4fa6d1cb89"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/data/towns_and_towers/worldgen/structure_set/towns.json"
-hash = "281343e3419b2fdaa708d078c981a980305fd2973f0de001178ea00501d308b8"
+hash = "c310fce720f6a4fc3b84f67b9d9292d737dbccec30faa005b143fbba7008ff54"
 
 [[files]]
 file = "config/openloader/data/al-shabab-spacing/pack.mcmeta"
-hash = "e7f1fc271109f87542af358b42864ba178faf58e41cdf81b89ae41a1a74f82d5"
+hash = "b10c1d78bcddbfca04e66c46bca5a9592e77a429af2243a906e77271f07427ee"
 
 [[files]]
 file = "mods/aether.pw.toml"

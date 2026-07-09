@@ -1,4 +1,4 @@
-﻿
+
 [General]
 	#The last version of Lycanites Mobs that this config ran with, if this is behind the Minimum Config Version then all configs (including jsons) will be reset, only manually update this if you have manually adapted your configs to the latest version of Lycanites Mobs.
 	version = "2.3.3.4"

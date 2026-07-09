@@ -1,4 +1,4 @@
-﻿{
+{
 	"forge:conditions": [{
 		"type": "apotheosis:module",
 		"module": "adventure"
