@@ -29,5 +29,9 @@ packwiz cf add <curseforge-slug>   # add a mod from CurseForge
 packwiz refresh                    # regenerate index (CI enforces this)
 ```
 
+Local test loop: `packwiz serve --port 8199` in `pack/`, then run the server script with
+`PACK_URL=http://localhost:8199/pack.toml`. (Port 8080 is taken by a local Apache httpd on
+the dev machine — packwiz silently loses the IPv4 bind and clients get 404s.)
+
 Branches: `master` = releases, `dev` = integration, `feature/*` = per-phase work.
 Design plan: see `docs/` and the phase gates defined there.

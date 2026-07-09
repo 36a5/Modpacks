@@ -1,0 +1,13 @@
+name = "Battle Towers"
+filename = "battle-towers-1.2.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/LSxfjfLO/versions/OAnComjU/battle-towers-1.2.0.jar"
+hash-format = "sha512"
+hash = "739c558c6c6c147b8d909b76dfb121e3960c221b15296bebf979ea4a364e570e57c738fad5f5a14c9de5a1bad0a069e51d6633372624543b5c1618a3bf71753b"
+
+[update]
+[update.modrinth]
+mod-id = "LSxfjfLO"
+version = "OAnComjU"

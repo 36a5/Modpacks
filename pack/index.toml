@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/canary.properties"
+hash = "a4f767fc34d222c32556ee17aa6a939401dec59f7ec5f7920208ab4436d67f6b"
+
+[[files]]
 file = "mods/aether.pw.toml"
 hash = "13ddf0ccab477956f3efa337580834f40a722c8429692502d5b2888723ba7fae"
 metafile = true
@@ -66,6 +70,11 @@ hash = "6f93d7c8776da93082fe8fa049a5736e26f48e234283b47faeecb46e757f2b19"
 metafile = true
 
 [[files]]
+file = "mods/battle-towers.pw.toml"
+hash = "c183aa31358a431d28d24f6ecac32054c563b5ae0b725855425fd32230ff9a8c"
+metafile = true
+
+[[files]]
 file = "mods/baubley-heart-canisters.pw.toml"
 hash = "3c031c072c223534402ad3b1417f9df3fbfcbd8ced34a37e148716a336b643ff"
 metafile = true
@@ -103,11 +112,6 @@ metafile = true
 [[files]]
 file = "mods/bountiful.pw.toml"
 hash = "738a6622a2b844af5394b4e1e325bcd9566ab3a756072b5f12c20d54811dad86"
-metafile = true
-
-[[files]]
-file = "mods/brassamberbattletowers.pw.toml"
-hash = "f7ff8df405d25a2d8da09150195312d5cf0adcf2227d990ffbe578d77ba26aab"
 metafile = true
 
 [[files]]

@@ -17,7 +17,7 @@ Buckets:
 | Lycanites Mobs | Lycanites Mobs (official 1.20.1 port) | alpha — stability verdict pending (Phase 3) |
 | Spartan Weaponry | Spartan Weaponry 3.2.x | confirmed |
 | Ice and Fire | Ice and Fire: Community Edition | confirmed |
-| Battle Towers | BrassAmber BattleTowers | confirmed |
+| Battle Towers | Battle Towers (Modrinth remake — BrassAmber continuation is CF-API-excluded and would break auto-updates) | confirmed |
 | RLCombat (Better Combat fork) | Better Combat + Player Animator | confirmed |
 | Dynamic Trees | Dynamic Trees | confirmed |
 | Waystones | Waystones | confirmed |
@@ -64,3 +64,11 @@ Buckets:
 | Potion Core | 1.12-only internals; Apotheosis/Potion mods cover effect variety |
 
 *(Remaining ~140 rows filled in during Phase 3 from the official RLCraft 2.9.3 manifest.)*
+
+## Known mod-interaction notes
+
+| Interaction | Resolution |
+|---|---|
+| Canary × Valkyrien Skies (`PoiManager` mixin clash, crashes world load) | `config/canary.properties` → `mixin.ai.poi=false` |
+| Lycanites Mobs 1.20.1 | official port, **alpha** — stability verdict still pending on a long-running server; fallback mob set (Mowzie's, Alex's Mobs, Cataclysm, Born in Chaos) already in pack |
+| CurseForge API-excluded mods | cannot be used at all — they break packwiz auto-updates for every player |
