@@ -1,6 +1,6 @@
 name = "Server Performance - Smooth Chunk Save"
 filename = "smoothchunk-1.20.1-4.1.jar"
-side = "both"
+side = "server"
 
 [download]
 hash-format = "sha1"
