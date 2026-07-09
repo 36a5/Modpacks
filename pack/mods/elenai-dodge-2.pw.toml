@@ -1,0 +1,13 @@
+name = "Elenai Dodge 2"
+filename = "elenaidodge2-1.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/GnR2nZ9k/versions/vo7H11zC/elenaidodge2-1.1.jar"
+hash-format = "sha512"
+hash = "d96a6ebb9b592a13cffd843af197023b4bbc3075a5ec07fb75091cf23b82ef106f326a45bab50ea3c0f5c73b242a5a6ecf34ff82cc66d722bd89d2040e9f1f70"
+
+[update]
+[update.modrinth]
+mod-id = "GnR2nZ9k"
+version = "vo7H11zC"

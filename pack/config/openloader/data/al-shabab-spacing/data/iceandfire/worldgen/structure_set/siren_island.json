@@ -1,0 +1,14 @@
+﻿{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 9810327,
+    "separation": 22,
+    "spacing": 32
+  },
+  "structures": [
+    {
+      "structure": "iceandfire:siren_island",
+      "weight": 1
+    }
+  ]
+}

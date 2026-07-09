@@ -1,0 +1,14 @@
+﻿{
+  "structures": [
+    {
+      "structure": "dldungeonsjbg:dldungeon",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 4027649,
+    "spacing": 51,
+    "separation": 19,
+    "type": "minecraft:random_spread"
+  }
+}

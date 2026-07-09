@@ -1,0 +1,13 @@
+name = "Craftable Horse Armour & Saddle [CHA&S]"
+filename = "CHA-S-1.20-forge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fExf3hZa/versions/le2O5kWi/CHA-S-1.20-forge.jar"
+hash-format = "sha512"
+hash = "adc60f6f3a6ec55d2fd6cc7ff113d06021c90150c2f2cd66897afb0b9bf55e51a3191729fabec9e3fc338ef4c2408f90d8baad510296aa1fe84adfa657cbad22"
+
+[update]
+[update.modrinth]
+mod-id = "fExf3hZa"
+version = "le2O5kWi"

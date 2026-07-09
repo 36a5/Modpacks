@@ -1,0 +1,13 @@
+name = "Multi Mine"
+filename = "multimine_mod-forge-1.2.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fJ90SEuf/versions/lfuKnPdk/multimine_mod-forge-1.2.0.jar"
+hash-format = "sha512"
+hash = "f8e5b166677faac4ddc737a8f53e22623de2f98cc8eefbb632eb390f92627053fca6be32d5aa927d05fdfd194f050a17436e0f7420a4324bd1b8d5139f7c1ac5"
+
+[update]
+[update.modrinth]
+mod-id = "fJ90SEuf"
+version = "lfuKnPdk"

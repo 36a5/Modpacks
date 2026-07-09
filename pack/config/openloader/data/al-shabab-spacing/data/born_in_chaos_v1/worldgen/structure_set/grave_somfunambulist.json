@@ -1,0 +1,14 @@
+﻿{
+  "structures": [
+    {
+      "structure": "born_in_chaos_v1:grave_somfunambulist",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 160,
+    "separation": 19,
+    "salt": 2111360768
+  }
+}

@@ -1,0 +1,13 @@
+name = "XP Tome"
+filename = "xptome-1.20.1-2.2.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/AnpW69o3/versions/SYfBGaA3/xptome-1.20.1-2.2.1.jar"
+hash-format = "sha512"
+hash = "2459901b5cd93ea5f8712b6a19397058bf13dcc88cf2fa2fd505007dd97dc0d3d03dd754f7320c3eab3fe99f81b4abed8dcf6fb28cf7ad09dc2b5e534b5f840b"
+
+[update]
+[update.modrinth]
+mod-id = "AnpW69o3"
+version = "SYfBGaA3"

@@ -1,0 +1,13 @@
+name = "Doomlike Dungeons"
+filename = "dldungeonsjbg-2.1.5-MC1.20.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/Oup0ilO6/versions/xTLM4DX0/dldungeonsjbg-2.1.5-MC1.20.1.jar"
+hash-format = "sha512"
+hash = "fbab1de1f7917af9395a60fd1febbd5068dee4834213dfa20e8e0c4b63a75f29ae85f61e019d1bafe847288a18e797cc9d5c5d8fbdc15e142ed4a73cafecf6fe"
+
+[update]
+[update.modrinth]
+mod-id = "Oup0ilO6"
+version = "xTLM4DX0"

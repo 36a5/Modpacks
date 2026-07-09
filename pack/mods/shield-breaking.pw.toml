@@ -1,0 +1,13 @@
+name = "Shield Breaking"
+filename = "shield_breaking-1.0.0-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/r8x8wPwz/versions/PHhs9iSr/shield_breaking-1.0.0-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "62d7a496bceb71b5767e1b558d94307d4e7074b1d66c2813e689adc57bd8f7f9b7a3e1f3399e4941c6a5f3f60809a44e1559218cb672883cdf59d2efb419222b"
+
+[update]
+[update.modrinth]
+mod-id = "r8x8wPwz"
+version = "PHhs9iSr"

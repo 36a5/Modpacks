@@ -1,0 +1,13 @@
+name = "Wolf Armor and Storage Enhanced (MuddyPort)"
+filename = "wolf-armor-and-storage-muddyport-1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/YGdw2HfI/versions/sCaIQP3t/wolf-armor-and-storage-muddyport-1.0.jar"
+hash-format = "sha512"
+hash = "150fc3cdbada21b33574f0bd6f079d0e637b65f75bc0644c62db2ed297981921cf65a362a90a52197e77df4763a70aa81c69bb356a1d0c44c657dba552fb265e"
+
+[update]
+[update.modrinth]
+mod-id = "YGdw2HfI"
+version = "sCaIQP3t"

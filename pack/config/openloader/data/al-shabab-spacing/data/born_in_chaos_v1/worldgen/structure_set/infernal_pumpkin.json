@@ -1,0 +1,14 @@
+﻿{
+  "structures": [
+    {
+      "structure": "born_in_chaos_v1:infernal_pumpkin",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 58,
+    "separation": 10,
+    "salt": 563587936
+  }
+}

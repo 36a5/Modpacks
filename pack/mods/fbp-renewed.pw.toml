@@ -1,0 +1,13 @@
+name = "Fancy Block Particles - Renewed"
+filename = "FancyBlockParticles-1.20.1-forge-20.1.6.0.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/S2guHrs2/versions/FEhXzzPR/FancyBlockParticles-1.20.1-forge-20.1.6.0.jar"
+hash-format = "sha512"
+hash = "4b152ee310e3e1b87a21bdab28d021508df861e577c6dca0b1e431a6f2036e7d99bc541e9dd2d4c7f4595b4a3e392745939790b942203dddeadecd579bba8372"
+
+[update]
+[update.modrinth]
+mod-id = "S2guHrs2"
+version = "FEhXzzPR"

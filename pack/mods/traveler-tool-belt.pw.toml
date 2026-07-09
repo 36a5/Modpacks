@@ -1,0 +1,13 @@
+name = "Traveler Tool Belt"
+filename = "travelertoolbelt-forge-1.20.1-1.0.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/oQxD3huq/versions/ysmaPDjQ/travelertoolbelt-forge-1.20.1-1.0.4.jar"
+hash-format = "sha512"
+hash = "507633bb50f222c82073c855417adf62ce631238ac395fa7e09c782e55c2dff5d861696a8c09aa587f3f7d6844dd3c093ec3c008145df2e1d4860d5707df1194"
+
+[update]
+[update.modrinth]
+mod-id = "oQxD3huq"
+version = "ysmaPDjQ"
