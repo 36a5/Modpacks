@@ -11,17 +11,16 @@ Nothing works until the pack is published.
 
 1. Push the repo: `git push -u origin master` (and `git push origin dev`).
 2. On GitHub → **Settings** → **Pages** → *Build and deployment* → *Source* = **GitHub Actions**.
-3. **Make `master` the default branch.** Settings → General → *Default branch* → switch to
-   `master`.
+3. **Allow `master` to deploy.** Settings → **Environments** → `github-pages` →
+   *Deployment branches and tags* → **Add deployment branch rule** → `master`.
 
-   This step is not cosmetic. When Pages is enabled, GitHub auto-creates a `github-pages`
-   environment whose protection rules **only allow the default branch to deploy**. If the
-   default is `dev`, every deploy from `master` fails with:
+   This step is not optional. Enabling Pages auto-creates a `github-pages` environment whose
+   protection rules **only allow the repo's default branch to deploy**. This repo's default is
+   `dev`, so a deploy from `master` is rejected with:
 
    > `Branch "master" is not allowed to deploy to github-pages due to environment protection rules.`
 
-   *Alternative if you want to keep another default:* Settings → **Environments** →
-   `github-pages` → *Deployment branches* → add `master`.
+   *(Equivalent alternative: make `master` the default branch instead.)*
 
 4. Actions tab → confirm **Deploy pack to GitHub Pages** ran green (re-run it if it failed
    before you changed the setting).
