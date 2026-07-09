@@ -10,13 +10,26 @@ Pack URL (the one address everything reads from):
 Nothing works until the pack is published.
 
 1. Push the repo: `git push -u origin master` (and `git push origin dev`).
-2. On GitHub → your repo → **Settings** → **Pages**.
-3. Under *Build and deployment* → *Source*, choose **GitHub Actions**.
-4. Go to the **Actions** tab and confirm the "Deploy pack to GitHub Pages" workflow ran green.
-5. Verify in a browser: <https://36a5.github.io/Modpacks/pack.toml> should show text, not a 404.
+2. On GitHub → **Settings** → **Pages** → *Build and deployment* → *Source* = **GitHub Actions**.
+3. **Make `master` the default branch.** Settings → General → *Default branch* → switch to
+   `master`.
 
-Pages only publishes from `master`, so merge `dev` → `master` whenever you want players to
-receive an update. **Pushing to `master` is how you ship.**
+   This step is not cosmetic. When Pages is enabled, GitHub auto-creates a `github-pages`
+   environment whose protection rules **only allow the default branch to deploy**. If the
+   default is `dev`, every deploy from `master` fails with:
+
+   > `Branch "master" is not allowed to deploy to github-pages due to environment protection rules.`
+
+   *Alternative if you want to keep another default:* Settings → **Environments** →
+   `github-pages` → *Deployment branches* → add `master`.
+
+4. Actions tab → confirm **Deploy pack to GitHub Pages** ran green (re-run it if it failed
+   before you changed the setting).
+5. Verify in a browser: <https://36a5.github.io/Modpacks/pack.toml> must show text, not a 404.
+   **Nothing — server or player — works until this returns text.**
+
+Pages publishes from `master`, so merging `dev` → `master` is how you ship an update to
+players. `dev` is where you test.
 
 ---
 
