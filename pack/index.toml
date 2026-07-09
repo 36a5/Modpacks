@@ -694,6 +694,11 @@ hash = "88325807c01b522a76d686f39c442da99b73a90ae3ec9b5434fea5f79baa4d49"
 metafile = true
 
 [[files]]
+file = "mods/cromtas-solo-leveling-addon.pw.toml"
+hash = "32f88c0af043ddd26712c3962be1993152069da3f955a083a7eff8b01b15f3d0"
+metafile = true
+
+[[files]]
 file = "mods/ct-overhaul-village.pw.toml"
 hash = "96b92f9d6c4b3866ba018a99d7b01e07b12aca02e74dfdc6407c45c1af2b4d19"
 metafile = true
