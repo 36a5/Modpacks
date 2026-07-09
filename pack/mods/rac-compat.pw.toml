@@ -1,0 +1,13 @@
+name = "Relics: Alex's Caves Compat"
+filename = "raccompat-1.20.1-0.1.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/hkanUwBv/versions/ZpCKwj5f/raccompat-1.20.1-0.1.3.jar"
+hash-format = "sha512"
+hash = "e6b1c64dbdb6059a1b33af15448e8a7b419e009e0ef6d83af7df46eb61f8c893841ba3ec4e3f4be12c0b4ec92e25da92623ccb373800a7b37be4614fd3a980ed"
+
+[update]
+[update.modrinth]
+mod-id = "hkanUwBv"
+version = "ZpCKwj5f"

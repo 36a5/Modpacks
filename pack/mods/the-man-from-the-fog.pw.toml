@@ -1,0 +1,13 @@
+name = "The Man From The Fog"
+filename = "The-Man-From-The-Fog-1.4-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/hIZHlLOF/versions/iAoDHcJv/The-Man-From-The-Fog-1.4-1.20.1.jar"
+hash-format = "sha512"
+hash = "d9d4f8f91ea935b7e1f9c3412aeb86c97a814b334da01f70ca08155928f74201899aaacf6c655cf6c8102c1be996397587c762920c8fcb10e7d12b92ba874a4f"
+
+[update]
+[update.modrinth]
+mod-id = "hIZHlLOF"
+version = "iAoDHcJv"

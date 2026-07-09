@@ -1,0 +1,13 @@
+name = "Champions-Unofficial"
+filename = "champions-forge-1.20.1-2.1.10.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/VJZc5cJx/versions/lC2uBBu2/champions-forge-1.20.1-2.1.10.2.jar"
+hash-format = "sha512"
+hash = "1712ea49acb28a2ce624fcd0a3f82c28c38db8691b7e7498f5d14e77dd0abdb6b186ddade2f9e2f97dcaf1863c4bbc2cfbfa84eae095d5ba6d6f9a79329f7998"
+
+[update]
+[update.modrinth]
+mod-id = "VJZc5cJx"
+version = "lC2uBBu2"
