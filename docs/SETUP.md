@@ -66,6 +66,25 @@ It sets `online-mode=false` (required for TLauncher friends), `white-list=true`,
 If the pack sync fails, the script **refuses to start** rather than booting a modless server.
 That is deliberate — a modless server would corrupt player inventories on next join.
 
+### Starting a fresh world
+
+Some updates change worldgen or progression (new structure mods, Scaling Health, Serene
+Seasons, a Reskillable swap). Those need a new world — an old one keeps the old structure
+layout and leaves players holding dead skill data.
+
+```powershell
+cd D:\Minecraft-dev-workspace\Modpacks\server
+.\reset-world.ps1        # add -Force to skip the confirmation prompt
+```
+
+It refuses to run while the server is up, shows what it will remove, asks you to type
+`DELETE`, and **moves the old world to a timestamped backup folder** rather than deleting it.
+
+**Kept** (they live outside `world/`): `whitelist.json`, `ops.json`, `banned-players.json`,
+`server.properties`, and every player's registered Auth password. Nobody re-registers.
+
+**Players** just re-run `install.bat` — no world data lives on their machines.
+
 ### Server admin commands
 | Task | Command (in server console) |
 |---|---|
