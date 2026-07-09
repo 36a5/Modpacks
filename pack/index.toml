@@ -332,7 +332,7 @@ metafile = true
 
 [[files]]
 file = "mods/enhancedvisuals.pw.toml"
-hash = "185ff73bb3a8e9ce4a7b1250203f4d8680bfa67a8ac990692f106c2c528d2638"
+hash = "c542d8de822a1ad59ad3f66f349f1cc640f49ee9c2c5b74f6a889bc143c0aa1e"
 metafile = true
 
 [[files]]

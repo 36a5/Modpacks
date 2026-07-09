@@ -27,7 +27,10 @@ if [ ! -f packwiz-installer-bootstrap.jar ]; then
     curl -fsSL -o packwiz-installer-bootstrap.jar "$BOOTSTRAP_URL"
 fi
 echo "[al-shabab] Syncing pack from ${PACK_URL}..."
-java -jar packwiz-installer-bootstrap.jar -g -s server "$PACK_URL"
+if ! java -jar packwiz-installer-bootstrap.jar -g -s server "$PACK_URL"; then
+    echo "[al-shabab] Pack sync FAILED - refusing to start the server without mods."
+    exit 1
+fi
 
 # JVM args consumed by Forge's run.sh
 echo "-Xms${MEMORY} -Xmx${MEMORY} -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20" > user_jvm_args.txt

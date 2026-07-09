@@ -27,6 +27,10 @@ if (-not (Test-Path "packwiz-installer-bootstrap.jar")) {
 }
 Write-Host "[al-shabab] Syncing pack from $PackUrl..."
 java -jar packwiz-installer-bootstrap.jar -g -s server $PackUrl
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[al-shabab] Pack sync FAILED - refusing to start the server without mods."
+    exit 1
+}
 
 Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20"
 Set-Content eula.txt "eula=true"

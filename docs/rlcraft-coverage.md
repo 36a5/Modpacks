@@ -28,11 +28,11 @@ Buckets:
 | Sound Filters | Sound Physics Remastered | confirmed |
 | Enhanced Visuals | Enhanced Visuals | confirmed |
 | CraftTweaker | CraftTweaker (+ KubeJS) | confirmed |
-| Locks | Locks | *(verify)* |
-| Infernal Mobs | Infernal Mobs or Champions (B) | *(verify)* |
-| Antique Atlas | Antique Atlas port / Map Atlases | *(verify)* |
-| Spartan Shields | Spartan Shields | *(verify)* |
-| Sit | Sit! ports | *(verify)* |
+| Locks | Locks Reforged (maintained fork) | confirmed, added |
+| Infernal Mobs | Champions-Unofficial (fork of Champions) | confirmed, added (B) |
+| Antique Atlas | Antique Atlas port / Map Atlases | *(verify — Xaero's covers mapping meanwhile)* |
+| Spartan Shields | Spartan Shields | confirmed, added |
+| Sit | Sit | confirmed, added |
 
 ## B — Analog
 
