@@ -1,22 +1,33 @@
 # al Shabab — Player Guides
 
-Pick the guide for the launcher you use. Each one takes you from a computer with nothing
-installed all the way to standing in the world on the server.
+## → Just want to play? [**Quick Install**](quick-install.md) ←
 
-| Your situation | Guide |
-|---|---|
-| I don't own Minecraft (I use TLauncher) | **[TLauncher](tlauncher.md)** |
-| I own Minecraft and use the normal launcher | **[Minecraft Launcher](minecraft-launcher.md)** |
-| I want the best setup — auto-updates every launch | **[Prism Launcher](prism-launcher.md)** ⭐ recommended |
-| I already use the CurseForge App | **[CurseForge App](curseforge-app.md)** |
-| I already use the Modrinth App | **[Modrinth App](modrinth-app.md)** |
+**Download one file, double-click it, press Play.** The installer handles Java, Forge, all 162
+mods, the configs, the shaderpacks, and your launcher profile. It works with TLauncher and the
+official Minecraft launcher, and re-running it is how you update.
 
-All five paths install **exactly the same pack** — the same 180 mods, configs, and
-shaderpacks the server runs. None of them require you to download a single mod by hand.
+That's the whole thing. **Most players should stop here.**
 
 ---
 
-## What you need before starting (everyone)
+## The manual guides
+
+Use these if you want to understand each step, or if you use an instance-based launcher.
+
+| Your situation | Guide |
+|---|---|
+| I don't own Minecraft (I use TLauncher) | [TLauncher](tlauncher.md) |
+| I own Minecraft and use the normal launcher | [Minecraft Launcher](minecraft-launcher.md) |
+| I want auto-updates on every launch | [Prism Launcher](prism-launcher.md) ⭐ |
+| I already use the CurseForge App | [CurseForge App](curseforge-app.md) |
+| I already use the Modrinth App | [Modrinth App](modrinth-app.md) |
+
+Every path installs **exactly the same pack** — the same mods, configs, and shaderpacks the
+server runs. None of them require you to download a mod by hand.
+
+---
+
+## What you need (the Quick Install handles all of this for you)
 
 | Thing | Where | Notes |
 |---|---|---|

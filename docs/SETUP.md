@@ -79,8 +79,11 @@ That is deliberate — a modless server would corrupt player inventories on next
 
 ## 3. How players install the pack
 
-**Step-by-step guides, one per launcher, live in [docs/guides/](guides/README.md)** — send
-players there. Each walks them from a bare computer to standing on the server.
+**Send players to [docs/guides/quick-install.md](guides/quick-install.md).** They download
+`client/install.bat`, double-click it, and press Play — it installs Java (if missing), Forge,
+the whole pack, and a launcher profile with correct RAM. Re-running it updates them.
+
+Per-launcher manual guides live in [docs/guides/](guides/README.md) for players who want them.
 
 **The universal method — works on every launcher, premium or not.** `client/update.bat`
 (and `client/update.sh` for macOS/Linux) points at any launcher's game folder and installs the
