@@ -1,0 +1,13 @@
+name = "Locks Reforged"
+filename = "locks_reforged-1.6.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fxLOBzMK/versions/FnRTXB4K/locks_reforged-1.6.1.jar"
+hash-format = "sha512"
+hash = "0438a1cdb05c2ed92d600fb76b696ad18c05f9a44cd47b8402bd6b950db6dc4b191e3c12b4b3edcd125e787aa580f3b1361fef30b1672d3652f01f15656c7786"
+
+[update]
+[update.modrinth]
+mod-id = "fxLOBzMK"
+version = "FnRTXB4K"

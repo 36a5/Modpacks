@@ -1,0 +1,13 @@
+name = "Uranus"
+filename = "uranus-2.2.6-bugfix.2-1.20.1-forge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e412a3c61e2ce9c93437adacab291d45d532870e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7745532
+project-id = 1010827

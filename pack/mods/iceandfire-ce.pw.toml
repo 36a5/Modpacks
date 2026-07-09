@@ -1,0 +1,13 @@
+name = "IceAndFire Community Edition"
+filename = "IceAndFireCE-1.2.6-1.20.1-forge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a888045a1168eb19820e1ed6aefe11322d74fef8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8378632
+project-id = 1040076

@@ -1,0 +1,13 @@
+name = "Lycanites Mobs"
+filename = "lycanitesmobs-0.0.9-alpha.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "33d5ce5ac0730e194a3d860ee02bed74d7f69428"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8154432
+project-id = 224770
