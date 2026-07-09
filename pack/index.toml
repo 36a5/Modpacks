@@ -9,6 +9,10 @@ file = "config/canary.properties"
 hash = "a4f767fc34d222c32556ee17aa6a939401dec59f7ec5f7920208ab4436d67f6b"
 
 [[files]]
+file = "config/defaultoptions/keybindings.txt"
+hash = "d062f3f1e6ecc542c3b302f043005dd0f07b171ab82b6468be5f24e09f52b18f"
+
+[[files]]
 file = "config/dynamictrees-common.toml"
 hash = "ef8eeb57cab510140298a5e8b069024c9bff2dcc5022ad921445357b88249949"
 
@@ -464,6 +468,11 @@ hash = "e11ddca37c00c8cdf8ee89c7b59df544f50966d2d6c5b016916f023afb98c02e"
 metafile = true
 
 [[files]]
+file = "mods/attributes.pw.toml"
+hash = "6cf3028c6bbba1936405cd988a11626069676e678bc3caf440fe216bb0931f8c"
+metafile = true
+
+[[files]]
 file = "mods/auth.pw.toml"
 hash = "39ce827644f094393a860f45f3be26be8a93f9b9cbd9c9d63cbe29033f3583dd"
 metafile = true
@@ -736,6 +745,11 @@ metafile = true
 [[files]]
 file = "mods/deeperdarker.pw.toml"
 hash = "eb60f70cc84efa111a51c35311a44ae352b3b9c98ec7ba4e64595ae627e33006"
+metafile = true
+
+[[files]]
+file = "mods/default-options.pw.toml"
+hash = "6311134242af3f639923e825caea40821c7e7ee7caadf4105234f5d7fa44ec8b"
 metafile = true
 
 [[files]]
@@ -1154,6 +1168,11 @@ hash = "5b92406160d9ea8a61ddf111caaecb7f6283678e2c40b08b72dce3eeaf20dc96"
 metafile = true
 
 [[files]]
+file = "mods/rpg-skill-tree.pw.toml"
+hash = "e9e14d73ca14d8a6eb35eb3d022861df49a3bee02693be70d31be011d87962c4"
+metafile = true
+
+[[files]]
 file = "mods/rpl.pw.toml"
 hash = "93128d85ae0b3be9c8248b09f3a63ed88c746568480cc7e9a8e2a9b4bd13477c"
 metafile = true
@@ -1196,6 +1215,11 @@ metafile = true
 [[files]]
 file = "mods/sit.pw.toml"
 hash = "8e53bd7c51af468c9dd6dc8843167c4f9a55cc059dcfb127b55f9ac06c387bca"
+metafile = true
+
+[[files]]
+file = "mods/skills.pw.toml"
+hash = "809f87561e8ec5b4937d48d8c1b4705c6a6a59f3139cb99f3d1e8308071f8c68"
 metafile = true
 
 [[files]]
