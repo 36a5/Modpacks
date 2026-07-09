@@ -19,6 +19,18 @@
 - Phase 5: Create 6.0.8 + 13 addons, Valkyrien Skies 2.4.11 + Eureka + Clockwork 0.5.6 +
   Trackwork + Immersive Aircraft, Macaw's suite + building mods, Chunky/LuckPerms/FTB Backups.
 
+### Phase 6c: Solo Leveling
+
+- **Cromta's Solo Leveling 1.0.10** + **Cromta's Solo Leveling Addon 1.0.4** +
+  **Kleider's Custom Renderer API 7.4.1** (an undeclared hard dependency packwiz does not resolve).
+- The only genuine addon that exists; every other "Solo Leveling" project on Modrinth is a
+  competing standalone mod or a modpack.
+- Adds no `structure_set` entries, so the structure-spacing datapack is unaffected.
+- **Open risk:** Kleider's Custom Renderer replaces player models and may conflict with Mo' Bends.
+  Untestable from a dedicated server — verify in game.
+- **Open balance issue:** the pack now runs three progression systems (Solo Leveling levels,
+  Reskillable gates, Scaling Health scaling). Use `/gamerule SoloLevelingXPGain` to pace them.
+
 ### Phase 6b: RLCraft progression pass (in-game feedback)
 
 The 1.12-vs-1.20.1 question was re-opened and settled with evidence: **1.20.1 keeps everything**.

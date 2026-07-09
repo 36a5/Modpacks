@@ -48,6 +48,36 @@ parsed from it and each was checked against Modrinth's 1.20.1 + Forge index auto
 | **The Lost Cities, Recurrent Complex, Quark** | all three exist on 1.20.1, but each injects large amounts of worldgen. Holding them back until structure spacing is proven stable; adding them now would worsen the overlap this pass is fixing. |
 | **Antique Atlas 4** | its 1.20.1 build depends on `surveyor`, a **Fabric-only** library that needs Sinytra Connector to run on Forge. packwiz resolved the dependency anyway and the server refused to boot (`Mod surveyor requires connectormod`). Removed. Xaero's Minimap + World Map already cover mapping. |
 
+## Solo Leveling (merged by request — the one deliberate non-RLCraft system)
+
+| Mod | Version | Why |
+|---|---|---|
+| Cromta's Solo Leveling | 1.0.10 | levels, stats, ranks, shadow army, Igris quest line |
+| Cromta's Solo Leveling Addon | 1.0.4 | `/gamerule SoloLevelingXPGain`, healer NPC, Recovery potion, class/job system |
+| Kleider's Custom Renderer API | 7.4.1 | **hard dependency** of the base mod; packwiz does not resolve it automatically |
+
+Verified: both jars fetch through packwiz-installer (neither is CurseForge-API-excluded, so
+player auto-updates keep working), and the pack boots clean with them.
+
+**Solo Leveling ships no `structure_set` entries**, so it does not disturb the structure-spacing
+datapack below.
+
+### Two things to watch
+
+1. **Three progression systems now run at once**: Solo Leveling's levels, Reskillable Reimagined's
+   skill gates, and Scaling Health's difficulty curve. They coexist without crashing but none is
+   aware of the others. `/gamerule SoloLevelingXPGain` is the lever that keeps Solo Leveling's
+   pace from outrunning Reskillable's gates — tune it in the balance pass.
+2. **Kleider's Custom Renderer replaces player models**, the same category of mod that conflicts
+   with Mo' Bends (see More Player Models / Customizable Player Models above). This is **untested
+   client-side** — a dedicated server cannot exercise player rendering. First thing to check in
+   game. If the player renders wrong, the choice is Kleider's (and therefore Solo Leveling) or
+   Mo' Bends.
+
+Not addons, despite the names — all are competing standalone mods or modpacks, none installable
+alongside Cromta's without duplicating its systems: Solo Craft: Reawakening, ShadowsZ, DALeveling
+(client-only health bar), OtakoMod (client-only), SoloCraft / Solo Leveling Awakened (modpacks).
+
 ## Worldgen: structures no longer generate inside each other
 
 The pack ships **156 structure sets** across 30+ namespaces. Scanning every mod jar showed the
