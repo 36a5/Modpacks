@@ -10,7 +10,7 @@ Create + physics-vehicles tech stack.
 |---|---|
 | `pack/` | packwiz root — single source of truth; every mod is a pinned `.pw.toml` |
 | `server/` | self-bootstrapping dedicated-server scripts (auto-updates from pack URL) |
-| `client-tlauncher/` | installer/updater for non-premium (TLauncher) players |
+| `client/` | `update.bat` / `update.sh` — installer+updater for players on any launcher |
 | `docs/` | RLCraft coverage ledger, changelog, design docs |
 | `.github/workflows/` | CI: validate + exports on push, GitHub Release on tag, pack hosting on Pages |
 

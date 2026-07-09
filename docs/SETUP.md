@@ -67,10 +67,13 @@ That is deliberate — a modless server would corrupt player inventories on next
 
 ## 3. How players install the pack
 
-**The universal method — works on every launcher, premium or not.** The `update.bat` in
-`client-tlauncher/` is not TLauncher-specific: point it at any launcher's game folder and it
-installs the exact pack the server runs, downloading each mod straight from CurseForge and
-Modrinth. Nobody redistributes anything, and re-running it is how players update.
+**Step-by-step guides, one per launcher, live in [docs/guides/](guides/README.md)** — send
+players there. Each walks them from a bare computer to standing on the server.
+
+**The universal method — works on every launcher, premium or not.** `client/update.bat`
+(and `client/update.sh` for macOS/Linux) points at any launcher's game folder and installs the
+exact pack the server runs, downloading each mod straight from CurseForge and Modrinth. Nobody
+redistributes anything, and re-running it is how players update.
 
 This is the recommended path for everyone until the release artifacts are cleaned up (see the
 note at the bottom of this section).
@@ -78,7 +81,7 @@ note at the bottom of this section).
 ### TLauncher / official Minecraft launcher (any account)
 1. Install Java 17: <https://adoptium.net>
 2. In the launcher, pick **Forge 1.20.1** (47.4.x), install it, launch once, close the game.
-3. Download `client-tlauncher/update.bat` from the repo and run it.
+3. Download `client/update.bat` from the repo and run it.
    Custom game folder? Run: `update.bat "C:\path\to\.minecraft"`
 4. Set launcher memory to 6–8 GB.
 5. TLauncher players: pick a username and **never change it** — on an offline-mode server the
