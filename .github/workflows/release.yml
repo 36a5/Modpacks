@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Export CurseForge pack
+        working-directory: pack
+        run: packwiz curseforge export -o "al-shabab-${{ github.ref_name }}-curseforge.zip"
+
+      - name: Export Modrinth pack
+        working-directory: pack
+        run: packwiz modrinth export -o "al-shabab-${{ github.ref_name }}.mrpack"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            pack/al-shabab-${{ github.ref_name }}-curseforge.zip
+            pack/al-shabab-${{ github.ref_name }}.mrpack
+          generate_release_notes: true

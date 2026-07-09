@@ -1,0 +1,34 @@
+# al Shabab dedicated server launcher (Windows).
+# Downloads Forge + pack contents on first run, self-updates the pack on every restart.
+$ErrorActionPreference = "Stop"
+$runDir = Join-Path $PSScriptRoot "run"
+if (-not (Test-Path $runDir)) { New-Item -ItemType Directory $runDir | Out-Null }
+Set-Location $runDir
+
+# ── Settings ────────────────────────────────────────────────────────────────
+$PackUrl      = if ($env:PACK_URL) { $env:PACK_URL } else { "https://REPLACE-ME.github.io/al-shabab/pack.toml" }
+$McVersion    = "1.20.1"
+$ForgeVersion = "47.4.18"
+$Memory       = if ($env:MEMORY) { $env:MEMORY } else { "8G" }
+# ────────────────────────────────────────────────────────────────────────────
+
+$bootstrapUrl      = "https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar"
+$forgeInstallerUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/$McVersion-$ForgeVersion/forge-$McVersion-$ForgeVersion-installer.jar"
+
+if (-not (Test-Path "libraries/net/minecraftforge/forge/$McVersion-$ForgeVersion")) {
+    Write-Host "[al-shabab] Installing Forge $McVersion-$ForgeVersion..."
+    Invoke-WebRequest -Uri $forgeInstallerUrl -OutFile forge-installer.jar
+    java -jar forge-installer.jar --installServer
+    Remove-Item forge-installer.jar, forge-installer.jar.log -ErrorAction SilentlyContinue
+}
+
+if (-not (Test-Path "packwiz-installer-bootstrap.jar")) {
+    Invoke-WebRequest -Uri $bootstrapUrl -OutFile packwiz-installer-bootstrap.jar
+}
+Write-Host "[al-shabab] Syncing pack from $PackUrl..."
+java -jar packwiz-installer-bootstrap.jar -g -s server $PackUrl
+
+Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20"
+Set-Content eula.txt "eula=true"
+
+& .\run.bat nogui

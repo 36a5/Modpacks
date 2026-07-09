@@ -1,0 +1,16 @@
+# al Shabab server baseline. Copy to server/run/server.properties before first boot.
+# CRITICAL: online-mode=false is required for TLauncher (non-premium) players.
+# This is a one-way door: player UUIDs are derived from names in offline mode.
+# Never flip this after the world has started.
+online-mode=false
+white-list=true
+enforce-whitelist=true
+motd=al Shabab — ultimate sandbox adventure
+difficulty=normal
+view-distance=8
+simulation-distance=6
+max-players=20
+spawn-protection=0
+enable-command-block=true
+sync-chunk-writes=false
+network-compression-threshold=256

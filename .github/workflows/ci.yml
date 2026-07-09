@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [master, dev, "feature/**"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      - name: Refresh pack index
+        working-directory: pack
+        run: packwiz refresh
+
+      - name: Fail if index is stale
+        run: git diff --exit-code
+
+      - name: Test CurseForge export
+        working-directory: pack
+        run: packwiz curseforge export
+
+      - name: Test Modrinth export
+        working-directory: pack
+        run: packwiz modrinth export
