@@ -694,6 +694,11 @@ hash = "88325807c01b522a76d686f39c442da99b73a90ae3ec9b5434fea5f79baa4d49"
 metafile = true
 
 [[files]]
+file = "mods/cromtas-solo-leveling-addon.pw.toml"
+hash = "32f88c0af043ddd26712c3962be1993152069da3f955a083a7eff8b01b15f3d0"
+metafile = true
+
+[[files]]
 file = "mods/ct-overhaul-village.pw.toml"
 hash = "96b92f9d6c4b3866ba018a99d7b01e07b12aca02e74dfdc6407c45c1af2b4d19"
 metafile = true
@@ -906,6 +911,11 @@ metafile = true
 [[files]]
 file = "mods/kiwi.pw.toml"
 hash = "9124261ff2f214a18d4b10255eb5a8aeefc19a2a25278fae95629def76eef42a"
+metafile = true
+
+[[files]]
+file = "mods/kleiders-custom-renderer-api.pw.toml"
+hash = "e08d2853ca2d86b989fc555ee04b20721ebc936b258863244876d67df589a1e8"
 metafile = true
 
 [[files]]
@@ -1201,6 +1211,11 @@ metafile = true
 [[files]]
 file = "mods/snow-real-magic.pw.toml"
 hash = "1be3f2d08a1454a32fdba9010e3f11d7722de36e45083a4b73c3e55c6f708407"
+metafile = true
+
+[[files]]
+file = "mods/solo-leveling-mod.pw.toml"
+hash = "b65d9c07ce896c1d7f728430870f2ed464a825f9f1c186472974ee7e1fefc36f"
 metafile = true
 
 [[files]]
