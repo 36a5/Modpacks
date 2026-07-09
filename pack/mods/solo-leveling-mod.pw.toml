@@ -1,0 +1,13 @@
+name = "Cromta's Solo Leveling"
+filename = "solo_leveling-1.0.10-forge-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "63349b7198f66d249e87ac0359d8acff190c7e98"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7215678
+project-id = 851816

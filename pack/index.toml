@@ -909,6 +909,11 @@ hash = "9124261ff2f214a18d4b10255eb5a8aeefc19a2a25278fae95629def76eef42a"
 metafile = true
 
 [[files]]
+file = "mods/kleiders-custom-renderer-api.pw.toml"
+hash = "e08d2853ca2d86b989fc555ee04b20721ebc936b258863244876d67df589a1e8"
+metafile = true
+
+[[files]]
 file = "mods/kotlin-for-forge.pw.toml"
 hash = "1678327ac50408273c1828b631929128d3fdfd54cda7b2e823ce9352495a68ff"
 metafile = true
@@ -1201,6 +1206,11 @@ metafile = true
 [[files]]
 file = "mods/snow-real-magic.pw.toml"
 hash = "1be3f2d08a1454a32fdba9010e3f11d7722de36e45083a4b73c3e55c6f708407"
+metafile = true
+
+[[files]]
+file = "mods/solo-leveling-mod.pw.toml"
+hash = "b65d9c07ce896c1d7f728430870f2ed464a825f9f1c186472974ee7e1fefc36f"
 metafile = true
 
 [[files]]
