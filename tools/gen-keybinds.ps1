@@ -42,7 +42,10 @@ $bind = [ordered]@{
     "key.jade.config"                    = "key.keyboard.period"     # Jade config
 
     # ---- abilities --------------------------------------------------------
-    "key.special_ability"                = "key.mouse.4"             # Alex's Caves special ability
+    "key.origins.primary_active"         = "key.mouse.4"             # Origins primary ability (user-mandated)
+    "key.origins.secondary_active"       = "key.keyboard.equal"      # Origins secondary ability
+    "key.origins.view_origin"            = "key.keyboard.f6"         # View Origin screen
+    "key.special_ability"                = "key.keyboard.0"          # Alex's Caves ability (moved off Mouse 4 for Origins)
     "key.cataclysm.ability"              = "key.mouse.5"             # Cataclysm ability
     "key.solo_leveling.use_skill"        = "key.keyboard.r"
     "key.solo_leveling.select_skill"     = "key.keyboard.x"

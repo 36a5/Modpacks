@@ -31,8 +31,11 @@ mods**. The bindings below are generated and machine-checked for three kinds of 
 
 | Key | Action |
 |---|---|
-| **Mouse 4** | **Special ability** (Alex's Caves — mounts & armor sets) |
+| **Mouse 4** | **Origins primary ability** |
+| `=` | Origins secondary ability |
+| `F6` | View Origin |
 | **Mouse 5** | Cataclysm ability |
+| `0` | Special ability (Alex's Caves — mounts & armor sets) |
 | `R` | Solo Leveling — use skill |
 | `X` | Solo Leveling — select skill |
 | `G` | Solo Leveling — target lock |
@@ -95,11 +98,11 @@ Every one of these is reachable another way, so the key is freed rather than was
 The generator lives in the repo history and validates before writing; it refuses to emit a file
 with a duplicate key, a vanilla collision, or an ID that no installed mod actually registers.
 
-## Known gap: Origins
+## Origins
 
-There is **no Origins mod in this pack** — Origins and Origins: Classes were removed as
-non-RLCraft progression systems. So there is no "Origins special ability" to bind.
+Origins (Forge) and Origins: Classes are **back in the pack** — they are a race/identity system,
+not a levelling system, so they sit alongside the progression mods rather than competing with
+them. Players pick an origin on first spawn.
 
-**Mouse 4** is instead bound to **Alex's Caves' Special Ability**, which is the pack's
-general-purpose "activate my mount/armor power" key. If Origins is ever re-added, its primary
-ability key is `key.origins.primary_active` and Mouse 4 is free to take it.
+`key.origins.primary_active` is bound to **Mouse 4** as requested. Alex's Caves' generic special
+ability moved from Mouse 4 to `0` to make room.

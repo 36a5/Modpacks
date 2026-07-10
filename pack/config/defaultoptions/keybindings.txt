@@ -7,7 +7,10 @@ key_key.minions:key.keyboard.i
 key_key.scalinghealth.difficultyMeter:key.keyboard.semicolon
 key_key.mobends.menu:key.keyboard.apostrophe
 key_key.jade.config:key.keyboard.period
-key_key.special_ability:key.mouse.4
+key_key.origins.primary_active:key.mouse.4
+key_key.origins.secondary_active:key.keyboard.equal
+key_key.origins.view_origin:key.keyboard.f6
+key_key.special_ability:key.keyboard.0
 key_key.cataclysm.ability:key.mouse.5
 key_key.solo_leveling.use_skill:key.keyboard.r
 key_key.solo_leveling.select_skill:key.keyboard.x

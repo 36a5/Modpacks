@@ -10,7 +10,7 @@ hash = "a4f767fc34d222c32556ee17aa6a939401dec59f7ec5f7920208ab4436d67f6b"
 
 [[files]]
 file = "config/defaultoptions/keybindings.txt"
-hash = "d062f3f1e6ecc542c3b302f043005dd0f07b171ab82b6468be5f24e09f52b18f"
+hash = "c5874c2e7f0b4387a003809c53a3ee94c7e2d2950dced3270ecdf4c11395dd82"
 
 [[files]]
 file = "config/dynamictrees-common.toml"
@@ -1095,6 +1095,16 @@ metafile = true
 [[files]]
 file = "mods/open-loader.pw.toml"
 hash = "6bbb14bde3a05517dc0435b45500f4178ef0d25c5012478690cd90c9afe098ae"
+metafile = true
+
+[[files]]
+file = "mods/origins-classes-forge.pw.toml"
+hash = "8bcac14e9d9de7789277a7c48b7c05c3f79618dfee5c6e7002c165dfcdae58f2"
+metafile = true
+
+[[files]]
+file = "mods/origins-forge.pw.toml"
+hash = "cb91a483997feae40c3edfc9d5a06dc44fdf2f562a62f065834e9e1a6a1c7f8f"
 metafile = true
 
 [[files]]
