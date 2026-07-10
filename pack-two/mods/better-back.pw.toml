@@ -1,0 +1,13 @@
+name = "Better /back"
+filename = "better_tp-1.0.0-forge-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "2ca674181edb218d599cf05db36bdd1a860fb86c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7920917
+project-id = 1513015

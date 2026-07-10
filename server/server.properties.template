@@ -28,18 +28,19 @@ entity-broadcast-range-percentage=80
 network-compression-threshold=256
 max-players=20
 
-[warn]
-# CRITICAL: online-mode=false is required for TLauncher (non-premium) players.
-# This is a one-way door: in offline mode player UUIDs are derived from names, so flipping
-# it after people have played rewrites who they are and orphans their inventories.
-# Never let a script change this. Change it by hand, on a fresh world, on purpose.
+# online-mode=false lets TLauncher / non-premium players join. Decided 2026-07-11 as the
+# permanent baseline for the Shabab 2 fresh world, so it is enforced every boot (it was a
+# [warn]-only one-way door before). Protection layer: the Auth mod (password register/login)
+# plus the Discord join-code gate. This is still a one-way door for player identity - it is
+# only safe here because Shabab 2 starts on a brand-new world.
 online-mode=false
 
+[warn]
 # The join-code gate replaces the vanilla whitelist. See the Discord bot's gatekeeper.
 white-list=false
 enforce-whitelist=false
 
-motd=al Shabab - ultimate sandbox adventure
+motd=Shabab 2 - Solo Leveling Gates, BMC4 & more
 difficulty=normal
 spawn-protection=0
 enable-command-block=true

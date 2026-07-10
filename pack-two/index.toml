@@ -2659,11 +2659,15 @@ hash = "a4c652cafa7dea324e5f5cf3b1df46a84e54b6d4f877195857bce55a559c1cfd"
 
 [[files]]
 file = "config/xaero/minimap/profiles/default.cfg"
-hash = "294b906eb52f00744786222627b939101d703225148cf73a66d44f89b710c614"
+hash = "f02522f4acc417e6d7d34018cfbe6d43ce8939f5814a2f2dc345210c0ba07d82"
+
+[[files]]
+file = "config/xaero/minimap/profiles/entity_radar_categories/default.cfg.json"
+hash = "690d28f2341a1be39fe268eeeada2585f14bbec9d29a11506eb0ab528be08d08"
 
 [[files]]
 file = "config/xaero/minimap/profiles/info_display_config/default.cfg.txt"
-hash = "9e1877c0fae35b98a139b86199a1e19e2425179a1bf8415e6bf9d1a5c7827638"
+hash = "eae03ebb1fc5d459c34c662b2499a6051718e831f3975bf4df774c2f0dcd55a2"
 
 [[files]]
 file = "config/xaero/minimap/server_profiles/default.cfg"
@@ -5561,6 +5565,11 @@ hash = "6ed5d2894dd89b4655f17aa2a6c03ce94cb0b4b8016226567d734bffa04f9684"
 metafile = true
 
 [[files]]
+file = "mods/auth.pw.toml"
+hash = "39ce827644f094393a860f45f3be26be8a93f9b9cbd9c9d63cbe29033f3583dd"
+metafile = true
+
+[[files]]
 file = "mods/autochefs-delight.pw.toml"
 hash = "8b60dcf2f8a3d76c90dffc7c87ffc6daaf38be2e12ba7af7ab06f54b1efd8304"
 metafile = true
@@ -5598,6 +5607,11 @@ metafile = true
 [[files]]
 file = "mods/better-advancements.pw.toml"
 hash = "4a71c639cc4e8637c7a006c572a9a85ccd4784f5544acf8a027f4e216958008d"
+metafile = true
+
+[[files]]
+file = "mods/better-back.pw.toml"
+hash = "4855eaffaf69a0f2daa610337fb012cc370fa2f378a171d5d628b6e7cd16a134"
 metafile = true
 
 [[files]]

@@ -1,0 +1,13 @@
+name = "Auth"
+filename = "auth-1.0.0.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/RpXNx59A/versions/dJqoN5vT/auth-1.0.0.jar"
+hash-format = "sha512"
+hash = "81c199bc42273d91615bdd469db04cc3929a0f919da4db4d52850690e50b7fe4160d2120abfd8a14bfd39f28e587437a9e0fa28ada8dd52b7d1c0a7f69371673"
+
+[update]
+[update.modrinth]
+mod-id = "RpXNx59A"
+version = "dJqoN5vT"
