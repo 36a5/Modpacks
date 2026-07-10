@@ -1,16 +1,45 @@
-# al Shabab server baseline. Copy to server/run/server.properties before first boot.
-# CRITICAL: online-mode=false is required for TLauncher (non-premium) players.
-# This is a one-way door: player UUIDs are derived from names in offline mode.
-# Never flip this after the world has started.
-online-mode=false
-white-list=true
-enforce-whitelist=true
-motd=al Shabab — ultimate sandbox adventure
-difficulty=normal
+# al Shabab server baseline.
+#
+# start.ps1 reads this file on every boot:
+#   [enforce]  keys are written into run/server.properties, overwriting whatever is there.
+#   [warn]     keys are policy. start.ps1 only prints a warning when the live value differs.
+#              It never changes them, because flipping one silently can cost a world.
+#
+# Anything not listed here (rcon.password, level-seed, ...) is left completely alone.
+#
+# If run/server.properties does not exist yet, BOTH sections are written, so a fresh
+# world starts on the full baseline.
+
+[enforce]
+# The server is bound by its single tick thread. Distance is the biggest lever, and 8/6
+# is already generous for a 224-mod pack. simulation-distance is what actually costs
+# ticks; view-distance mostly costs bandwidth and chunk loading.
 view-distance=8
 simulation-distance=6
+
+# sync-chunk-writes=true fsyncs every chunk save, on the server thread, so each save
+# stalls the tick. The world lives on a spinning HDD, which makes that stall long.
+# Vanilla defaults this to true; dedicated servers set it false.
+sync-chunk-writes=false
+
+# Cuts entity tracking packets and the per-entity work that goes with them.
+entity-broadcast-range-percentage=80
+
+network-compression-threshold=256
 max-players=20
+
+[warn]
+# CRITICAL: online-mode=false is required for TLauncher (non-premium) players.
+# This is a one-way door: in offline mode player UUIDs are derived from names, so flipping
+# it after people have played rewrites who they are and orphans their inventories.
+# Never let a script change this. Change it by hand, on a fresh world, on purpose.
+online-mode=false
+
+# The join-code gate replaces the vanilla whitelist. See the Discord bot's gatekeeper.
+white-list=false
+enforce-whitelist=false
+
+motd=al Shabab - ultimate sandbox adventure
+difficulty=normal
 spawn-protection=0
 enable-command-block=true
-sync-chunk-writes=false
-network-compression-threshold=256

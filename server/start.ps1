@@ -35,6 +35,79 @@ if ($LASTEXITCODE -ne 0) {
 Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20"
 Set-Content eula.txt "eula=true"
 
+# ── server.properties baseline ──────────────────────────────────────────────
+# The template used to be documentation that nothing applied, so the live file drifted all
+# the way back to vanilla defaults. Now [enforce] keys are written on every boot and [warn]
+# keys only produce a warning: silently flipping online-mode would rewrite every player's
+# UUID. Read as ISO-8859-1 because that is what java.util.Properties writes.
+function Sync-ServerProperties {
+    param(
+        [string]$TemplatePath = (Join-Path $PSScriptRoot "server.properties.template"),
+        [string]$LivePath     = (Join-Path $runDir "server.properties")
+    )
+    $templatePath = $TemplatePath
+    $livePath     = $LivePath
+    if (-not (Test-Path $templatePath)) { return }
+
+    $enforce = [ordered]@{}
+    $warn    = [ordered]@{}
+    $section = $null
+    foreach ($raw in Get-Content $templatePath) {
+        $line = $raw.Trim()
+        if ($line -eq "[enforce]") { $section = $enforce; continue }
+        if ($line -eq "[warn]")    { $section = $warn;    continue }
+        if ($line -eq "" -or $line.StartsWith("#") -or $null -eq $section) { continue }
+        $i = $line.IndexOf("=")
+        if ($i -lt 1) { continue }
+        $section[$line.Substring(0, $i)] = $line.Substring($i + 1)
+    }
+
+    $latin1 = [System.Text.Encoding]::GetEncoding(28591)
+
+    if (-not (Test-Path $livePath)) {
+        Write-Host "[al-shabab] No server.properties yet - writing the full baseline."
+        $fresh = @()
+        foreach ($k in $enforce.Keys) { $fresh += "$k=$($enforce[$k])" }
+        foreach ($k in $warn.Keys)    { $fresh += "$k=$($warn[$k])" }
+        [IO.File]::WriteAllLines($livePath, $fresh, $latin1)
+        return
+    }
+
+    $lines   = [IO.File]::ReadAllLines($livePath, $latin1)
+    $seen    = @{}
+    $changed = $false
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $line = $lines[$i]
+        if ($line -match '^\s*#' -or -not $line.Contains("=")) { continue }
+        $eq = $line.IndexOf("=")
+        $k  = $line.Substring(0, $eq)
+        $v  = $line.Substring($eq + 1)
+        $seen[$k] = $true
+
+        if ($enforce.Contains($k)) {
+            if ($v -ne $enforce[$k]) {
+                Write-Host "[al-shabab] server.properties: $k=$v -> $($enforce[$k])"
+                $lines[$i] = "$k=$($enforce[$k])"
+                $changed = $true
+            }
+        } elseif ($warn.Contains($k) -and $v -ne $warn[$k]) {
+            Write-Warning "server.properties: $k=$v, but the baseline says $k=$($warn[$k]). Not changing it - see server.properties.template."
+        }
+    }
+    foreach ($k in $enforce.Keys) {
+        if (-not $seen.ContainsKey($k)) {
+            Write-Host "[al-shabab] server.properties: adding $k=$($enforce[$k])"
+            $lines += "$k=$($enforce[$k])"
+            $changed = $true
+        }
+    }
+
+    if ($changed) { [IO.File]::WriteAllLines($livePath, $lines, $latin1) }
+    else          { Write-Host "[al-shabab] server.properties matches the enforced baseline." }
+}
+
+Sync-ServerProperties
+
 # ── Discord bots: live exactly as long as the server does ───────────────────
 # Started here, killed in the finally block below even if Minecraft crashes.
 $botDir = "C:\vs_code_workspace\Minecraft-workspace"
