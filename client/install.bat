@@ -4,7 +4,7 @@ rem  al Shabab - ONE-CLICK INSTALLER
 rem
 rem  Download this file, double-click it, wait. That's it.
 rem
-rem  It installs Java (if you need it), Forge, all 162 mods,
+rem  It installs Java (if you need it), Forge, all 207 mods,
 rem  the configs and the shaderpacks, then makes a launcher
 rem  profile called "al Shabab" with the right amount of RAM.
 rem

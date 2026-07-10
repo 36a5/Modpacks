@@ -3,7 +3,7 @@
 For players who **own Minecraft: Java Edition** and want to use the launcher that came with it.
 
 **Time needed:** about 20 minutes, mostly downloads.
-**Result:** you're in the world on the al Shabab server, 180 mods and shaders running.
+**Result:** you're in the world on the al Shabab server, 207 mods and shaders running.
 
 > **Prism Launcher is genuinely better for this**, because it re-syncs the pack automatically
 > every time you launch, so you can never fall out of step with the server. If you're open to
@@ -91,7 +91,7 @@ Write down that game directory path — you need it in the next step.
    ./update.sh "/path/to/your/game/folder"
    ```
 
-4. It downloads ~180 mods, all configs, and three shaderpacks. **3–10 minutes.** Wait for
+4. It downloads ~207 mods, all configs, and three shaderpacks. **3–10 minutes.** Wait for
    `[al-shabab] Done.`
 
 ---
@@ -107,6 +107,14 @@ Write down that game directory path — you need it in the next step.
 4. **Done** → double-click the server.
 
 ---
+
+### The join code
+
+The first time you join you are **blinded and cannot break blocks** until you prove you belong.
+Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft chat (press `T`).
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
 
 ## Step 6 — Register your password (first join only)
 
@@ -171,7 +179,7 @@ Worlds and settings are preserved; only mods change.
 | Game closes right after Play | Raise `-Xmx` to 6G–8G in the installation's JVM Arguments. |
 | Crash on joining server | Pack out of date. Re-run `update.bat`. |
 | Kicked: *"Please use the official modpack"* | Extra/cheat mod present. Delete it from the `mods` folder, re-run the script. |
-| `You are not whitelisted` | Ask the admin to whitelist your username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | Low FPS | Shaders off, render distance 8, allocate 8G. |
 
 Still stuck? Send the admin `logs\latest.log` from your game directory.

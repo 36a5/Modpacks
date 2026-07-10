@@ -69,7 +69,7 @@ changed before the game starts. You will never manually update again.
 ## Step 5 — First launch
 
 1. Select the instance, press **Launch**.
-2. A console window shows the pack downloading — ~180 mods, configs, three shaderpacks.
+2. A console window shows the pack downloading — ~207 mods, configs, three shaderpacks.
    **3–10 minutes the first time.**
 3. Then Minecraft starts. **First start takes 3–8 minutes** while Forge builds its caches. It
    may look frozen. It isn't. Later launches take about a minute.
@@ -84,6 +84,14 @@ changed before the game starts. You will never manually update again.
 2. **Done** → double-click the server entry.
 
 ---
+
+### The join code
+
+The first time you join you are **blinded and cannot break blocks** until you prove you belong.
+Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft chat (press `T`).
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
 
 ## Step 7 — Register your password (first join only)
 
@@ -153,7 +161,7 @@ downloaded.
 | Game closes right after launch | Raise memory to 6144–8192 MB in instance Settings → Java. |
 | `UnsupportedClassVersionError` | Wrong Java. Point the instance at Java 17. |
 | Crash on joining server | Rare on Prism. Force a resync: delete the instance's `mods` folder, press Launch. |
-| `You are not whitelisted` | Ask the admin to whitelist your username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | Low FPS | Shaders off, render distance 8. |
 
 Still stuck? Right-click the instance → **Folder** → `.minecraft/logs/latest.log` — send that to

@@ -73,7 +73,7 @@ Verify: `Win + R` → `cmd` → `java -version` → must say `openjdk version "1
    ```
    Use your real path, keep the quotes (there's a space in `al Shabab`).
 
-3. It downloads ~180 mods, configs, and three shaderpacks — **3–10 minutes**. Wait for
+3. It downloads ~207 mods, configs, and three shaderpacks — **3–10 minutes**. Wait for
    `[al-shabab] Done.`
 
 ---
@@ -98,6 +98,14 @@ Verify: `Win + R` → `cmd` → `java -version` → must say `openjdk version "1
 4. **Done** → double-click to join.
 
 ---
+
+### The join code
+
+The first time you join you are **blinded and cannot break blocks** until you prove you belong.
+Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft chat (press `T`).
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
 
 ## Step 8 — Register your password (first join only)
 
@@ -167,7 +175,7 @@ know about this pack and will do nothing useful.
 | Game closes right after Play | Allocate 6–8 GB (Step 6). |
 | Crash on joining the server | Pack out of date — re-run `update.bat`. |
 | Kicked: *"Please use the official modpack"* | Extra/cheat mod present. Delete it from the profile's `mods` folder and re-run the script. |
-| `You are not whitelisted` | Ask the admin to add your exact username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | Overwolf overlay causes stutter | CurseForge Settings → disable the in-game overlay. |
 | Low FPS | Shaders off, render distance 8. |
 

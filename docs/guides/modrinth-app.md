@@ -77,7 +77,7 @@ Verify in a terminal: `java -version` → `openjdk version "17.0.x"`.
    ```
    (Linux users: swap in the `~/.config/ModrinthApp/...` path.)
 
-It downloads ~180 mods, all configs, and three shaderpacks — **3–10 minutes**. Wait for
+It downloads ~207 mods, all configs, and three shaderpacks — **3–10 minutes**. Wait for
 `[al-shabab] Done.`
 
 ---
@@ -102,6 +102,14 @@ It downloads ~180 mods, all configs, and three shaderpacks — **3–10 minutes*
 4. **Done** → double-click to join.
 
 ---
+
+### The join code
+
+The first time you join you are **blinded and cannot break blocks** until you prove you belong.
+Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft chat (press `T`).
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
 
 ## Step 8 — Register your password (first join only)
 
@@ -173,7 +181,7 @@ pack and it won't do anything useful.
 | `UnsupportedClassVersionError` | Instance is on the wrong Java. Set Java 17 in Options → Java. |
 | Crash on joining the server | Pack out of date — re-run the script. |
 | Kicked: *"Please use the official modpack"* | Extra/cheat mod. Delete it from `mods`, re-run the script. |
-| `You are not whitelisted` | Ask the admin to whitelist your exact username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | Low FPS | Shaders off, render distance 8. |
 
 Still stuck? Send the admin `logs/latest.log` from the instance folder.

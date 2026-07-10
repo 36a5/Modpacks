@@ -1,7 +1,7 @@
 # al Shabab — TLauncher Setup (players without a Minecraft account)
 
 **Time needed:** about 20 minutes, most of it waiting for downloads.
-**Result:** you're standing in the world on the al Shabab server with 180 mods and shaders.
+**Result:** you're standing in the world on the al Shabab server with 207 mods and shaders.
 
 Nothing here asks you to download a mod by hand. One script does all of it.
 
@@ -72,7 +72,7 @@ PATH — uninstall the other version, or ask the admin for help.
 
 2. **Double-click `update.bat`.**
 
-   A black window opens and starts downloading ~180 mods, the configs, and the three
+   A black window opens and starts downloading ~207 mods, the configs, and the three
    shaderpacks. **This takes 3–10 minutes** depending on your internet. Leave it alone.
 
 3. When you see `[al-shabab] Done.`, press any key to close it.
@@ -99,6 +99,14 @@ update.bat "D:\your\custom\.minecraft"
 4. Click **Done**, then double-click the server to join.
 
 ---
+
+### The join code
+
+The first time you join you are **blinded and cannot break blocks** until you prove you belong.
+Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft chat (press `T`).
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
 
 ## Step 7 — Register your password (first join only)
 
@@ -171,7 +179,7 @@ they ever reach your computer, so an xray pack just shows you plain stone.
 | Game closes right after clicking Play | Not enough RAM allocated. Set 6 GB (Step 4). |
 | Crash on launch, log mentions `mixin` | Your pack is half-installed. Re-run `update.bat`. |
 | Crash when joining the server | You're on an old pack version. Re-run `update.bat`. |
-| `You are not whitelisted on this server` | Ask the admin to whitelist your exact username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | Kicked: *"Please use the official modpack"* | You have an extra/cheat mod. Delete it from `.minecraft\mods`, re-run `update.bat`. |
 | `Incorrect password` | Passwords are case-sensitive. Ask the admin to reset yours. |
 | 5 FPS | Turn shaders off, set render distance to 8. |

@@ -2,8 +2,7 @@
 
 ## → Just want to play? [**Quick Install**](quick-install.md) ←
 
-**Download one file, double-click it, press Play.** The installer handles Java, Forge, all 162
-mods, the configs, the shaderpacks, and your launcher profile. It works with TLauncher and the
+**Download one file, double-click it, press Play.** The installer handles Java, Forge, all 207 mods, the configs, the shaderpacks, and your launcher profile. It works with TLauncher and the
 official Minecraft launcher, and re-running it is how you update.
 
 That's the whole thing. **Most players should stop here.**
@@ -34,7 +33,7 @@ server runs. None of them require you to download a mod by hand.
 | **Java 17** | <https://adoptium.net/temurin/releases/?version=17> | Pick *JDK 17*, `.msi` on Windows. Not Java 8, not Java 21. |
 | **8 GB free RAM** | — | The pack needs 6–8 GB allocated. 16 GB total system RAM is comfortable. |
 | **~6 GB free disk** | — | Mods, worlds, and shaders. |
-| **Your username** | — | Ask the admin to whitelist it *before* you try to join. |
+| **Your username** | — | ask an admin for the join code *before* you try to join. |
 | **Server address** | Ask the admin | Referred to below as `SERVER_ADDRESS`. |
 
 > **TLauncher players — read this once.** The server runs in offline mode, which means your
@@ -103,7 +102,7 @@ join.
 | Game crashes instantly on launch | You allocated too little RAM. Set 6–8 GB. |
 | Crash on joining the server | Your pack is out of date. Re-run the installer. |
 | Kicked: "Please use the official modpack" | You have an extra mod installed. Delete it and re-run the installer. |
-| "You are not whitelisted" | Ask the admin to add your exact username. |
+| "No access code entered" | Type the join code from `#server-info` in chat when you join. |
 | Only 5 FPS | Turn shaders off, lower render distance to 8. |
 | Voice chat not working | Press `V`, choose the right microphone in the menu. |
 

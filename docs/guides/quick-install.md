@@ -18,7 +18,7 @@ A window opens and does everything:
 
 - installs Java 17 if you don't have it (a private copy — it won't touch anything else)
 - installs Forge 1.20.1
-- downloads all 162 mods, the configs, and the three shaderpacks
+- downloads all 207 mods, the configs, and the three shaderpacks
 - creates a launcher profile called **al Shabab** with the right amount of RAM for your PC
 
 **It takes 5–15 minutes.** Leave the window open. When it says *"You are ready to play"*, close it.
@@ -46,6 +46,27 @@ A window opens and does everything:
 That's everything. You're in.
 
 ---
+
+### The join code
+
+The first time you join you will be **blinded and unable to break blocks** until you prove you
+belong. Copy the **join code** from the Discord `#server-info` channel and type it into Minecraft
+chat (press `T`):
+
+```
+Shabab-2026
+```
+*(that is an example â€” use the real one from Discord)*
+
+You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
+forever and never asked again.
+
+Right after that, set your personal password so nobody can join as you:
+
+```
+/trigger register set yourPassword
+```
+Every later join: `/trigger login set yourPassword`
 
 ## Updating
 
@@ -91,7 +112,7 @@ Want a mod added? Ask the admin — they add it to the pack and everyone gets it
 | Game closes right after Play | Your PC has under 8 GB RAM. Ask the admin about lowering settings. |
 | Crash on joining the server | You're out of date — run `install.bat` again. |
 | Kicked: *"Please use the official modpack"* | You added a mod. Delete it, run `install.bat` again. |
-| `You are not whitelisted` | Ask the admin to whitelist your exact username. |
+| `No access code entered` | Type the join code from `#server-info` in chat when you join. |
 | 5 FPS | Turn shaders off; set render distance to 8. |
 
 Still stuck? Send the admin a screenshot **and** the file `logs\latest.log` from your game
@@ -105,7 +126,7 @@ The server runs in offline mode so friends without a Minecraft account can play.
 server can't check with Mojang who you are — **your username is your identity**. Change it and
 you lose your character, items, and base.
 
-Pick your name, tell the admin so they can whitelist it, and never change it.
+Pick your name and never change it. Ask an admin for the join code before you connect.
 
 ---
 
