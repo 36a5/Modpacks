@@ -35,4 +35,22 @@ if ($LASTEXITCODE -ne 0) {
 Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20"
 Set-Content eula.txt "eula=true"
 
-& .\run.bat nogui
+# ── Discord bots: live exactly as long as the server does ───────────────────
+# Started here, killed in the finally block below even if Minecraft crashes.
+$botDir = Join-Path (Split-Path $PSScriptRoot -Parent) "..\discord-bots" | Resolve-Path -ErrorAction SilentlyContinue
+$bot = $null
+if ($botDir -and (Test-Path (Join-Path $botDir ".env"))) {
+    Write-Host "[al-shabab] Starting Discord bots..."
+    $bot = Start-Process -FilePath "node" -ArgumentList "src/index.js" -WorkingDirectory $botDir -PassThru -NoNewWindow
+} elseif ($botDir) {
+    Write-Host "[al-shabab] Discord bots present but no .env - skipping (copy .env.example to .env)."
+}
+
+try {
+    & .\run.bat nogui
+} finally {
+    if ($bot -and -not $bot.HasExited) {
+        Write-Host "[al-shabab] Server stopped - stopping Discord bots..."
+        Stop-Process -Id $bot.Id -Force -ErrorAction SilentlyContinue
+    }
+}
