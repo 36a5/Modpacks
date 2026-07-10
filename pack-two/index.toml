@@ -29697,6 +29697,21 @@ file = "shaderpacks/ComplementaryReimagined_r5.8.1 + EuphoriaPatches_1.9.3/shade
 hash = "a7575590ade210522e105b3b07b1b74825aed99b1f46b37b7a22f04a9c09eb33"
 
 [[files]]
+file = "shaderpacks/complementary-unbound.pw.toml"
+hash = "608b87f75b2387a9fbd340cb18a8238bbbe5a0afc54202634b34f3000246b6e7"
+metafile = true
+
+[[files]]
+file = "shaderpacks/photon-shader.pw.toml"
+hash = "e9112a2da03f65451c8c949331d71b92546bbd75ff78eac554d27f6c41e1ba29"
+metafile = true
+
+[[files]]
+file = "shaderpacks/solas-shader.pw.toml"
+hash = "43c4f5e052b72a8ceaf9d8e5d1000760464d4f0e9d630827140ec4dcb21832e6"
+metafile = true
+
+[[files]]
 file = "supplementaries-compat.pw.toml"
 hash = "ecc40d6563a978de8d6138c5c1c0a959f6cfd18fd5da00c940902b974f8a6b72"
 metafile = true
