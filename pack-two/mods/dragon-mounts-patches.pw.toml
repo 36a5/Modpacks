@@ -1,0 +1,13 @@
+name = "Dragon Mounts Patches"
+filename = "dragon_mounts_patches-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "df038b6c6611aca418108828f29101214b43ae87"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5695468
+project-id = 1097549

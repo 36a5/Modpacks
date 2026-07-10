@@ -1,0 +1,13 @@
+name = "Reset Controls Confirmation"
+filename = "reset_controls_confirmation-forge-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "eaaa7bb5d13756db14cf6841aee2e27d2ddd2af5"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7180166
+project-id = 1377540

@@ -1,0 +1,13 @@
+name = "Fake Date"
+filename = "fakedate-1.0.4+1.20.1-forge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "abd3420c3c8656c836da113a84ecfc6474807be5"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8190213
+project-id = 1459635

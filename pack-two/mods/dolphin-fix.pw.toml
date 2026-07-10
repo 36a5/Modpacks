@@ -1,0 +1,13 @@
+name = "Dolphin Fix"
+filename = "dolphin_fix-1.0-1.20.1 (FORGE).jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e9175fe0ef06827e4b5a915c172bf7bcf65c3023"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5214165
+project-id = 993249

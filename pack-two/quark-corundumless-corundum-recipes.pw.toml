@@ -1,0 +1,13 @@
+name = "Quark : Corundumless Corundum Recipes"
+filename = "Quark_Corundumless_Corundum.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5731e1a79002a8e905420657cc7a6347d76ea4c4"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7732877
+project-id = 1481648

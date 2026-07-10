@@ -1,0 +1,13 @@
+name = "Created Simple Storage Network"
+filename = "Created Simple Storage 1.3.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "43e507601c69971c381bae197eb8438fd7a51835"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4630227
+project-id = 468836

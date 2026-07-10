@@ -1,0 +1,13 @@
+name = "Biomes o' Plenty x Farmer's Delight Bark Cutting Compat"
+filename = "BoP x FD Bark Cutting Compat.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5feca98254e450f14e35ab5fc9e65ed4a4091434"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5046894
+project-id = 964476

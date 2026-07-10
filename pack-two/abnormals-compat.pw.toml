@@ -1,0 +1,13 @@
+name = "Abnormals Compat"
+filename = "Abnormals Compat 1.0.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "18767eb520d1127056ece6907394942493423a2c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7476063
+project-id = 1434028

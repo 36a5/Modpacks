@@ -1,0 +1,13 @@
+name = "TPA++"
+filename = "TPA++ - 1.6.0-1.20.x-UNTESTED-BETA-3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "84350761abd0eef60f7c812e9327b05e3af3f087"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5713217
+project-id = 945501

@@ -18,39 +18,59 @@ jobs:
       - name: Install packwiz
         run: go install github.com/packwiz/packwiz@latest
 
-      - name: Refresh pack index
-        working-directory: pack
-        run: packwiz refresh
+      # Every published pack folder. Add new packs here.
+      - name: Refresh every pack index
+        run: |
+          set -euo pipefail
+          for p in pack pack-two; do
+            ( cd "$p" && packwiz refresh )
+          done
 
-      - name: Fail if index is stale
+      - name: Fail if any index is stale
         run: git diff --exit-code
 
-      # packwiz indexes every file under pack/ regardless of .gitignore. An indexed
-      # file that isn't committed becomes a 404 on GitHub Pages, and packwiz-installer
-      # aborts the whole install for every player. This already shipped once.
+      # packwiz indexes every file under a pack folder regardless of .gitignore. An
+      # indexed file that isn't committed becomes a 404 on GitHub Pages, and
+      # packwiz-installer aborts the whole install for every player. This already
+      # shipped once.
       - name: Every indexed file must be committed
         run: |
           set -euo pipefail
-          # sed, not grep -P: PCRE is unavailable in some locales and grep then matches
-          # nothing, so the loop body never runs and the guard passes silently.
-          sed -n 's/^file = "\(.*\)"$/\1/p' pack/index.toml > /tmp/indexed.txt
-          total=$(wc -l < /tmp/indexed.txt)
-          [ "$total" -gt 0 ] || { echo "::error::parsed 0 files from index.toml — the guard is broken"; exit 1; }
+          fail=0
+          for p in pack pack-two; do
+            # sed, not grep -P: PCRE is unavailable in some locales and grep then matches
+            # nothing, so the loop body never runs and the guard passes silently.
+            sed -n 's/^file = "\(.*\)"$/\1/p' "$p/index.toml" > /tmp/indexed.txt
+            total=$(wc -l < /tmp/indexed.txt)
+            [ "$total" -gt 0 ] || { echo "::error::parsed 0 files from $p/index.toml — the guard is broken"; exit 1; }
 
-          missing=0
-          while IFS= read -r f; do
-            if ! git ls-files --error-unmatch "pack/$f" >/dev/null 2>&1; then
-              echo "::error::index.toml references pack/$f, which is not committed — it will 404 for players"
-              missing=$((missing+1))
-            fi
-          done < /tmp/indexed.txt
-          echo "checked $total indexed files, $missing missing"
-          [ "$missing" -eq 0 ]
+            missing=0
+            while IFS= read -r f; do
+              if ! git ls-files --error-unmatch "$p/$f" >/dev/null 2>&1; then
+                echo "::error::$p/index.toml references $p/$f, which is not committed — it will 404 for players"
+                missing=$((missing+1))
+              fi
+            done < /tmp/indexed.txt
+            echo "$p: checked $total indexed files, $missing missing"
+            fail=$((fail+missing))
+          done
+          [ "$fail" -eq 0 ]
 
-      - name: Test CurseForge export
-        working-directory: pack
-        run: packwiz curseforge export
+      - name: Test CurseForge export for every pack
+        run: |
+          set -euo pipefail
+          for p in pack pack-two; do
+            ( cd "$p" && packwiz curseforge export )
+          done
 
-      - name: Test Modrinth export
-        working-directory: pack
-        run: packwiz modrinth export
+      # A .mrpack requires every mod to allow third-party distribution. pack-two is
+      # BMC4-based and includes mods that forbid it, so a complete .mrpack is
+      # impossible — players install it via packwiz-installer (client-side
+      # CurseForge downloads), which is allowed. Only test Modrinth export for packs
+      # that support it.
+      - name: Test Modrinth export for mrpack-capable packs
+        run: |
+          set -euo pipefail
+          for p in pack; do
+            ( cd "$p" && packwiz modrinth export )
+          done

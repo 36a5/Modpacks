@@ -1,0 +1,13 @@
+name = "Enderdragon Loot"
+filename = "dragonloot-1.1.15-1.20.1-forge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1002570d4b28e1d6b3da2e04faf11884ec8ad88d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7611988
+project-id = 1421597

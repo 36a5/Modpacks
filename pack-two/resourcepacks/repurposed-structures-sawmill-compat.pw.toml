@@ -1,0 +1,13 @@
+name = "Repurposed Structures - Sawmill Compat Datapack"
+filename = "Repurposed_Structures-Sawmill_v2.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "82bddf4e6602553320952873d397021ca272ce44"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5100594
+project-id = 969722

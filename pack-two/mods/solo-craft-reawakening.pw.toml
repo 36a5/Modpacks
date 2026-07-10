@@ -1,0 +1,13 @@
+name = "Solo Leveling: Reawakening"
+filename = "sololeveling-0.10.7.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "461b6d1d7c553aa331dd14285d822f0da5f65026"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6643921
+project-id = 1003429

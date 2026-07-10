@@ -1,7 +1,8 @@
 # packwiz hashes raw file bytes. If git rewrites line endings on checkout, every hash in
 # index.toml mismatches on a different OS and `packwiz refresh` reports the index as stale.
-# Everything under pack/ must therefore be byte-identical everywhere: LF, always.
+# Every pack folder must therefore be byte-identical everywhere: LF, always.
 pack/** text eol=lf
+pack-two/** text eol=lf
 
 * text=auto
 *.sh text eol=lf

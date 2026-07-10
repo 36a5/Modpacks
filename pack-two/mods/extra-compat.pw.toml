@@ -1,0 +1,13 @@
+name = "Extra Compat"
+filename = "extra_compat-1.5.25.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "73daad79b768afd4c233811d39696053e9bbb2da"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6385039
+project-id = 923005

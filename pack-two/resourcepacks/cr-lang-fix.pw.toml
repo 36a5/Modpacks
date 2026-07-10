@@ -1,0 +1,13 @@
+name = "Climate Rivers language Fix"
+filename = "climate_rivers_language_fix_v1.0 [1.20.1].zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4bc2644479077197b986debd2a458532d0235e92"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7127919
+project-id = 1368652

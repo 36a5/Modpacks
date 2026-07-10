@@ -1,0 +1,13 @@
+name = "\"Better End Cities\" for Better End"
+filename = "BetterEndCities-BetterEndForge5-from Raijin2312.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e224706815c11109b647baef699d8b31e2f7aaaa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8063503
+project-id = 858848

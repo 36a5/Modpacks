@@ -1,0 +1,13 @@
+name = "BMC \"Datafixer\""
+filename = "bmcpalegardenpatcher-0.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d6ead8349cb6efd335b1a70284f57c66bf3d8142"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7219699
+project-id = 869750

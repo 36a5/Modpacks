@@ -1,0 +1,13 @@
+name = "Gardens of the Dead"
+filename = "gardens-of-the-dead-forge-4.0.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6abeaa110eae7f582e9051371f9ed640947c5d20"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7309542
+project-id = 683174

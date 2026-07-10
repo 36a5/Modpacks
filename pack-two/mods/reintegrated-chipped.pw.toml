@@ -1,0 +1,13 @@
+name = "Reintegrated: Chipped"
+filename = "reintegrated_chipped-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "2bda4896aa4d1479fdf137e84e49b01699d6fc9e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6220344
+project-id = 1205717

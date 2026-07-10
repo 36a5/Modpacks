@@ -1,0 +1,13 @@
+name = "(Extended) Solo Leveling & Epic fight"
+filename = "SLR Extended 2.1.1 HotFix.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "326d8d8e26ae9c2b5a3b5871cd2026cb9c9cc2dd"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7391468
+project-id = 1235487

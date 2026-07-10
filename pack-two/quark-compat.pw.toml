@@ -1,0 +1,13 @@
+name = "Quark Compat"
+filename = "QuarkCompat1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "14379b50f3364bfdf46e977f4fe80a615cbaa433"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7563471
+project-id = 1451609

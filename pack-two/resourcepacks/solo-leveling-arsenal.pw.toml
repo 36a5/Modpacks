@@ -1,0 +1,13 @@
+name = "Solo Leveling: Arsenal"
+filename = "Solo-Leveling_Arsenal_v2.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1119936d9d2c74525e2be6b62d729ed1e09acc6d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6297358
+project-id = 1203701

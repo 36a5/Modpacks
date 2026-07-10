@@ -1,0 +1,13 @@
+name = "Aether Compat"
+filename = "AetherCompat1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "322e139f670215e5c8ccd1fbeca343c613539d82"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7561093
+project-id = 1451160

@@ -1,0 +1,13 @@
+name = "MES - Biomes O' Plenty Compat Pack"
+filename = "BOP_MES_compat_datapack 1.20-1.21.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "89c9dc49f365e9fc940ea8b82788830c6beb1d59"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6915356
+project-id = 1331777

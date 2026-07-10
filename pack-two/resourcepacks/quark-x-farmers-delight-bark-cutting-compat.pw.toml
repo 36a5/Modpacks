@@ -1,0 +1,13 @@
+name = "Quark x Farmer's Delight Bark Cutting Compat"
+filename = "Quark x FD Bark Cutting Compat.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "933c8fa6d2fb1530748fe378a1c1b46ff203f2fa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5046887
+project-id = 964473

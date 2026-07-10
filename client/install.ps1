@@ -11,6 +11,7 @@
 # ============================================================
 [CmdletBinding()]
 param(
+    [string]$Pack,
     [ValidateSet("curseforge", "modrinth", "tlauncher", "vanilla")]
     [string]$Launcher,
     [string]$GameDir
@@ -19,13 +20,18 @@ param(
 $ErrorActionPreference = "Stop"
 $ProgressPreference    = "SilentlyContinue"   # makes Invoke-WebRequest far faster
 
-$PackUrl      = "https://36a5.github.io/Modpacks/pack.toml"
 $McVersion    = "1.20.1"
 $ForgeVersion = "47.4.18"
 $ForgeId      = "$McVersion-forge-$ForgeVersion"
-$RuntimeDir   = "$env:LOCALAPPDATA\al-shabab\jre17"
-$InstanceName = "al-shabab"          # profile / instance name in every launcher
-$DisplayName  = "al Shabab"
+$RuntimeDir   = "$env:LOCALAPPDATA\al-shabab\jre17"   # Java is shared across packs (same MC version)
+
+# Every pack MUST have a unique Slug: it becomes the instance/profile/gameDir name in
+# every launcher, so two packs never share one mods\ folder and clobber each other.
+$Packs = [ordered]@{
+    "1" = @{ Slug = "al-shabab";   Display = "al Shabab"; Url = "https://36a5.github.io/Modpacks/pack/pack.toml" }
+    "2" = @{ Slug = "al-shabab-2"; Display = "Shabab 2";  Url = "https://36a5.github.io/Modpacks/pack-two/pack.toml" }
+}
+# $PackUrl / $InstanceName / $DisplayName are set once the pack is chosen (section 0).
 
 function Say  ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Cyan }
 function Good ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Green }
@@ -41,9 +47,31 @@ function Write-JsonFile([string]$Path, $Object) {
 }
 
 Write-Host ""
-Write-Host "  al Shabab - Minecraft modpack installer" -ForegroundColor White
-Write-Host "  ---------------------------------------" -ForegroundColor DarkGray
+Write-Host "  Minecraft modpack installer" -ForegroundColor White
+Write-Host "  ---------------------------" -ForegroundColor DarkGray
 Write-Host ""
+
+# ── 0. Which pack? ──────────────────────────────────────────────────────────
+if ($Pack) {
+    $sel = $Packs.Values | Where-Object { $_.Slug -eq $Pack } | Select-Object -First 1
+    if (-not $sel) {
+        $valid = ($Packs.Values | ForEach-Object { $_.Slug }) -join ", "
+        Bad "Unknown pack '$Pack'. Valid: $valid"; exit 1
+    }
+} elseif ($Packs.Count -eq 1) {
+    $sel = @($Packs.Values)[0]
+} else {
+    Write-Host "  Which pack do you want to install?" -ForegroundColor White
+    Write-Host ""
+    foreach ($k in $Packs.Keys) { "    {0}) {1}" -f $k, $Packs[$k].Display | Write-Host }
+    Write-Host ""
+    do { $pchoice = Read-Host "  Enter a number (1-$($Packs.Count))" } until ($Packs.Contains($pchoice))
+    $sel = $Packs[$pchoice]
+}
+$PackUrl      = $sel.Url
+$InstanceName = $sel.Slug      # profile / instance / gameDir name in every launcher
+$DisplayName  = $sel.Display
+Good "Pack: $DisplayName"
 
 # ── 1. Which launcher? ──────────────────────────────────────────────────────
 if (-not $Launcher) {
@@ -427,7 +455,7 @@ if ($GameDir) {
             # Keep the pack out of .minecraft: TLauncher rewrites version JSONs and both
             # launchers would otherwise share one mods\ folder.
             $LauncherRoot = "$env:APPDATA\.minecraft"
-            $GameDir      = "$env:APPDATA\al-shabab"
+            $GameDir      = "$env:APPDATA\$InstanceName"
             $writeProfile = $true
         }
     }

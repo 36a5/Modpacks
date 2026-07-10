@@ -1,0 +1,13 @@
+name = "Enchantment Descriptions Compat"
+filename = "Enchantment Descriptions Compat 1.3.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4f4a747a87df78706d817d46fa0644035f843f1f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6835902
+project-id = 1250226

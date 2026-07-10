@@ -1,0 +1,13 @@
+name = "Scaring the Scarecrows"
+filename = "Scaring_The_Scarecrows_1.20.1.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5c0cde37087263fc59806a26e1b9ee18ad810745"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6702142
+project-id = 1295552

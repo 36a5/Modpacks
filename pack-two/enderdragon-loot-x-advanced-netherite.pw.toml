@@ -1,0 +1,13 @@
+name = "Ender Dragon Loot x Advanced Netherite Compat"
+filename = "DLxAN_1.20-1.20.1.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "24564c41cf8fc018c4d1df5ca147aa001189cf9c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7452780
+project-id = 1427254

@@ -1,0 +1,13 @@
+name = "Better World Loading ([Neo]Forge)"
+filename = "betterworldloading20-1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "877520eff23f44ffc9e399f5365dc67fd74281fc"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6647506
+project-id = 1286032

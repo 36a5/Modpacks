@@ -1,0 +1,13 @@
+name = "Immersive Messages API"
+filename = "immersivemessages-forge-1.0.18-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "61ce58279c764ab212ee816a6d66fc26dd6a8ba3"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6480772
+project-id = 1109713

@@ -1,0 +1,13 @@
+name = "Foolproof"
+filename = "foolproof-forge-1.0.4-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a20b213fe0f3b9e80f7b04159bd4a8a347cd061e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7024289
+project-id = 1332365

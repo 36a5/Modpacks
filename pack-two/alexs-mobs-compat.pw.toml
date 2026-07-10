@@ -1,0 +1,13 @@
+name = "Alex's Mobs Compat"
+filename = "Alex's Mobs Compat 1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5fe3359e44b3ee32e654f5a6c98dba87799ec5d7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7274782
+project-id = 1394440

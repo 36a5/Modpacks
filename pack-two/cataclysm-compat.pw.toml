@@ -1,0 +1,13 @@
+name = "Cataclysm Compat"
+filename = "CataclysmCompat1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "db4172ce4b5a7ee2984caf5ff18a63408ea29968"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7563666
+project-id = 1451651

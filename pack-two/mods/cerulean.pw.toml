@@ -1,0 +1,13 @@
+name = "Cerulean"
+filename = "cerulean-forge-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "57697d040d21348173b4c06cb8fcb8536746525b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6489710
+project-id = 1204890

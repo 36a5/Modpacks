@@ -1,0 +1,13 @@
+name = "Better BetterX"
+filename = "BetterBetterX-v1.1-noStone.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "995a319ccf7516ef60d14df34a89e123d0414074"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7324081
+project-id = 1170904

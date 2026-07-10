@@ -1,0 +1,13 @@
+name = "Passengers Portal Fix"
+filename = "passengersportalfix-forge-0.0.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "3cf2ee853488af126255cbee9462f9cff77acdfb"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7234040
+project-id = 1281973

@@ -1,0 +1,13 @@
+name = "Underlay"
+filename = "underlay-1.0.2-forge-mc1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "41d0a0752a2725f8cc9a79c7cb17ead55d128fe4"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8205924
+project-id = 1263531

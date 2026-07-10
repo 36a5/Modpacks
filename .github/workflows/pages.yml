@@ -23,10 +23,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Upload pack directory
+      # Publish ONLY the pack folders — never the whole repo. Deploying repo root
+      # would put server/, *.ps1 admin scripts and .github/ on the public web too.
+      # Add new packs to this list.
+      - name: Assemble site from pack folders
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          for p in pack pack-two; do
+            cp -r "$p" "_site/$p"
+          done
+
+      - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pack
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

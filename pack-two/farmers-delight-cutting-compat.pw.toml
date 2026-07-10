@@ -1,0 +1,13 @@
+name = "Farmer's Delight Cutting Compat"
+filename = "Farmer's Delight Cutting Compat 1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ad215d64f7551367f33d416fd90c31742db08065"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6523935
+project-id = 1264536

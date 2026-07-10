@@ -28,10 +28,18 @@ jobs:
         working-directory: pack
         run: packwiz modrinth export -o "al-shabab-${{ github.ref_name }}.mrpack"
 
+      # pack-two (Shabab 2) is BMC4-based / CurseForge-only, so no .mrpack.
+      - name: Export pack-two CurseForge pack
+        working-directory: pack-two
+        run: packwiz curseforge export -o "shabab2-${{ github.ref_name }}-curseforge.zip"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
             pack/al-shabab-${{ github.ref_name }}-curseforge.zip
             pack/al-shabab-${{ github.ref_name }}.mrpack
+            pack-two/shabab2-${{ github.ref_name }}-curseforge.zip
+            client/install.bat
+            client/install-shabab2.bat
           generate_release_notes: true

@@ -1,0 +1,13 @@
+name = "Early Bedtime"
+filename = "earlybedtime-forge-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d03c947507f7edad6d7dab09f4202d4e6439e3f1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6541440
+project-id = 1268064

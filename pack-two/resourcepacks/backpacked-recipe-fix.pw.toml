@@ -1,0 +1,13 @@
+name = "Backpacked Recipe Fix"
+filename = "backpacked_recipe_fix_datapack.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f4df25d045ef84d748fc919f94b9bfa94719f11c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4905038
+project-id = 943485

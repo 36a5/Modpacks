@@ -1,0 +1,13 @@
+name = "Repurposed Structures - Illager Invasion Compat"
+filename = "Repurposed_Structures-Illager_Invasion_v2.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ac51ef7edc76f2bc43b9d46198fba79fbf22237b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6396142
+project-id = 1235742

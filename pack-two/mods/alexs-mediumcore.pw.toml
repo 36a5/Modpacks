@@ -1,0 +1,13 @@
+name = "Mediumcore Mode"
+filename = "mediumcore-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5edd02797337895a7c0dbe78f72640bbcc0d9ed1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5244984
+project-id = 999805
