@@ -37,12 +37,12 @@ Set-Content eula.txt "eula=true"
 
 # ── Discord bots: live exactly as long as the server does ───────────────────
 # Started here, killed in the finally block below even if Minecraft crashes.
-$botDir = Join-Path (Split-Path $PSScriptRoot -Parent) "..\discord-bots" | Resolve-Path -ErrorAction SilentlyContinue
+$botDir = "C:\vs_code_workspace\Minecraft-workspace"
 $bot = $null
-if ($botDir -and (Test-Path (Join-Path $botDir ".env"))) {
+if ((Test-Path $botDir) -and (Test-Path (Join-Path $botDir ".env"))) {
     Write-Host "[al-shabab] Starting Discord bots..."
-    $bot = Start-Process -FilePath "node" -ArgumentList "src/index.js" -WorkingDirectory $botDir -PassThru -NoNewWindow
-} elseif ($botDir) {
+    $bot = Start-Process -FilePath (Join-Path $botDir ".venv\Scripts\python.exe") -ArgumentList "-m","bots.main" -WorkingDirectory $botDir -PassThru -NoNewWindow
+} elseif (Test-Path $botDir) {
     Write-Host "[al-shabab] Discord bots present but no .env - skipping (copy .env.example to .env)."
 }
 
