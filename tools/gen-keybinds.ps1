@@ -117,7 +117,7 @@ if ($bad) {
 }
 
 # --- validate: every id we bind was actually seen in a mod jar --------------
-$csv   = Import-Csv "C:\Users\abdul\AppData\Local\Temp\build\scratchpad\keybinds.csv"
+$csv   = Import-Csv "$PSScriptRoot\..\.cache\keybinds.csv"
 $known = $csv.KeyId | ForEach-Object { $_ -replace '\.desc$','' } | Sort-Object -Unique
 
 $unknown = $bind.Keys | Where-Object { $known -notcontains $_ }

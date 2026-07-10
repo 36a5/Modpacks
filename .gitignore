@@ -11,3 +11,6 @@ server/world-backup-*/
 # local tooling
 *.log
 .DS_Store
+
+# scratch space for tools/ (scanned mod jars, generated CSVs)
+.cache/

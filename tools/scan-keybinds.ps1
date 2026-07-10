@@ -1,5 +1,6 @@
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$mods = "C:\Users\abdul\AppData\Local\Temp\build\scratchpad\e2e\mods"
+New-Item -ItemType Directory -Force "$PSScriptRoot\..\.cache" | Out-Null
+$mods = "$PSScriptRoot\..\.cache\client-mods"
 $rows = @()
 
 foreach ($jar in Get-ChildItem $mods -Filter *.jar) {
@@ -29,7 +30,7 @@ foreach ($jar in Get-ChildItem $mods -Filter *.jar) {
 # vanilla binds also live in minecraft's own lang; ignore those namespaces
 $rows = $rows | Where-Object { $_.Namespace -ne 'minecraft' } | Sort-Object Namespace, KeyId -Unique
 
-$out = "C:\Users\abdul\AppData\Local\Temp\build\scratchpad\keybinds.csv"
+$out = "$PSScriptRoot\..\.cache\keybinds.csv"
 $rows | Export-Csv $out -NoTypeInformation
 Write-Host ("mod keybinds found: {0} across {1} mods" -f $rows.Count, ($rows | Select-Object -Expand Namespace -Unique).Count)
 Write-Host ""
