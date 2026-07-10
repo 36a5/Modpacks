@@ -3,9 +3,9 @@
 #
 #  Asks which launcher you use, then does everything for it:
 #    1. finds Java 17, or downloads a portable copy (no admin rights)
-#    2. installs Forge 1.20.1 where that launcher expects it
-#    3. downloads the modpack (mods, configs, shaderpacks)
-#    4. creates the launcher profile, where the launcher supports it
+#    2. creates or updates an "al-shabab" profile/instance in that launcher
+#    3. installs Forge 1.20.1 where that launcher expects it
+#    4. downloads the modpack (mods, configs, shaderpacks)
 #
 #  Safe to re-run any time: that is also how you update.
 # ============================================================
@@ -24,11 +24,21 @@ $McVersion    = "1.20.1"
 $ForgeVersion = "47.4.18"
 $ForgeId      = "$McVersion-forge-$ForgeVersion"
 $RuntimeDir   = "$env:LOCALAPPDATA\al-shabab\jre17"
+$InstanceName = "al-shabab"          # profile / instance name in every launcher
+$DisplayName  = "al Shabab"
 
 function Say  ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Cyan }
 function Good ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Green }
 function Bad  ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Red }
 function Warn ($m) { Write-Host "[al-shabab] $m" -ForegroundColor Yellow }
+
+# The Minecraft Launcher, CurseForge and Modrinth all silently discard a JSON file
+# they cannot parse, and none of them can parse a UTF-8 BOM. PowerShell 5.1's
+# `Set-Content -Encoding utf8` writes one. Always write the bytes ourselves.
+function Write-JsonFile([string]$Path, $Object) {
+    $json = if ($Object -is [string]) { $Object } else { $Object | ConvertTo-Json -Depth 100 }
+    [IO.File]::WriteAllText($Path, $json, (New-Object System.Text.UTF8Encoding($false)))
+}
 
 Write-Host ""
 Write-Host "  al Shabab - Minecraft modpack installer" -ForegroundColor White
@@ -51,6 +61,16 @@ if (-not $Launcher) {
     $Launcher = @{ "1" = "curseforge"; "2" = "modrinth"; "3" = "tlauncher"; "4" = "vanilla" }[$choice]
 }
 Good "Launcher: $Launcher"
+
+# How much RAM to give the game. Needed before we create an instance, because
+# CurseForge and the Minecraft Launcher both store it on the profile itself.
+$totalGb = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)
+$allocGb = if ($totalGb -ge 16) { 8 } elseif ($totalGb -ge 12) { 6 } else { 4 }
+if ($allocGb -lt 6) {
+    Write-Host ""
+    Warn "This PC has ${totalGb} GB of RAM. The pack wants 6-8 GB and may run poorly."
+    Write-Host ""
+}
 
 # ── 2. Java 17 ──────────────────────────────────────────────────────────────
 function Get-Java17 {
@@ -92,20 +112,275 @@ if ($Java) {
     Good "Java ready: $Java"
 }
 
-# ── 3. Where does this launcher keep its game folder? ───────────────────────
-function Find-InstanceFolder([string]$root, [string]$appName) {
-    if (-not (Test-Path $root)) {
-        Bad "$appName is not installed (no $root)."
-        Bad "Install it, create a Forge $McVersion instance, then run this again."
+# ── 3. Helpers: vanilla version, Forge, launcher instances ──────────────────
+
+function Assert-NotRunning([string[]]$Names, [string]$AppName) {
+    foreach ($n in $Names) {
+        if (Get-Process -Name $n -ErrorAction SilentlyContinue) {
+            Bad "$AppName is running. It rewrites its own instance list when it closes,"
+            Bad "which would erase the profile this installer creates. Close it and re-run."
+            exit 1
+        }
+    }
+}
+
+# Forge's version JSON is `"inheritsFrom": "1.20.1"` with no libraries and no assetIndex.
+# The Forge installer downloads the vanilla client JAR but never writes 1.20.1.json, so a
+# launcher that has never run vanilla 1.20.1 cannot resolve the parent: it reports
+# "No libraries?!", falls back to the pre-1.7 default asset index ("legacy"), and fetches it
+# from a Mojang CDN that was retired years ago. That 404 surfaces as
+# "Unable to prepare assets for download". Install the parent ourselves.
+function Install-VanillaVersion([string]$Root) {
+    $dir  = Join-Path $Root "versions\$McVersion"
+    $json = Join-Path $dir "$McVersion.json"
+    $jar  = Join-Path $dir "$McVersion.jar"
+
+    if ((Test-Path $json) -and (Test-Path $jar)) {
+        Good "Minecraft $McVersion is already installed"
+        return
+    }
+
+    Say "Installing the base Minecraft $McVersion files..."
+    New-Item -ItemType Directory -Force $dir | Out-Null
+
+    $manifest = Invoke-RestMethod "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
+    $entry    = $manifest.versions | Where-Object { $_.id -eq $McVersion } | Select-Object -First 1
+    if (-not $entry) { throw "Mojang's version manifest has no $McVersion" }
+
+    Invoke-WebRequest $entry.url -OutFile $json
+    $sha = (Get-FileHash $json -Algorithm SHA1).Hash
+    if ($sha -ne $entry.sha1.ToUpper()) { throw "$McVersion.json failed its checksum" }
+
+    if (-not (Test-Path $jar)) {
+        $client = (Get-Content $json -Raw | ConvertFrom-Json).downloads.client
+        Invoke-WebRequest $client.url -OutFile $jar
+        $sha = (Get-FileHash $jar -Algorithm SHA1).Hash
+        if ($sha -ne $client.sha1.ToUpper()) { throw "$McVersion.jar failed its checksum" }
+    }
+    Good "Minecraft $McVersion installed"
+}
+
+function Install-Forge([string]$Root) {
+    # Forge's installer refuses to run without this file.
+    $profilesJson = Join-Path $Root "launcher_profiles.json"
+    if (-not (Test-Path $profilesJson)) {
+        Say "Creating a launcher profile file (first-time setup)"
+        Write-JsonFile $profilesJson '{"profiles":{},"selectedProfile":"","clientToken":"","authenticationDatabase":{}}'
+    }
+
+    if (Test-Path (Join-Path $Root "versions\$ForgeId")) {
+        Good "Forge $ForgeVersion already installed"
+        return
+    }
+    Say "Installing Forge $ForgeVersion (this takes a minute)..."
+    $installer = "$env:TEMP\forge-$McVersion-$ForgeVersion-installer.jar"
+    Invoke-WebRequest "https://maven.minecraftforge.net/net/minecraftforge/forge/$McVersion-$ForgeVersion/forge-$McVersion-$ForgeVersion-installer.jar" -OutFile $installer
+
+    & $Java -jar $installer --installClient $Root | Out-Null
+    if (-not (Test-Path (Join-Path $Root "versions\$ForgeId"))) {
+        Bad "Forge installation failed. Send this window to the server admin."
         exit 1
     }
+    Remove-Item $installer, "$installer.log" -ErrorAction SilentlyContinue
+    Good "Forge installed"
+}
+
+# ---- CurseForge -------------------------------------------------------------
+# The CurseForge App rebuilds its instance list by scanning the Instances folder for
+# minecraftinstance.json, so writing that file is enough to create an instance. The
+# baseModLoader blob it wants (including the embedded Forge version JSON) is served by
+# CurseForge's own public modloader endpoint - no API key.
+function Install-CurseForgeInstance([int]$AllocGb) {
+    # Newer CurseForge is a standalone Electron app; older builds run inside Overwolf.
+    Assert-NotRunning @("CurseForge*", "Curse.Agent*", "Overwolf*") "The CurseForge App"
+
+    $root = "$env:USERPROFILE\curseforge\minecraft\Instances"
+    if (-not (Test-Path $root)) {
+        Bad "The CurseForge App is not installed (no $root)."
+        Bad "Install it from https://www.curseforge.com/download/app, open it once, then re-run this."
+        exit 1
+    }
+
+    $dir  = Join-Path $root $InstanceName
+    $file = Join-Path $dir "minecraftinstance.json"
+    $new  = -not (Test-Path $file)
+    New-Item -ItemType Directory -Force $dir | Out-Null
+
+    Say "Fetching the Forge $ForgeVersion definition from CurseForge..."
+    $modLoader = (Invoke-RestMethod "https://api.curseforge.com/v1/minecraft/modloader/forge-$ForgeVersion").data
+
+    if ($new) {
+        $inst = [ordered]@{
+            guid                        = [guid]::NewGuid().ToString()
+            installedAddons             = @()
+            installedGamePrerequisites  = @()
+            modpackOverrides            = @()
+            cachedScans                 = @()
+            playedCount                 = 0
+            manifest                    = $null
+            installedModpack            = $null
+            projectID                   = 0
+            fileID                      = 0
+            javaArgsOverride            = $null
+            profileImagePath            = $null
+            preferenceReleaseType       = 1
+        }
+    } else {
+        # Keep what CurseForge owns (its mod fingerprints, play stats, its GUID).
+        $inst = [ordered]@{}
+        (Get-Content $file -Raw | ConvertFrom-Json).PSObject.Properties | ForEach-Object { $inst[$_.Name] = $_.Value }
+    }
+
+    $inst["name"]             = $InstanceName
+    $inst["gameVersion"]      = $McVersion
+    $inst["baseModLoader"]    = $modLoader
+    $inst["installPath"]      = "$dir\"
+    $inst["gameTypeID"]       = 432
+    $inst["isValid"]          = $true
+    $inst["isEnabled"]        = $true
+    $inst["isUnlocked"]       = $true
+    $inst["isVanilla"]        = $false
+    $inst["isMemoryOverride"] = $true
+    $inst["allocatedMemory"]  = $AllocGb * 1024
+    if ($new) { $inst["installDate"] = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ") }
+
+    Write-JsonFile $file ([pscustomobject]$inst)
+    if ($new) { Good "CurseForge instance '$InstanceName' created" } else { Good "CurseForge instance '$InstanceName' updated" }
+    return $dir
+}
+
+# ---- Modrinth ---------------------------------------------------------------
+# The Modrinth App keeps no per-instance JSON: instance metadata lives in a SQLite
+# database at %APPDATA%\ModrinthApp\app.db. Windows ships winsqlite3.dll, so we can
+# talk to it without downloading anything.
+$script:SqliteLoaded = $false
+function Import-Sqlite {
+    if ($script:SqliteLoaded) { return }
+    Add-Type -TypeDefinition @'
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Text;
+
+public static class WinSqlite {
+    const string DLL = "winsqlite3.dll";
+    [DllImport(DLL, EntryPoint="sqlite3_open_v2",     CallingConvention=CallingConvention.Cdecl)] static extern int Open(byte[] f, out IntPtr db, int flags, IntPtr vfs);
+    [DllImport(DLL, EntryPoint="sqlite3_close_v2",    CallingConvention=CallingConvention.Cdecl)] static extern int Close(IntPtr db);
+    [DllImport(DLL, EntryPoint="sqlite3_prepare_v2",  CallingConvention=CallingConvention.Cdecl)] static extern int Prepare(IntPtr db, byte[] sql, int n, out IntPtr stmt, IntPtr tail);
+    [DllImport(DLL, EntryPoint="sqlite3_step",        CallingConvention=CallingConvention.Cdecl)] static extern int Step(IntPtr stmt);
+    [DllImport(DLL, EntryPoint="sqlite3_column_text", CallingConvention=CallingConvention.Cdecl)] static extern IntPtr ColText(IntPtr stmt, int i);
+    [DllImport(DLL, EntryPoint="sqlite3_column_count",CallingConvention=CallingConvention.Cdecl)] static extern int ColCount(IntPtr stmt);
+    [DllImport(DLL, EntryPoint="sqlite3_finalize",    CallingConvention=CallingConvention.Cdecl)] static extern int Fin(IntPtr stmt);
+    [DllImport(DLL, EntryPoint="sqlite3_errmsg",      CallingConvention=CallingConvention.Cdecl)] static extern IntPtr ErrMsg(IntPtr db);
+
+    static byte[] U8(string s) { return Encoding.UTF8.GetBytes(s + "\0"); }
+    static string FromU8(IntPtr p) {
+        if (p == IntPtr.Zero) return null;
+        int len = 0; while (Marshal.ReadByte(p, len) != 0) len++;
+        byte[] b = new byte[len]; Marshal.Copy(p, b, 0, len);
+        return Encoding.UTF8.GetString(b);
+    }
+
+    public static List<string[]> Run(string dbPath, string sql) {
+        IntPtr db;
+        int rc = Open(U8(dbPath), out db, 2 /* SQLITE_OPEN_READWRITE */, IntPtr.Zero);
+        if (rc != 0) { Close(db); throw new Exception("cannot open app.db (rc=" + rc + ")"); }
+        try {
+            IntPtr stmt;
+            rc = Prepare(db, U8(sql), -1, out stmt, IntPtr.Zero);
+            if (rc != 0) throw new Exception("app.db rejected a statement: " + FromU8(ErrMsg(db)));
+            var rows = new List<string[]>();
+            try {
+                int cols = ColCount(stmt);
+                while (true) {
+                    rc = Step(stmt);
+                    if (rc == 100) {            // SQLITE_ROW
+                        var row = new string[cols];
+                        for (int i = 0; i < cols; i++) row[i] = FromU8(ColText(stmt, i));
+                        rows.Add(row);
+                    } else if (rc == 101) break; // SQLITE_DONE
+                    else throw new Exception("app.db write failed: " + FromU8(ErrMsg(db)));
+                }
+            } finally { Fin(stmt); }
+            return rows;
+        } finally { Close(db); }
+    }
+}
+'@
+    $script:SqliteLoaded = $true
+}
+
+function Install-ModrinthInstance {
+    Assert-NotRunning @("Modrinth App", "ModrinthApp") "The Modrinth App"
+
+    $appDir = "$env:APPDATA\ModrinthApp"
+    $db     = Join-Path $appDir "app.db"
+    if (-not (Test-Path $db)) {
+        Bad "The Modrinth App is not installed (no $db)."
+        Bad "Install it from https://modrinth.com/app, open it once, then re-run this."
+        exit 1
+    }
+
+    Import-Sqlite
+
+    # Refuse to touch a schema we do not recognise rather than corrupt someone's launcher.
+    # Call [WinSqlite]::Run directly: piping or invoking it through a scriptblock would
+    # unroll each row (a string[]) into separate strings and lose the row boundaries.
+    $wanted = [ordered]@{
+        instances             = @("id","path","applied_content_set_id","install_stage","launcher_feature_version","update_channel","name","icon_path","created","modified","last_played","submitted_time_played","recent_time_played")
+        instance_content_sets = @("id","instance_id","name","source_kind","status","game_version","protocol_version","loader","loader_version","created","modified")
+    }
+    foreach ($table in $wanted.Keys) {
+        $have    = @([WinSqlite]::Run($db, "SELECT name FROM pragma_table_info('$table')") | ForEach-Object { $_[0] })
+        $missing = $wanted[$table] | Where-Object { $have -notcontains $_ }
+        if ($missing) { throw "app.db has an unfamiliar '$table' table (missing: $($missing -join ', ')). The Modrinth App has changed its database format." }
+    }
+
+    Backup-File $db
+    $now  = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+    $name = $InstanceName -replace "'", "''"
+    $rows = [WinSqlite]::Run($db, "SELECT id, path, applied_content_set_id FROM instances WHERE name = '$name'")
+
+    if ($rows.Count -gt 0) {
+        $instanceId = $rows[0][0]
+        $path       = $rows[0][1]
+        $setId      = $rows[0][2]
+        if ($setId) {
+            [WinSqlite]::Run($db, "UPDATE instance_content_sets SET game_version = '$McVersion', loader = 'forge', loader_version = '$ForgeVersion', modified = $now WHERE id = '$($setId -replace "'","''")'") | Out-Null
+        } else {
+            $setId = "content-set:" + [guid]::NewGuid()
+            [WinSqlite]::Run($db, "INSERT INTO instance_content_sets (id,instance_id,name,source_kind,status,game_version,protocol_version,loader,loader_version,created,modified) VALUES ('$setId','$instanceId','Default','local','available','$McVersion',NULL,'forge','$ForgeVersion',$now,$now)") | Out-Null
+            [WinSqlite]::Run($db, "UPDATE instances SET applied_content_set_id = '$setId' WHERE id = '$instanceId'") | Out-Null
+        }
+        [WinSqlite]::Run($db, "UPDATE instances SET modified = $now WHERE id = '$instanceId'") | Out-Null
+        Good "Modrinth instance '$InstanceName' updated"
+    } else {
+        $instanceId = "local:" + [guid]::NewGuid()
+        $setId      = "content-set:" + [guid]::NewGuid()
+        $path       = $InstanceName
+        [WinSqlite]::Run($db, "INSERT INTO instances (id,path,applied_content_set_id,install_stage,launcher_feature_version,update_channel,name,icon_path,created,modified,last_played,submitted_time_played,recent_time_played) VALUES ('$instanceId','$path','$setId','installed','migrated_launch_hooks','release','$name',NULL,$now,$now,NULL,0,0)") | Out-Null
+        [WinSqlite]::Run($db, "INSERT INTO instance_content_sets (id,instance_id,name,source_kind,status,game_version,protocol_version,loader,loader_version,created,modified) VALUES ('$setId','$instanceId','Default','local','available','$McVersion',NULL,'forge','$ForgeVersion',$now,$now)") | Out-Null
+        Good "Modrinth instance '$InstanceName' created"
+    }
+
+    $dir = Join-Path (Join-Path $appDir "profiles") $path
+    New-Item -ItemType Directory -Force $dir | Out-Null
+    return $dir
+}
+
+function Backup-File([string]$Path) {
+    $bak = "$Path.al-shabab-backup"
+    if (-not (Test-Path $bak)) { Copy-Item $Path $bak }
+}
+
+# Pick an instance by hand. Used when auto-creation is not possible.
+function Select-InstanceFolder([string]$root, [string]$appName) {
     $instances = Get-ChildItem $root -Directory -ErrorAction SilentlyContinue
     if (-not $instances) {
         Bad "No instances found under $root."
         Bad "In $appName, create an instance with Minecraft $McVersion and mod loader Forge, then re-run."
         exit 1
     }
-
     Write-Host ""
     Write-Host "  Which $appName instance is al Shabab?" -ForegroundColor White
     Write-Host ""
@@ -113,38 +388,47 @@ function Find-InstanceFolder([string]$root, [string]$appName) {
     Write-Host ""
     do { $pick = Read-Host "  Enter a number (1-$($instances.Count))" }
     until ($pick -match '^\d+$' -and [int]$pick -ge 1 -and [int]$pick -le $instances.Count)
-
     return $instances[[int]$pick - 1].FullName
 }
 
-# The official launcher is the only one whose profile list we can safely write.
-# Decided from $Launcher, not from which branch below runs — passing -GameDir used to
-# skip the switch entirely and silently disable the profile write.
-$writeProfile = ($Launcher -eq "vanilla")
+# ── 4. Put Forge and the pack where this launcher expects them ──────────────
+# $LauncherRoot is where versions\ and libraries\ live; $GameDir is where mods\,
+# config\ and saves\ live. The Minecraft Launcher always reads versions\ out of
+# .minecraft no matter what a profile's gameDir says, so for it the two differ.
+$writeProfile = $false
+$LauncherRoot = $null
 
 if ($GameDir) {
     Say "Using the folder you passed: $GameDir"
+    $LauncherRoot = $GameDir
 } else {
     switch ($Launcher) {
         "curseforge" {
-            Warn "The CurseForge App manages its own instance list, so this installer cannot create one."
-            Warn "If you have not already: open CurseForge -> Create Custom Profile -> Minecraft $McVersion -> Forge."
-            Write-Host ""
-            $GameDir = Find-InstanceFolder "$env:USERPROFILE\curseforge\minecraft\Instances" "CurseForge"
+            # CurseForge installs Forge itself from the instance's baseModLoader.
+            $GameDir = Install-CurseForgeInstance $allocGb
         }
         "modrinth" {
-            Warn "The Modrinth App manages its own instance list, so this installer cannot create one."
-            Warn "If you have not already: open Modrinth -> Create new instance -> Minecraft $McVersion -> Forge."
-            Write-Host ""
-            $GameDir = Find-InstanceFolder "$env:APPDATA\ModrinthApp\profiles" "Modrinth"
+            # Modrinth installs Forge itself from the instance's content set.
+            try {
+                $GameDir = Install-ModrinthInstance
+            } catch {
+                Warn "Could not create the Modrinth instance automatically: $($_.Exception.Message)"
+                Warn "Open Modrinth -> Create new instance -> Minecraft $McVersion -> Forge, then pick it below."
+                $GameDir = Select-InstanceFolder "$env:APPDATA\ModrinthApp\profiles" "Modrinth"
+            }
         }
         "tlauncher" {
             # TLauncher uses the standard .minecraft folder and reads versions\ directly,
             # so installing Forge there is enough - it appears in the version dropdown.
-            $GameDir = "$env:APPDATA\.minecraft"
+            $GameDir      = "$env:APPDATA\.minecraft"
+            $LauncherRoot = $GameDir
         }
         "vanilla" {
-            $GameDir = "$env:APPDATA\.minecraft"
+            # Keep the pack out of .minecraft: TLauncher rewrites version JSONs and both
+            # launchers would otherwise share one mods\ folder.
+            $LauncherRoot = "$env:APPDATA\.minecraft"
+            $GameDir      = "$env:APPDATA\al-shabab"
+            $writeProfile = $true
         }
     }
 }
@@ -152,31 +436,10 @@ Good "Game folder: $GameDir"
 
 if (-not (Test-Path $GameDir)) { New-Item -ItemType Directory -Force $GameDir | Out-Null }
 
-# Forge's installer refuses to run without this file.
-$profilesJson = Join-Path $GameDir "launcher_profiles.json"
-if (-not (Test-Path $profilesJson)) {
-    Say "Creating a launcher profile file (first-time setup)"
-    [IO.File]::WriteAllText(
-        $profilesJson,
-        '{"profiles":{},"selectedProfile":"","clientToken":"","authenticationDatabase":{}}',
-        (New-Object System.Text.UTF8Encoding($false)))
-}
-
-# ── 4. Forge ────────────────────────────────────────────────────────────────
-if (Test-Path (Join-Path $GameDir "versions\$ForgeId")) {
-    Good "Forge $ForgeVersion already installed"
-} else {
-    Say "Installing Forge $ForgeVersion (this takes a minute)..."
-    $installer = "$env:TEMP\forge-$McVersion-$ForgeVersion-installer.jar"
-    Invoke-WebRequest "https://maven.minecraftforge.net/net/minecraftforge/forge/$McVersion-$ForgeVersion/forge-$McVersion-$ForgeVersion-installer.jar" -OutFile $installer
-
-    & $Java -jar $installer --installClient $GameDir | Out-Null
-    if (-not (Test-Path (Join-Path $GameDir "versions\$ForgeId"))) {
-        Bad "Forge installation failed. Send this window to the server admin."
-        exit 1
-    }
-    Remove-Item $installer, "$installer.log" -ErrorAction SilentlyContinue
-    Good "Forge installed"
+if ($LauncherRoot) {
+    if (-not (Test-Path $LauncherRoot)) { New-Item -ItemType Directory -Force $LauncherRoot | Out-Null }
+    Install-VanillaVersion $LauncherRoot
+    Install-Forge $LauncherRoot
 }
 
 # ── 5. The modpack ──────────────────────────────────────────────────────────
@@ -195,47 +458,39 @@ try {
 $modCount = (Get-ChildItem (Join-Path $GameDir "mods") -Filter *.jar -ErrorAction SilentlyContinue).Count
 Good "Modpack installed ($modCount mods)"
 
-# ── 6. Launcher profile (official launcher only) ────────────────────────────
-$totalGb = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)
-$allocGb = if ($totalGb -ge 16) { 8 } elseif ($totalGb -ge 12) { 6 } else { 4 }
-if ($allocGb -lt 6) {
-    Write-Host ""
-    Warn "This PC has ${totalGb} GB of RAM. The pack wants 6-8 GB and may run poorly."
-    Write-Host ""
-}
-
+# ── 6. Minecraft Launcher profile ───────────────────────────────────────────
 if ($writeProfile) {
     if (Get-Process -Name "Minecraft*", "MinecraftLauncher*" -ErrorAction SilentlyContinue) {
         Warn "The Minecraft Launcher is running. It rewrites launcher_profiles.json when it closes,"
         Warn "which would erase the profile we are about to add. Close it, then re-run this installer."
     } else {
+        $profilesJson = Join-Path $LauncherRoot "launcher_profiles.json"
         try {
+            Backup-File $profilesJson
             $json = Get-Content $profilesJson -Raw | ConvertFrom-Json
             if (-not $json.PSObject.Properties.Name.Contains("profiles")) {
                 $json | Add-Member -NotePropertyName profiles -NotePropertyValue ([pscustomobject]@{}) -Force
             }
 
-            # NB: not $profile — that is a PowerShell automatic variable.
+            $existing = $json.profiles.PSObject.Properties[$InstanceName]
+            $created  = if ($existing) { $existing.Value.created } else { (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ") }
+
+            # NB: not $profile - that is a PowerShell automatic variable.
             $javaArgs   = "-Xmx${allocGb}G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC"
             $newProfile = [pscustomobject]@{
-                name          = "al Shabab"
+                name          = $DisplayName
                 type          = "custom"
-                created       = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
+                created       = $created
                 lastUsed      = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
                 lastVersionId = $ForgeId
+                gameDir       = $GameDir
                 javaArgs      = $javaArgs
             }
-            $json.profiles | Add-Member -NotePropertyName "al-shabab" -NotePropertyValue $newProfile -Force
+            $json.profiles | Add-Member -NotePropertyName $InstanceName -NotePropertyValue $newProfile -Force
+            Write-JsonFile $profilesJson $json
 
-            # The Minecraft Launcher silently discards launcher_profiles.json if it cannot
-            # parse it, and it cannot parse a UTF-8 BOM. PowerShell 5.1's
-            # `Set-Content -Encoding utf8` writes one. Write the bytes ourselves.
-            [IO.File]::WriteAllText(
-                $profilesJson,
-                ($json | ConvertTo-Json -Depth 10),
-                (New-Object System.Text.UTF8Encoding($false)))
-
-            Good "Launcher profile 'al Shabab' created with ${allocGb} GB RAM"
+            if ($existing) { Good "Launcher profile '$DisplayName' updated (${allocGb} GB RAM)" }
+            else           { Good "Launcher profile '$DisplayName' created (${allocGb} GB RAM)" }
         } catch {
             Warn "Could not write the launcher profile: $($_.Exception.Message)"
             Warn "Pick version '$ForgeId' manually in the launcher and set RAM to ${allocGb} GB."
@@ -250,10 +505,10 @@ Write-Host "   Done. You are ready to play." -ForegroundColor Green
 Write-Host "  ============================================" -ForegroundColor Green
 Write-Host ""
 switch ($Launcher) {
-    "vanilla"    { Write-Host "   1. Open the Minecraft Launcher and choose the " -NoNewline; Write-Host "al Shabab" -ForegroundColor White -NoNewline; Write-Host " profile" }
+    "vanilla"    { Write-Host "   1. Open the Minecraft Launcher and choose the " -NoNewline; Write-Host $DisplayName -ForegroundColor White -NoNewline; Write-Host " profile" }
     "tlauncher"  { Write-Host "   1. Open TLauncher, pick version " -NoNewline; Write-Host "$ForgeId" -ForegroundColor White -NoNewline; Write-Host ", set RAM to ${allocGb} GB" }
-    "curseforge" { Write-Host "   1. Open CurseForge and press Play on that instance (set RAM to ${allocGb} GB in its settings)" }
-    "modrinth"   { Write-Host "   1. Open the Modrinth App and press Play on that instance (set RAM to ${allocGb} GB in Options -> Java)" }
+    "curseforge" { Write-Host "   1. Open CurseForge and press Play on the " -NoNewline; Write-Host $InstanceName -ForegroundColor White -NoNewline; Write-Host " instance" }
+    "modrinth"   { Write-Host "   1. Open the Modrinth App and press Play on the " -NoNewline; Write-Host $InstanceName -ForegroundColor White -NoNewline; Write-Host " instance" }
 }
 Write-Host "   2. Press Play. The FIRST launch takes 3-8 minutes - it is not frozen."
 Write-Host "   3. Multiplayer -> Add Server -> paste the address from Discord #server-info"

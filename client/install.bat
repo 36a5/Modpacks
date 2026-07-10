@@ -5,9 +5,10 @@ rem
 rem  Download this file, double-click it, answer one question.
 rem
 rem  It asks which launcher you use - CurseForge, Modrinth,
-rem  TLauncher, or the official Minecraft Launcher - then
-rem  installs Java (if you need it), Forge, all 207 mods, the
-rem  configs and the shaderpacks into the right place for it.
+rem  TLauncher, or the official Minecraft Launcher - then creates
+rem  (or updates) an "al-shabab" profile in it and installs Java
+rem  (if you need it), Forge, all 224 mods, the configs and the
+rem  shaderpacks into the right place for it.
 rem
 rem  Run it again any time to update to the server's version.
 rem ============================================================

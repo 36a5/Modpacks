@@ -2,7 +2,7 @@
 
 ## → Just want to play? [**Quick Install**](quick-install.md) ←
 
-**Download one file, double-click it, press Play.** The installer handles Java, Forge, all 207 mods, the configs, the shaderpacks, and your launcher profile. It works with TLauncher and the
+**Download one file, double-click it, press Play.** The installer handles Java, Forge, all 224 mods, the configs, the shaderpacks, and your launcher profile. It works with TLauncher and the
 official Minecraft launcher, and re-running it is how you update.
 
 That's the whole thing. **Most players should stop here.**

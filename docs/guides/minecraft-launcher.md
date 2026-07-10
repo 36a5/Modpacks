@@ -3,7 +3,12 @@
 For players who **own Minecraft: Java Edition** and want to use the launcher that came with it.
 
 **Time needed:** about 20 minutes, mostly downloads.
-**Result:** you're in the world on the al Shabab server, 207 mods and shaders running.
+**Result:** you're in the world on the al Shabab server, 224 mods and shaders running.
+
+> **You probably don't need this guide.** [`install.bat`](quick-install.md) does every step below
+> for you: it installs Java and Forge, creates the **al Shabab** profile with its own game folder
+> at `%APPDATA%\al-shabab`, and downloads the pack. Follow this guide only if you want to do it
+> by hand, or the installer failed.
 
 > **Prism Launcher is genuinely better for this**, because it re-syncs the pack automatically
 > every time you launch, so you can never fall out of step with the server. If you're open to
@@ -91,7 +96,7 @@ Write down that game directory path — you need it in the next step.
    ./update.sh "/path/to/your/game/folder"
    ```
 
-4. It downloads ~207 mods, all configs, and three shaderpacks. **3–10 minutes.** Wait for
+4. It downloads ~224 mods, all configs, and three shaderpacks. **3–10 minutes.** Wait for
    `[al-shabab] Done.`
 
 ---

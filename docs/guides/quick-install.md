@@ -12,14 +12,18 @@ single mod. The installer does all of it.
 **→ [install.bat](https://raw.githubusercontent.com/36a5/Modpacks/master/client/install.bat) ←**
 (right-click the link → *Save link as…* → save it to your Desktop)
 
-## 2. Double-click it
+## 2. Close your launcher, then double-click it
 
-A window opens and does everything:
+**Close CurseForge / Modrinth / the Minecraft Launcher first.** They each rewrite their own
+profile list when they exit, which would erase the profile the installer is about to create.
+
+A window opens, asks which launcher you use, and does everything:
 
 - installs Java 17 if you don't have it (a private copy — it won't touch anything else)
 - installs Forge 1.20.1
-- downloads all 207 mods, the configs, and the three shaderpacks
-- creates a launcher profile called **al Shabab** with the right amount of RAM for your PC
+- creates a profile/instance called **al-shabab** in that launcher, with the right amount of RAM
+  for your PC — or updates it in place if you already have one
+- downloads all 224 mods, the configs, and the three shaderpacks
 
 **It takes 5–15 minutes.** Leave the window open. When it says *"You are ready to play"*, close it.
 
@@ -31,7 +35,7 @@ A window opens and does everything:
 ## 3. Play
 
 1. Open your Minecraft launcher.
-2. Pick the **al Shabab** profile.
+2. Pick the **al Shabab** profile (**al-shabab** in CurseForge and Modrinth).
    *TLauncher users:* pick the version **`1.20.1-forge-47.4.18`** from the dropdown, and set
    RAM to 6–8 GB in TLauncher's settings.
 3. Press **Play**. **The first launch takes 3–8 minutes** and may look frozen. It isn't — Forge
@@ -116,7 +120,8 @@ Want a mod added? Ask the admin — they add it to the pack and everyone gets it
 | 5 FPS | Turn shaders off; set render distance to 8. |
 
 Still stuck? Send the admin a screenshot **and** the file `logs\latest.log` from your game
-folder (`%APPDATA%\.minecraft\logs\`).
+folder — `%APPDATA%\al-shabab\logs\` on the Minecraft Launcher, `%APPDATA%\.minecraft\logs\` on
+TLauncher, or the instance folder in CurseForge/Modrinth.
 
 ---
 

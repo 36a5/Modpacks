@@ -1,7 +1,7 @@
 # al Shabab — TLauncher Setup (players without a Minecraft account)
 
 **Time needed:** about 20 minutes, most of it waiting for downloads.
-**Result:** you're standing in the world on the al Shabab server with 207 mods and shaders.
+**Result:** you're standing in the world on the al Shabab server with 224 mods and shaders.
 
 Nothing here asks you to download a mod by hand. One script does all of it.
 
@@ -72,7 +72,7 @@ PATH — uninstall the other version, or ask the admin for help.
 
 2. **Double-click `update.bat`.**
 
-   A black window opens and starts downloading ~207 mods, the configs, and the three
+   A black window opens and starts downloading ~224 mods, the configs, and the three
    shaderpacks. **This takes 3–10 minutes** depending on your internet. Leave it alone.
 
 3. When you see `[al-shabab] Done.`, press any key to close it.

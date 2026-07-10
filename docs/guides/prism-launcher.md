@@ -69,7 +69,7 @@ changed before the game starts. You will never manually update again.
 ## Step 5 — First launch
 
 1. Select the instance, press **Launch**.
-2. A console window shows the pack downloading — ~207 mods, configs, three shaderpacks.
+2. A console window shows the pack downloading — ~224 mods, configs, three shaderpacks.
    **3–10 minutes the first time.**
 3. Then Minecraft starts. **First start takes 3–8 minutes** while Forge builds its caches. It
    may look frozen. It isn't. Later launches take about a minute.
