@@ -44,7 +44,8 @@ if (m_dynamiclights != null) {
 }
 
 var m_epicfight = mods.get("epicfight");
-if (m_epicfight != null) {
+// Epic Fight is intentionally supported in this pack (Solo Leveling animation stack) - crash-block disabled.
+if (false) {
     var warn = Startup.addCrashWarning("⚠️ <strong>Epic Fight Mod Not Supported</strong>\n\nYou have manually added the <strong>Epic Fight</strong> mod (<strong>" + m_epicfight.jarName + "</strong>) to the modpack. We strongly recommend against using this mod.\n\n<strong>Why we don't support Epic Fight:</strong>\n• <strong>Stability issues:</strong> Epic Fight is known to cause frequent crashes and game-breaking bugs\n• <strong>Compatibility problems:</strong> Epic Fight has widespread incompatibilities with many mods commonly found in modpacks\n• <strong>Support limitations:</strong> We do not have the development capacity to troubleshoot issues caused by Epic Fight's extensive modifications\n\n<strong>Recommended alternative:</strong> If you would like a more stable combat overhaul, consider using the <strong>Better Combat</strong> mod instead.\n\n<strong>If you choose to use Epic Fight anyway</strong>, please understand that you do so at your own risk and will not be eligible for support from our team. To remove this warning, open your modpack instance folder, navigate to <strong>config/crash_assistant/problematic_mods_config.json</strong>, and under epicfight, change should_crash_on_startup from true to false.");
     warn.withModActions(m_epicfight);
     Startup.markForCrash();

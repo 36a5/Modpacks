@@ -959,7 +959,7 @@ hash = "adde7e5e42b9d716f14a9bc49797999a21a0ee05cc67e71410a232f830115b3b"
 
 [[files]]
 file = "config/crash_assistant/scripts/startup/00_migrated_problematic_mods.jexl"
-hash = "0bb4be1a6314fa893d1f899d2ec96be2db79365c24130732aa1b5b96fdc68670"
+hash = "fd90de6e0235f0ba27c5530b7565fcd0a43250e6dad02d4bb69288dd78b79947"
 
 [[files]]
 file = "config/crash_assistant/scripts/startup/example.jexl"
@@ -3679,7 +3679,7 @@ hash = "adde7e5e42b9d716f14a9bc49797999a21a0ee05cc67e71410a232f830115b3b"
 
 [[files]]
 file = "defaultconfigs/crash_assistant/scripts/startup/00_migrated_problematic_mods.jexl"
-hash = "0bb4be1a6314fa893d1f899d2ec96be2db79365c24130732aa1b5b96fdc68670"
+hash = "fd90de6e0235f0ba27c5530b7565fcd0a43250e6dad02d4bb69288dd78b79947"
 
 [[files]]
 file = "defaultconfigs/crash_assistant/scripts/startup/example.jexl"
