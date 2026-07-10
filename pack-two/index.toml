@@ -7351,7 +7351,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "6281d1660bc8ef1199e79e60306572a58a793b119862544e190efd30e3dc35a4"
+hash = "2ae9e9d6503bec9ab15b45b535fa27e583dc50ee4505c2936928d95af16f5a18"
 
 [[files]]
 file = "quark-compat.pw.toml"
