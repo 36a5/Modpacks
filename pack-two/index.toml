@@ -1699,7 +1699,7 @@ hash = "a9a90c120d374d82018b03e579f1a4df8b4c5218e47a5c59a06fb3284661195f"
 
 [[files]]
 file = "config/iris_shader_folder.properties"
-hash = "9f86a345984d848292ac1ac6f80710dfbeca715c6fa17fe0d6eb3199603cba05"
+hash = "4a248d4acdc152644a39d2fdd76dbbba64786d082f0553a551c4f942cbb37da2"
 
 [[files]]
 file = "config/item_obliterator.json5"
@@ -1999,7 +1999,7 @@ hash = "f734f35399f949a79b29328d6d0398027a5e5c4f5ffa15f35a44c8054b54da34"
 
 [[files]]
 file = "config/oculus.properties"
-hash = "f3934a4e2f1f8879eb1928f0469d61ee6668a50668802dc56d2035aec15f7490"
+hash = "bd22ab8735c94f47eb8a90e31c93807fda83c983943dd4e89e28cda9b3ceca17"
 
 [[files]]
 file = "config/overflowingbars-client.toml"
@@ -2184,6 +2184,10 @@ hash = "7678a4d921cb5c19ef31290233ceab8be4bee0d3c57d8e72132c474b2aa7eb2d"
 [[files]]
 file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/load.mcfunction"
 hash = "fecfaa6672e123eecb7411275e3eb40f6df15a6bafed60390b128c61a4e83c69"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/reset.mcfunction"
+hash = "ab28a62c4abb992d58446969c3fdf95b9bee805aa6cbf3c72246031f6f422504"
 
 [[files]]
 file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/tick.mcfunction"
@@ -4715,7 +4719,7 @@ hash = "f734f35399f949a79b29328d6d0398027a5e5c4f5ffa15f35a44c8054b54da34"
 
 [[files]]
 file = "defaultconfigs/oculus.properties"
-hash = "936f5f12a2e3da45be99f6c97fecbaf41f4bc9294abc5ba51b8489ff31a1c706"
+hash = "1ebf9c56ee612396ba1db5817ea152be9951af436b0a2dbdf39903efdf384af3"
 
 [[files]]
 file = "defaultconfigs/overflowingbars-client.toml"
