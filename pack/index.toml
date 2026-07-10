@@ -397,10 +397,6 @@ file = "config/openloader/data/al-shabab-spacing/pack.mcmeta"
 hash = "b10c1d78bcddbfca04e66c46bca5a9592e77a429af2243a906e77271f07427ee"
 
 [[files]]
-file = "forge-1.20.1-47.4.18-installer.jar.log"
-hash = "a7f83f2f669bba9702a99fa0b9ba7a0692d54a911ffcb34dc3dbba1f1c00030a"
-
-[[files]]
 file = "mods/aether.pw.toml"
 hash = "1aaba088a650cc1499e1871cfa92f97e3d10a9d8c612fbd784b36c12382196de"
 metafile = true

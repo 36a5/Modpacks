@@ -117,7 +117,10 @@ function Find-InstanceFolder([string]$root, [string]$appName) {
     return $instances[[int]$pick - 1].FullName
 }
 
-$writeProfile = $false
+# The official launcher is the only one whose profile list we can safely write.
+# Decided from $Launcher, not from which branch below runs — passing -GameDir used to
+# skip the switch entirely and silently disable the profile write.
+$writeProfile = ($Launcher -eq "vanilla")
 
 if ($GameDir) {
     Say "Using the folder you passed: $GameDir"
@@ -142,7 +145,6 @@ if ($GameDir) {
         }
         "vanilla" {
             $GameDir = "$env:APPDATA\.minecraft"
-            $writeProfile = $true
         }
     }
 }
@@ -213,8 +215,9 @@ if ($writeProfile) {
                 $json | Add-Member -NotePropertyName profiles -NotePropertyValue ([pscustomobject]@{}) -Force
             }
 
-            $javaArgs = "-Xmx${allocGb}G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC"
-            $profile  = [pscustomobject]@{
+            # NB: not $profile — that is a PowerShell automatic variable.
+            $javaArgs   = "-Xmx${allocGb}G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC"
+            $newProfile = [pscustomobject]@{
                 name          = "al Shabab"
                 type          = "custom"
                 created       = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
@@ -222,7 +225,7 @@ if ($writeProfile) {
                 lastVersionId = $ForgeId
                 javaArgs      = $javaArgs
             }
-            $json.profiles | Add-Member -NotePropertyName "al-shabab" -NotePropertyValue $profile -Force
+            $json.profiles | Add-Member -NotePropertyName "al-shabab" -NotePropertyValue $newProfile -Force
 
             # The Minecraft Launcher silently discards launcher_profiles.json if it cannot
             # parse it, and it cannot parse a UTF-8 BOM. PowerShell 5.1's

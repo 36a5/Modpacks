@@ -1,0 +1,9 @@
+# Files packwiz must never put in index.toml.
+#
+# packwiz indexes every file under pack/ regardless of .gitignore. Anything indexed
+# but not committed becomes a 404 on GitHub Pages, and packwiz-installer aborts the
+# whole install for every player. That happened with a stray Forge installer log.
+*.log
+*.zip
+*.mrpack
+*.jar
