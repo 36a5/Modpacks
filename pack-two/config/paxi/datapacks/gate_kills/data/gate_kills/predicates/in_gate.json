@@ -1,0 +1,16 @@
+{
+  "condition": "minecraft:any_of",
+  "terms": [
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_beru" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_igris" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_kasaka" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_lab" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_lush" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_random" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_random_kamish" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_random_large" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_sewers" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_snow" } },
+    { "condition": "minecraft:location_check", "predicate": { "dimension": "sololeveling:dungeon_dimension_throne_room" } }
+  ]
+}

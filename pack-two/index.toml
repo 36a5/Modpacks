@@ -2174,6 +2174,38 @@ file = "config/paxi/datapacks/formationsoverworldconfig.zip"
 hash = "56e19786aed6858fcb58ba370ffc3390901edbb9e11a92285e38956a1d6509fa"
 
 [[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/add_delta.mcfunction"
+hash = "bc3678c4cb03a9a0e01f890baa712e04a94fa747943271729caa660418f7570b"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/init_player.mcfunction"
+hash = "7678a4d921cb5c19ef31290233ceab8be4bee0d3c57d8e72132c474b2aa7eb2d"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/load.mcfunction"
+hash = "fecfaa6672e123eecb7411275e3eb40f6df15a6bafed60390b128c61a4e83c69"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/tick.mcfunction"
+hash = "6a74cb58446d6b9f95ce5122988ad2c9a060c3df47119fd30d6c4d16436d0f94"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/gate_kills/predicates/in_gate.json"
+hash = "288a5262be910a0ac9096e2d0d4906aae82b3bc4874f2d886ab821ea872837eb"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/minecraft/tags/functions/load.json"
+hash = "2a50f7b699c2cabf7fe2f791ab0881db0675e7eead16d36821e572e0e408a499"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/data/minecraft/tags/functions/tick.json"
+hash = "4fb0682db1f808836072be7ac162e53ef3d0386b51bece163699bfe74cb88a03"
+
+[[files]]
+file = "config/paxi/datapacks/gate_kills/pack.mcmeta"
+hash = "a8557f743d153fbbb29db04af708aca2441e027091804a4672d9c6adcf06d2bb"
+
+[[files]]
 file = "config/paxi/datapacks/ichphilipp-s-endcity-better-end-1-18-1.zip"
 hash = "29f133eb00798f3440719f5fdec9ca46de0311fb97e480cb19bdbc3f610f8048"
 
