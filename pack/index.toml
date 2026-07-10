@@ -21,6 +21,10 @@ file = "config/lycanitesmobs-common.toml"
 hash = "2a0de8bf23b54bf5d4b8ca3cf25d8212244963a66ebcc8152c47d3cd6ce484a5"
 
 [[files]]
+file = "config/modernfix-mixins.properties"
+hash = "5cbd07bb506cd1a431bcbe6cff01bb5c33a3b20176dc2145d87e2834349ae2de"
+
+[[files]]
 file = "config/modwhitelist/deny.json"
 hash = "61107ddd53013cfe7875589f6092b78857561892c2f275f5aa41bd4c2b0e3e55"
 
@@ -508,6 +512,11 @@ hash = "2bcea8e16d358942a8f8b8cf6e39cc303d90fac29b1b3ecb8033bd214d4afa0f"
 metafile = true
 
 [[files]]
+file = "mods/blockui.pw.toml"
+hash = "2195b22648787aac875b1ea60c51cca57c1c0a4db4241ec52cd3ea2abfeaebf4"
+metafile = true
+
+[[files]]
 file = "mods/blue-skies.pw.toml"
 hash = "e0b611005c8d2142ca889e850c9f1450f45b1d30086aa8743579dde6ab1bd9af"
 metafile = true
@@ -755,6 +764,11 @@ metafile = true
 [[files]]
 file = "mods/domestication-innovation.pw.toml"
 hash = "2aa8e99103e73af719667f2c03ab4380b1febed92cce4724aff8a5ec0e3cafea"
+metafile = true
+
+[[files]]
+file = "mods/domum-ornamentum.pw.toml"
+hash = "dec6adcd7a2404dc12b0df096820154c5c81fca5dcea69a3ec61ce2776e176b5"
 metafile = true
 
 [[files]]
@@ -1048,6 +1062,11 @@ hash = "ade41e4315735aa9116a0222b332e03d3f8df6eea301764d40d0bdc40f5e8689"
 metafile = true
 
 [[files]]
+file = "mods/minecolonies.pw.toml"
+hash = "e060f46a6f63520919dbe79ad69f51d184c90cd680e398a722bb91c844f10fd1"
+metafile = true
+
+[[files]]
 file = "mods/mmmmmmmmmmmm.pw.toml"
 hash = "9a6966a29c97847b774ea2c5e859a0f037d07dc62da6ba46e05de443cfbd7e79"
 metafile = true
@@ -1085,6 +1104,11 @@ metafile = true
 [[files]]
 file = "mods/multi-mine.pw.toml"
 hash = "fcd655a3a3f6063d9ba915b6f03206ced420bdc7a177ef07241a9b40f09fa156"
+metafile = true
+
+[[files]]
+file = "mods/multi-piston.pw.toml"
+hash = "9895bf13e14fbb0b5284f7ad800b1fb3c7d4c373306231d5c6f95a282079fcbe"
 metafile = true
 
 [[files]]
@@ -1318,6 +1342,11 @@ hash = "0a1893b4abfd0e7243095240b329552c082dd3fa7874b43e9b43c94812875472"
 metafile = true
 
 [[files]]
+file = "mods/structurize.pw.toml"
+hash = "f3e28999ec3aa4973621ebd2ba2bf7f1af0a50f950ffe545444c7ebad54c5921"
+metafile = true
+
+[[files]]
 file = "mods/supermartijn642s-config-lib.pw.toml"
 hash = "1cf9cb3955b075664ea4fba13b47fe7160975740a28864983aebd53d39c1946e"
 metafile = true
@@ -1380,6 +1409,11 @@ metafile = true
 [[files]]
 file = "mods/towns-and-towers.pw.toml"
 hash = "7b7108d879e1e1c141b24d0d8fa268a6bbcd5c227875d156fcc62c3beec55f63"
+metafile = true
+
+[[files]]
+file = "mods/towntalk.pw.toml"
+hash = "32e0f6bce7adc5b09ba3350110ac4be7ee04e556db35ba1db97bacfabd31e4dc"
 metafile = true
 
 [[files]]
