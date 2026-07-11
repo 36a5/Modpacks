@@ -54,7 +54,7 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| `U` | Open Player Death History | `key.corpse.death_history` |
+| *unbound* | Open Player Death History — `U` went to Epic Fight's Guard; `/back` covers this | `key.corpse.death_history` |
 
 ## Crawl on Demand
 
@@ -101,21 +101,21 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
+| `L` | **Weapon Innate Skill** | `key.epicfight.weapon_innate_skill` |
+| `P` | **Mobility Skill** | `key.epicfight.mover_skill` |
+| `U` | **Guard** | `key.epicfight.guard` |
+| `Mouse 5` | **Dodge Skill** | `key.epicfight.dodge` |
 | `N` | Lock-on | `key.epicfight.lock_on` |
-| `0` | Mobility Skill | `key.epicfight.mover_skill` |
 | `Grave accent` | Open Skill Editor | `key.epicfight.skill_gui` |
 | `K` | Toggle Battle/Mining Mode | `key.epicfight.switch_mode` |
-| `Equal` | Weapon Innate Skill | `key.epicfight.weapon_innate_skill` |
 | *mod default* | Activates the innate skill of your equipped weapon | `key.epicfight.weapon_innate_skill.description` |
 | *mod default* | Attack | `key.epicfight.attack` |
 | *mod default* | Blocks incoming attacks with your weapon | `key.epicfight.guard.description` |
 | *mod default* | Displays the tooltip of your weapon's innate skill when the inventory screen is open | `key.epicfight.show_tooltip.description` |
-| *mod default* | Dodge Skill | `key.epicfight.dodge` |
 | *mod default* | Epic Fight Camera | `key.epicfight.camera` |
 | *mod default* | Epic Fight Combat | `key.epicfight.combat` |
 | *mod default* | Epic Fight GUI | `key.epicfight.gui` |
 | *mod default* | Epic Fight System | `key.epicfight.system` |
-| *mod default* | Guard | `key.epicfight.guard` |
 | *mod default* | Lets you freely switch between nearby targets while locked on | `key.epicfight.lock_on_shift_freely.description` |
 | *mod default* | Lock-on Free Shift | `key.epicfight.lock_on_shift_freely` |
 | *mod default* | Lock-on Shift Left | `key.epicfight.lock_on_shift_left` |
@@ -469,10 +469,13 @@ still paints them red in the controls screen.
 
 | Key | Claimed by |
 |---|---|
-| `Comma` | Cataclysm Chestplate Ability *(cataclysm)* / Hide Ingredient *(Just Enough Items)* |
-| `N` | Lock-on *(Epic Fight)* / Toggle Hide Ingredients Mode *(Just Enough Items)* |
 | `Page down` | Dragon Mount Flight Commands *(Dragon Mounts: Legacy)* / Next Recipe Page *(Just Enough Items)* |
 | `R` | Show Recipe *(Just Enough Items)* / Use the selected skill *(SoloCraftReawakening)* |
-| `U` | Open Player Death History *(Corpse)* / Show Uses *(Just Enough Items)* |
+| `U` | Guard *(Epic Fight)* / Show Uses *(Just Enough Items)* |
 | `Mouse right` | Clear Search Filter *(Just Enough Items)* / Show Uses *(Just Enough Items)* |
+
+Every one of these is a JEI key, and JEI's keys only fire while a recipe GUI is open, so they cannot
+actually collide with an in-world action. The one real collision — JEI's edit mode sharing `N` with
+Epic Fight's lock-on in `configureddefaults/options.txt` — is fixed; JEI edit mode and hide-ingredient
+are now unbound in both copies of `options.txt`, which had drifted apart from each other.
 
