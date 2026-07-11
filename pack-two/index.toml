@@ -7067,7 +7067,7 @@ metafile = true
 
 [[files]]
 file = "mods/stoprendering.pw.toml"
-hash = "6d9ebc35a72ab241ebbb22772648d80597b4531be365d850661f4b53a51873ef"
+hash = "8b7c14d2690f485b4ecbc15ac113779cffdfc0261919800cabea1201713a6a35"
 metafile = true
 
 [[files]]
