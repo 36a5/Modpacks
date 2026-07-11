@@ -61,20 +61,38 @@ and airships mod) and conflicts with Create. The pack ships **Embeddium + Oculus
 which run faster than OptiFine and load the exact same shaderpacks.
 
 ### Voice chat
-Simple Voice Chat is built in. Press **`V`** to open its menu, pick your microphone, and talk —
-other players hear you based on how close you are. Press **`V` then `M`** to mute.
+Simple Voice Chat is built in. Press **`\`** (backslash) to open its menu, pick your microphone,
+and talk — other players hear you based on how close you are. **`Right Alt`** mutes your mic, and
+**`-`** (minus) opens group management. (`V` is a Solo Leveling ability key now.)
+
+### Your skin
+The server is offline-mode, so Mojang can't hand it your skin — you set one up once, on a free
+skin host, and the pack loads it by your username. **[How to get your skin working](skins.md)**.
+
+### Dying
+You don't scatter your items. You leave a **corpse** where you died, wearing your gear, and it
+holds everything — right-click it to take your stuff back. Then:
+
+- **`/back`** teleports you to your death spot, once per minute. That is how you get to your body.
+- **`U`** opens your death history, so you can see where each of your past deaths happened.
+- After **1 hour** your corpse rots to a skeleton and *anyone* can loot it. Go get your gear.
+
+Every key every mod in the pack registers is listed in **[Shabab 2 keybinds](../keybinds-shabab2.md)**.
 
 ### Logging in to the server
-Because the server is offline-mode, it makes you set a password the first time you join.
+Because the server is offline-mode, it makes you set a password the first time you join, and
+then asks for the server's join code.
 
 | When | Command to type in chat |
 |---|---|
-| First join ever | `/trigger register set yourPassword` |
+| First join ever | `/trigger register set yourPassword` (**numbers only**) |
 | Every join after | `/trigger login set yourPassword` |
 | Changing it later | `/trigger change_password set newPassword` |
+| Once, after logging in | `/trigger joincode set 1234` — the code from `#server-info` |
 
-You can't move or break blocks until you log in. This is what stops someone joining under your
-name and emptying your chests.
+You can't move or break blocks until you're through both. This is what stops someone joining
+under your name and emptying your chests. **You get 10 minutes and 3 tries at each step** — if
+your game is still loading, nothing is counting against you, so don't panic.
 
 ### Maps
 Press **`M`** for the full world map, and the minimap sits in the corner. Waystones you find

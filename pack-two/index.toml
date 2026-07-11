@@ -919,7 +919,7 @@ hash = "04e49bd0851cabb26a7177b014dc7f5622b4e817f6fbdeaf5c9f53030bed8a3a"
 
 [[files]]
 file = "config/connectivity.json"
-hash = "6b95731807c56659d67f5c439439493834d0c42ad33baf23ef60d45bb7e73202"
+hash = "647ac8ad31b76f7c25dd9630e143d1ce7eed36be2f7eb4effa35348dec9dacf5"
 
 [[files]]
 file = "config/connector.json"
@@ -2214,6 +2214,42 @@ file = "config/paxi/datapacks/ichphilipp-s-endcity-better-end-1-18-1.zip"
 hash = "29f133eb00798f3440719f5fdec9ca46de0311fb97e480cb19bdbc3f610f8048"
 
 [[files]]
+file = "config/paxi/datapacks/shabab-gate/data/minecraft/tags/functions/load.json"
+hash = "d62fe9eca838e052b2c8181ba702ff82e2cb1db007bef9df82d4e02096417a2a"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/minecraft/tags/functions/tick.json"
+hash = "974755d2d0924ee7e691817ab0cb1379be4498614b49f61e2659537185494731"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/gate.mcfunction"
+hash = "e9503939795b1a283e954194d5bf524324955ef5f0339d3dbff890e0b5f23a4b"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/hud_on.mcfunction"
+hash = "f982a29e90d72e90b2efa2803376a556997f23a15547e0e459da5209e91f9ae4"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/load.mcfunction"
+hash = "529cc9868f4ba888c0572a8607ddb303ded183ac531c648dc420d11c865bb465"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/pass.mcfunction"
+hash = "88a6886bc7ca61497c4519635e8e16a5045e75eec5d8c6f2cb3ae2f369b9fbb8"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/tick.mcfunction"
+hash = "61a475c3b9a0a1d43f9d74c78c1edef1500ae0098a636216a7a17039e14346bd"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/wrong.mcfunction"
+hash = "f04fab04afc3ce89fe51df3840b0aa577c163247e28120ab28f91bf0ce5bb49e"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-gate/pack.mcmeta"
+hash = "57a3e2a0e8e9260862b375cf8db6aa4cef5687274a55759fbdf5e5e9acb61caa"
+
+[[files]]
 file = "config/paxi/resourcepack_load_order.json"
 hash = "d0aaf3172f34275479f0669aa5b0a94b85788ae638f3062b948ec49d31c38293"
 
@@ -2766,10 +2802,6 @@ file = "config/xenon-options.json"
 hash = "d7345f35297b1eb3713e092ea9cd438ecbf8a9fd1a232c17c260b0dfab235300"
 
 [[files]]
-file = "config/yigd.json"
-hash = "b691b52d6660417688257d037570cd3c5ecf3bfeeaac0c6b34e49b11b55fe7c1"
-
-[[files]]
 file = "config/ysns/disabled_entities.json5"
 hash = "3a3d4cf32c77c472ac23a0cde61e5a301b684fb683995284059f8e4fc1ed182b"
 
@@ -2786,12 +2818,16 @@ file = "config/zeta-common.toml"
 hash = "b5ae0f1685b3136c29758855f06e1eb4fa9878ef78d25b7adcbcd88391074c86"
 
 [[files]]
+file = "configureddefaults/CustomSkinLoader/CustomSkinLoader.json"
+hash = "d29b5f62687f3a2769da2dbcf7677f0fa7416eb4d7a10a5ec9acaeec60cc8c4a"
+
+[[files]]
 file = "configureddefaults/README.md"
 hash = "7d856d3f9655abc661ac67b450a0c956bbf80323786b407301fbdca02d2c5b8b"
 
 [[files]]
 file = "configureddefaults/options.txt"
-hash = "3c42903fd06380997ce1e6ed8080d066589f5b4d95090ffb4a81b017d59ba620"
+hash = "79f9dc4b775344799b1f1797558fa6dea6c32a33cc292510d7ab392e7b99602f"
 
 [[files]]
 file = "defaultconfigs/CoroUtil/General.toml"
@@ -3679,7 +3715,7 @@ hash = "04e49bd0851cabb26a7177b014dc7f5622b4e817f6fbdeaf5c9f53030bed8a3a"
 
 [[files]]
 file = "defaultconfigs/connectivity.json"
-hash = "6b95731807c56659d67f5c439439493834d0c42ad33baf23ef60d45bb7e73202"
+hash = "d475cda248efaa8a9955369dbef6bf370a1c023947a0cce57c073f9dacb5884a"
 
 [[files]]
 file = "defaultconfigs/connector.json"
@@ -3692,6 +3728,10 @@ hash = "a4d9eeb8806752eadbaf17d3072d1be28c508943814c5c14e2b85f936406758d"
 [[files]]
 file = "defaultconfigs/continuity.json"
 hash = "00267a602028cbb037dcb0b5f803db31bed284235ca9c1ea189ad4179311a2f4"
+
+[[files]]
+file = "defaultconfigs/corpse-server.toml"
+hash = "9401776be98b5ee6056d057e1759cf6fd5f88dd62c2e498fd67007ab69d634fa"
 
 [[files]]
 file = "defaultconfigs/corpsecurioscompat-common.toml"
@@ -4248,6 +4288,10 @@ hash = "939cfc95ed4a7480ac08d3f692538a348af72c6db693349c61f93f926976d1f2"
 [[files]]
 file = "defaultconfigs/friendsandfoes.json"
 hash = "cc86aa0f71283f011d5da305d254d5aa21dc5a58b60269cc82fa06d5823be499"
+
+[[files]]
+file = "defaultconfigs/ftbessentials-server.snbt"
+hash = "0cdc971c1770db59f134e9002abc5471cd07feb846c17a39908c9b2884b81f71"
 
 [[files]]
 file = "defaultconfigs/ftblibrary/ftblibrary-client.snbt"
@@ -5446,10 +5490,6 @@ file = "defaultconfigs/xenon-options.json"
 hash = "01580eb4b0f0bb083f46fe0db067eb24d634414f2e4d13d9c5d5cf5f2a92862a"
 
 [[files]]
-file = "defaultconfigs/yigd.json"
-hash = "b691b52d6660417688257d037570cd3c5ecf3bfeeaac0c6b34e49b11b55fe7c1"
-
-[[files]]
 file = "defaultconfigs/ysns/disabled_entities.json5"
 hash = "3a3d4cf32c77c472ac23a0cde61e5a301b684fb683995284059f8e4fc1ed182b"
 
@@ -5896,6 +5936,16 @@ hash = "9f2bb57e05bad305f03c25c275c6d11e952835a41b2da68dba10a0bd1f3f6261"
 metafile = true
 
 [[files]]
+file = "mods/corpse-x-curios-api-compat.pw.toml"
+hash = "a6b93530a4ea2527042fb65fab14ccf49f8925b1139d554a6eae6a60da2fc55a"
+metafile = true
+
+[[files]]
+file = "mods/corpse.pw.toml"
+hash = "2fba2317a375669ccb1376525d4d4e0d1903cc5dc44fc70dce1d0e3dbb6aacb1"
+metafile = true
+
+[[files]]
 file = "mods/crabbers-delight.pw.toml"
 hash = "99b021bd7c20e1b0f99196942b1a32cd7ccc5e86981bf1207815d261ad0a63a1"
 metafile = true
@@ -5928,6 +5978,11 @@ metafile = true
 [[files]]
 file = "mods/curios.pw.toml"
 hash = "1315cd56b0b4a5b3d53374cebf4f1f3cd0546b05058740847bd226c1d1ccab39"
+metafile = true
+
+[[files]]
+file = "mods/customskinloader.pw.toml"
+hash = "aec1df84ab0edd3ab36d80a08765ab0ae3754c2bdbb4e9f568e979f01f470234"
 metafile = true
 
 [[files]]
@@ -6248,6 +6303,11 @@ metafile = true
 [[files]]
 file = "mods/friends-and-foes-forge.pw.toml"
 hash = "d7e93654d8f8ba58742e86d26cbd9e7f563be4f8c9683f52d72777a3807d7078"
+metafile = true
+
+[[files]]
+file = "mods/ftb-essentials.pw.toml"
+hash = "8a185af41fb24e83e4497c9362943723b6afee585cf8a3bf280ac155d29bf593"
 metafile = true
 
 [[files]]
@@ -7321,11 +7381,6 @@ hash = "5635d71642234a9b14b5a77a8f8569ae2e0f106f6ca499bd32390829d6756fc9"
 metafile = true
 
 [[files]]
-file = "mods/youre-in-grave-dangers.pw.toml"
-hash = "cc45bbfd9eae6cc6fd9129dbd189a32ce88d2381120ab15c9fdf354d197ebf62"
-metafile = true
-
-[[files]]
 file = "mods/yung-structures-addon-for-loot-integrations.pw.toml"
 hash = "96f8af7d80e4ba87483d6a69b8fbd8bae787f38a5133038313ff0c1c28b0428f"
 metafile = true
@@ -7392,7 +7447,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "2ae9e9d6503bec9ab15b45b535fa27e583dc50ee4505c2936928d95af16f5a18"
+hash = "8ad44cc72020b48838e2713d3261fd99c3cc61c7a8e8206c4fa37f113a32a266"
 
 [[files]]
 file = "quark-compat.pw.toml"
