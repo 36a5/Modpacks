@@ -2,6 +2,66 @@
 
 ## [Unreleased]
 
+### Shabab 2: parties that actually work, shared XP, and Epic Fight on the keyboard
+
+- **Fixed FTB Teams on the offline-mode server.** The team screen showed *"Team data has not been
+  received from the server! … ensure your server is in online mode"* and parties were unusable.
+  The server was fine — `world/ftbteams/` had the data and the logs had no errors. FTB Teams asks
+  the **launcher** who you are (`Minecraft.getUser().getGameProfile().getId()`), but an offline-mode
+  server keys its player map by the offline UUID it derives from your name. TLauncher hands the
+  client a v1 time-based UUID, so the two never matched:
+
+  | | UUID |
+  |---|---|
+  | Server thinks `Abdulrhman-S` is | `28ea2e15-7778-3876-…` (v3, `nameUUIDFromBytes("OfflinePlayer:"+name)`) |
+  | TLauncher tells the client it is | `0e2dc0f4-7cb9-11f1-…` (v1, TLauncher's own) |
+
+  The launcher's UUID never crosses the wire, so no server-side setting can fix this. New
+  client-side mixin in **`shababparty`** falls back to the offline UUID when the launcher's isn't in
+  the synced player map. Online-mode behaviour is untouched.
+
+- **Party members share Solo Leveling XP and job advancement points.** Solo Leveling paid both only
+  to whoever landed the killing blow. `shababparty` now pays every party member within 64 blocks
+  (configurable; same dimension only) by calling Solo Leveling's *own* routines once per member — so
+  the mob reward table, each member's personal multiplier and the XP gamerules all still apply, and
+  it stays correct if the mod changes its numbers. The killer is paid by Solo Leveling directly and
+  is not double-paid. This is the mod's hunter-levelling track (`Xp` → `Level` → rank), not vanilla
+  experience orbs, which are untouched.
+
+- **Loot needed no change.** Solo Leveling drops its mob loot (mana crystals and so on) as item
+  entities on the ground at the corpse, so a party can already all pick it up — it was never
+  assigned to the killer. It stays first-come-first-served rather than a copy each, deliberately:
+  duplicating drops per member would multiply crystals by party size. Worth knowing:
+  `GoldGainProcedure` is a **dead stub** (its body is a bare `return`), so Solo Leveling awards no
+  gold on kill to anyone, and there is nothing there to share.
+
+- **Party members can't hit each other.** Solo Leveling already cancels attacks between two players
+  whose `party` field matches, but it had never heard of FTB Teams. `shababparty` copies each
+  player's FTB party into that field once a second, so friendly fire stops as a consequence.
+  **FTB Teams is now the single source of truth for parties** — use its GUI, not Solo Leveling's
+  `/Party` command, which this overrides.
+
+- **XP outside dungeon portals** needs one command, because it is a world gamerule rather than a
+  config: `/gamerule soloDungeonProgressionOnly false`. While it is `true`, Solo Leveling pays XP
+  *only* for its own dungeon mobs; with it off, every other mob pays a base of 1 (× your multiplier
+  × the `soloLevelingXPMultiplier` gamerule).
+
+- **Epic Fight's abilities moved onto the main keyboard.** They were stranded on `=` and `0`, and
+  Guard was not bound at all. The keyboard was completely full, so three keys were reclaimed from
+  binds this pack does not need: advancements (FTB Quests replaces it), social interactions (dead on
+  an offline server) and Corpse's death history (`/back` covers it).
+
+  | Key | Was | Now |
+  |---|---|---|
+  | `L` | Advancements | **Weapon Innate Skill** |
+  | `P` | Social Interactions | **Mobility Skill** |
+  | `U` | Corpse death history | **Guard** |
+  | `Mouse 5` | Dodge Skill | unchanged |
+
+- **The two `options.txt` had drifted apart.** `configureddefaults/options.txt` (fresh installs) and
+  the packwiz-synced root `options.txt` disagreed, and the former bound JEI's edit mode to `N` — the
+  same key as Epic Fight's lock-on. Both are now consistent and the collision is gone.
+
 ### Shabab 2: the join gate, the timeout kick, and the keyboard
 
 - **Fixed the mid-load kick.** `h4mod1` was joining, sitting on a loading screen, and being

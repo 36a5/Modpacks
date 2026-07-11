@@ -2827,7 +2827,7 @@ hash = "7d856d3f9655abc661ac67b450a0c956bbf80323786b407301fbdca02d2c5b8b"
 
 [[files]]
 file = "configureddefaults/options.txt"
-hash = "79f9dc4b775344799b1f1797558fa6dea6c32a33cc292510d7ab392e7b99602f"
+hash = "6e9d526388234aaac64a028d997fdf1f004de6b699f40d21347709bf893faba4"
 
 [[files]]
 file = "defaultconfigs/CoroUtil/General.toml"
@@ -7006,6 +7006,10 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
+file = "mods/shababparty-1.0.0.jar"
+hash = "3a924c3fb4504e9e448851b21d02d51db3cfc184783ce86b7ed9456ff375308e"
+
+[[files]]
 file = "mods/shield-expansion.pw.toml"
 hash = "6e5b575ffd8552257fd4d5ce5ba14d58a5ad9a237892746892a839f57b36194a"
 metafile = true
@@ -7447,7 +7451,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "8ad44cc72020b48838e2713d3261fd99c3cc61c7a8e8206c4fa37f113a32a266"
+hash = "f1639bc403723e968578a85ddfec28c7431ee7767970a2c1a714b78a49705364"
 
 [[files]]
 file = "quark-compat.pw.toml"

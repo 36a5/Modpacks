@@ -1,0 +1,47 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="shababparty"
+version="1.0.0"
+displayName="al Shabab — Party Systems"
+description='''
+Makes parties work on this pack.
+
+FTB Teams looks itself up by the UUID the launcher gave the client, but an offline-mode server keys
+its players by the offline UUID derived from the player name. On cracked launchers the two disagree
+and FTB Teams reports "Team data has not been received from the server". Fixed client-side.
+
+FTB Teams then becomes the single source of truth for party membership: your FTB party is copied into
+Solo Leveling's party field (which is what stops party members damaging each other), and Solo Leveling
+XP from a kill is paid to every party member in range, inside dungeon portals and out.
+'''
+
+[[dependencies.shababparty]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shababparty]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shababparty]]
+    modId="ftbteams"
+    mandatory=true
+    versionRange="[2001.3.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.shababparty]]
+    modId="sololeveling"
+    mandatory=true
+    versionRange="[0.10.0,)"
+    ordering="AFTER"
+    side="BOTH"
