@@ -5526,6 +5526,10 @@ hash = "aae6e3463d50f1a338ae73c6717d72f56f606dee44ddf457e37f8e056baabe3a"
 metafile = true
 
 [[files]]
+file = "mods/SLR Extended 2.1.1 HotFix.jar"
+hash = "83ea67560dfee78d22b2450c2e53bacb927cb877fc9028e2bf71db99a76f8355"
+
+[[files]]
 file = "mods/abridged.pw.toml"
 hash = "d6a0a5fc44ec2396ecfe94323bbe1639aa2d7f082677d2e8b81426e2ed81d1d6"
 metafile = true
@@ -7042,11 +7046,6 @@ metafile = true
 [[files]]
 file = "mods/skeleton-ai-fix.pw.toml"
 hash = "45ca913d380a89416cf0eff2e50bf798ce41b8e893f588a31b6b6cd9a1b717b8"
-metafile = true
-
-[[files]]
-file = "mods/slrefextended.pw.toml"
-hash = "38230a0daf1dc8b5170186aaa700112ecc6c4e6468e32f0562767b663eba396b"
 metafile = true
 
 [[files]]
