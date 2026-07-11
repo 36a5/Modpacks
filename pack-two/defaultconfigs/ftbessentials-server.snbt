@@ -1,0 +1,83 @@
+// FTB Essentials — Shabab 2
+//
+// FTB Essentials is in the pack for exactly one command: /back, so a player can teleport
+// back to the Corpse they left behind. Everything else FTB Essentials ships with is a free
+// teleport or a portable workstation, which would undercut Waystones and the pack's
+// progression, so it is turned off here. Flip any of these to true if you want it later.
+
+teleportation: {
+	// /back — returns the player to their last death point (i.e. their corpse).
+	// only_on_death: true means /back cannot be used as a general "undo my teleport" warp.
+	back: {
+		enabled: true
+		cooldown: 60
+		warmup: 0
+		max: 10
+		only_on_death: true
+	}
+
+	// free travel — off; the pack uses Waystones for that
+	spawn: {
+		enabled: false
+	}
+	playerspawn: {
+		enabled: false
+	}
+	warp: {
+		enabled: false
+	}
+	home: {
+		enabled: false
+	}
+	rtp: {
+		enabled: false
+	}
+
+	// player-to-player teleport requests — off by default; safe to enable if you want it
+	tpa: {
+		enabled: false
+	}
+}
+
+misc: {
+	// stuck / desynced players can free themselves
+	kickme: {
+		enabled: true
+	}
+	near: {
+		enabled: true
+	}
+	leaderboard: {
+		enabled: true
+	}
+
+	// portable workstations and inventories — off, these are straight-up cheats in survival
+	enderchest: {
+		enabled: false
+	}
+	crafting: {
+		enabled: false
+	}
+	stonecutter: {
+		enabled: false
+	}
+	anvil: {
+		enabled: false
+	}
+	smithing: {
+		enabled: false
+	}
+	trashcan: {
+		enabled: false
+	}
+	hat: {
+		enabled: false
+	}
+	// nicknames would fight CustomSkinLoader, which looks skins up by player name
+	nick: {
+		enabled: false
+	}
+	rec: {
+		enabled: false
+	}
+}
