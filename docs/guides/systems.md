@@ -11,11 +11,15 @@ pack defaults (chosen so no two abilities or menus share a key).
 The server runs in **offline mode** (so TLauncher / non-premium accounts can play), protected
 by two layers:
 
-1. **Join-code gate** — when you first connect you're frozen (adventure mode + blindness).
-   Press `T` and type the **join code** from the top of this channel. You get 3 tries.
-2. **Password (Auth mod)** — then set a password:
+1. **Password (Auth mod)** — you're frozen in spectator until you set one:
    - First join: `T` → `/trigger register set yourPassword`
    - Every join after: `T` → `/trigger login set yourPassword`
+   - **Numbers only.** You get 3 tries, and 10 minutes — enough time for a slow client to
+     finish loading before it asks you for anything.
+2. **Join-code gate** — then you're held in adventure mode + blindness until you type the
+   server's join code (posted at the top of the server channel):
+   - `T` → `/trigger joincode set 1234` (with the real code)
+   - 3 tries, 10 minutes, then you're kicked. Once you pass, you never see it again.
 
 > ⚠️ **TLauncher players: your username is your account.** Offline mode means the server
 > can't ask Mojang who you are — change your name and you lose your character, items and base.
@@ -28,18 +32,18 @@ Turns melee into a third-person, combo-based action game with dodges, guards and
 
 | Key | Action |
 |-----|--------|
-| `G` | **Switch Battle / Mining mode** — draw or sheathe your weapon. You only get combos in Battle mode. |
+| `K` | **Switch Battle / Mining mode** — draw or sheathe your weapon. You only get combos in Battle mode. |
 | `N` | **Lock-on** to the nearest target |
 | `Mouse 5` | **Dodge** |
 | Right-click | **Guard** (with a weapon drawn) |
-| `Numpad 5` | **Weapon innate skill** (each weapon has a hidden special) |
-| `Numpad 0` | **Skill editor** — assign learned skills to slots |
+| `=` | **Weapon innate skill** (each weapon has a hidden special) |
+| `` ` `` | **Skill editor** — assign learned skills to slots |
 
-**How to use:** press `G` to enter Battle mode, then left-click for combos, hold right-click to
+**How to use:** press `K` to enter Battle mode, then left-click for combos, hold right-click to
 guard, `Mouse 5` to dodge. Different weapon types (sword, spear, greatsword, dual, etc.) have
 their own movesets. **Weapons of Miracles** and **EpicFight: Resurrection** add extra weapons
 and skills that plug into this same system — find/craft those weapons and their skills appear in
-the skill editor (`Numpad 0`).
+the skill editor (`` ` ``).
 
 ---
 
@@ -47,16 +51,22 @@ the skill editor (`Numpad 0`).
 
 The headline system. Kill monsters → gain XP → level up your "System" → unlock jobs and skills.
 
+Solo Leveling has **first claim on the keyboard** — it gets the prime keys and every other mod
+was moved out of its way. Nothing is on the numpad, so laptops are fine.
+
 | Key | Action |
 |-----|--------|
+| `Z` `X` `C` `V` | **Job abilities 1–4** |
+| `R` | **Use** the selected skill |
+| `B` | **Cycle** to the next skill |
+| `G` | Sword enhance |
+| `Mouse 4` | Triple jump |
 | `;` (semicolon) | **Open the System panel** — level, stats, skills, job |
-| `` ` `` (backtick) | **Use** the selected skill |
-| `=` | **Cycle** to the next skill |
-| `Numpad 1–4` | **Job abilities 1–4** |
-| `Numpad 6` | Training |
-| `Numpad 7` | Triple jump |
-| `Numpad 8` | Sword enhance |
-| `Numpad 9` | Quest info |
+| `'` (apostrophe) | Quest info |
+| `Home` | Training |
+
+Your health is the **Solo Leveling HP bar** — the vanilla hearts, hunger, armor and XP bars are
+switched off for you automatically on first join. Want them back? `/ToggleCustomHUD`.
 
 **Gates (the "portals"):** colored Gates (ranks **E → D → C → B → A → S**) spawn randomly in the
 world (within ~200 blocks of players). Enter one to be sent into a **Gate dungeon dimension**
@@ -127,11 +137,12 @@ how to make it.
 
 | Key | What |
 |-----|------|
-| `V` | Voice chat menu |
-| `Caps Lock` | Push-to-talk |
-| `Backslash` | Mute mic |
+| `\` (backslash) | Voice chat menu |
+| `-` (minus) | **Group management** — create/join a voice group |
+| `Right Alt` | Mute mic |
+| — | Push-to-talk is off; voice activates when you speak |
 
-Proximity voice — you hear players near you. Configure devices in the `V` menu.
+Proximity voice — you hear players near you. Configure devices in the `\` menu.
 
 ---
 
@@ -146,7 +157,8 @@ The BMC4 base + our additions pack in a huge amount of exploration content:
   **CTOV** villages, AdoraBuild, Structory + Towers.
 
 Most bosses drop unique gear; many armor pieces have an **ability** on a key — check the item
-tooltip. (BMC4's Cataclysm armor abilities live on `X` / `V` / `C` / `Y`.)
+tooltip. Cataclysm's armor abilities moved off `X`/`V`/`C`/`Y` (Solo Leveling owns those now)
+onto four keys in a row: `[` = ability, `]` = helmet, `,` = chestplate, `.` = boots.
 
 ---
 
