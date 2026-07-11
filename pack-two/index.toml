@@ -3715,7 +3715,7 @@ hash = "04e49bd0851cabb26a7177b014dc7f5622b4e817f6fbdeaf5c9f53030bed8a3a"
 
 [[files]]
 file = "defaultconfigs/connectivity.json"
-hash = "d475cda248efaa8a9955369dbef6bf370a1c023947a0cce57c073f9dacb5884a"
+hash = "647ac8ad31b76f7c25dd9630e143d1ce7eed36be2f7eb4effa35348dec9dacf5"
 
 [[files]]
 file = "defaultconfigs/connector.json"
