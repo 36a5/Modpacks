@@ -6043,8 +6043,8 @@ hash = "0af4859b1dcf39126ff0e0c4a2e5801a7e775e9aa7e0706bfb49360c4e363d80"
 metafile = true
 
 [[files]]
-file = "mods/colonyspeed-1.1.0.jar"
-hash = "8a20f5444803693cabbff015e93ca511554d9e9aa5fb8ff21983fad95d6c5dac"
+file = "mods/colonyspeed-1.2.0.jar"
+hash = "f3c0442b1452b7a1f01aab23b7f519a170bb781ba25a3787461e8634ae23640c"
 
 [[files]]
 file = "mods/colorwheel.pw.toml"

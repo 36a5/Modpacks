@@ -17,6 +17,21 @@ public final class SpeedScaling {
      * @return the delay after dividing by speedPerLevel^(hutLevel - 1), floored at minDelayTicks
      */
     public static int scale(final Object ai, final int delay) {
+        // Admin override: ignore the hut level entirely and force the delay.
+        //
+        // The hut-level scaling below deliberately leaves a level 1 hut at stock speed - the divisor
+        // is speedPerLevel^0, which is 1. That is correct as a rule and useless in the one case where
+        // you actually want speed: rebuilding a hut that got destroyed, or a brand new colony, where
+        // every hut IS level 1. This is the escape hatch. Set it to 0 and a Builder puts a whole
+        // blueprint down in a single tick.
+        //
+        // Math.min, not a plain return, so the override can only ever make a worker faster. Setting
+        // it to 20 must not slow down a worker whose stock delay is already 4.
+        final int override = ColonySpeed.Config.OVERRIDE_DELAY_TICKS.get();
+        if (override >= 0) {
+            return Math.min(delay, override);
+        }
+
         final double perLevel = ColonySpeed.Config.SPEED_PER_LEVEL.get();
         if (perLevel <= 1.0 || delay <= 0) {
             return delay;

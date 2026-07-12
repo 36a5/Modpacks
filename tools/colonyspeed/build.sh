@@ -6,7 +6,7 @@
 # real names, so unlike shababparty there are no SRG names to write by hand.
 set -euo pipefail
 
-VERSION=1.1.0
+VERSION=1.2.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"

@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="colonyspeed"
-version="1.1.0"
+version="1.2.0"
 displayName="al Shabab — Colony Speed"
 description='''
 Makes MineColonies workers get faster, and carry more, as their hut is upgraded.
@@ -26,7 +26,13 @@ Inventory: 27 slots at level 1, rising to 81 at level 5 (36 / 54 / 63 in between
 81 slots is 81 distinct block types at a stack each, which is more than any blueprint asks for, so a
 level 5 Builder effectively stops walking home for materials.
 
-Everything is configurable in colonyspeed-common.toml, including turning either half off.
+Admin escape hatch: overrideDelayTicks forces the per-block delay regardless of hut level (-1 = off).
+The scaling above leaves a level 1 hut at stock speed, which is right as a rule and useless in the one
+case where you want speed - a fresh colony, or rebuilding a hut you destroyed, where every hut IS
+level 1. MineColonies has no instant build and no command to set a building's level, so this is the
+only way to skip the wait. Set it to 0, build, set it back to -1.
+
+Everything is configurable in colonyspeed-common.toml, including turning any of it off.
 '''
 
 [[dependencies.colonyspeed]]
