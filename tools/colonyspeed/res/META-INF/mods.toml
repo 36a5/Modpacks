@@ -1,0 +1,51 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="colonyspeed"
+version="1.1.0"
+displayName="al Shabab — Colony Speed"
+description='''
+Makes MineColonies workers get faster, and carry more, as their hut is upgraded.
+
+Stock MineColonies never reads the hut level for either. Breaking is
+500 * 0.85^(secondarySkill/2) * hardness / toolSpeed ticks, placing is a flat
+150 / (primarySkill/2 + 10) ticks, and inventory is a flat 27 slots plus a research bonus. Only the
+citizen's own skills, his tool and colony research move any of them. So a Builder in a level 5 hut
+lays bricks at the same pace, and carries exactly as much, as one who just moved into a level 1 hut.
+
+Speed: both delays are divided by speedPerLevel^(hutLevel - 1). At the default of 2.0 a level 1 hut is
+stock speed, level 2 is twice as fast, and a level 5 hut is sixteen times as fast, floored at one
+block per tick so the worker still visibly works instead of teleporting a blueprint into place. In
+practice this saturates by level 3 or 4 - a builder's real bottleneck is walking for materials, which
+is what the inventory half is for.
+
+Inventory: 27 slots at level 1, rising to 81 at level 5 (36 / 54 / 63 in between, whole rows of nine).
+81 is a hard ceiling because the citizen inventory screen draws at most nine rows and does not scroll.
+81 slots is 81 distinct block types at a stack each, which is more than any blueprint asks for, so a
+level 5 Builder effectively stops walking home for materials.
+
+Everything is configurable in colonyspeed-common.toml, including turning either half off.
+'''
+
+[[dependencies.colonyspeed]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.colonyspeed]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.colonyspeed]]
+    modId="minecolonies"
+    mandatory=true
+    versionRange="[1.1.0,)"
+    ordering="AFTER"
+    side="BOTH"

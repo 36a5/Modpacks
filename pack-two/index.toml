@@ -2191,7 +2191,7 @@ hash = "ab28a62c4abb992d58446969c3fdf95b9bee805aa6cbf3c72246031f6f422504"
 
 [[files]]
 file = "config/paxi/datapacks/gate_kills/data/gate_kills/functions/tick.mcfunction"
-hash = "6a74cb58446d6b9f95ce5122988ad2c9a060c3df47119fd30d6c4d16436d0f94"
+hash = "0e1a3c1dc6921983c3be907d39c04473f639c0d0317fd19d34a7d05ebe039b95"
 
 [[files]]
 file = "config/paxi/datapacks/gate_kills/data/gate_kills/predicates/in_gate.json"
@@ -2248,6 +2248,154 @@ hash = "f04fab04afc3ce89fe51df3840b0aa577c163247e28120ab28f91bf0ce5bb49e"
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/pack.mcmeta"
 hash = "57a3e2a0e8e9260862b375cf8db6aa4cef5687274a55759fbdf5e5e9acb61caa"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/minecraft/tags/functions/load.json"
+hash = "2284f2b6d1168a0001bc3f3992ad5d7628285efd5a54854d43c6dd4992a61684"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/minecraft/tags/functions/tick.json"
+hash = "f803d1874d0fea5a562a1e170caa12961b09f72b1c2e8783c0177a36073b7602"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/1.mcfunction"
+hash = "819eadb6ac5fcdcd7febbeee2b4b0f81aae2b2395bd7f3c9f7cef22546cf4d43"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/2.mcfunction"
+hash = "b6374851baab3531399dd7f58ee8a48a3ffe57b4b746a9947847b750c6287792"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/3.mcfunction"
+hash = "31d5bd28b0699aa59589df39cf80dd223df004bee175a0327c602c01d5d8bcd1"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/4.mcfunction"
+hash = "c3bc2a6afb143d3943615266e9042a8c32eb7ad4ed61fa17338dbbad124e31f3"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/5.mcfunction"
+hash = "f03b3198df77cec020d2e632d76096c5604230fc73df47d65a8e0354187e2191"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/6.mcfunction"
+hash = "43a6e9d8f7eb807c3e332bad2a34283017dcab56ba20aa4ad6c9c1230916fdd2"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/7.mcfunction"
+hash = "bc8685900e1554bb647684e710f28af9697f8113c295e6c6f90013814c486ddc"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/8.mcfunction"
+hash = "a2022d60fde90f5adb336f7675c4d88fa32e26049d92e11eac433f42ed0fb9cc"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/9.mcfunction"
+hash = "058e3454644584e3fd06b90cd49004f8a377bfee21a290d53ae11675a16d4c28"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/do_tp.mcfunction"
+hash = "074cd1e79a00ce060cf532589b4320d7b2112fbbd1fb61d8eee2c910416fa743"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/load.mcfunction"
+hash = "be901e5f034a38c91284847f59397619e8220eb5fd716ee11f3268af7788fe4f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/new_gate.mcfunction"
+hash = "9f64bc972ae17ed8babe2b5feadacbcd1d0c147cae6f2973a4fc5b735cf6262d"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/teleport.mcfunction"
+hash = "c81b5a76a9cb741e53ad2a27edecf80b709cae49f5f4db03220161e9ec181d77"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/tick.mcfunction"
+hash = "37c46132084502060ba5b977cae8b375fcdb0150fbfc4cc161b5c8d5eec45b17"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/tags/entity_types/gates.json"
+hash = "72d6c54bb97ee09a0df7350ee328e371379a369c3a9f88212f33c8aba90aa7ac"
+
+[[files]]
+file = "config/paxi/datapacks/slb-gates/pack.mcmeta"
+hash = "f1c5e76c2f1af420dcc3d714b363de59779f436530522d949788ebeac42b2890"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/minecraft/tags/functions/load.json"
+hash = "430b32d0f41dafa20705aacb79f824be9e751d0807731b22db92e004433a7917"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/minecraft/tags/functions/tick.json"
+hash = "52588f43c3d06b052b3975ffcd5f5d0f1bf6df83c8daf9ca98d48a277cd08c52"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/grant_key.mcfunction"
+hash = "04852f0cf1e1c140170a0c182ac54515368849f77c29d6caa66ce55df4927e96"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/frost.mcfunction"
+hash = "1c215aa9981f298f2da77f6937bbfe9282d6d8f16008516f4ef93050119ac6f7"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/mage.mcfunction"
+hash = "3f4562238ad0ff155c644153fd29f8a0c07c3b1a162d5ec14a89e278de2c8392"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/shadow.mcfunction"
+hash = "cce75ed76e9748659cca20aa4ee569c0ea79df38137a3939e852ee83ed8695fe"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/keys.mcfunction"
+hash = "08efbb885c96cb75f32260ac46d4611e66f7de1933c3b644bbf8816edca43eda"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
+hash = "db7dabcd9b23605f615147ec55c7720458ef4ed61080fd3a2b60b625441129a3"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
+hash = "f55ff1e1b4f60b2022276d21be6a71a84d8a7ea10d5a9bbfcb7eb2b3b518ebdf"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/any.mcfunction"
+hash = "e5375733a245d79eae562b696a3a2303d56f444288aa6ecd6a7367a3a99c252f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/apply.mcfunction"
+hash = "d607ffb03e9563a76ef31c00c3ee8cec2bfcf5008b3cd01cca98d49581bd0adf"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/not_frost.mcfunction"
+hash = "a7acca979f6c98bca38a9309a3f2ebf6688ee3d1891c00ea960bcc3979b7b5ba"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/not_mage.mcfunction"
+hash = "abd4f38eb9af8a966b96334d2e3d982325f02b8810ee3a5930e31076a5860d79"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/not_shadow.mcfunction"
+hash = "b3c775d31f42b78a5158b3fe96587845e1bc70101a0e7405f917326c8dea7fcb"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/strip_white_flames.mcfunction"
+hash = "e05af06ae2b8dcfe68a7720f8c2d136ce6200fef94c8741cfdda7b5dd1d511eb"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/tick.mcfunction"
+hash = "3af6d2b86a8e805a36f4acb0cdf6bd26cda16f61cac3d52701e5ebe723ba165b"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_half.json"
+hash = "46ade56f716f338c581b41eaac34600eaba014c426331b912bb0d000f6aa59bb"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_third.json"
+hash = "366041f22dfa68fcbfa5bf5c13424f3e6d9e23bd6ba1cdc1944bb8d8895ec972"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/pack.mcmeta"
+hash = "f8e80959640919b7c27f760092a3868ff646d7e4615de940965769d2a418ae5e"
 
 [[files]]
 file = "config/paxi/resourcepack_load_order.json"
@@ -5893,6 +6041,10 @@ metafile = true
 file = "mods/collective.pw.toml"
 hash = "0af4859b1dcf39126ff0e0c4a2e5801a7e775e9aa7e0706bfb49360c4e363d80"
 metafile = true
+
+[[files]]
+file = "mods/colonyspeed-1.1.0.jar"
+hash = "8a20f5444803693cabbff015e93ca511554d9e9aa5fb8ff21983fad95d6c5dac"
 
 [[files]]
 file = "mods/colorwheel.pw.toml"

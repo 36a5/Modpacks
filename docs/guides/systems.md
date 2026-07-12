@@ -45,6 +45,24 @@ their own movesets. **Weapons of Miracles** and **EpicFight: Resurrection** add 
 and skills that plug into this same system — find/craft those weapons and their skills appear in
 the skill editor (`` ` ``).
 
+### 📖 Skill Books — how you learn new skills
+
+**Any mob you kill yourself** has a small chance (~2.5%) to drop a **Skill Book**. That is the
+only way to get one: a mob that dies to fall damage, a Create machine, or another mob drops
+nothing. Kill it with your own hands.
+
+1. **Right-click the book** to learn the skill inside it.
+2. Press `` ` `` to open the **Skill Editor** and slot it.
+
+Two kinds:
+- **Passives** (Berserker, Endurance, Swordmaster…) — always on, once slotted.
+- **Weapon Innate** (Sweeping Edge, The Guillotine, Blade Rush…) — fire with `=`, but **only with
+  a weapon of the right type**. A Guillotine book is useless to you if you never carry an axe.
+
+You **keep your skills when you die**. Swapping a slotted skill has a 5-minute cooldown, so
+choose deliberately. Every skill book in the pack has a JEI entry — search `Skill Book` to browse
+them all.
+
 ---
 
 ## 🌀 Solo Leveling — Gates, levels & jobs
@@ -74,21 +92,61 @@ full of monsters and a boss.
 - **Clear the boss before the timer** to close the Gate and get loot.
 - **Fail and the timer runs out** → a **Dungeon Break** dumps those monsters into the Overworld.
 - Higher rank = stronger monsters, better rewards.
+- A Gate stays open for **4 days** before it closes on its own.
+
+### 🚀 Teleporting to a Gate
+
+When a Gate opens, **everyone** gets a chat line with its coordinates and a **`[ TELEPORT ]`**
+button. Click the button and you are there. No `/tp`, no OP, no walking.
+
+```
+⚡ A GATE HAS OPENED   X 412   Y 71   Z -1180    [ TELEPORT ]
+```
+
+The button works for the **last 9 Gates** announced. Once a tenth opens, the oldest button stops
+working — scroll up and click a newer one, or just go to the newest.
+
+### 💼 Jobs — and how to re-roll them
+
+Reach **level 40** and the System hands you a **Job Change Quest Key**. Use it, clear the quest,
+and you awaken into **one of three jobs, chosen at random**:
+
+| Job | |
+|---|---|
+| **Shadow Monarch** | Raise the dead as shadow soldiers |
+| **Grand Mage** | Raw magic |
+| **Frost Monarch** | Ice |
+
+*(There is a fourth in the mod's code — Monarch of White Flames. It is **sealed on this server**
+and you cannot get it. Don't go looking.)*
+
+**Don't like your roll?** Do the quest again. A second run **re-rolls you**, and it will **never
+give you back the job you already have** — a re-roll always changes something.
+
+**Getting more keys.** The mod only ever gives you one, at level 40. This server gives you
+**another key every 50 levels from level 100 onwards** — at 100, 150, 200, and so on. So keep
+levelling and you keep getting re-rolls.
 
 **How to progress:** open the panel (`;`), spend stat points as you level, pick a job, and slot
-skills. Kill things inside Gates to climb fast — those kills also feed the **weekly Gate-kills
+skills. Kill things inside Gates to climb fast — those kills also feed the **Gate-kills
 leaderboard** (see below).
 
 ---
 
-## 🏆 Weekly Gate-kills leaderboard
+## 🏆 Leaderboards
 
-Every monster you kill **inside a Solo Leveling Gate dimension** is counted. The board **resets
-every Sunday**.
+Both boards are **all-time**. Nothing resets — your numbers only ever go up — and the bot
+re-renders them **once a day**.
 
-- **In Discord:** type `!gates` for the current week's ranking.
-- **Under the hood:** a datapack tracks a `pk_total` scoreboard; the bot reads it over RCON and
-  ranks players by kills gained since Sunday. Admins can hard-reset with `/function gate_kills:reset`.
+| Board | Discord command | What it counts |
+|---|---|---|
+| **Gate kills** | `!gates` | Every monster you kill **inside a Gate dimension** |
+| **Everything else** | `!leaderboard` | Blocks mined/placed, monsters killed, players killed, time played, deaths |
+
+`!board` refreshes the standing leaderboard message on demand.
+
+The numbers come from the server's own statistics file, not from chat, so nobody can fake them.
+Deaths are flushed when you log out, so a death you took a minute ago may not show until then.
 
 ---
 
@@ -98,9 +156,15 @@ No keybind — it's block-and-GUI based.
 
 1. Craft a **Supply Camp** (or Supply Ship) and place it per the preview.
 2. That gives you a **Town Hall** and a **Builder's Hut**.
-3. Place the Builder's Hut, hire a builder, then use the **Build Tool** to place more huts
-   (farmer, miner, guard, etc.). Builders construct them from your resources over time.
+3. Place the Builder's Hut, hire a builder, then place more huts (farmer, miner, guard, etc.).
+   Builders construct them from your resources over time.
 4. Manage citizens, jobs and requests from the Town Hall GUI.
+
+Every building in MineColonies is a **schematic** that a Builder NPC reads and lays brick by
+brick — that is the whole mod. Picking a style, placing roads and decorations with the **Build
+Tool**, and scanning your own creations into new schematics with the **Scan Tool**:
+
+**→ [MineColonies — schematics, styles & the Build Tool](minecolonies-schematics.md)**
 
 Great for a co-op base — split roles across players.
 
