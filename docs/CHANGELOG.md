@@ -2,6 +2,78 @@
 
 ## [Unreleased]
 
+### Shabab 2: Gate teleport buttons, rolled jobs, and an all-time leaderboard
+
+- **`colonyspeed` 1.1.0 — a worker's inventory now grows with his hut level.** The speed half of this
+  mod saturates early (the per-block delay bottoms out at the 1-tick floor by hut level 3–4), so
+  upgrading a Builder past that bought nothing. The reason a Builder *feels* the same at level 5 is
+  that he isn't placing-speed bound, he is **walking bound**: `AbstractEntityAIStructure` sends him
+  home to dump the moment `InventoryCitizen.hasSpace()` goes false, and stock citizen inventory is a
+  flat **27 slots** — set by research alone, with no config anywhere and no reference to the hut level.
+
+  New `InventoryCitizenMixin` scales it: **27 / 36 / 54 / 63 / 81** slots for hut levels 1–5.
+
+  **81 is a hard ceiling and `maxSlots` is range-limited to it.** `WindowCitizenInventory` sizes
+  itself as `114 + min(9, rows) * 18` and does not scroll, so slots past the ninth row would render on
+  top of the player's own inventory. It is not a real limit in practice: slots hold *stacks*, so 81
+  slots is 81 distinct block types at 64 each, and no MineColonies blueprint asks for anywhere near
+  that many. A level 5 Builder effectively stops going home for materials.
+
+  Injected at `InventoryCitizen.write`, the one place the mod recomputes its own size
+  (`resizeInventory(size, 27 + researchEffect)`), so the new size lands on the next citizen save —
+  the same latency MineColonies' own research bonus has. The scaler only ever grows the inventory,
+  never shrinks it, so a downgraded or destroyed hut cannot drop items out of slots that vanish.
+
+- **Click a Gate open notification to teleport to it.** Solo Leveling announced a new Gate as flat
+  text — you read the coordinates and walked. New **`slb-gates`** datapack replaces that line with
+  one carrying the same coordinates plus a **`[ TELEPORT ]`** button, and turns the mod's own
+  message off (`soloGateNotification false`) so there is only one line per Gate.
+
+  The button runs **`/trigger`**, not `/tp`: only two players are OP and `/tp` needs level 2, so a
+  `/tp` button would have worked for nobody. The datapack does the teleport on the player's behalf.
+  Gates take slot numbers 1–9, recycled — the tenth Gate takes slot 1 back and the oldest button
+  goes dead rather than sending someone to the wrong place.
+
+- **The Job Change Quest now rolls a random job, and can be re-rolled.** Vanilla Solo Leveling
+  always ended the quest in **Shadow Monarch**, and handed out exactly one Job Change Quest Key per
+  player per life (at level 40). New **`slb-jobs`** datapack:
+
+  - finishing the quest awards a random job — **Shadow Monarch / Grand Mage / Frost Monarch**
+  - finishing it again **re-rolls**, and never returns the job you walked in with, so a re-roll
+    always changes something
+  - a **bonus Job Key at level 100, 150, 200, …**, on top of the mod's own level-40 key. Anyone
+    already past 100 is paid retroactively.
+  - **Monarch of White Flames is sealed.** It was never obtainable in-game anyway — nothing but
+    `/slr <player> job MonarchOfWhiteFlames` writes `JOB=4` — but the datapack also strips it from
+    anyone holding it.
+
+  This needs **`function-permission-level=4`** (now `[enforce]`d in `server.properties.template`).
+  The datapack awards jobs through the mod's own `/slr`, which is permission level 3; at the
+  default of 2 those commands fail **silently** and every quest quietly ends in Shadow Monarch
+  again.
+
+- **Fixed the Gate-kills counter double-crediting whenever two players were online.** `gate_kills`
+  snapshotted with `scoreboard players operation @a pk_prev = @a pk_kills`, which reads as if it
+  pairs each player with themselves. It does not: the command applies every target against every
+  source in a **nested loop**, so everyone's `pk_prev` ended up holding whichever player was
+  iterated last. Anyone above that player was then credited the difference *again on every tick*
+  they stood in a Gate. Now snapshotted per player. **Existing `pk_total` values are inflated — run
+  `/function gate_kills:reset` once.**
+
+- **The leaderboards are all-time and refresh daily.** Both boards ranked by what a player gained
+  since a Sunday snapshot, and wiped themselves every week. They now show **lifetime totals**, the
+  bot re-renders them **once a day**, and nothing resets — the standing message is edited in place
+  and simply climbs. The weekly baseline is gone from `.state.json`.
+
+- **`reset-player-deaths.ps1` → `set-player-deaths.ps1`**, which takes a count:
+  `.\set-player-deaths.ps1 Abdulrhman-S 5`. It no longer has to zero a leaderboard baseline,
+  because there is no baseline any more.
+
+- **New docs:** [admin-commands.md](admin-commands.md) (Epic Fight skill-book `/give` commands and
+  drop rates, the full `/slr` tree, the Gate and job datapacks) and
+  [guides/minecolonies-schematics.md](guides/minecolonies-schematics.md) (styles, the Build Tool,
+  the Scan Tool, substitution blocks, custom structure packs).
+
 ### Shabab 2: parties that actually work, shared XP, and Epic Fight on the keyboard
 
 - **Fixed FTB Teams on the offline-mode server.** The team screen showed *"Team data has not been

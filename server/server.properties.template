@@ -35,6 +35,13 @@ max-players=20
 # only safe here because Shabab 2 starts on a brand-new world.
 online-mode=false
 
+# The slb-jobs datapack awards jobs by running the Solo Leveling mod's own `/slr` command,
+# which the mod gates at permission level 3. Datapack functions run at level 2 by default,
+# so /slr would fail — and fail *silently*, leaving every Job Change Quest ending in
+# Shadow Monarch as if the datapack were not there. Enforced rather than warned for that
+# reason: a wrong value here breaks a feature without breaking anything visible.
+function-permission-level=4
+
 [warn]
 # The join-code gate replaces the vanilla whitelist. See the Discord bot's gatekeeper.
 white-list=false
