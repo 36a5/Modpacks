@@ -38,6 +38,7 @@ public class ColonySpeed {
         public static final ForgeConfigSpec.BooleanValue SCALE_PLACING;
         public static final ForgeConfigSpec.BooleanValue SCALE_INVENTORY;
         public static final ForgeConfigSpec.IntValue MAX_SLOTS;
+        public static final ForgeConfigSpec.IntValue OVERRIDE_DELAY_TICKS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -69,6 +70,22 @@ public class ColonySpeed {
                     .comment("Scale how fast the worker places blocks from a blueprint.",
                             "Applies to the workers that build structures: Builder, Miner and Quarrier.")
                     .define("scalePlacing", true);
+
+            OVERRIDE_DELAY_TICKS = b
+                    .comment("Admin escape hatch. -1 = off (normal hut-level scaling).",
+                            "Set to a number and every worker's per-block delay is forced to it, ignoring",
+                            "the hut level completely. It can only ever make a worker faster, never slower.",
+                            "",
+                            "Why this exists: the scaling above leaves a level 1 hut at stock speed, because",
+                            "the divisor is speedPerLevel^0 = 1. That is right as a rule, and useless in the",
+                            "one case where you actually want speed - a fresh colony, or rebuilding a hut you",
+                            "destroyed, where every hut IS level 1 and there is nothing to scale off.",
+                            "",
+                            "MineColonies has no instant build and no command to set a building's level, so",
+                            "this is the only way to skip the wait. 0 = the Builder puts an entire blueprint",
+                            "down in a single tick: no animation, and a big chunk-update spike, so set it back",
+                            "to -1 when you are done. 1 is 20 blocks a second and still looks like building.")
+                    .defineInRange("overrideDelayTicks", -1, -1, 100);
 
             b.pop();
 

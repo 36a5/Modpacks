@@ -15,3 +15,6 @@ server/world-backup-*/
 
 # scratch space for tools/ (scanned mod jars, generated CSVs)
 .cache/
+
+# preserved MineColonies colony backups (large zips, machine-local safety copies)
+server/colony-backups-safe/
