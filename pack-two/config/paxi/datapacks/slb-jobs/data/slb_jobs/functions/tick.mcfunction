@@ -13,8 +13,11 @@ execute as @a if score @s sl_jct matches 1.. if score @s sl_jct_prev matches 0 r
 # Overwrite that with the roll.
 execute as @a if score @s sl_jct matches 0 if score @s sl_jct_prev matches 1.. run function slb_jobs:roll
 
-# Monarch of White Flames is not available on this server, however it was come by.
-execute as @a if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
+# Monarch of White Flames is not available on this server, however it was come by - except to
+# the players on this allowlist, who keep it. The tag is re-applied every tick rather than set
+# once, so it survives a player NBT wipe and needs no manual /tag after a reset.
+execute as @a[name=Abdulrhman-S] run tag @s add slb_wf_ok
+execute as @a[tag=!slb_wf_ok] if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
 
 # Bonus Job Change Quest Keys.
 execute as @a run function slb_jobs:keys

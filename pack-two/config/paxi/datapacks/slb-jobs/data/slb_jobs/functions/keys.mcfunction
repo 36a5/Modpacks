@@ -1,3 +1,10 @@
+# Seed sl_keys. A player who has never been given a bonus key has *no score* on this
+# objective, and `if score @s sl_tier > @s sl_keys` is false when either side is unset - not
+# "greater than nothing", just false. Without this line the grant below never fires for
+# anybody, which is exactly what happened: a level 166 player sat at tier 2 with sl_keys
+# unset and was handed nothing.
+execute unless score @s sl_keys matches -2147483648..2147483647 run scoreboard players set @s sl_keys 0
+
 # One bonus Job Change Quest Key per 50 levels, starting at 100: 100, 150, 200, ...
 #
 #   tier = (level - 50) / 50, floored, never below zero

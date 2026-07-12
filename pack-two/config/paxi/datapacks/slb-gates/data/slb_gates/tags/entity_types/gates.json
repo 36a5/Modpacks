@@ -1,9 +1,17 @@
 {
   "replace": false,
+  "__comment": [
+    "Exactly the entities whose spawn code calls PortalSpawnProcedure - i.e. the ones the mod",
+    "itself considers a Gate appearing in the world - minus portal_job_change, which is personal",
+    "to the player who used a Job Key and is nobody else's business.",
+    "",
+    "portal_12 is NOT here on purpose: it is the 'Dungeon Exit Portal' that stands inside a Gate",
+    "dungeon. It never calls PortalSpawnProcedure. Including it announced a brand new Gate, with a",
+    "teleport button, every time anyone walked into a dungeon."
+  ],
   "values": [
     "sololeveling:portal",
     "sololeveling:portal_1",
-    "sololeveling:portal_12",
     "sololeveling:portal_s",
     "sololeveling:portal_lab",
     "sololeveling:portal_lush",

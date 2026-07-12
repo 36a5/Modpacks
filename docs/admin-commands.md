@@ -83,9 +83,19 @@ is a real entity selector, so `@s`, `@p` and `@a` all work.
 /slr <player> Debug <Dimension|ClearedGates|CurrentGatesStatus>
 ```
 
-> **`job MonarchOfWhiteFlames` does not stick.** The `slb-jobs` datapack watches for it and
-> re-rolls the player into one of the three allowed jobs within a tick. That is deliberate —
-> see below. If you genuinely want to hand it out, disable the datapack first.
+> **`job MonarchOfWhiteFlames` does not stick — unless the player is on the allowlist.** The
+> `slb-jobs` datapack re-rolls anyone holding JOB=4 into one of the three allowed jobs within a
+> tick. The exception is the allowlist in `slb_jobs:tick`, which currently holds **Abdulrhman-S**:
+>
+> ```mcfunction
+> execute as @a[name=Abdulrhman-S] run tag @s add slb_wf_ok
+> execute as @a[tag=!slb_wf_ok] if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
+> ```
+>
+> To let someone else keep it, add a second `name=` line. To take it back, remove theirs — the
+> strip fires on the next tick. Note that the Job Change Quest still never *awards* White Flames to
+> anyone, allowlisted or not: an allowlisted player has to be given it with `/slr`, and if they run
+> the quest again they will be re-rolled off it like everyone else.
 
 ### The job rules on this server (`slb-jobs` datapack)
 
@@ -122,9 +132,35 @@ Useful gamerules:
 
 ## Gates — the teleport button (`slb-gates` datapack)
 
-When a Gate opens, everyone gets a chat line with its coordinates and a `[ TELEPORT ]` button.
-Clicking it runs `/trigger slb_gate set <n>` — **not** `/tp`, because only two players are OP
-and `/tp` needs level 2. The datapack does the teleport on the player's behalf.
+When a Gate opens, everyone gets **one line** with the Gate's name, its coordinates and a `[TP]`
+button. Clicking it runs `/trigger slb_gate set <n>` — **not** `/tp`, because only two players are
+OP and `/tp` needs level 2. The datapack does the teleport on the player's behalf.
+
+```
+⚡ Gate - Ant Nest   X -31901 Y 76 Z 4571   [TP]
+```
+
+The Gate's name is its own — the announce function runs *as the Gate entity*, so `{"selector":"@s"}`
+prints whatever the mod calls it, and that is how Solo Leveling distinguishes what is inside:
+
+| Entity | Name shown |
+|---|---|
+| `portal` | D Rank Gate |
+| `portal_1` | Gate (random dungeon) |
+| `portal_s` | Gate (Kamish — S rank) |
+| `portal_sewers` | Gate - Goblin Sewers |
+| `portal_beru` | Gate - Ant Nest |
+| `portal_lush` | Gate - Lush Cave |
+| `portal_lab` | Gate - Abandoned Lab |
+| `portal_ancient_golem` | Gate - Ancient Golem Cave |
+| `portal_kargalgans_throne_room` | Gate - Throne Room |
+| `random_cave_large` | Gate - Giant Spider |
+| `red_gate` | Gate (Red Gate) |
+
+`portal_job_change` is excluded — it is personal to whoever used a Job Key. **`portal_12` is
+excluded too**: it is the *Dungeon Exit Portal* that stands inside a dungeon, not a Gate that
+appears in the world. The entity-type tag is otherwise exactly the set of entities whose spawn code
+calls `PortalSpawnProcedure`.
 
 Gates are given slot numbers 1–9, recycled. A tenth Gate takes slot 1 back, and the oldest
 Gate's button stops working rather than sending someone to the wrong place.
