@@ -3,7 +3,9 @@
   "package": "dev.alshabab.shababparty.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "mixins": [],
+  "mixins": [
+    "TamableAnimalMixin"
+  ],
   "client": [
     "ClientTeamManagerImplMixin"
   ],
