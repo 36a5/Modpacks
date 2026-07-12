@@ -204,12 +204,19 @@ function Install-Forge([string]$Root) {
     $installer = "$env:TEMP\forge-$McVersion-$ForgeVersion-installer.jar"
     Invoke-WebRequest "https://maven.minecraftforge.net/net/minecraftforge/forge/$McVersion-$ForgeVersion/forge-$McVersion-$ForgeVersion-installer.jar" -OutFile $installer
 
-    & $Java -jar $installer --installClient $Root | Out-Null
+    # Forge writes installer.log into the working directory, so run it from $Root.
+    # Launched as administrator, the inherited directory is C:\Windows\System32 and
+    # the installer dies with "installer.log (Access is denied)".
+    Push-Location $Root
+    try {
+        & $Java -jar $installer --installClient $Root | Out-Null
+    } finally { Pop-Location }
+
     if (-not (Test-Path (Join-Path $Root "versions\$ForgeId"))) {
         Bad "Forge installation failed. Send this window to the server admin."
         exit 1
     }
-    Remove-Item $installer, "$installer.log" -ErrorAction SilentlyContinue
+    Remove-Item $installer, (Join-Path $Root "installer.log") -ErrorAction SilentlyContinue
     Good "Forge installed"
 }
 
