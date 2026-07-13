@@ -7,7 +7,7 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
-VERSION=1.1.0
+VERSION=1.2.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"
@@ -25,13 +25,18 @@ LOG4J_JAR="$LIB/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar"
 # ForgeConfigSpec extends a night-config type, so it is needed just to resolve the class hierarchy.
 NIGHTCONFIG_JAR="$LIB/com/electronwill/night-config/core/3.6.4/core-3.6.4.jar"
 MIXIN_JAR="$LIB/org/spongepowered/mixin/0.8.5/mixin-0.8.5.jar"
+# Component extends com.mojang.brigadier.Message, so brigadier must resolve for any chat code.
+BRIGADIER_JAR="$LIB/com/mojang/brigadier/1.1.8/brigadier-1.1.8.jar"
 AUTHLIB_JAR="$LIB/com/mojang/authlib/4.0.43/authlib-4.0.43.jar"
 FTBTEAMS_JAR="$(ls "$MODS"/ftb-teams-forge-*.jar 2>/dev/null | head -1)"
 FTBLIB_JAR="$(ls "$MODS"/ftb-library-forge-*.jar 2>/dev/null | head -1)"
 SOLO_JAR="$(ls "$MODS"/sololeveling-*.jar 2>/dev/null | head -1)"
+# Solo Leveling's AfterImageEntity implements GeckoLib's GeoEntity, so javac has to be able to
+# resolve that interface before it can load the entity class at all.
+GECKOLIB_JAR="$(ls "$MODS"/geckolib-forge-*.jar 2>/dev/null | head -1)"
 
 DEPS=("$MC_SRG" "$FORGE_JAR" "$FMLCORE_JAR" "$JAVAFML_JAR" "$EVENTBUS_JAR" "$LOG4J_JAR" \
-      "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR")
+      "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" "$GECKOLIB_JAR" "$BRIGADIER_JAR")
 for j in "${DEPS[@]}"; do
     [ -f "$j" ] || { echo "missing compile dependency: $j" >&2; exit 1; }
 done
