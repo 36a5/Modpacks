@@ -96,14 +96,18 @@ public class ShababParty {
             ULTRA_INSTINCT_DURATION_TICKS = b
                     .comment("How long the counter stance lasts, in ticks. 20 ticks = 1 second.",
                             "While it is up, every attacker is answered: the player leaves an after-image,",
-                            "appears behind whoever swung, and hits them with his held weapon.")
-                    .defineInRange("durationTicks", 200, 20, 6000);
+                            "appears behind whoever swung, and hits them with his held weapon.",
+                            "Default 600 = 30 seconds.")
+                    .defineInRange("durationTicks", 600, 20, 6000);
 
             ULTRA_INSTINCT_COOLDOWN_TICKS = b
                     .comment("Cooldown after the stance ends, in ticks. Measured from the end, not the start.",
-                            "The mod's own stub had no cooldown at all, because it did nothing - so this whole",
-                            "cost exists only here, and it is the only thing stopping the ability being free.")
-                    .defineInRange("cooldownTicks", 1200, 0, 24000);
+                            "0 = no cooldown, which is the default here: V can be pressed again the moment the",
+                            "stance drops, so with dodgeIncomingDamage on this is effectively permanent",
+                            "invulnerability for anyone willing to keep pressing it. That is deliberate, but it",
+                            "is the knob to turn first if the ability turns out to trivialise fights - either",
+                            "raise this, or set dodgeIncomingDamage false to keep the counter without the dodge.")
+                    .defineInRange("cooldownTicks", 0, 0, 24000);
 
             ULTRA_INSTINCT_DODGES = b
                     .comment("Whether the incoming hit is cancelled outright (a true dodge) or still lands.",
