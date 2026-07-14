@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.LevelResource;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.io.File;
 import java.util.List;
@@ -286,8 +287,27 @@ public final class StatsCommand {
 
     private static void setSum(final MinecraftServer server, final String name, final ServerStatsCounter counter,
                                final String field, final int target) throws CommandSyntaxException {
-        throw new SimpleCommandExceptionType(
-                Component.m_237113_(field + " is not settable yet.")).create();
+        final boolean mined = field.equals("blocks_mined");
+
+        // f_12949_ = Stats.BLOCK_MINED, f_12982_ = Stats.ITEM_USED, m_12902_ = StatType.get.
+        // ForgeRegistries is Forge's own class, so it keeps its readable name.
+        final Stat<?> sink = mined
+                ? Stats.f_12949_.m_12902_(ForgeRegistries.BLOCKS.getValue(MINED_SINK))
+                : Stats.f_12982_.m_12902_(ForgeRegistries.ITEMS.getValue(PLACED_SINK));
+
+        final int sum = mined ? sumMined(counter) : sumPlaced(counter);
+        final int sinkValue = counter.m_13015_(sink);            // getValue
+        final int floor = sum - sinkValue;
+
+        if (target < floor) {
+            final ResourceLocation id = mined ? MINED_SINK : PLACED_SINK;
+            throw new SimpleCommandExceptionType(Component.m_237113_(String.format(
+                    "%s cannot go below %,d without wiping other block entries (%s holds only %,d of the %,d total).",
+                    field, floor, id, sinkValue, sum))).create();
+        }
+
+        // newSink = sinkValue + (target - sum) >= 0 exactly when target >= floor, which we just checked.
+        counter.m_6085_(onlineOrNull(server, name), sink, sinkValue + (target - sum));
     }
 
     /**
