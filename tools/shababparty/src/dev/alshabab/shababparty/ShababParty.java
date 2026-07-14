@@ -1,5 +1,8 @@
 package dev.alshabab.shababparty;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +39,13 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue ULTRA_INSTINCT_DODGES;
         public static final ForgeConfigSpec.DoubleValue ULTRA_INSTINCT_BEHIND_DISTANCE;
         public static final ForgeConfigSpec.IntValue AFTER_IMAGE_LIFETIME_TICKS;
+
+        public static final ForgeConfigSpec.BooleanValue BOSS_SCALING_ENABLED;
+        public static final ForgeConfigSpec.DoubleValue BOSS_HEALTH_MULTIPLIER;
+        public static final ForgeConfigSpec.DoubleValue BOSS_DAMAGE_MULTIPLIER;
+        public static final ForgeConfigSpec.DoubleValue DRAGON_HEALTH_MULTIPLIER;
+        public static final ForgeConfigSpec.DoubleValue DRAGON_DAMAGE_MULTIPLIER;
+        public static final ForgeConfigSpec.ConfigValue<List<? extends String>> BOSS_SCALING_EXCLUSIONS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -148,6 +158,50 @@ public class ShababParty {
                             "many ticks have passed - including ones already leaked into a world by the old bug,",
                             "which die as soon as their chunk loads. Raise it only to make the after-image linger.")
                     .defineInRange("afterImageLifetimeTicks", 40, 10, 200);
+            b.pop();
+
+            b.push("bossScaling");
+            BOSS_SCALING_ENABLED = b
+                    .comment("Scale up every boss in the shababparty:scaled_bosses tag.",
+                            "",
+                            "Solo Leveling players out-level the rest of the pack badly enough that its bosses die",
+                            "in seconds. This gives them back some weight. Solo Leveling's own bosses keep their",
+                            "own numbers - they are not in the tag, and the exclusions below guard them anyway.")
+                    .define("enabled", true);
+
+            BOSS_HEALTH_MULTIPLIER = b
+                    .comment("Max health multiplier for every boss in the tag except the Ender Dragon.",
+                            "Applied once per boss as a permanent attribute modifier, never re-applied.")
+                    .defineInRange("healthMultiplier", 30.0D, 1.0D, 1000.0D);
+
+            BOSS_DAMAGE_MULTIPLIER = b
+                    .comment("Multiplier on all damage those bosses deal.",
+                            "",
+                            "Applied to the damage itself rather than to the ATTACK_DAMAGE attribute, because most",
+                            "boss damage never touches that attribute - Cataclysm's bosses do their real damage with",
+                            "projectiles and area attacks that carry their own numbers, and the Ender Dragon does not",
+                            "read ATTACK_DAMAGE at all. Scaling the attribute would look like it worked and change",
+                            "almost nothing.")
+                    .defineInRange("damageMultiplier", 5.0D, 1.0D, 100.0D);
+
+            DRAGON_HEALTH_MULTIPLIER = b
+                    .comment("The Ender Dragon gets its own numbers. Vanilla is 200 HP, so 100 = 20000.")
+                    .defineInRange("enderDragonHealthMultiplier", 100.0D, 1.0D, 1000.0D);
+
+            DRAGON_DAMAGE_MULTIPLIER = b
+                    .comment("Multiplier on all damage the Ender Dragon deals.")
+                    .defineInRange("enderDragonDamageMultiplier", 10.0D, 1.0D, 100.0D);
+
+            BOSS_SCALING_EXCLUSIONS = b
+                    .comment("Never scaled, whatever the tag says. A bare namespace excludes all of its entities.",
+                            "",
+                            "  sololeveling         - its bosses are balanced against the levelling system already",
+                            "  twilightforest:naga  - Twilight Forest's tutorial boss, 120 HP, meant for iron armour.",
+                            "  twilightforest:lich  - It and the Naga gate the entire Twilight Forest ladder; at 30x",
+                            "                         they would wall off a dimension instead of making it harder.")
+                    .defineList("exclusions",
+                            Arrays.asList("sololeveling", "twilightforest:naga", "twilightforest:lich"),
+                            o -> o instanceof String);
             b.pop();
 
             SPEC = b.build();
