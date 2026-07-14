@@ -30,6 +30,7 @@ public class ShababParty {
 
         public static final ForgeConfigSpec.ConfigValue<String> WHITE_FLAMES_ABILITY_4;
         public static final ForgeConfigSpec.ConfigValue<String> GRAND_MAGE_ABILITY_4;
+        public static final ForgeConfigSpec.BooleanValue WHITE_FLAMES_ABILITY_3_COOLDOWN;
         public static final ForgeConfigSpec.IntValue ULTRA_INSTINCT_DURATION_TICKS;
         public static final ForgeConfigSpec.IntValue ULTRA_INSTINCT_COOLDOWN_TICKS;
         public static final ForgeConfigSpec.BooleanValue ULTRA_INSTINCT_DODGES;
@@ -91,6 +92,18 @@ public class ShababParty {
             GRAND_MAGE_ABILITY_4 = b
                     .comment("The V key (ability 4) for Grand Mage. Same list of values as above.")
                     .defineInList("grandMageAbility4", "fire_tornado", Ability4.NAMES);
+
+            WHITE_FLAMES_ABILITY_3_COOLDOWN = b
+                    .comment("Whether Monarch of White Flames' C ability (Storm Burst) puts a cooldown up.",
+                            "",
+                            "Solo Leveling gives every job's C ability a 10-second cooldown. It is not a timer:",
+                            "the ability applies a job_cooldown_3 mob effect to the caster for 200 ticks, and its",
+                            "own branch refuses to fire while that effect is present.",
+                            "",
+                            "False stops that effect from ever landing on a Monarch of White Flames, so C can be",
+                            "pressed as fast as the player likes. The other three jobs share the same effect for",
+                            "their own C ability and are untouched.")
+                    .define("whiteFlamesAbility3Cooldown", false);
             b.pop();
 
             b.push("ultraInstinct");
