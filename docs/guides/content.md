@@ -96,6 +96,11 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 >
 > These are not solo fights any more, and they are not short ones. Bring a party (`P`), bring
 > potions, and expect to die.
+>
+> **The loot is worth it now.** A scaled boss drops **5× the materials**, **20× the XP**, and any
+> weapon or armour it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the
+> Hydra lands as **Power VIII**. Boss gear beats anything you can build at a table. That is the
+> trade.
 
 ### L_Ender's Cataclysm — the big one
 Eight bosses, each in its own hand-built arena, each dropping a weapon that's worth the fight.

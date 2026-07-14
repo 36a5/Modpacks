@@ -125,8 +125,14 @@ public final class BossScaling {
         event.setAmount((float) (event.getAmount() * multiplier));
     }
 
-    /** In the tag, and not excluded. */
-    private static boolean isScaled(final LivingEntity entity) {
+    /**
+     * In the tag, and not excluded.
+     *
+     * Public because {@link BossLoot} keys off the same answer: a boss whose health and damage we
+     * left alone - the Naga, the Lich, anything of Solo Leveling's - keeps its vanilla loot too. One
+     * definition of "a boss we touched", so the two features cannot drift apart.
+     */
+    public static boolean isScaled(final LivingEntity entity) {
         return (entity.m_6095_().m_204039_(SCALED_BOSSES) || isEnderDragon(entity))
                 && !isExcluded(entity);
     }
