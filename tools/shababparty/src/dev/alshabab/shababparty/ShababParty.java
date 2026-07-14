@@ -171,8 +171,13 @@ public class ShababParty {
 
             BOSS_HEALTH_MULTIPLIER = b
                     .comment("Max health multiplier for every boss in the tag except the Ender Dragon.",
-                            "Applied once per boss as a permanent attribute modifier, never re-applied.")
-                    .defineInRange("healthMultiplier", 30.0D, 1.0D, 1000.0D);
+                            "Applied once per boss as a permanent attribute modifier, never re-applied.",
+                            "",
+                            "NOTE: vanilla hard-caps generic.max_health at 1024 and silently clamps anything above",
+                            "it - which is why the first attempt at this did nothing and a 360 HP Hydra came out at",
+                            "exactly 1024. AttributeFix is in the pack to raise that ceiling to 1,000,000. Remove",
+                            "AttributeFix and every boss here collapses back to 1024 no matter what this says.")
+                    .defineInRange("healthMultiplier", 150.0D, 1.0D, 2000.0D);
 
             BOSS_DAMAGE_MULTIPLIER = b
                     .comment("Multiplier on all damage those bosses deal.",
@@ -181,16 +186,19 @@ public class ShababParty {
                             "boss damage never touches that attribute - Cataclysm's bosses do their real damage with",
                             "projectiles and area attacks that carry their own numbers, and the Ender Dragon does not",
                             "read ATTACK_DAMAGE at all. Scaling the attribute would look like it worked and change",
-                            "almost nothing.")
-                    .defineInRange("damageMultiplier", 5.0D, 1.0D, 100.0D);
+                            "almost nothing.",
+                            "",
+                            "Unlike health, this has no vanilla ceiling - it is applied to the damage number itself,",
+                            "not to an attribute - so what is set here is what lands.")
+                    .defineInRange("damageMultiplier", 100.0D, 1.0D, 1000.0D);
 
             DRAGON_HEALTH_MULTIPLIER = b
-                    .comment("The Ender Dragon gets its own numbers. Vanilla is 200 HP, so 100 = 20000.")
-                    .defineInRange("enderDragonHealthMultiplier", 100.0D, 1.0D, 1000.0D);
+                    .comment("The Ender Dragon gets its own numbers. Vanilla is 200 HP, so 500 = 100000.")
+                    .defineInRange("enderDragonHealthMultiplier", 500.0D, 1.0D, 5000.0D);
 
             DRAGON_DAMAGE_MULTIPLIER = b
                     .comment("Multiplier on all damage the Ender Dragon deals.")
-                    .defineInRange("enderDragonDamageMultiplier", 10.0D, 1.0D, 100.0D);
+                    .defineInRange("enderDragonDamageMultiplier", 200.0D, 1.0D, 1000.0D);
 
             BOSS_SCALING_EXCLUSIONS = b
                     .comment("Never scaled, whatever the tag says. A bare namespace excludes all of its entities.",

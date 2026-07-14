@@ -1,5 +1,11 @@
 # Performance — what was actually wrong, and what is left
 
+> **Unrelated but worth knowing, because it cost a release:** vanilla hard-caps
+> `generic.max_health` at **1024** and silently clamps anything above it. The first boss-scaling
+> release multiplied a 360 HP Hydra by 30 and produced a 1024 HP Hydra. Nothing logged; the number
+> just came out wrong. **AttributeFix** is in the pack to raise that ceiling to 1,000,000. If it is
+> ever removed, every boss collapses back to 1024 no matter what the multipliers say.
+
 Players on 16 GB machines with 8 GB allocated were playing fine, degrading over a session, then
 being kicked with an "allocate more memory" message. Relaunching without changing anything worked,
 and then it happened again.
