@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:bosses",
+    "#blue_skies:bosses",
+
+    "minecraft:wither",
+    "minecraft:warden",
+    "minecraft:elder_guardian",
+
+    "mowziesmobs:ferrous_wroughtnaut",
+    "mowziesmobs:frostmaw",
+    "mowziesmobs:umvuthi",
+    "mowziesmobs:sculptor",
+
+    "mutantmonsters:mutant_zombie",
+    "mutantmonsters:mutant_skeleton",
+    "mutantmonsters:mutant_creeper",
+    "mutantmonsters:mutant_enderman",
+
+    "deeperdarker:stalker",
+    "conjurer_illager:conjurer",
+    "illagerinvasion:invoker",
+
+    "born_in_chaos_v1:sir_pumpkinhead",
+    "born_in_chaos_v1:lord_pumpkinhead",
+    "born_in_chaos_v1:fallen_chaos_knight",
+    "born_in_chaos_v1:nightmare_stalker",
+    "born_in_chaos_v1:lifestealer",
+    "born_in_chaos_v1:supreme_bonescaller"
+  ]
+}
