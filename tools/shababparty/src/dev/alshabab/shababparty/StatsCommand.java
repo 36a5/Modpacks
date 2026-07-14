@@ -1,6 +1,7 @@
 package dev.alshabab.shababparty;
 
 import com.mojang.authlib.GameProfile;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -79,7 +80,21 @@ public final class StatsCommand {
                                 .then(Commands.m_82129_("player", StringArgumentType.word())
                                         .then(Commands.m_82129_("field", StringArgumentType.word())
                                                 .suggests(StatsCommand::suggestFields)
-                                                .executes(StatsCommand::get)))));
+                                                .executes(StatsCommand::get))))
+                        .then(Commands.m_82127_("set")
+                                .then(Commands.m_82129_("player", StringArgumentType.word())
+                                        .then(Commands.m_82129_("field", StringArgumentType.word())
+                                                .suggests(StatsCommand::suggestFields)
+                                                // set refuses a negative outright: no stat can be < 0.
+                                                .then(Commands.m_82129_("value", IntegerArgumentType.integer(0))
+                                                        .executes(ctx -> apply(ctx, false))))))
+                        .then(Commands.m_82127_("add")
+                                .then(Commands.m_82129_("player", StringArgumentType.word())
+                                        .then(Commands.m_82129_("field", StringArgumentType.word())
+                                                .suggests(StatsCommand::suggestFields)
+                                                // add takes any int - a negative amount is how you subtract.
+                                                .then(Commands.m_82129_("amount", IntegerArgumentType.integer())
+                                                        .executes(ctx -> apply(ctx, true)))))));
     }
 
     // Pure Brigadier - no Minecraft symbol, so nothing to remap.
@@ -213,6 +228,79 @@ public final class StatsCommand {
             case "blocks_mined":  return sumMined(counter);
             case "blocks_placed": return sumPlaced(counter);
             default: throw new IllegalArgumentException(field); // field() already rejected these
+        }
+    }
+
+    private static final SimpleCommandExceptionType NEGATIVE =
+            new SimpleCommandExceptionType(Component.m_237113_("That would take the value below 0."));
+
+    /** Shared by set and add. `relative` is true for add, where the argument is a delta. */
+    private static int apply(final CommandContext<CommandSourceStack> ctx, final boolean relative)
+            throws CommandSyntaxException {
+        final CommandSourceStack src = ctx.getSource();
+        final MinecraftServer server = src.m_81377_();
+        final String name = StringArgumentType.getString(ctx, "player");
+        final String field = field(ctx);
+
+        final ServerStatsCounter counter = counterFor(server, name);
+        final int before = read(counter, field);
+        final int argument = IntegerArgumentType.getInteger(ctx, relative ? "amount" : "value");
+        final int target = relative ? before + argument : argument;
+
+        if (target < 0) {
+            throw NEGATIVE.create();
+        }
+
+        write(server, name, counter, field, target);
+        flush(server, name, counter);
+
+        final int after = read(counter, field);
+        src.m_288197_(() -> Component.m_237113_(
+                name + " " + field + ": " + before + " -> " + after + suffix(field, after)), true);
+        return after;
+    }
+
+    /** Sets `field` to exactly `target`. */
+    private static void write(final MinecraftServer server, final String name, final ServerStatsCounter counter,
+                              final String field, final int target) throws CommandSyntaxException {
+        switch (field) {
+            case "deaths":        setCustom(server, name, counter, Stats.f_12935_, target);  return;
+            case "mob_kills":     setCustom(server, name, counter, Stats.f_12936_, target);  return;
+            case "player_kills":  setCustom(server, name, counter, Stats.f_12938_, target);  return;
+            case "play_time":     setCustom(server, name, counter, Stats.f_144255_, target); return;
+            case "blocks_mined":  setSum(server, name, counter, field, target);              return;
+            case "blocks_placed": setSum(server, name, counter, field, target);              return;
+            default: throw new IllegalArgumentException(field);
+        }
+    }
+
+    /**
+     * m_6085_ = StatsCounter.setValue(Player, Stat, int). The Player argument is never read - the
+     * whole method body is `this.stats.put(stat, value)` - which is why an offline player (no Player
+     * object to pass) can safely pass null here.
+     */
+    private static void setCustom(final MinecraftServer server, final String name,
+                                  final ServerStatsCounter counter, final ResourceLocation id, final int value) {
+        counter.m_6085_(onlineOrNull(server, name), Stats.f_12988_.m_12902_(id), value);
+    }
+
+    private static void setSum(final MinecraftServer server, final String name, final ServerStatsCounter counter,
+                               final String field, final int target) throws CommandSyntaxException {
+        throw new SimpleCommandExceptionType(
+                Component.m_237113_(field + " is not settable yet.")).create();
+    }
+
+    /**
+     * m_12818_ = save(): writes world/stats/<uuid>.json right now, so the Discord bot sees the new
+     * number on its next refresh rather than after the player next logs out.
+     * m_12819_ = sendStats(ServerPlayer): pushes it to a live player's own stats screen so the game
+     * does not show them a stale number.
+     */
+    private static void flush(final MinecraftServer server, final String name, final ServerStatsCounter counter) {
+        counter.m_12818_();
+        final ServerPlayer online = onlineOrNull(server, name);
+        if (online != null) {
+            counter.m_12819_(online);
         }
     }
 }
