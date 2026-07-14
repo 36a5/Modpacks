@@ -212,13 +212,11 @@ Proximity voice — you hear players near you. Configure devices in the `\` menu
 
 ## 🗺️ Extra worlds, bosses & dungeons
 
-The BMC4 base + our additions pack in a huge amount of exploration content:
-- **Dimensions:** the Aether, Twilight Forest, Blue Skies, Deeper & Darker, **Lost Cities**
-  (ruined-city world), **The Undergarden**, plus the Solo Leveling Gate dimensions.
-- **Bosses:** L_Ender's Cataclysm, Mowzie's Mobs, **Bosses'Rise** (Souls-like), **Born in Chaos**,
-  **Mutant Monsters**.
-- **Dungeons/structures:** When Dungeons Arise, YUNG's suite, **Dungeons & Taverns**,
-  **CTOV** villages, AdoraBuild, Structory + Towers.
+The pack is far bigger than the Solo Leveling systems above — **seven other dimensions** you can
+walk to, a dozen bosses, and a map full of dungeons most players never open.
+
+**→ [The full content guide](content.md)** — every dimension and exactly how to reach it, every boss
+and how to start the fight, and what all of it drops.
 
 Most bosses drop unique gear; many armor pieces have an **ability** on a key — check the item
 tooltip. Cataclysm's armor abilities moved off `X`/`V`/`C`/`Y` (Solo Leveling owns those now)
