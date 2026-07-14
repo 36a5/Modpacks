@@ -5,7 +5,7 @@ themselves; the **Key** column is what `pack-two/configureddefaults/options.txt`
 fresh install. Rebinding in-game always wins — the preset is only applied when a player has
 no `options.txt` yet.
 
-**256 keybinds across 39 mods.** 200 are preset by the pack; the rest keep the mod's own default.
+**257 keybinds across 39 mods.** 223 are preset by the pack; the rest keep the mod's own default.
 
 - *unbound* = deliberately cleared, because the action is reachable another way.
 - *mod default* = the pack does not preset it, so whatever the mod ships with applies.
@@ -22,7 +22,7 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| *unbound* | Dodge Roll | `key.block_factorys_bosses.dodge_roll` |
+| `Mouse 5` | Dodge Roll | `key.block_factorys_bosses.dodge_roll` |
 
 ## Carry On
 
@@ -54,13 +54,13 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| *unbound* | Open Player Death History — `U` went to Epic Fight's Guard; `/back` covers this | `key.corpse.death_history` |
+| *unbound* | Open Player Death History | `key.corpse.death_history` |
 
 ## Crawl on Demand
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| `Right control` | Crawl | `key.crawlondemand.crawl` |
+| `Left alt` | Crawl | `key.crawlondemand.crawl` |
 | *unbound* | Toggle Crawl | `key.crawlondemand.toggle_crawl` |
 
 ## Curios API
@@ -101,15 +101,21 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| `L` | **Weapon Innate Skill** | `key.epicfight.weapon_innate_skill` |
-| `P` | **Mobility Skill** | `key.epicfight.mover_skill` |
-| `U` | **Guard** | `key.epicfight.guard` |
-| `Mouse 5` | **Dodge Skill** | `key.epicfight.dodge` |
-| `N` | Lock-on | `key.epicfight.lock_on` |
+| `Mouse left` | Attack | `key.epicfight.attack` |
+| `Mouse 4` | Dodge Skill | `key.epicfight.dodge` |
+| `Mouse right` | Guard | `key.epicfight.guard` |
+| `G` | Lock-on | `key.epicfight.lock_on` |
+| *unbound* | Lock-on Free Shift | `key.epicfight.lock_on_shift_freely` |
+| *unbound* | Lock-on Shift Left | `key.epicfight.lock_on_shift_left` |
+| *unbound* | Lock-on Shift Right | `key.epicfight.lock_on_shift_right` |
+| `P` | Mobility Skill | `key.epicfight.mover_skill` |
+| `Keypad 2` | Open Configuration Screen | `key.epicfight.config` |
 | `Grave accent` | Open Skill Editor | `key.epicfight.skill_gui` |
+| `Keypad 1` | Show Weapon Innate Skill Tooltip | `key.epicfight.show_tooltip` |
+| *unbound* | Switch Vanilla Model Debugging | `key.epicfight.switch_vanilla_model_debug` |
 | `K` | Toggle Battle/Mining Mode | `key.epicfight.switch_mode` |
+| `Mouse left` | Weapon Innate Skill | `key.epicfight.weapon_innate_skill` |
 | *mod default* | Activates the innate skill of your equipped weapon | `key.epicfight.weapon_innate_skill.description` |
-| *mod default* | Attack | `key.epicfight.attack` |
 | *mod default* | Blocks incoming attacks with your weapon | `key.epicfight.guard.description` |
 | *mod default* | Displays the tooltip of your weapon's innate skill when the inventory screen is open | `key.epicfight.show_tooltip.description` |
 | *mod default* | Epic Fight Camera | `key.epicfight.camera` |
@@ -117,17 +123,11 @@ no `options.txt` yet.
 | *mod default* | Epic Fight GUI | `key.epicfight.gui` |
 | *mod default* | Epic Fight System | `key.epicfight.system` |
 | *mod default* | Lets you freely switch between nearby targets while locked on | `key.epicfight.lock_on_shift_freely.description` |
-| *mod default* | Lock-on Free Shift | `key.epicfight.lock_on_shift_freely` |
-| *mod default* | Lock-on Shift Left | `key.epicfight.lock_on_shift_left` |
-| *mod default* | Lock-on Shift Right | `key.epicfight.lock_on_shift_right` |
 | *mod default* | Locks onto the nearest target for easier combat | `key.epicfight.lock_on.description` |
-| *mod default* | Open Configuration Screen | `key.epicfight.config` |
 | *mod default* | Opens the mod configuration screen | `key.epicfight.config.description` |
 | *mod default* | Opens the skill editor GUI to customize your skills | `key.epicfight.skill_gui.description` |
 | *mod default* | Performs a basic attack with your equipped weapon | `key.epicfight.attack.description` |
 | *mod default* | Performs a dodge maneuver to avoid attacks | `key.epicfight.dodge.description` |
-| *mod default* | Show Weapon Innate Skill Tooltip | `key.epicfight.show_tooltip` |
-| *mod default* | Switch Vanilla Model Debugging | `key.epicfight.switch_vanilla_model_debug` |
 | *mod default* | Switches between combat and mining modes | `key.epicfight.switch_mode.description` |
 | *mod default* | Switches lock-on to the target on the left | `key.epicfight.lock_on_shift_left.description` |
 | *mod default* | Switches lock-on to the target on the right | `key.epicfight.lock_on_shift_right.description` |
@@ -185,7 +185,7 @@ no `options.txt` yet.
 | *unbound* | Copy Recipe ID to Clipboard | `key.jei.copy.recipe.id` |
 | *unbound* | Craft Bookmarked Recipe (Many) | `key.jei.maxTransferRecipeBookmark` |
 | *unbound* | Craft Bookmarked Recipe (One) | `key.jei.transferRecipeBookmark` |
-| `Comma` | Hide Ingredient | `key.jei.toggleHideIngredient` |
+| *unbound* | Hide Ingredient | `key.jei.toggleHideIngredient` |
 | *unbound* | Hide Ingredient (With Wildcard) | `key.jei.toggleWildcardHideIngredient` |
 | *unbound* | Next Page | `key.jei.nextPage` |
 | `Page down:SHIFT` | Next Recipe Category | `key.jei.nextCategory` |
@@ -205,7 +205,7 @@ no `options.txt` yet.
 | *unbound* | Show/Hide JEI Overlays | `key.jei.toggleOverlay` |
 | *unbound* | Toggle Cheat Mode | `key.jei.toggleCheatMode` |
 | *unbound* | Toggle Cheat Mode | `key.jei.toggleCheatModeConfigButton` |
-| `N` | Toggle Hide Ingredients Mode | `key.jei.toggleEditMode` |
+| *unbound* | Toggle Hide Ingredients Mode | `key.jei.toggleEditMode` |
 
 ## Just Zoom
 
@@ -223,8 +223,8 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
+| *unbound* | Toggle Goggles Preview | `key.minecolonies.toggle_goggles` |
 | *mod default* | MineColonies | `key.minecolonies.categories.general` |
-| *mod default* | Toggle Goggles Preview | `key.minecolonies.toggle_goggles` |
 
 ## ModernFix
 
@@ -302,8 +302,8 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
+| `Delete` | Network Collector Toggle | `key.storagenetwork.collector_toggle` |
 | `I` | Network Remote Curio | `key.storagenetwork.remote` |
-| *mod default* | Network Collector Toggle | `key.storagenetwork.collector_toggle` |
 
 ## Simple Voice Chat
 
@@ -324,14 +324,14 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| *unbound* | Ab 1 | `key.sololeveling.ab_1` |
-| *unbound* | Ab 2 | `key.sololeveling.ab_3` |
-| *unbound* | Ab 2 | `key.sololeveling.ab_2` |
-| *unbound* | Ab 4 | `key.sololeveling.ab_4` |
-| *unbound* | Ab 5 | `key.sololeveling.ab_5` |
-| *unbound* | Ab 6 | `key.sololeveling.ab_6` |
-| *unbound* | Ab 7 | `key.sololeveling.ab_7` |
-| *unbound* | Ab 8 | `key.sololeveling.ab_8` |
+| `1` | Ab 1 | `key.sololeveling.ab_1` |
+| `3` | Ab 2 | `key.sololeveling.ab_3` |
+| `2` | Ab 2 | `key.sololeveling.ab_2` |
+| `4` | Ab 4 | `key.sololeveling.ab_4` |
+| `5` | Ab 5 | `key.sololeveling.ab_5` |
+| `6` | Ab 6 | `key.sololeveling.ab_6` |
+| `7` | Ab 7 | `key.sololeveling.ab_7` |
+| `8` | Ab 8 | `key.sololeveling.ab_8` |
 | `Z` | Job Ability 1 | `key.sololeveling.ability_1` |
 | `X` | Job Ability 2 | `key.sololeveling.ability_2` |
 | `C` | Job Ability 3 | `key.sololeveling.ability_3` |
@@ -339,9 +339,9 @@ no `options.txt` yet.
 | `Semicolon` | Open Panel | `key.sololeveling.open_panel` |
 | `Apostrophe` | Quest Info | `key.sololeveling.quest_info` |
 | `B` | Skill Cycle | `key.sololeveling.skill_cycle_button` |
-| `G` | Sword Enhance | `key.sololeveling.d` |
+| `F` | Sword Enhance | `key.sololeveling.d` |
 | `Home` | Training | `key.sololeveling.training` |
-| `Mouse 4` | Triple Jump | `key.sololeveling.triple_jump` |
+| `Space` | Triple Jump | `key.sololeveling.triple_jump` |
 | `R` | Use the selected skill | `key.sololeveling.use_skill` |
 
 ## Structure Gel API
@@ -356,17 +356,17 @@ no `options.txt` yet.
 
 | Key | Action | Keybind ID |
 |---|---|---|
-| *mod default* | Mirror | `key.structurize.mirror` |
-| *mod default* | Move Back | `key.structurize.move_back` |
-| *mod default* | Move Down | `key.structurize.move_down` |
-| *mod default* | Move Forward | `key.structurize.move_forward` |
-| *mod default* | Move Left | `key.structurize.move_left` |
-| *mod default* | Move Right | `key.structurize.move_right` |
-| *mod default* | Move Up | `key.structurize.move_up` |
-| *mod default* | Place Structure | `key.structurize.place` |
-| *mod default* | Rotate Clockwise | `key.structurize.rotate_cw` |
-| *mod default* | Rotate Counter-clockwise | `key.structurize.rotate_ccw` |
-| *mod default* | Scan Tool Teleport | `key.structurize.teleport` |
+| `M` | Mirror | `key.structurize.mirror` |
+| `Down` | Move Back | `key.structurize.move_back` |
+| `Keypad subtract` | Move Down | `key.structurize.move_down` |
+| `Up` | Move Forward | `key.structurize.move_forward` |
+| `Left` | Move Left | `key.structurize.move_left` |
+| `Right` | Move Right | `key.structurize.move_right` |
+| `Keypad add` | Move Up | `key.structurize.move_up` |
+| `Enter` | Place Structure | `key.structurize.place` |
+| `Right:SHIFT` | Rotate Clockwise | `key.structurize.rotate_cw` |
+| `Left:SHIFT` | Rotate Counter-clockwise | `key.structurize.rotate_ccw` |
+| *unbound* | Scan Tool Teleport | `key.structurize.teleport` |
 | *mod default* | Structurize | `key.structurize.categories.general` |
 
 ## Supplementaries
@@ -438,6 +438,7 @@ no `options.txt` yet.
 | *unbound* | Baritone Elytra Here (WorldMap) | `xaeroplus.keybind.world_map_baritone_elytra_here` |
 | *unbound* | Baritone Goal Here (WorldMap) | `xaeroplus.keybind.world_map_baritone_goal_here` |
 | *unbound* | Baritone Path Here (WorldMap) | `xaeroplus.keybind.world_map_baritone_path_here` |
+| *unbound* | Beacons | `xaeroplus.setting.beacons_overlay` |
 | *unbound* | Highways | `xaeroplus.setting.2b2t_highways_enabled` |
 | *unbound* | Lava Columns | `xaeroplus.setting.lava_columns` |
 | *unbound* | Liquid NewChunks | `xaeroplus.setting.new_chunks_highlighting` |
@@ -469,13 +470,13 @@ still paints them red in the controls screen.
 
 | Key | Claimed by |
 |---|---|
+| `Down` | Next Search *(Just Enough Items)* / Move Back *(Structurize)* |
+| `Left alt` | Crawl *(Crawl on Demand)* / Zoom *(Just Zoom)* |
+| `M` | Mirror *(Structurize)* / Open World Map *(Xaero)* |
 | `Page down` | Dragon Mount Flight Commands *(Dragon Mounts: Legacy)* / Next Recipe Page *(Just Enough Items)* |
 | `R` | Show Recipe *(Just Enough Items)* / Use the selected skill *(SoloCraftReawakening)* |
-| `U` | Guard *(Epic Fight)* / Show Uses *(Just Enough Items)* |
-| `Mouse right` | Clear Search Filter *(Just Enough Items)* / Show Uses *(Just Enough Items)* |
-
-Every one of these is a JEI key, and JEI's keys only fire while a recipe GUI is open, so they cannot
-actually collide with an in-world action. The one real collision — JEI's edit mode sharing `N` with
-Epic Fight's lock-on in `configureddefaults/options.txt` — is fixed; JEI edit mode and hide-ingredient
-are now unbound in both copies of `options.txt`, which had drifted apart from each other.
+| `Space` | Triple Jump *(SoloCraftReawakening)* / Activate Gravitite Jump *(The Aether)* |
+| `Up` | Previous Search *(Just Enough Items)* / Move Forward *(Structurize)* |
+| `Mouse left` | Attack *(Epic Fight)* / Weapon Innate Skill *(Epic Fight)* / Show Recipe *(Just Enough Items)* |
+| `Mouse right` | Guard *(Epic Fight)* / Clear Search Filter *(Just Enough Items)* / Show Uses *(Just Enough Items)* |
 
