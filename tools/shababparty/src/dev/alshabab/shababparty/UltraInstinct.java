@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -20,9 +19,6 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import net.solocraft.entity.AfterImageEntity;
-import net.solocraft.init.SololevelingModEntities;
 
 /**
  * Monarch of White Flames' fourth ability: a counter stance.
@@ -38,6 +34,9 @@ import net.solocraft.init.SololevelingModEntities;
  * anything. It is spawned at the position the player vanishes from, so the dodge reads as a
  * blink-and-afterimage rather than a silent teleport. The counter itself is a real melee swing, so
  * it plays the player's normal attack animation, damage, enchantments and knockback.
+ *
+ * Its lifecycle - including the despawn Solo Leveling wrote but never reached - is
+ * {@link AfterImages}.
  *
  * <h2>Why LivingAttackEvent</h2>
  * It fires before damage is calculated and it is cancellable, so cancelling there means the hit
@@ -116,7 +115,7 @@ public final class UltraInstinct {
         final ServerLevel level = player.m_284548_();
         final Vec3 from = player.m_20182_();
 
-        leaveAfterImage(level, player, from);
+        AfterImages.spawn(level, player, from);
 
         // Behind the attacker means behind where *he* is facing, not where the player came from -
         // otherwise a player already standing behind him would not move at all.
@@ -139,20 +138,6 @@ public final class UltraInstinct {
             player.m_5706_(attacker);
         } finally {
             COUNTERING.set(Boolean.FALSE);
-        }
-    }
-
-    /** The mod's own after-image, spawned where the player was. Cosmetic: failure is not fatal. */
-    private static void leaveAfterImage(final ServerLevel level, final ServerPlayer player, final Vec3 at) {
-        try {
-            final EntityType<AfterImageEntity> type = SololevelingModEntities.AFTER_IMAGE.get();
-            final AfterImageEntity image = type.m_20615_(level);
-            if (image != null) {
-                image.m_7678_(at.m_7096_(), at.m_7098_(), at.m_7094_(), player.m_146908_(), 0.0F);
-                level.m_7967_(image);
-            }
-        } catch (final Throwable ignored) {
-            // A missing or changed after-image entity must not cost the player his counter.
         }
     }
 
