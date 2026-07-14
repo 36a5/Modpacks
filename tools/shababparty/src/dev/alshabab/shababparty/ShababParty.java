@@ -47,6 +47,12 @@ public class ShababParty {
         public static final ForgeConfigSpec.DoubleValue DRAGON_DAMAGE_MULTIPLIER;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> BOSS_SCALING_EXCLUSIONS;
 
+        public static final ForgeConfigSpec.BooleanValue BOSS_LOOT_ENABLED;
+        public static final ForgeConfigSpec.IntValue BOSS_LOOT_DROP_MULTIPLIER;
+        public static final ForgeConfigSpec.IntValue BOSS_LOOT_BONUS_ENCHANT_LEVELS;
+        public static final ForgeConfigSpec.IntValue BOSS_LOOT_ENCHANT_LEVEL;
+        public static final ForgeConfigSpec.IntValue BOSS_LOOT_XP_MULTIPLIER;
+
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
@@ -210,6 +216,42 @@ public class ShababParty {
                     .defineList("exclusions",
                             Arrays.asList("sololeveling", "twilightforest:naga", "twilightforest:lich"),
                             o -> o instanceof String);
+            b.pop();
+
+            b.push("bossLoot");
+            BOSS_LOOT_ENABLED = b
+                    .comment("Make a scaled boss's drops worth the fight.",
+                            "",
+                            "A boss with 150x health that drops what it always dropped is a worse deal than not",
+                            "fighting it. This applies only to bosses that were actually scaled, so the Naga, the Lich",
+                            "and everything of Solo Leveling's keep their vanilla loot along with their vanilla health.")
+                    .define("enabled", true);
+
+            BOSS_LOOT_DROP_MULTIPLIER = b
+                    .comment("How many copies of each non-gear drop a boss leaves. 1 = vanilla.",
+                            "Trophies, materials, Fiery Blood, and so on.",
+                            "",
+                            "Delivered as extra item drops rather than by inflating the stack size, because a stack of",
+                            "320 on an item that maxes at 64 is not a legal stack.")
+                    .defineInRange("dropMultiplier", 5, 1, 64);
+
+            BOSS_LOOT_BONUS_ENCHANT_LEVELS = b
+                    .comment("Levels added to every enchantment already on a boss's dropped gear.",
+                            "",
+                            "This deliberately goes past the vanilla ceiling: at 3, a Power V bow comes off the Hydra",
+                            "as Power VIII. That is the point - it is what makes boss gear better than anything you can",
+                            "build, which is what a 54,000 HP fight has to be worth.")
+                    .defineInRange("bonusEnchantLevels", 3, 0, 10);
+
+            BOSS_LOOT_ENCHANT_LEVEL = b
+                    .comment("Gear that drops with no enchantments at all is enchanted as if from a table at this",
+                            "level, treasure enchantments included. The vanilla table stops at 30.")
+                    .defineInRange("enchantLevel", 40, 1, 100);
+
+            BOSS_LOOT_XP_MULTIPLIER = b
+                    .comment("Multiplier on the experience a scaled boss drops.",
+                            "A boss that takes ten minutes and hands over 20 XP feels worse than no reward at all.")
+                    .defineInRange("xpMultiplier", 20, 1, 1000);
             b.pop();
 
             SPEC = b.build();
