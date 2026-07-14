@@ -94,6 +94,24 @@ Good "Launcher: $Launcher"
 # CurseForge and the Minecraft Launcher both store it on the profile itself.
 $totalGb = [math]::Round((Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB)
 $allocGb = if ($totalGb -ge 16) { 8 } elseif ($totalGb -ge 12) { 6 } else { 4 }
+
+# One definition, used by both the CurseForge instance and the Minecraft Launcher profile.
+#
+# -Xms equal to -Xmx: a heap that grows 2G -> 8G resizes repeatedly under load, and every resize is
+# a full pause. Reserve it all up front.
+#
+# The G1 block is Aikar's: G1's defaults assume a small young generation, which is exactly wrong for
+# Minecraft, where almost every allocation is short-lived garbage. A large young gen plus an early
+# IHOP means G1 collects concurrently and rarely has to stop the world.
+$jvmArgs = "-Xms${allocGb}G -Xmx${allocGb}G " +
+           "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=50 " +
+           "-XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch " +
+           "-XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M " +
+           "-XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 " +
+           "-XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 " +
+           "-XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 " +
+           "-XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1"
+
 if ($allocGb -lt 6) {
     Write-Host ""
     Warn "This PC has ${totalGb} GB of RAM. The pack wants 6-8 GB and may run poorly."
@@ -277,6 +295,11 @@ function Install-CurseForgeInstance([int]$AllocGb) {
     $inst["isVanilla"]        = $false
     $inst["isMemoryOverride"] = $true
     $inst["allocatedMemory"]  = $AllocGb * 1024
+    # CurseForge players were getting stock flags: a new instance is written with a null
+    # javaArgsOverride and an existing one keeps whatever was already there. $script: because
+    # $jvmArgs is script-scope and this is a function - unqualified, it would resolve to nothing
+    # here and silently write an empty override.
+    $inst["javaArgsOverride"]  = $script:jvmArgs
     if ($new) { $inst["installDate"] = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ") }
 
     Write-JsonFile $file ([pscustomobject]$inst)
@@ -511,7 +534,7 @@ if ($writeProfile) {
             $created  = if ($existing) { $existing.Value.created } else { (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ") }
 
             # NB: not $profile - that is a PowerShell automatic variable.
-            $javaArgs   = "-Xmx${allocGb}G -Xms2G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC"
+            $javaArgs   = $jvmArgs
             $newProfile = [pscustomobject]@{
                 name          = $DisplayName
                 type          = "custom"
