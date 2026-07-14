@@ -7,7 +7,7 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
-VERSION=1.2.0
+VERSION=1.3.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"
@@ -62,6 +62,10 @@ cp -r "$HERE/res/." "$BUILD/classes/"
 
 JAR="$BUILD/shababparty-$VERSION.jar"
 ( cd "$BUILD/classes" && jar --create --file "$JAR" --manifest META-INF/MANIFEST.MF -C . . )
+
+# Two shababparty jars in mods/ is a duplicate mod id and Forge will not boot. A version bump
+# changes the filename, so the old one has to go rather than sit alongside the new one.
+rm -f "$REPO/pack-two/mods"/shababparty-*.jar "$MODS"/shababparty-*.jar
 
 cp "$JAR" "$REPO/pack-two/mods/"
 cp "$JAR" "$MODS/"
