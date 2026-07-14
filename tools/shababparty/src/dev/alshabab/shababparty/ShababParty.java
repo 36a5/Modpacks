@@ -34,6 +34,7 @@ public class ShababParty {
         public static final ForgeConfigSpec.IntValue ULTRA_INSTINCT_COOLDOWN_TICKS;
         public static final ForgeConfigSpec.BooleanValue ULTRA_INSTINCT_DODGES;
         public static final ForgeConfigSpec.DoubleValue ULTRA_INSTINCT_BEHIND_DISTANCE;
+        public static final ForgeConfigSpec.IntValue AFTER_IMAGE_LIFETIME_TICKS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -121,6 +122,19 @@ public class ShababParty {
                             "Behind means behind where the attacker is *facing*, not where the player came from,",
                             "so a player already stood at his back still gets moved.")
                     .defineInRange("behindDistance", 1.5D, 0.5D, 6.0D);
+
+            AFTER_IMAGE_LIFETIME_TICKS = b
+                    .comment("Hard deadline for an after-image left by the counter, in ticks. 20 ticks = 1 second.",
+                            "",
+                            "Solo Leveling despawns its own after-images 10 ticks after they appear, but only when",
+                            "they are spawned through finalizeSpawn - and addFreshEntity, which is how anything",
+                            "outside the mod spawns one, does not call it. Every after-image this server has ever",
+                            "produced therefore lived forever, ticking and saved into chunk NBT.",
+                            "",
+                            "This is the backstop. Every after-image entering a server level is discarded once this",
+                            "many ticks have passed - including ones already leaked into a world by the old bug,",
+                            "which die as soon as their chunk loads. Raise it only to make the after-image linger.")
+                    .defineInRange("afterImageLifetimeTicks", 40, 10, 200);
             b.pop();
 
             SPEC = b.build();
