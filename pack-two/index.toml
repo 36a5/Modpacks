@@ -2975,7 +2975,7 @@ hash = "7d856d3f9655abc661ac67b450a0c956bbf80323786b407301fbdca02d2c5b8b"
 
 [[files]]
 file = "configureddefaults/options.txt"
-hash = "6e9d526388234aaac64a028d997fdf1f004de6b699f40d21347709bf893faba4"
+hash = "0642a080be9ee2cfb2e8c013a2276e32d124b73b27bd1535b74a57e94e7d5ce0"
 
 [[files]]
 file = "defaultconfigs/CoroUtil/General.toml"
@@ -7162,8 +7162,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.3.0.jar"
-hash = "083eeeba90787c8652456207fbe4435373cb26e9135dc18cfc2af2c5bc9f1b61"
+file = "mods/shababparty-1.4.0.jar"
+hash = "b06900377b597a5b4e9b06e46a68f0fc3093531c613aba246775b1dd577a8b4c"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
