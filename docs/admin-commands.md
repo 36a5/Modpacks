@@ -202,3 +202,220 @@ cd server
 
 It keeps a `.bak` next to the file it edits and refuses to run while the server is up. The
 board picks the new number up on its next refresh (`!board` to force it).
+
+
+# 🟢 DODGE & MOBILITY SKILLS
+
+## Roll (Epic Fight Base Mod)
+#### Drop Source: Zombies, Skeletons
+#### Structure Loot: Common Dungeon Chests, Village Blacksmiths
+```/give @s epicfight:skillbook{skill:"epicfight:roll"} 1```
+
+## Step (Epic Fight Base Mod)
+#### Drop Source: Skeletons, Spiders
+#### Structure Loot: Abandoned Mineshafts, Desert Temples
+```/give @s epicfight:skillbook{skill:"epicfight:step"} 1```
+
+## Phantom Ascent (Epic Fight Base Mod)
+#### Drop Source: Endermen, Phantoms
+#### Structure Loot: End Cities, Shipwreck Supply Chests
+```/give @s epicfight:skillbook{skill:"epicfight:phantom_ascent"} 1```
+
+## Demolition Leap (Epic Fight Base Mod)
+#### Drop Source: Creepers, Charged Creepers
+#### Structure Loot: Desert Temples, Mineshaft Chests
+```/give @s epicfight:skillbook{skill:"epicfight:demolition_leap"} 1```
+
+## Meteor Slam (Epic Fight Base Mod)
+#### Drop Source: Wither Skeletons, Magma Cubes
+#### Structure Loot: Nether Fortresses, Ancient Cities
+```/give @s epicfight:skillbook{skill:"epicfight:meteor_slam"} 1```
+
+## Shadow Step (Weapons of Miracles Addon)
+#### Drop Source: Vindicators, Pillagers, Wither Skeletons
+#### Structure Loot: Pillager Outposts, Ancient Cities, Nether Fortresses
+```/give @s epicfight:skillbook{skill:"wom:shadow_step"} 1```
+
+## Ender Step (Weapons of Miracles Addon)
+#### Drop Source: Endermen
+#### Structure Loot: End Cities, Stronghold Libraries
+```/give @s epicfight:skillbook{skill:"wom:ender_step"} 1```
+
+## Ender Obscuris (Weapons of Miracles Addon)
+#### Drop Source: Ender Dragon, Shulkers, Endermen
+#### Structure Loot: End Cities, Stronghold Altars
+```/give @s epicfight:skillbook{skill:"wom:ender_obscuris"} 1```
+
+## Precise Roll (Weapons of Miracles Addon)
+#### Drop Source: Spiders, Pillagers, Vindicators
+#### Structure Loot: Desert Temples, Pillager Outposts, Shipwrecks
+```/give @s epicfight:skillbook{skill:"wom:precise_roll"} 1```
+
+## Spider Technique (Weapons of Miracles Addon)
+#### Drop Source: Cave Spiders, Spiders
+#### Structure Loot: Abandoned Mineshafts, Woodland Mansions
+```/give @s epicfight:skillbook{skill:"wom:spider_technique"} 1```
+
+## Alco Maneuver (Weapons of Miracles Addon)
+#### Drop Source: Drowned
+#### Structure Loot: Ocean Ruins, Shipwrecks
+```/give @s epicfight:skillbook{skill:"wom:alco_maneuver"} 1```
+
+## Better Step (Epic Fight - Resurrection Addon)
+## Drop Source: Strays
+## Structure Loot: Igloo Basements, Trial Chambers
+```/give @s epicfight:skillbook{skill:"resurrection:better_step"} 1```
+
+## Wolf God Leap (Epic Fight - Resurrection Addon)
+## Drop Source: Cave Spiders, Spiders
+## Structure Loot: Abandoned Mineshafts
+```/give @s epicfight:skillbook{skill:"resurrection:wolf_god_leap"} 1```
+
+
+# 🛡️ GUARD SKILLS
+
+## Guard (Epic Fight Base Mod)
+## Drop Source: Armored Zombies, Shield Skeletons
+## Structure Loot: Common Dungeon Chests, Stronghold Chests, Village Armorer Chests
+```/give @s epicfight:skillbook{skill:"epicfight:guard"} 1```
+
+## Parrying (Epic Fight Base Mod)
+## Drop Source: Wither Skeletons, Pillager Captains
+## Structure Loot: Nether Fortresses, Pillager Outposts, Woodland Mansions
+```/give @s epicfight:skillbook{skill:"epicfight:parrying"} 1```
+
+## Impact Guard (Epic Fight Base Mod)
+## Drop Source: Iron Golems (when hostile), Piglin Brutes
+## Structure Loot: Village Weaponsmith Chests, Nether Fortresses, Bastion Remnants
+```/give @s epicfight:skillbook{skill:"epicfight:impact_guard"} 1```
+
+## Perfect Bulwark (Weapons of Miracles Addon)
+## Drop Source: Evokers, Piglin Brutes, Drowned, Guardians
+## Structure Loot: Woodland Mansions, Ocean Ruins, Buried Treasure Chests
+```/give @s epicfight:skillbook{skill:"wom:perfect_bulwark"} 1```
+
+## Vengeful Parry (Weapons of Miracles Addon)
+## Drop Source: Piglin Brutes, Evokers
+## Structure Loot: Bastion Remnants, Woodland Mansions, Ancient Cities
+```/give @s epicfight:skillbook{skill:"wom:vengeful_parry"} 1```
+
+## Counter Attack (Weapons of Miracles Addon)
+## Drop Source: Illusioners, Evokers, Husks
+## Structure Loot: Woodland Mansions, Stronghold Corridors, Desert Temples
+```/give @s epicfight:skillbook{skill:"wom:counter_attack"} 1```
+
+
+# ⚡ PASSIVE SKILLS
+
+## Technician (Epic Fight Base Mod)
+## Drop Source: Skeletons, Strays, Endermites
+## Structure Loot: Ancient Cities, Abandoned Mineshafts, End Cities
+```/give @s epicfight:skillbook{skill:"epicfight:technician"} 1```
+
+## Berserker (Epic Fight Base Mod)
+## Drop Source: Piglins, Zombified Piglins, Piglin Brutes
+## Structure Loot: Bastion Remnants, Nether Fortresses
+```/give @s epicfight:skillbook{skill:"epicfight:berserker"} 1```
+
+## Sword Master (Epic Fight Base Mod)
+## Drop Source: High-tier Armored Hostile Mobs, Wither Skeletons
+## Structure Loot: Stronghold Libraries, Ancient Cities
+```/give @s epicfight:skillbook{skill:"epicfight:sword_master"} 1```
+
+## Stamina Pillager (Epic Fight Base Mod)
+## Drop Source: Zombies, Husks, Pillager Captains
+## Structure Loot: Desert Temples, Pillager Outposts, Woodland Mansions
+```/give @s epicfight:skillbook{skill:"epicfight:stamina_pillager"} 1```
+
+## Death Harvest (Epic Fight Base Mod)
+## Drop Source: Wither Skeletons, Phantoms, Witches
+## Structure Loot: Ancient Cities, Swamp Huts, Nether Fortresses
+```/give @s epicfight:skillbook{skill:"epicfight:death_harvest"} 1```
+
+## Forbidden Strength (Epic Fight Base Mod)
+## Drop Source: Wardens, Wither Boss
+## Structure Loot: Ancient Cities, Bastion Treasure Rooms
+```/give @s epicfight:skillbook{skill:"epicfight:forbidden_strength"} 1```
+
+## Emergency Escape (Epic Fight Base Mod)
+## Drop Source: Witches, Creepers
+## Structure Loot: Dungeon Spawners, Mineshaft Chests, Shipwrecks
+```/give @s epicfight:skillbook{skill:"epicfight:emergency_escape"} 1```
+
+## Hyper Vitality (Epic Fight Base Mod)
+## Drop Source: Guardians, Elder Guardians, Ravagers
+## Structure Loot: Ocean Monuments, Desert Temples, Jungle Temples
+```/give @s epicfight:skillbook{skill:"epicfight:hyper_vitality"} 1```
+
+## Endurance (Epic Fight Base Mod)
+## Drop Source: Husks, Drowned, Iron Golems, Zoglins
+## Structure Loot: Shipwrecks, Dungeon Chests, Ocean Ruins
+```/give @s epicfight:skillbook{skill:"epicfight:endurance"} 1```
+
+## Knocking Down Wakeup (Epic Fight Base Mod)
+## Drop Source: Zombies
+## Structure Loot: Simple Dungeon Spawners, Abandoned Mineshafts
+```/give @s epicfight:skillbook{skill:"epicfight:knocking_down_wakeup"} 1```
+
+## Critical Master (Weapons of Miracles Addon)
+## Drop Source: Pillager Captains, Piglin Brutes
+## Structure Loot: Pillager Outposts, Nether Fortresses, Woodland Mansions
+```/give @s epicfight:skillbook{skill:"wom:critical_master"} 1```
+
+## Stellar Restoration (Weapons of Miracles Addon)
+## Drop Source: Phantoms, Endermen
+## Structure Loot: Stronghold Corridors, End Cities, Buried Treasure
+```/give @s epicfight:skillbook{skill:"wom:stellar_restoration"} 1```
+
+## Latent Retribution (Weapons of Miracles Addon)
+## Drop Source: Endermen, Wardens
+## Structure Loot: End Cities, Ancient Cities, Stronghold Altars
+```/give @s epicfight:skillbook{skill:"wom:latent_retribution"} 1```
+
+## Dodge Master (Weapons of Miracles Addon)
+## Drop Source: Vindicators, Phantoms
+## Structure Loot: Woodland Mansions, Desert Temples, Jungle Temples
+```/give @s epicfight:skillbook{skill:"wom:dodge_master"} 1```
+
+## Bull Charge (Weapons of Miracles Addon)
+## Drop Source: Ravagers
+## Structure Loot: Village Raid Reward Chests, Pillager Outposts, Woodland Mansions
+```/give @s epicfight:skillbook{skill:"wom:bull_charge"} 1```
+
+
+# ⚔️ IDENTITY (ULTIMATE) SKILLS
+
+## Ravager Force (Epic Fight ```/ Expansion Addons)
+## Drop Source: Ravagers (Guaranteed rare drop during Raids)
+## Structure Loot: Village Raid Victory Chests
+```/give @s epicfight:skillbook{skill:"epicfight:ravager_force"} 1```
+
+## Revelation (Epic Fight Base Mod)
+## Drop Source: Warden, Ender Dragon
+## Structure Loot: Ancient City Ice Boxes, End Cities, Stronghold Libraries
+```/give @s epicfight:skillbook{skill:"epicfight:revelation"} 1```
+
+## The Guillotine (Weapons of Miracles Addon)
+## Drop Source: Evokers, Illusioners
+## Structure Loot: Woodland Mansions, Pillager Outposts
+```/give @s epicfight:skillbook{skill:"wom:the_guillotine"} 1```
+
+## Punishment Kick (Weapons of Miracles Addon)
+## Drop Source: Piglin Brutes
+## Structure Loot: Bastion Remnants, Nether Fortresses
+```/give @s epicfight:skillbook{skill:"wom:punishment_kick"} 1```
+
+## Time Travel (Weapons of Miracles Addon)
+## Drop Source: Ender Dragon, Wither Boss
+## Structure Loot: Ancient Cities, End Cities
+```/give @s epicfight:skillbook{skill:"wom:time_travel"} 1```
+
+## Ash of Eternity (Weapons of Miracles Addon)
+## Drop Source: Wither Boss
+## Structure Loot: Nether Bastion Treasure Chests
+```/give @s epicfight:skillbook{skill:"wom:ash_of_eternity"} 1```
+
+## Moonless Curse (Weapons of Miracles Addon)
+## Drop Source: Husks, Witches
+## Structure Loot: Desert Temple Secret Chests, Witch Huts
+```/give @s epicfight:skillbook{skill:"wom:moonless_curse"} 1```
