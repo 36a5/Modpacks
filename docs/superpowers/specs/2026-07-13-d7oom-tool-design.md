@@ -141,28 +141,43 @@ hologram costs the server nothing.
 See §6.
 
 ### `WorldEditBridge` (server)
-The **only** class that touches WorldEdit. Two mechanisms:
+The **only** class that touches WorldEdit. It talks to WorldEdit's Java API, not its commands.
 
-1. **Command dispatch** for selection: runs `//pos1 x,y,z` and `//pos2 x,y,z` as the player through
-   `server.getCommands().performPrefixedCommand(...)`. No API coupling — if WorldEdit's internals
-   change, nothing here breaks at compile time.
-2. **`worldedit-core` API** for move/clone, because command dispatch genuinely cannot express
-   "paste at exactly 104, 71, -230": `//move` is axis-aligned and `//paste` lands at the player.
-   The bridge builds a `BlockArrayClipboard` with `ForwardExtentCopy`, then
-   `new ClipboardHolder(clipboard).createPaste(editSession).to(BlockVector3.at(x, y, z))`.
+**Selection push.** `LocalSession#setRegionSelector(world, new CuboidRegionSelector(world, p1, p2))`.
+An earlier draft of this design dispatched the `//pos1 x,y,z` / `//pos2 x,y,z` *commands* as the
+player instead, to avoid a compile-time dependency. That's dropped: move/clone needs the API
+regardless (below), so the dependency exists either way — and once it exists, setting the selector
+directly is strictly less fragile than formatting command strings.
 
-   A move is a paste *and* a set-to-air of the source region **in one `EditSession`**, so `//undo`
-   reverses the whole move in a single step rather than leaving a hole behind.
+**Move / clone.** Command dispatch genuinely cannot express "paste at exactly 104, 71, -230":
+`//move` is axis-aligned and `//paste` lands at the player. The bridge builds a
+`BlockArrayClipboard` with `ForwardExtentCopy`, then
+`new ClipboardHolder(clipboard).createPaste(editSession).to(BlockVector3.at(x, y, z))`.
 
-   Every `EditSession` the bridge creates is handed to `LocalSession#remember`, so **`//undo` works
-   on our edits exactly as it does on WorldEdit's own.**
+A move is a paste *and* a set-to-air of the source region **in one `EditSession`**, so `//undo`
+reverses the whole move in a single step rather than leaving a hole behind. When source and target
+overlap, only source blocks **outside** the target region are cleared — otherwise the move would
+erase the blocks it just pasted.
 
-   The WorldEdit `Actor` is resolved by matching the player's UUID against
-   `platform.getConnectedUsers()`. This deliberately avoids the `worldedit-forge` artifact, which is
-   not published to Maven — only `worldedit-core` is.
+Every `EditSession` the bridge creates is handed to `LocalSession#remember`, so **`//undo` works on
+our edits exactly as it does on WorldEdit's own.**
 
-**If WorldEdit is missing**, the bridge detects it once at server start (class-presence check) and
-every `/d7` command replies with a clear chat error. It never throws and never crashes the server.
+The WorldEdit `Actor` is resolved by matching the player's UUID against
+`platform.getConnectedUsers()`. This deliberately avoids the `worldedit-forge` artifact, which is
+not published to Maven.
+
+**WorldEdit is a mandatory dependency** declared in `mods.toml`:
+
+```toml
+[[dependencies.d7oomtool]]
+    modId = "worldedit"
+    mandatory = true
+```
+
+So "WorldEdit is missing" is not a runtime state the code has to defend against — Forge refuses to
+launch and says why, on its own error screen. An earlier draft had the bridge detect absence and
+degrade with a chat error; that branch is deleted. A defensive path that can never be reached is
+just untested code.
 
 ---
 
@@ -201,6 +216,12 @@ server-side re-raytrace can land on a different block. The server **validates** 
 level 2, within `maxReach` of the player, inside a loaded chunk — and rejects it otherwise. The
 client proposes; the server disposes.
 
+**It is also the only path.** Clicks are captured client-side on Forge's
+`InputEvent.InteractionKeyMappingTriggered` and **cancelled** there, so vanilla interaction never
+runs: right-clicking a chest with the wand sets a corner instead of opening the chest, and
+left-clicking never starts breaking a block. Nothing reaches `Item#useOn`, so there is exactly one
+route into `SelectionStore` and no possibility of a click being handled twice.
+
 ---
 
 ## 8. Failure modes
@@ -209,7 +230,8 @@ All of these are chat messages. None throw.
 
 | Condition | Behaviour |
 |---|---|
-| WorldEdit not installed | `/d7` explains; the item still selects (harmless) |
+| WorldEdit not installed | Unreachable — mandatory `mods.toml` dependency, Forge refuses to launch (§5) |
+| Aiming at sky / no block in range | No corner is set, no drop happens. Every interaction requires a block hit within `maxReach`. |
 | No selection yet | Command explains |
 | Region crosses an unloaded chunk | **Refuse before editing** — a half-applied edit across a chunk border is far worse than no edit |
 | Region exceeds `previewMaxVolume` | Preview off, edit still allowed (§6) |
@@ -232,22 +254,38 @@ All of these are chat messages. None throw.
 
 ## 10. Build and distribution
 
-Source lives at `mods/d7oomtool/` in this repo — a ForgeGradle 6 project (MC 1.20.1, Forge 47.4.x,
-official mappings), with `maven.enginehub.org` added for a **`compileOnly`** dependency on
-`com.sk89q.worldedit:worldedit-core:7.2.15`. `compileOnly` because the running WorldEdit jar
-provides it — we must never shade it.
+Source lives at `mods/d7oomtool/` in this repo — a ForgeGradle 6 project (MC 1.20.1, Forge 47.4.18,
+official mappings). It is **outside** `pack/` and `pack-two/`, so packwiz never indexes the source
+tree.
 
-The release job in `.github/workflows/`:
+WorldEdit comes from **CurseMaven**, not `maven.enginehub.org`:
 
-1. Builds the jar.
-2. Attaches it to the GitHub Release for the tag.
-3. Computes its SHA-512, rewrites `pack-two/mods/d7oomtool.pw.toml` to point at the release asset
-   URL with that hash, and runs `packwiz refresh`.
-4. Commits the refreshed index.
+```gradle
+repositories { maven { url = "https://cursemaven.com" } }
+dependencies { implementation fg.deobf("curse.maven:worldedit-225608:4586218") }
+```
 
-Step 3 is not optional: the hash changes on every build, and CI already enforces that the packwiz
-index is in sync. Players get the mod on their next `update.bat`; the server picks it up on its
-next restart, through the packwiz-installer path that already exists.
+That is the exact jar the pack ships (`worldedit-mod-7.2.15.jar`, project `225608`, file
+`4586218`), so the classes we compile against are byte-for-byte the classes present at runtime —
+which `maven.enginehub.org`'s separately-published `worldedit-core` cannot guarantee. It also gives
+the dev `runClient`/`runServer` a working WorldEdit for free. ForgeGradle does not shade
+dependencies, so nothing is bundled into our jar.
+
+**Two release channels, deliberately separate**, because the mod's hash cannot be known before the
+mod is built:
+
+1. Tag `d7oomtool-v*` → workflow builds the jar, publishes it as a GitHub Release asset, computes
+   its SHA-256, rewrites `pack-two/mods/d7oomtool.pw.toml` to point at that asset URL with that
+   hash, runs `packwiz refresh`, and commits.
+2. Tag `v*` → the existing pack release runs, consuming the already-pinned metafile.
+
+Collapsing these into one tag would be circular: the pack export needs a metafile whose hash comes
+from a jar that same run is still building. Players get the mod on their next `update.bat`; the
+server picks it up on its next restart, through the packwiz-installer path that already exists.
+
+The metafile is a plain URL download (`[download] url = ...`), so **no jar binary is ever committed
+to git** — which also keeps it clear of the existing CI guard that every packwiz-indexed file must
+be committed.
 
 ---
 
