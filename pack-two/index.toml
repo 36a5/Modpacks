@@ -6087,6 +6087,11 @@ hash = "0ae05b496f582f03894fb79df446c32fb4358e12114850e5227901243f4c53f7"
 metafile = true
 
 [[files]]
+file = "mods/controllable.pw.toml"
+hash = "c9331a4134e668e02d39fa0f3937319465b6a58714ab83634fc5dd823776bac2"
+metafile = true
+
+[[files]]
 file = "mods/controlling.pw.toml"
 hash = "1e56f528d8e21b0cf9c52c3d6deea2a4eafa408170b39a070195dbf66617f373"
 metafile = true
@@ -6289,6 +6294,11 @@ metafile = true
 [[files]]
 file = "mods/elytra-slot.pw.toml"
 hash = "c94b9427a8d7f0e6aa0a1779c68bde63b98b4adc1968b48adad521f51bde84f3"
+metafile = true
+
+[[files]]
+file = "mods/embeddium.pw.toml"
+hash = "5ec0c37f3f4ad07a40c10376668bca80334ddb7ad2bab06eb4de8f7aac339c8e"
 metafile = true
 
 [[files]]
