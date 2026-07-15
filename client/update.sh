@@ -50,5 +50,24 @@ fi
 echo "[al-shabab] Installing / updating the pack. First run takes a few minutes..."
 java -jar packwiz-installer-bootstrap.jar -g -s client "$PACK_URL"
 
+# --- Enforce exact mod parity ---------------------------------------------
+#  packwiz removes mods it installed, but NOT jars a player added by hand.
+#  Delete any jar in mods/ that the pack manifest does not list, so every
+#  player ends up with the identical mod set (no stray/duplicate mods).
+MANIFEST=".packwiz-installer manifest"
+if [ -f "$MANIFEST" ] && [ -d mods ]; then
+    echo "[al-shabab] Removing any extra mods not in the pack..."
+    # Managed jar filenames (mods/* entries) pulled from the manifest JSON.
+    keep="$(grep -oE '"mods/[^"]+\.jar"' "$MANIFEST" | sed -E 's#"mods/##; s#"$##' | sort -u)"
+    for jar in mods/*.jar; do
+        [ -e "$jar" ] || continue
+        name="$(basename "$jar")"
+        if ! printf '%s\n' "$keep" | grep -qxF "$name"; then
+            echo "[al-shabab] removing extra mod: $name"
+            rm -f "$jar"
+        fi
+    done
+fi
+
 echo
 echo "[al-shabab] Done. Open your launcher, pick the Forge 1.20.1 profile, and play."
