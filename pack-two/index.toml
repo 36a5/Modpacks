@@ -2351,7 +2351,7 @@ hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
-hash = "db7dabcd9b23605f615147ec55c7720458ef4ed61080fd3a2b60b625441129a3"
+hash = "b21750d85e3394b038d253f7766c156908ece5db95f1524b5e2f2610e15e2402"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
@@ -7172,8 +7172,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.7.0.jar"
-hash = "8b77d0fafbe018adef631a2ecb5a3e9b7021988b28c6a9b7479595806fb4d16b"
+file = "mods/shababparty-1.8.0.jar"
+hash = "bbe60496fa79743ce82bf7182535ccb8b20f707ec5d36420422284c7ec47be06"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"

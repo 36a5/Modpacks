@@ -86,20 +86,28 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 
 ## 💀 Bosses
 
-> ⚠️ **Every boss on this page is scaled up.** Solo Leveling levels you far past what these mods were
-> balanced for — bosses were dying in seconds. So they now have **30× the health** and hit for **5×
-> the damage**. The Hydra has ~10,800 HP. The Ender Dragon has **20,000** and hits for **10×**.
+> ⚠️ **Bosses are a progression now — they get harder the further out you go.** Overworld minibosses
+> are the entry rung; each dimension's ladder is tougher than the last; the Ender Dragon is the wall
+> at the end (**100,000 HP**). You are meant to upgrade your gear and level up to keep pace.
 >
-> Two exceptions, both deliberate: **Solo Leveling's own bosses are untouched**, and Twilight Forest's
-> **Naga and Lich** keep their normal numbers so the Twilight Forest ladder is still enterable.
+> Rough health: overworld minibosses **1,000–2,000**, the Wither **4,000**, the Warden **6,000**;
+> Twilight Forest ramps **2,000 → 26,000** (Naga easiest, Snow Queen hardest); the Aether, Cataclysm
+> and beyond climb to **40,000–90,000**; the **Ender Dragon 100,000**. Boss damage scales the same way.
 >
-> These are not solo fights any more, and they are not short ones. Bring a party (`P`), bring
-> potions, and expect to die.
+> **Killing a boss levels you — and your whole party.** Everyone partied (`P`) and nearby gains Solo
+> Leveling levels: the Naga gives **~10 levels**, later bosses far more, the Dragon **~100**. So
+> boss-hunting *is* how you level for the next tier. (Solo Leveling XP overall is also 3× faster now.)
 >
-> **The loot is worth it now.** A scaled boss drops **5× the materials**, **20× the XP**, and any
-> weapon or armour it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the
-> Hydra lands as **Power VIII**. Boss gear beats anything you can build at a table. That is the
-> trade.
+> **The loot is worth it.** A scaled boss drops **5× the materials**, big XP, and any weapon or armour
+> it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the Hydra lands as
+> **Power VIII**. Boss gear beats anything you can craft.
+>
+> **Shadow Monarchs:** your shadow soldiers now scale with your level — the higher your level, the
+> tankier and harder-hitting your army, and it grows as you level.
+>
+> Only **Solo Leveling's own bosses** are left at their normal numbers.
+>
+> These are not solo fights. Bring a party, bring potions, and expect to die.
 
 ### L_Ender's Cataclysm — the big one
 Eight bosses, each in its own hand-built arena, each dropping a weapon that's worth the fight.
