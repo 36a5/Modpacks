@@ -40,4 +40,8 @@ scoreboard objectives add sl_r dummy
 scoreboard objectives add sl_const dummy
 scoreboard players set #50 sl_const 50
 
+# Triple Solo Leveling's XP rate. The mod default is 10; this makes normal kills and the boss
+# level-grants (shababparty BossLevels) both pay out three times as fast.
+gamerule soloLevelingXPMultiplier 30
+
 tellraw @a[tag=slb_admin] {"text":"[slb-jobs] datapack loaded","color":"dark_gray"}
