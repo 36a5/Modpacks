@@ -1999,7 +1999,7 @@ hash = "f734f35399f949a79b29328d6d0398027a5e5c4f5ffa15f35a44c8054b54da34"
 
 [[files]]
 file = "config/oculus.properties"
-hash = "bd22ab8735c94f47eb8a90e31c93807fda83c983943dd4e89e28cda9b3ceca17"
+hash = "f3934a4e2f1f8879eb1928f0469d61ee6668a50668802dc56d2035aec15f7490"
 
 [[files]]
 file = "config/overflowingbars-client.toml"
@@ -4911,7 +4911,7 @@ hash = "f734f35399f949a79b29328d6d0398027a5e5c4f5ffa15f35a44c8054b54da34"
 
 [[files]]
 file = "defaultconfigs/oculus.properties"
-hash = "1ebf9c56ee612396ba1db5817ea152be9951af436b0a2dbdf39903efdf384af3"
+hash = "936f5f12a2e3da45be99f6c97fecbaf41f4bc9294abc5ba51b8489ff31a1c706"
 
 [[files]]
 file = "defaultconfigs/overflowingbars-client.toml"
