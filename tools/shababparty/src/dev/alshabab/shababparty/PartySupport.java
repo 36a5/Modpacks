@@ -20,6 +20,8 @@ import net.solocraft.network.SololevelingModVariables;
 import net.solocraft.procedures.JobAdvPointGainProcedure;
 import net.solocraft.procedures.XPGainProcedure;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -153,30 +155,9 @@ public final class PartySupport {
             return;
         }
 
-        UUID killerId = killer.m_20148_(); // getUUID()
-        Optional<Team> team = FTBTeamsAPI.api().getManager().getTeamForPlayerID(killerId)
-                .filter(Team::isPartyTeam);
-        if (team.isEmpty()) {
-            return;
-        }
-
-        double radius = ShababParty.Config.XP_SHARE_RADIUS.get();
-        double radiusSq = radius <= 0.0D ? -1.0D : radius * radius;
-
-        for (UUID memberId : team.get().getMembers()) {
-            if (memberId.equals(killerId)) {
+        for (ServerPlayer member : partyRecipients(killer, dead, level)) {
+            if (member.m_20148_().equals(killer.m_20148_())) {
                 continue; // Solo Leveling already paid the killer; do not double-pay
-            }
-
-            ServerPlayer member = server.m_6846_().m_11259_(memberId); // getPlayerList().getPlayer(uuid)
-            if (member == null) {
-                continue; // offline
-            }
-            if (member.m_9236_() != level) { // level() -- same Level instance means same dimension
-                continue;
-            }
-            if (radiusSq >= 0.0D && member.m_20280_(dead) > radiusSq) { // distanceToSqr(entity)
-                continue;
             }
 
             // Solo Leveling's own reward routines, as if this member had landed the kill. Both of
@@ -192,11 +173,48 @@ public final class PartySupport {
     }
 
     /**
+     * The killer's party members within xpShareRadius of the kill, in the same dimension, online --
+     * INCLUDING the killer. The one place party-and-range resolution lives, shared by the XP/job-point
+     * share here and by {@link BossLevels}. An empty list if the killer is not in a real party.
+     */
+    static List<ServerPlayer> partyRecipients(Player killer, LivingEntity dead, Level level) {
+        MinecraftServer server = level.m_7654_(); // getServer()
+        if (server == null || !FTBTeamsAPI.api().isManagerLoaded()) {
+            return List.of();
+        }
+        UUID killerId = killer.m_20148_(); // getUUID()
+        Optional<Team> team = FTBTeamsAPI.api().getManager().getTeamForPlayerID(killerId)
+                .filter(Team::isPartyTeam);
+        if (team.isEmpty()) {
+            return List.of();
+        }
+
+        double radius = ShababParty.Config.XP_SHARE_RADIUS.get();
+        double radiusSq = radius <= 0.0D ? -1.0D : radius * radius;
+
+        List<ServerPlayer> recipients = new ArrayList<>();
+        for (UUID memberId : team.get().getMembers()) {
+            ServerPlayer member = server.m_6846_().m_11259_(memberId); // getPlayerList().getPlayer(uuid)
+            if (member == null) {
+                continue; // offline
+            }
+            if (member.m_9236_() != level) { // level() -- same Level instance means same dimension
+                continue;
+            }
+            if (radiusSq >= 0.0D && member.m_20280_(dead) > radiusSq) { // distanceToSqr(entity)
+                continue;
+            }
+            recipients.add(member);
+        }
+        return recipients;
+    }
+
+    /**
      * Who Solo Leveling considers to have earned the kill: the player, or the owner of a tamed pet
      * that made the kill. Mirrors XPGainProcedure so we never pay a party that Solo Leveling itself
      * would not have paid.
      */
-    private static Player resolveXpEarner(DamageSource source) {
+    static Player resolveXpEarner(DamageSource source) {
         if (source == null) {
             return null;
         }
