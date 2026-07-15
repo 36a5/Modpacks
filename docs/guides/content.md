@@ -86,10 +86,9 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 
 ## 💀 Bosses
 
-> ⚠️ **Every boss on this page is scaled up, and not gently.** Solo Leveling levels you far past what
-> these mods were balanced for — bosses were dying in seconds. So they now have **150× the health**
-> and hit for **100× the damage**. The Hydra has ~54,000 HP. The Ender Dragon has **100,000** and hits
-> for **200×**.
+> ⚠️ **Every boss on this page is scaled up.** Solo Leveling levels you far past what these mods were
+> balanced for — bosses were dying in seconds. So they now have **30× the health** and hit for **5×
+> the damage**. The Hydra has ~10,800 HP. The Ender Dragon has **20,000** and hits for **10×**.
 >
 > Two exceptions, both deliberate: **Solo Leveling's own bosses are untouched**, and Twilight Forest's
 > **Naga and Lich** keep their normal numbers so the Twilight Forest ladder is still enterable.
