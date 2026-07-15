@@ -23,8 +23,38 @@ is still 150,000, above everything.
 
 Health is the final total; damage is the multiplier on everything the boss deals.
 
-**Overworld — baseline, unlisted: flat ×10 HP, ×5 damage.** Wither, Warden, Elder Guardian,
-Mowzie's Mobs, Mutant Monsters, Born in Chaos, The Conjurer, Illager Invasion, Deeper & Darker.
+**Overworld & Nether — the lowest tier, and it must come DOWN, not up.** These are wandering
+minibosses a player meets by accident, not dungeon bosses they seek out, so at the old ×30 they were
+absurd — the Mutant Zombie ("the hulk", 150 base) was a **4,500 HP** random encounter, Frostmaw ("the
+ice yeti", 250 base) was **7,500**. They get explicit low targets instead, tuned to be beatable in
+early-to-mid overworld gear. These are the entry rung of the whole game.
+
+| Overworld / Nether | HP | Dmg | Levels |
+|---|---|---|---|
+| mutantmonsters:mutant_zombie | 1,200 | 3× | 4 |
+| mutantmonsters:mutant_skeleton | 1,000 | 3× | 3 |
+| mutantmonsters:mutant_creeper | 800 | 3× | 3 |
+| mutantmonsters:mutant_enderman | 1,500 | 4× | 5 |
+| mowziesmobs:frostmaw | 1,500 | 3× | 5 |
+| mowziesmobs:ferrous_wroughtnaut | 1,200 | 3× | 4 |
+| mowziesmobs:umvuthi | 1,400 | 3× | 4 |
+| mowziesmobs:sculptor | 1,600 | 3× | 5 |
+| conjurer_illager:conjurer | 900 | 3× | 3 |
+| illagerinvasion:invoker | 800 | 3× | 3 |
+| deeperdarker:stalker | 1,500 | 4× | 5 |
+| born_in_chaos_v1:sir_pumpkinhead | 1,200 | 3× | 4 |
+| born_in_chaos_v1:lord_pumpkinhead | 2,000 | 4× | 6 |
+| born_in_chaos_v1:fallen_chaos_knight | 1,000 | 3× | 3 |
+| born_in_chaos_v1:nightmare_stalker | 1,000 | 3× | 3 |
+| minecraft:elder_guardian | 1,500 | 3× | 4 |
+| minecraft:wither | 4,000 | 4× | 6 |
+| minecraft:warden | 6,000 | 5× | 8 |
+
+The Wither and Warden are kept meaningfully tankier than the minibosses — they are real fights and the
+top of the overworld tier, the bridge into the dimensions.
+
+**Anything not named anywhere** still falls back to a flat ×10 HP / ×5 damage as a safety net, so a
+boss from a mod added later is scaled sanely without a code change.
 
 | Twilight Forest | HP | Dmg | | Aether | HP | Dmg |
 |---|---|---|---|---|---|---|
