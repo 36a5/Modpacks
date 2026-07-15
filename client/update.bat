@@ -66,6 +66,13 @@ if errorlevel 1 (
     exit /b 1
 )
 
+rem --- Enforce exact mod parity ---------------------------------------------
+rem  packwiz removes mods it installed, but NOT jars a player added by hand.
+rem  Delete any jar in mods\ that the pack manifest does not list, so every
+rem  player ends up with the identical mod set (no stray/duplicate mods).
+echo [al-shabab] Removing any extra mods not in the pack...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $m = Get-Content '.packwiz-installer manifest' -Raw | ConvertFrom-Json } catch { exit 0 }; $keep=@{}; foreach($p in $m.cachedFiles.PSObject.Properties.Name){ if($p -like 'mods/*'){ $keep[[System.IO.Path]::GetFileName($p)]=$true } }; if(Test-Path 'mods'){ Get-ChildItem 'mods' -Filter *.jar -File | Where-Object { -not $keep.ContainsKey($_.Name) } | ForEach-Object { Write-Host ('[al-shabab] removing extra mod: ' + $_.Name); Remove-Item $_.FullName -Force } }"
+
 echo.
 echo [al-shabab] Done. Open your launcher, pick the Forge 1.20.1 profile, and play.
 echo.

@@ -512,6 +512,24 @@ try {
         Bad "The modpack download failed. Check your internet and re-run this installer."
         exit 1
     }
+
+    # Enforce exact mod parity: packwiz removes only jars it installed, not ones
+    # a player added by hand. Delete any jar in mods\ the pack manifest omits.
+    try {
+        $m = Get-Content ".packwiz-installer manifest" -Raw | ConvertFrom-Json
+        $keep = @{}
+        foreach ($p in $m.cachedFiles.PSObject.Properties.Name) {
+            if ($p -like "mods/*") { $keep[[System.IO.Path]::GetFileName($p)] = $true }
+        }
+        if (Test-Path "mods") {
+            Get-ChildItem "mods" -Filter *.jar -File |
+                Where-Object { -not $keep.ContainsKey($_.Name) } |
+                ForEach-Object {
+                    Warn "Removing extra mod not in the pack: $($_.Name)"
+                    Remove-Item $_.FullName -Force
+                }
+        }
+    } catch { }
 } finally { Pop-Location }
 $modCount = (Get-ChildItem (Join-Path $GameDir "mods") -Filter *.jar -ErrorAction SilentlyContinue).Count
 Good "Modpack installed ($modCount mods)"
