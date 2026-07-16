@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+### Shabab 2: Op ghost mode (Vanishmod) and the h4mod1 un-deopable OP fix
+
+- **Ops can now go full ghost with one command.** Added **Vanishmod 1.1.21** (`side = "server"` —
+  clients download nothing) and a **`ghost-commands`** datapack. `/function shabab:vanish` runs the
+  mod's `/vanish` (a fake yellow `multiplayer.player.left` message — pixel-identical to a real
+  leave — plus removal from the tab list, entity untracking so Xaero's radar/minimap drops you, and
+  sound/particle suppression) and then puts you in spectator for noclip. `/function shabab:unvanish`
+  reverses it via creative (not survival, so leaving spectator mid-air can't kill you). Voice chat
+  still works while vanished: the server already had `spectator_interaction=true` and
+  `spectator_player_possession=true`, so a ghosted op can talk to nearby players and to whoever
+  they're spectating.
+
+- **Fixed h4mod1's un-deopable OP.** `ops.json` held his old **online-mode (v4) UUID**
+  `9a218f21-…`, but on this offline-mode server he resolves to the v3 UUID `4ed7106f-…` — so
+  `/deop h4mod1` looked up the offline UUID, found no op entry, and reported "Nothing changed."
+  Any hand-edit of `ops.json` while the server ran was silently rewritten from memory on shutdown,
+  which is why the entry "kept coming back." Removed the stale entry from `ops.json` and purged the
+  dead v4 records from `usercache.json` / `usernamecache.json` — done with the server stopped, so
+  it sticks.
+
 ### Shabab 2: Gate teleport buttons, rolled jobs, and an all-time leaderboard
 
 - **`colonyspeed` 1.1.0 — a worker's inventory now grows with his hut level.** The speed half of this
