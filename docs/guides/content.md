@@ -95,8 +95,14 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > and beyond climb to **40,000–90,000**; the **Ender Dragon 100,000**. Boss damage scales the same way.
 >
 > **Killing a boss levels you — and your whole party.** Everyone partied (`P`) and nearby gains Solo
-> Leveling levels: the Naga gives **~10 levels**, later bosses far more, the Dragon **~100**. So
-> boss-hunting *is* how you level for the next tier. (Solo Leveling XP overall is also 3× faster now.)
+> Leveling levels based on **how much health the boss had: ~40 levels per 10,000 HP.** The ~11k Yeti
+> pays ~43 levels; the 150k Ender Dragon ~600. Boss-hunting *is* how you level. (Solo Leveling XP
+> overall is also 3× faster now.)
+>
+> **Every boss also drops a bounty:** per 10,000 HP it had, **32 diamonds + 2 ancient debris** land
+> at the corpse — on top of its normal loot. Harder boss, bigger payday, always.
+>
+> **And you take half damage from all mobs now** — the fights are hard, not unfair.
 >
 > **The loot is worth it.** A scaled boss drops **5× the materials**, big XP, and any weapon or armour
 > it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the Hydra lands as

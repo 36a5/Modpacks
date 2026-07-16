@@ -59,9 +59,12 @@ public final class ScalingCommand {
         KNOBS.put("bossDamageMultiplier", new Knob(
                 () -> ShababParty.Config.BOSS_DAMAGE_MULTIPLIER.get(),
                 v -> ShababParty.Config.BOSS_DAMAGE_MULTIPLIER.set(v)));
-        KNOBS.put("bossBaseLevels", new Knob(
-                () -> ShababParty.Config.BOSS_BASE_LEVELS.get(),
-                v -> ShababParty.Config.BOSS_BASE_LEVELS.set(v.intValue())));
+        KNOBS.put("levelsPer10kHp", new Knob(
+                () -> ShababParty.Config.LEVELS_PER_10K_HP.get(),
+                v -> ShababParty.Config.LEVELS_PER_10K_HP.set(v)));
+        KNOBS.put("playerDamageTaken", new Knob(
+                () -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.get(),
+                v -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.set(v)));
         KNOBS.put("lootDropMultiplier", new Knob(
                 () -> ShababParty.Config.BOSS_LOOT_DROP_MULTIPLIER.get(),
                 v -> ShababParty.Config.BOSS_LOOT_DROP_MULTIPLIER.set(v.intValue())));

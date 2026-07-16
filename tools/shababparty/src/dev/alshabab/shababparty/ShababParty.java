@@ -76,7 +76,9 @@ public class ShababParty {
         public static final ForgeConfigSpec.IntValue BOSS_LOOT_XP_MULTIPLIER;
 
         public static final ForgeConfigSpec.BooleanValue BOSS_LEVELS_ENABLED;
-        public static final ForgeConfigSpec.IntValue BOSS_BASE_LEVELS;
+        public static final ForgeConfigSpec.DoubleValue LEVELS_PER_10K_HP;
+        public static final ForgeConfigSpec.ConfigValue<List<? extends String>> HP_BOUNTY_ITEMS;
+        public static final ForgeConfigSpec.DoubleValue PLAYER_DAMAGE_TAKEN;
 
         public static final ForgeConfigSpec.BooleanValue SHADOW_SCALING_ENABLED;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> SHADOW_ELITES;
@@ -353,16 +355,34 @@ public class ShababParty {
             BOSS_LEVELS_ENABLED = b
                     .comment("Killing a scaled boss grants Solo Leveling levels to the whole party in range.",
                             "",
-                            "This is how boss-hunting becomes the way to level. The reward per boss is the third number",
-                            "in each bossTiers entry; a boss with no tier entry grants bossBaseLevels below. Every party",
-                            "member within [party] xpShareRadius of the kill, in the same dimension, is paid - not just",
-                            "the killer. Levels are granted through Solo Leveling's own level-up path, so they come with",
-                            "the stat points and rank a normal level-up gives.")
+                            "The reward is computed from the boss's actual max health at death, so a harder boss always",
+                            "pays more, and retuning a boss with /scaling tier automatically retunes its reward. The",
+                            "third number in a bossTiers entry is no longer used for this. Every party member within",
+                            "[party] xpShareRadius of the kill, in the same dimension, is paid - not just the killer.",
+                            "Levels arrive through Solo Leveling's own level-up path, so they come with stat points",
+                            "and rank like a normal level-up.")
                     .define("enabled", true);
 
-            BOSS_BASE_LEVELS = b
-                    .comment("Solo Leveling levels granted for killing a scaled boss that is not named in bossTiers.")
-                    .defineInRange("bossBaseLevels", 3, 0, 100);
+            LEVELS_PER_10K_HP = b
+                    .comment("Solo Leveling levels granted per 10,000 max health the dead boss had.",
+                            "40 -> a 10,000 HP boss pays ~40 levels, the 150,000 HP Ender Dragon ~600.")
+                    .defineInRange("levelsPer10kHp", 40.0D, 0.0D, 1000.0D);
+
+            HP_BOUNTY_ITEMS = b
+                    .comment("Items dropped at a scaled boss's corpse, per 10,000 max health it had:",
+                            "\"item_id=countPer10k\". A 20,000 HP boss with diamond=32 drops 64 diamonds.",
+                            "Add any item here - no rebuild needed. Counts scale linearly and round down (min 1).")
+                    .defineList("hpBountyItems",
+                            Arrays.asList("minecraft:diamond=32", "minecraft:ancient_debris=2"),
+                            o -> o instanceof String);
+            b.pop();
+
+            b.push("difficulty");
+            PLAYER_DAMAGE_TAKEN = b
+                    .comment("Multiplier on all damage players take FROM MOBS. 0.5 = players take half.",
+                            "Stacks with the boss damage multipliers: a 10x boss hitting through 0.5 lands 5x.",
+                            "Fall damage, lava, starving and other non-mob damage are untouched.")
+                    .defineInRange("playerDamageTaken", 0.5D, 0.05D, 10.0D);
             b.pop();
 
             b.push("shadowScaling");

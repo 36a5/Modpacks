@@ -85,6 +85,32 @@ public final class BossLoot {
             }
         }
 
+        // The HP bounty: a flat payment for the fight's size, on top of whatever the boss dropped.
+        // Computed from the boss's actual max health, so a harder boss always pays more and a
+        // /scaling retune moves the payout with it. Added AFTER the multiplication loop above, so
+        // the bounty itself is never multiplied.
+        final double per10k = dead.m_21233_() / 10000.0D; // getMaxHealth
+        for (final String entry : ShababParty.Config.HP_BOUNTY_ITEMS.get()) {
+            try {
+                final int eq = entry.indexOf('=');
+                final net.minecraft.world.item.Item item = net.minecraftforge.registries.ForgeRegistries.ITEMS
+                        .getValue(new net.minecraft.resources.ResourceLocation(entry.substring(0, eq).trim()));
+                if (item == null) {
+                    continue;
+                }
+                int total = (int) Math.max(1.0D, Math.floor(per10k * Integer.parseInt(entry.substring(eq + 1).trim())));
+                final int maxStack = new ItemStack(item).m_41741_(); // getMaxStackSize
+                while (total > 0) {
+                    final int n = Math.min(total, maxStack);
+                    extra.add(new ItemEntity(level, dead.m_20185_(), dead.m_20186_(), dead.m_20189_(),
+                            new ItemStack(item, n)));
+                    total -= n;
+                }
+            } catch (final RuntimeException ignored) {
+                // A typo'd bounty line must not take the drops down with it.
+            }
+        }
+
         event.getDrops().addAll(extra);
     }
 

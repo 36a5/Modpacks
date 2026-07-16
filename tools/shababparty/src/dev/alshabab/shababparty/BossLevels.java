@@ -54,8 +54,11 @@ public final class BossLevels {
             return;
         }
 
-        final BossScaling.Tier tier = BossScaling.tierFor(dead);
-        final int levels = tier != null ? tier.levels() : ShababParty.Config.BOSS_BASE_LEVELS.get();
+        // The reward is the boss's actual max health at death (m_21233_), not a per-tier constant:
+        // a harder boss always pays more, and retuning a boss with /scaling tier retunes its reward
+        // in the same stroke. 40 per 10k (default) -> the ~11k Yeti pays ~43, the 150k Dragon ~600.
+        final int levels = (int) Math.floor(
+                dead.m_21233_() / 10000.0D * ShababParty.Config.LEVELS_PER_10K_HP.get());
         if (levels <= 0) {
             return;
         }
