@@ -6013,9 +6013,8 @@ hash = "3a23f02d78b21b593844c538c0a74dfc33a8c8d61de9f7a8ded83b11aa8de4f7"
 metafile = true
 
 [[files]]
-file = "mods/chunky.pw.toml"
-hash = "b913fb641a6c783b714355c7e2646d6ee57eb688477ccafced28aef524479a28"
-metafile = true
+file = "mods/chunky-1.0.0-forge-1.20.1.jar"
+hash = "a6d05f14666a88bc49e190d0038029be72594ac4539876899c84ae2c0056c175"
 
 [[files]]
 file = "mods/citadel.pw.toml"
