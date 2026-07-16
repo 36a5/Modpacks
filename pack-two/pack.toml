@@ -1,12 +1,12 @@
 name = "Shabab 2"
 author = "Abdulrhman Salamah"
-version = "1.0.0"
+version = "1.0.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "77f7dacf8aab63cb159e57b17b75d6dbbe4b8eb3c7d4b72fd1086b0dafa111bf"
+hash = "28c59a21f76174138c40ce5a3e880f030aca07c0ed40eabe997c64cd161d7c40"
 
 [versions]
 forge = "47.4.18"
