@@ -8,6 +8,10 @@
     "AbstractEntityAIStructureMixin",
     "InventoryCitizenMixin"
   ],
+  "client": [
+    "ClientStructurePackLoaderMixin",
+    "WindowExtendedBuildToolMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
