@@ -39,6 +39,7 @@ public class ColonySpeed {
         public static final ForgeConfigSpec.BooleanValue SCALE_INVENTORY;
         public static final ForgeConfigSpec.IntValue MAX_SLOTS;
         public static final ForgeConfigSpec.IntValue OVERRIDE_DELAY_TICKS;
+        public static final ForgeConfigSpec.BooleanValue ENABLE_DROPBOX;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -108,6 +109,21 @@ public class ColonySpeed {
                             "81 slots is 81 *stacks* of distinct blocks, which is more than any blueprint asks",
                             "for - that is what makes a level 5 Builder effectively never run out of room.")
                     .defineInRange("maxSlots", 81, 27, 81);
+            b.pop();
+
+            b.push("blueprintDropbox");
+            ENABLE_DROPBOX = b
+                    .comment("Let players drop schematics into blueprints/drop/ and build them as decorations.",
+                            "",
+                            "A .schem or a .nbt in that folder is converted to Structurize's .blueprint format and",
+                            "filed under the auto-generated \"My Decorations\" pack, in the \"custom\" category. The",
+                            "build tool converts on open, so a dropped file is usually one menu away from being",
+                            "built. It also adds an \"Open Folder\" button to the build tool.",
+                            "",
+                            "This is client-side. Structurize uploads a client's blueprint to the server when it is",
+                            "placed, so nothing needs installing server-side - but the server must keep",
+                            "allowPlayerSchematics = true in structurize-server.toml or it will refuse the upload.")
+                    .define("enableDropbox", true);
             b.pop();
 
             SPEC = b.build();
