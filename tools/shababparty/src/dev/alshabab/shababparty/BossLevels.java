@@ -2,11 +2,16 @@ package dev.alshabab.shababparty;
 
 import java.util.List;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,18 +62,63 @@ public final class BossLevels {
         // The reward is the boss's actual max health at death (m_21233_), not a per-tier constant:
         // a harder boss always pays more, and retuning a boss with /scaling tier retunes its reward
         // in the same stroke. 40 per 10k (default) -> the ~11k Yeti pays ~43, the 150k Dragon ~600.
-        final int levels = (int) Math.floor(
-                dead.m_21233_() / 10000.0D * ShababParty.Config.LEVELS_PER_10K_HP.get());
+        final double maxHp = dead.m_21233_();
+        final int levels = (int) Math.floor(maxHp / 10000.0D * ShababParty.Config.LEVELS_PER_10K_HP.get());
         if (levels <= 0) {
             return;
         }
 
+        // Deathless fights pay extra - read here, before BossLoot's drops handler forgets the boss.
+        final boolean clean = BossFightTracker.isClean(dead);
+        final double cleanMult = clean ? 1.0D + ShababParty.Config.NO_DEATH_BONUS.get() : 1.0D;
+
+        // Endgame bosses also pay raw SkillPoints, so a max-level player still has a reason to be here.
+        final double skillPoints = maxHp >= ShababParty.Config.SP_BOUNTY_THRESHOLD.get()
+                ? maxHp / 10000.0D * ShababParty.Config.SP_PER_10K_HP.get() * cleanMult
+                : 0.0D;
+
+        final ResourceLocation bossId = ForgeRegistries.ENTITY_TYPES.getKey(dead.m_6095_());
+
         for (final ServerPlayer member : PartySupport.partyRecipients(killer, dead, level)) {
-            grantLevels(member, levels);
+            double memberMult = cleanMult;
+            if (bossId != null && isFirstKill(member, bossId)) {
+                // The chase list: a player's first-ever kill of each boss type pays double.
+                memberMult *= ShababParty.Config.MILESTONE_MULTIPLIER.get();
+                member.m_5661_(Component.m_237113_("First " + bossId.m_135815_() + " kill - bonus reward!")
+                        .m_130944_(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD), false);
+            }
+            if (clean) {
+                member.m_5661_(Component.m_237113_("Deathless fight - +"
+                                + (int) (ShababParty.Config.NO_DEATH_BONUS.get() * 100) + "% reward!")
+                        .m_130944_(ChatFormatting.AQUA), false);
+            }
+            grant(member, (int) (levels * memberMult), skillPoints);
         }
     }
 
-    private static void grantLevels(final ServerPlayer player, final int levels) {
+    /**
+     * First-ever kill of this boss type for this player. Recorded under PlayerPersisted, the one
+     * subtree of an entity's ForgeData that Forge copies across death, so dying later does not reset
+     * the chase list.
+     */
+    private static boolean isFirstKill(final ServerPlayer player, final ResourceLocation bossId) {
+        // getPersistentData is a Forge patch on Entity; reached via IForgeEntity for the same reason
+        // getCapability goes through ICapabilityProvider (no patched jar on disk to compile against).
+        final CompoundTag root = ((net.minecraftforge.common.extensions.IForgeEntity) player).getPersistentData();
+        final CompoundTag persisted = root.m_128469_("PlayerPersisted"); // getCompound
+        if (!root.m_128441_("PlayerPersisted")) { // contains - getCompound returns a detached tag when absent
+            root.m_128365_("PlayerPersisted", persisted); // put
+        }
+        final CompoundTag kills = persisted.m_128469_("shababpartyBossKills");
+        if (!persisted.m_128441_("shababpartyBossKills")) {
+            persisted.m_128365_("shababpartyBossKills", kills);
+        }
+        final boolean first = !kills.m_128471_(bossId.toString()); // getBoolean
+        kills.m_128379_(bossId.toString(), true); // putBoolean
+        return first;
+    }
+
+    private static void grant(final ServerPlayer player, final int levels, final double skillPoints) {
         final SololevelingModVariables.PlayerVariables vars =
                 ((ICapabilityProvider) player)
                         .getCapability(SololevelingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
@@ -77,6 +127,7 @@ public final class BossLevels {
             return; // not awakened as a hunter - nothing to level
         }
         vars.Xp += levels * vars.MaxXP;
+        vars.SkillPoints += skillPoints;
         vars.syncPlayerVariables(player);
     }
 }

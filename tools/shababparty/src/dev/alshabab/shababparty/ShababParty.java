@@ -78,6 +78,11 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue BOSS_LEVELS_ENABLED;
         public static final ForgeConfigSpec.DoubleValue LEVELS_PER_10K_HP;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> HP_BOUNTY_ITEMS;
+        public static final ForgeConfigSpec.DoubleValue MILESTONE_MULTIPLIER;
+        public static final ForgeConfigSpec.DoubleValue NO_DEATH_BONUS;
+        public static final ForgeConfigSpec.DoubleValue ANNOUNCE_HP_THRESHOLD;
+        public static final ForgeConfigSpec.DoubleValue SP_BOUNTY_THRESHOLD;
+        public static final ForgeConfigSpec.DoubleValue SP_PER_10K_HP;
         public static final ForgeConfigSpec.DoubleValue PLAYER_DAMAGE_TAKEN;
 
         public static final ForgeConfigSpec.BooleanValue SHADOW_SCALING_ENABLED;
@@ -371,10 +376,45 @@ public class ShababParty {
             HP_BOUNTY_ITEMS = b
                     .comment("Items dropped at a scaled boss's corpse, per 10,000 max health it had:",
                             "\"item_id=countPer10k\". A 20,000 HP boss with diamond=32 drops 64 diamonds.",
-                            "Add any item here - no rebuild needed. Counts scale linearly and round down (min 1).")
+                            "Add any item here - no rebuild needed. Counts scale linearly and round down (min 1).",
+                            "",
+                            "The defaults are deliberately the grind materials - things normally earned by mining and",
+                            "other slow means - so fighting bosses replaces the boring part of progression.")
                     .defineList("hpBountyItems",
-                            Arrays.asList("minecraft:diamond=32", "minecraft:ancient_debris=2"),
+                            Arrays.asList(
+                                    "minecraft:diamond=32",
+                                    "minecraft:ancient_debris=2",
+                                    "minecraft:netherite_scrap=3",
+                                    "minecraft:emerald=16",
+                                    "minecraft:experience_bottle=8",
+                                    "minecraft:enchanted_golden_apple=1",
+                                    "minecraft:echo_shard=2",
+                                    "minecraft:amethyst_shard=8"),
                             o -> o instanceof String);
+
+            MILESTONE_MULTIPLIER = b
+                    .comment("A player's FIRST-ever kill of each boss type pays this multiple of the level reward.",
+                            "2.0 = first kills pay double. Tracked per player, survives death and relog.")
+                    .defineInRange("milestoneMultiplier", 2.0D, 1.0D, 10.0D);
+
+            NO_DEATH_BONUS = b
+                    .comment("Bonus on levels AND bounty items when no party member died near the boss during the",
+                            "fight. 0.5 = a clean kill pays 150%.")
+                    .defineInRange("noDeathBonus", 0.5D, 0.0D, 5.0D);
+
+            ANNOUNCE_HP_THRESHOLD = b
+                    .comment("A boss with at least this much max health gets its death announced to the whole",
+                            "server, with fireworks at the corpse. Status is a reward too.")
+                    .defineInRange("announceHpThreshold", 50000.0D, 1000.0D, 10000000.0D);
+
+            SP_BOUNTY_THRESHOLD = b
+                    .comment("Bosses with at least this much max health ALSO pay raw SkillPoints (unspent SP),",
+                            "so maxed-out players still have a reason to fight the endgame.")
+                    .defineInRange("spBountyThreshold", 50000.0D, 1000.0D, 10000000.0D);
+
+            SP_PER_10K_HP = b
+                    .comment("SkillPoints granted per 10,000 max health, for bosses over spBountyThreshold.")
+                    .defineInRange("spPer10kHp", 10.0D, 0.0D, 1000.0D);
             b.pop();
 
             b.push("difficulty");

@@ -99,10 +99,20 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > pays ~43 levels; the 150k Ender Dragon ~600. Boss-hunting *is* how you level. (Solo Leveling XP
 > overall is also 3× faster now.)
 >
-> **Every boss also drops a bounty:** per 10,000 HP it had, **32 diamonds + 2 ancient debris** land
-> at the corpse — on top of its normal loot. Harder boss, bigger payday, always.
+> **Every boss also drops a bounty:** per 10,000 HP it had — **32 diamonds, 2 ancient debris,
+> 3 netherite scrap, 16 emeralds, 8 XP bottles, an enchanted golden apple, echo shards, amethyst** —
+> at the corpse, on top of its normal loot. The grind materials come from fighting now, not mining.
+>
+> **Bonus rewards:**
+> - **First kill** of each boss type pays **double levels** — hunt the full list.
+> - **Deathless fight** (nobody in the party dies) — **+50% levels and bounty**.
+> - **50k+ HP bosses** get their kill **announced server-wide with fireworks**, and pay raw **SP**
+>   on top — so even maxed players want them.
 >
 > **And you take half damage from all mobs now** — the fights are hard, not unfair.
+>
+> **Tip — `/invest 50`:** choose how many points each `+` click in the stats panel spends, so
+> re-assigning a Reborn Elixir refund takes seconds, not six hundred clicks.
 >
 > **The loot is worth it.** A scaled boss drops **5× the materials**, big XP, and any weapon or armour
 > it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the Hydra lands as

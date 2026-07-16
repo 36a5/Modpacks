@@ -90,6 +90,13 @@ public final class BossLoot {
         // /scaling retune moves the payout with it. Added AFTER the multiplication loop above, so
         // the bounty itself is never multiplied.
         final double per10k = dead.m_21233_() / 10000.0D; // getMaxHealth
+
+        // Deathless fights pay half again as much bounty. This is the LAST reader of the fight
+        // tracker (drops fire after the death event), so it also forgets the boss afterwards.
+        final double cleanMult = BossFightTracker.isClean(dead)
+                ? 1.0D + ShababParty.Config.NO_DEATH_BONUS.get()
+                : 1.0D;
+
         for (final String entry : ShababParty.Config.HP_BOUNTY_ITEMS.get()) {
             try {
                 final int eq = entry.indexOf('=');
@@ -98,7 +105,8 @@ public final class BossLoot {
                 if (item == null) {
                     continue;
                 }
-                int total = (int) Math.max(1.0D, Math.floor(per10k * Integer.parseInt(entry.substring(eq + 1).trim())));
+                int total = (int) Math.max(1.0D,
+                        Math.floor(per10k * Integer.parseInt(entry.substring(eq + 1).trim()) * cleanMult));
                 final int maxStack = new ItemStack(item).m_41741_(); // getMaxStackSize
                 while (total > 0) {
                     final int n = Math.min(total, maxStack);
@@ -110,6 +118,8 @@ public final class BossLoot {
                 // A typo'd bounty line must not take the drops down with it.
             }
         }
+
+        BossFightTracker.forget(dead);
 
         event.getDrops().addAll(extra);
     }

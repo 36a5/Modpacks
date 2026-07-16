@@ -65,6 +65,21 @@ public final class ScalingCommand {
         KNOBS.put("playerDamageTaken", new Knob(
                 () -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.get(),
                 v -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.set(v)));
+        KNOBS.put("milestoneMultiplier", new Knob(
+                () -> ShababParty.Config.MILESTONE_MULTIPLIER.get(),
+                v -> ShababParty.Config.MILESTONE_MULTIPLIER.set(v)));
+        KNOBS.put("noDeathBonus", new Knob(
+                () -> ShababParty.Config.NO_DEATH_BONUS.get(),
+                v -> ShababParty.Config.NO_DEATH_BONUS.set(v)));
+        KNOBS.put("announceHpThreshold", new Knob(
+                () -> ShababParty.Config.ANNOUNCE_HP_THRESHOLD.get(),
+                v -> ShababParty.Config.ANNOUNCE_HP_THRESHOLD.set(v)));
+        KNOBS.put("spBountyThreshold", new Knob(
+                () -> ShababParty.Config.SP_BOUNTY_THRESHOLD.get(),
+                v -> ShababParty.Config.SP_BOUNTY_THRESHOLD.set(v)));
+        KNOBS.put("spPer10kHp", new Knob(
+                () -> ShababParty.Config.SP_PER_10K_HP.get(),
+                v -> ShababParty.Config.SP_PER_10K_HP.set(v)));
         KNOBS.put("lootDropMultiplier", new Knob(
                 () -> ShababParty.Config.BOSS_LOOT_DROP_MULTIPLIER.get(),
                 v -> ShababParty.Config.BOSS_LOOT_DROP_MULTIPLIER.set(v.intValue())));
