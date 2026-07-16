@@ -7445,6 +7445,11 @@ hash = "aec4606c3c26abfc88794f2551552c83202036fdd5e3faedd86c32989168ff34"
 metafile = true
 
 [[files]]
+file = "mods/vanishmod.pw.toml"
+hash = "cbf15929002778aaca0eff1fec01662bedddd79d31949e732dfeb18149f8d936"
+metafile = true
+
+[[files]]
 file = "mods/vein-mining.pw.toml"
 hash = "0d1a0a24a2d759c48bb1daa4b1bf27df514c91a4ff9a2c87df20ed5ce9ae809a"
 metafile = true

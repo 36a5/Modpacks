@@ -7,6 +7,18 @@ copy them back in after a world reset:
 Copy-Item .\datapacks\* .\run\world\datapacks\ -Recurse -Force
 ```
 
+## ghost-commands
+
+Op-only ghost mode, pairs with the server-side **Vanishmod** mod:
+
+- `/function shabab:vanish` — fake "left the game" message, gone from tab list + Xaero radar,
+  then spectator mode for noclip. Voice chat keeps working (SVC `spectator_interaction=true`).
+- `/function shabab:unvanish` — creative mode (safe mid-air), then fake "joined the game" message
+  and back on the tab list.
+
+Note: the mod's `/vanish` is a toggle — running `shabab:vanish` twice unvanishes you but leaves
+you in spectator. Run `shabab:unvanish` to exit cleanly.
+
 ## faster-builders
 
 MineColonies **1.1.1255 has no builder-speed config**. `builderBuildBlockDelay` and
