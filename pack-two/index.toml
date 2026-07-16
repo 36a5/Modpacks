@@ -6822,9 +6822,8 @@ hash = "650ed4e76b807d4b2e8834fa9ffbeaadfb92c153a8c3f1a470ad1a093289108d"
 metafile = true
 
 [[files]]
-file = "mods/minecolonies.pw.toml"
-hash = "e060f46a6f63520919dbe79ad69f51d184c90cd680e398a722bb91c844f10fd1"
-metafile = true
+file = "mods/minecolonies-1.20.1-1.1.1255-multibuilder1.jar"
+hash = "38acdd8b80e34b999adc2479daa528dacb9a97f480a1096804f1e44008a91712"
 
 [[files]]
 file = "mods/minecraft-transport-simulator.pw.toml"
