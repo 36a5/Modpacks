@@ -73,6 +73,15 @@ public final class BossScaling {
     private BossScaling() {
     }
 
+    /**
+     * Drop the parsed tier cache so the next lookup re-reads bossTiers. Called by /scaling tier and by
+     * the config-reload listener in {@link ShababParty}, so both in-game edits and hand-edits to the
+     * toml on a running server take effect without a restart.
+     */
+    static void invalidateTiers() {
+        tiers = null;
+    }
+
     /** "entity_id=health,damage,levels" lines -> map. Malformed lines are skipped rather than fatal. */
     private static Map<ResourceLocation, Tier> tiers() {
         if (tiers == null) {
