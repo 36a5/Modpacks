@@ -8,6 +8,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,6 +38,12 @@ public class ShababParty {
     public ShababParty() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+        // Forge watches the config file and fires Reloading when it changes on disk, so a hand-edit
+        // to shababparty-common.toml on a running server also lands without a restart - the flat
+        // knobs are read per-event anyway, and this drops BossScaling's parsed tier cache.
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(
+                (final ModConfigEvent.Reloading event) -> BossScaling.invalidateTiers());
     }
 
     public static final class Config {
