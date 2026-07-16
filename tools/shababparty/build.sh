@@ -7,7 +7,11 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
+<<<<<<< HEAD
 VERSION=1.11.0
+=======
+VERSION=1.12.0
+>>>>>>> 655d9e099f1f80c9a1a2eda56f8af6ffecfce03f
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"

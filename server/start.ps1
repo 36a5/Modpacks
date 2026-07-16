@@ -32,7 +32,10 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20"
+# ParallelGCThreads/ConcGCThreads capped: box is only 6c/12t and the client runs on the
+# same machine while playing. Uncapped, G1 grabs threads = logical cores and starves the
+# client's render thread during the join-time chunk-gen GC spike. Leave headroom for it.
+Set-Content user_jvm_args.txt "-Xms$Memory -Xmx$Memory -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:ParallelGCThreads=4 -XX:ConcGCThreads=2"
 Set-Content eula.txt "eula=true"
 
 # ── server.properties baseline ──────────────────────────────────────────────

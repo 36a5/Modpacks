@@ -6013,6 +6013,11 @@ hash = "3a23f02d78b21b593844c538c0a74dfc33a8c8d61de9f7a8ded83b11aa8de4f7"
 metafile = true
 
 [[files]]
+file = "mods/chunky.pw.toml"
+hash = "b913fb641a6c783b714355c7e2646d6ee57eb688477ccafced28aef524479a28"
+metafile = true
+
+[[files]]
 file = "mods/citadel.pw.toml"
 hash = "5a4b03567f23fe0aac7806bd7cc9734138bf5fc098e98c1bb552d5b288bef258"
 metafile = true
@@ -7171,8 +7176,13 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
+<<<<<<< HEAD
 file = "mods/shababparty-1.11.0.jar"
 hash = "88b715073a9801ac6d16a532ccc1df385390123fbb50c264d4b1950e2e03b8b2"
+=======
+file = "mods/shababparty-1.12.0.jar"
+hash = "2f20d3d80cd901505bace625e98d7a296762cea7e7aeef2e52fc70d22487665f"
+>>>>>>> 655d9e099f1f80c9a1a2eda56f8af6ffecfce03f
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
