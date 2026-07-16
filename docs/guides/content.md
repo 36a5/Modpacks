@@ -107,9 +107,9 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > Their **damage scales with your Intelligence**: go all-in on INT and your shadows become the
 > weapon. The army re-syncs to you every few seconds.
 >
-> **Respec when you want:** craft a **Stat Redistribution** (a Class Selector ringed by 8 ancient
-> debris) and use it — every stat point you've ever allocated returns to SP, ready to re-spend in
-> the panel (`;`). Level, rank and job are untouched.
+> **Respec when you want:** craft a **Reborn Elixir** (a Class Selector ringed by 8 ancient debris —
+> search "reborn" in JEI) and use it — every stat point you've ever allocated returns to SP, ready
+> to re-spend in the panel (`;`). Level, rank and job are untouched.
 >
 > Only **Solo Leveling's own bosses** are left at their normal numbers.
 >
