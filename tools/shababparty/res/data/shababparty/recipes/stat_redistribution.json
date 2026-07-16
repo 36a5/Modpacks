@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "key": {
+    "D": { "item": "minecraft:ancient_debris" },
+    "C": { "item": "sololeveling:class_chooser" }
+  },
+  "result": { "item": "shababparty:stat_redistribution" }
+}

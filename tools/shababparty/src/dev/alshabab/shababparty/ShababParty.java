@@ -3,10 +3,15 @@ package dev.alshabab.shababparty;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,8 +24,19 @@ public class ShababParty {
     public static final String MOD_ID = "shababparty";
     public static final Logger LOGGER = LogManager.getLogger("ShababParty");
 
+    /** The mod's first and only item registry. */
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+
+    /**
+     * Stat Redistribution - a respec. Crafted from a Class Chooser ringed by eight ancient debris;
+     * on use, every allocated Solo Leveling stat point returns to SP. See StatRedistributionItem.
+     */
+    public static final RegistryObject<Item> STAT_REDISTRIBUTION =
+            ITEMS.register("stat_redistribution", StatRedistributionItem::new);
+
     public ShababParty() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final class Config {
@@ -56,8 +72,10 @@ public class ShababParty {
         public static final ForgeConfigSpec.IntValue BOSS_BASE_LEVELS;
 
         public static final ForgeConfigSpec.BooleanValue SHADOW_SCALING_ENABLED;
-        public static final ForgeConfigSpec.DoubleValue SHADOW_HEALTH_PER_LEVEL;
-        public static final ForgeConfigSpec.DoubleValue SHADOW_DAMAGE_PER_LEVEL;
+        public static final ForgeConfigSpec.ConfigValue<List<? extends String>> SHADOW_ELITES;
+        public static final ForgeConfigSpec.DoubleValue SHADOW_ELITE_FRACTION;
+        public static final ForgeConfigSpec.DoubleValue SHADOW_STANDARD_FRACTION;
+        public static final ForgeConfigSpec.DoubleValue SHADOW_DAMAGE_PER_INTELLIGENCE;
         public static final ForgeConfigSpec.IntValue SHADOW_RESYNC_TICKS;
 
         static {
@@ -342,26 +360,45 @@ public class ShababParty {
 
             b.push("shadowScaling");
             SHADOW_SCALING_ENABLED = b
-                    .comment("Scale the Shadow Monarch's shadow soldiers with his Solo Leveling level.",
+                    .comment("Tie the Shadow Monarch's shadow soldiers to their owner's own stats.",
                             "",
                             "The mod's shadows are static - a level 200 Monarch summons the same Igris a level 40 one",
-                            "does. Here their health and damage grow with the owner's level, and a periodic re-sync means",
-                            "a standing army gets stronger as the Monarch levels, not only his next summons. Only the 13",
-                            "entities in the minecraft:shadows tag are touched - not the mod's other tamed entities like",
-                            "flame vortexes and bear traps.")
+                            "does. Here a shadow's max health and armour are a fraction of the OWNER's, and its damage",
+                            "grows with the owner's Intelligence, so the army is a reflection of the Monarch. A periodic",
+                            "re-sync keeps a standing army tracking its owner as he levels, re-gears, or redistributes",
+                            "stats. Only the 13 entities in the minecraft:shadows tag are touched - not the mod's other",
+                            "tamed entities like flame vortexes and bear traps.",
+                            "",
+                            "A shadow is never scaled BELOW its vanilla stats: a fresh 20 HP Monarch does not get a",
+                            "5 HP Igris. The fraction only ever raises.")
                     .define("enabled", true);
 
-            SHADOW_HEALTH_PER_LEVEL = b
-                    .comment("Shadow max-health multiplier is (1 + ownerLevel * this). 0.10 -> level 100 = 11x.")
-                    .defineInRange("healthPerLevel", 0.10D, 0.0D, 10.0D);
+            SHADOW_ELITES = b
+                    .comment("The elite shadows: these get eliteFraction of the owner's health and armour;",
+                            "every other shadow in the tag gets standardFraction.")
+                    .defineList("eliteShadows",
+                            Arrays.asList("sololeveling:igris_shadow",
+                                    "sololeveling:tusk_shadow",
+                                    "sololeveling:beru_shadow"),
+                            o -> o instanceof String);
 
-            SHADOW_DAMAGE_PER_LEVEL = b
-                    .comment("Shadow attack-damage multiplier is (1 + ownerLevel * this). 0.05 -> level 100 = 6x.")
-                    .defineInRange("damagePerLevel", 0.05D, 0.0D, 10.0D);
+            SHADOW_ELITE_FRACTION = b
+                    .comment("Igris, Tusk and Beru get this fraction of the owner's max health and armour.")
+                    .defineInRange("eliteFraction", 0.5D, 0.0D, 2.0D);
+
+            SHADOW_STANDARD_FRACTION = b
+                    .comment("Every other shadow gets this fraction of the owner's max health and armour.")
+                    .defineInRange("standardFraction", 0.25D, 0.0D, 2.0D);
+
+            SHADOW_DAMAGE_PER_INTELLIGENCE = b
+                    .comment("Shadow attack-damage multiplier is (1 + ownerIntelligence * this).",
+                            "Deliberately generous: a Monarch who pours every stat point into Intelligence fields a",
+                            "genuinely dangerous army. 0.08 -> INT 100 = 9x damage, INT 300 = 25x.")
+                    .defineInRange("damagePerIntelligence", 0.08D, 0.0D, 10.0D);
 
             SHADOW_RESYNC_TICKS = b
-                    .comment("How often, in ticks, loaded shadows are re-scaled to their owner's current level.",
-                            "20 ticks = 1 second. This is what makes an already-summoned army grow when you level up.")
+                    .comment("How often, in ticks, loaded shadows are re-synced to their owner's current stats.",
+                            "20 ticks = 1 second. This is what makes an already-summoned army track its Monarch.")
                     .defineInRange("resyncIntervalTicks", 100, 20, 1200);
             b.pop();
 
