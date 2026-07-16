@@ -102,8 +102,14 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > it drops comes out **enchanted past the vanilla ceiling** — a Power V bow off the Hydra lands as
 > **Power VIII**. Boss gear beats anything you can craft.
 >
-> **Shadow Monarchs:** your shadow soldiers now scale with your level — the higher your level, the
-> tankier and harder-hitting your army, and it grows as you level.
+> **Shadow Monarchs: your army is a reflection of you.** **Igris, Tusk and Beru get HALF your max
+> health and armour; every other shadow gets a quarter** — so building yourself up builds them up.
+> Their **damage scales with your Intelligence**: go all-in on INT and your shadows become the
+> weapon. The army re-syncs to you every few seconds.
+>
+> **Respec when you want:** craft a **Stat Redistribution** (a Class Selector ringed by 8 ancient
+> debris) and use it — every stat point you've ever allocated returns to SP, ready to re-spend in
+> the panel (`;`). Level, rank and job are untouched.
 >
 > Only **Solo Leveling's own bosses** are left at their normal numbers.
 >
