@@ -89,7 +89,15 @@ public final class BossLoot {
         // Computed from the boss's actual max health, so a harder boss always pays more and a
         // /scaling retune moves the payout with it. Added AFTER the multiplication loop above, so
         // the bounty itself is never multiplied.
-        final double per10k = dead.m_21233_() / 10000.0D; // getMaxHealth
+        final double maxHp = dead.m_21233_(); // getMaxHealth
+        // Only bosses over the threshold drop bounty items, so overworld minibosses do not rain
+        // diamonds and ancient debris - their normal loot is all they give.
+        if (maxHp < ShababParty.Config.BOUNTY_HP_THRESHOLD.get()) {
+            BossFightTracker.forget(dead);
+            event.getDrops().addAll(extra);
+            return;
+        }
+        final double per10k = maxHp / 10000.0D;
 
         // Deathless fights pay half again as much bounty. This is the LAST reader of the fight
         // tracker (drops fire after the death event), so it also forgets the boss afterwards.

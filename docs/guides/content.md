@@ -99,9 +99,11 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > pays ~43 levels; the 150k Ender Dragon ~600. Boss-hunting *is* how you level. (Solo Leveling XP
 > overall is also 3× faster now.)
 >
-> **Every boss also drops a bounty:** per 10,000 HP it had — **32 diamonds, 2 ancient debris,
+> **Bosses of 5,000 HP or more drop a bounty:** per 10,000 HP — **32 diamonds, 2 ancient debris,
 > 3 netherite scrap, 16 emeralds, 8 XP bottles, an enchanted golden apple, echo shards, amethyst** —
-> at the corpse, on top of its normal loot. The grind materials come from fighting now, not mining.
+> at the corpse, on top of normal loot. (A 5k boss = 1 ancient debris, scaling up.) The grind
+> materials come from fighting now, not mining. Overworld minibosses under 5k give only their normal
+> drops.
 >
 > **Bonus rewards:**
 > - **First kill** of each boss type pays **double levels** — hunt the full list.

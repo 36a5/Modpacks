@@ -62,6 +62,9 @@ public final class ScalingCommand {
         KNOBS.put("levelsPer10kHp", new Knob(
                 () -> ShababParty.Config.LEVELS_PER_10K_HP.get(),
                 v -> ShababParty.Config.LEVELS_PER_10K_HP.set(v)));
+        KNOBS.put("bountyHpThreshold", new Knob(
+                () -> ShababParty.Config.BOUNTY_HP_THRESHOLD.get(),
+                v -> ShababParty.Config.BOUNTY_HP_THRESHOLD.set(v)));
         KNOBS.put("playerDamageTaken", new Knob(
                 () -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.get(),
                 v -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.set(v)));

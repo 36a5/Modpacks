@@ -77,6 +77,7 @@ public class ShababParty {
 
         public static final ForgeConfigSpec.BooleanValue BOSS_LEVELS_ENABLED;
         public static final ForgeConfigSpec.DoubleValue LEVELS_PER_10K_HP;
+        public static final ForgeConfigSpec.DoubleValue BOUNTY_HP_THRESHOLD;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> HP_BOUNTY_ITEMS;
         public static final ForgeConfigSpec.DoubleValue MILESTONE_MULTIPLIER;
         public static final ForgeConfigSpec.DoubleValue NO_DEATH_BONUS;
@@ -372,6 +373,12 @@ public class ShababParty {
                     .comment("Solo Leveling levels granted per 10,000 max health the dead boss had.",
                             "40 -> a 10,000 HP boss pays ~40 levels, the 150,000 HP Ender Dragon ~600.")
                     .defineInRange("levelsPer10kHp", 40.0D, 0.0D, 1000.0D);
+
+            BOUNTY_HP_THRESHOLD = b
+                    .comment("A boss must have at least this much max health to drop ANY bounty items.",
+                            "Below it, only its normal loot - so overworld minibosses do not rain diamonds and",
+                            "ancient debris. 5000 -> a 5000 HP boss pays 1 ancient debris (2 per 10k), scaling up.")
+                    .defineInRange("bountyHpThreshold", 5000.0D, 0.0D, 10000000.0D);
 
             HP_BOUNTY_ITEMS = b
                     .comment("Items dropped at a scaled boss's corpse, per 10,000 max health it had:",
