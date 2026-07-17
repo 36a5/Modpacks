@@ -107,14 +107,24 @@ public final class BossLoot {
 
         for (final String entry : ShababParty.Config.HP_BOUNTY_ITEMS.get()) {
             try {
+                // "item=count" or "item=count@minHp".
                 final int eq = entry.indexOf('=');
+                String rhs = entry.substring(eq + 1).trim();
+                double itemMinHp = 0.0D;
+                final int at = rhs.indexOf('@');
+                if (at >= 0) {
+                    itemMinHp = Double.parseDouble(rhs.substring(at + 1).trim());
+                    rhs = rhs.substring(0, at).trim();
+                }
+                if (maxHp < itemMinHp) {
+                    continue; // this item is gated higher than this boss
+                }
                 final net.minecraft.world.item.Item item = net.minecraftforge.registries.ForgeRegistries.ITEMS
                         .getValue(new net.minecraft.resources.ResourceLocation(entry.substring(0, eq).trim()));
                 if (item == null) {
                     continue;
                 }
-                int total = (int) Math.max(1.0D,
-                        Math.floor(per10k * Integer.parseInt(entry.substring(eq + 1).trim()) * cleanMult));
+                int total = (int) Math.max(1.0D, Math.floor(per10k * Integer.parseInt(rhs) * cleanMult));
                 final int maxStack = new ItemStack(item).m_41741_(); // getMaxStackSize
                 while (total > 0) {
                     final int n = Math.min(total, maxStack);

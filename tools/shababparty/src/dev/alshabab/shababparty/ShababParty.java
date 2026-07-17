@@ -376,27 +376,34 @@ public class ShababParty {
 
             BOUNTY_HP_THRESHOLD = b
                     .comment("A boss must have at least this much max health to drop ANY bounty items.",
-                            "Below it, only its normal loot - so overworld minibosses do not rain diamonds and",
-                            "ancient debris. 5000 -> a 5000 HP boss pays 1 ancient debris (2 per 10k), scaling up.")
-                    .defineInRange("bountyHpThreshold", 5000.0D, 0.0D, 10000000.0D);
+                            "The overall floor: trivial mobs under it give only normal loot. Individual items can be",
+                            "gated higher with @minHp below.")
+                    .defineInRange("bountyHpThreshold", 1000.0D, 0.0D, 10000000.0D);
 
             HP_BOUNTY_ITEMS = b
-                    .comment("Items dropped at a scaled boss's corpse, per 10,000 max health it had:",
-                            "\"item_id=countPer10k\". A 20,000 HP boss with diamond=32 drops 64 diamonds.",
-                            "Add any item here - no rebuild needed. Counts scale linearly and round down (min 1).",
+                    .comment("Items dropped at a scaled boss's corpse, scaled by its max health:",
+                            "\"item_id=countPer10k\" or \"item_id=countPer10k@minHp\".",
                             "",
-                            "The defaults are deliberately the grind materials - things normally earned by mining and",
-                            "other slow means - so fighting bosses replaces the boring part of progression.")
+                            "  countPer10k - how many drop per 10,000 max health (rounds down, min 1 once eligible).",
+                            "  @minHp      - the boss needs at least this much health for THIS item. Default 0.",
+                            "",
+                            "So diamond=50 pays 5 to a 1000 HP miniboss and 50 to a 10k boss, giving a real reason to",
+                            "kill minibosses, while ancient_debris=2@5000 keeps the rare grind materials on the bigger",
+                            "fights. The defaults are the grind materials - the stuff normally earned by slow mining -",
+                            "so boss-hunting replaces the boring part of progression. Add any item, no rebuild needed.")
                     .defineList("hpBountyItems",
                             Arrays.asList(
-                                    "minecraft:diamond=32",
-                                    "minecraft:ancient_debris=2",
-                                    "minecraft:netherite_scrap=3",
-                                    "minecraft:emerald=16",
-                                    "minecraft:experience_bottle=8",
-                                    "minecraft:enchanted_golden_apple=1",
-                                    "minecraft:echo_shard=2",
-                                    "minecraft:amethyst_shard=8"),
+                                    // Common - any miniboss (1000 HP) earns these.
+                                    "minecraft:diamond=50",
+                                    "minecraft:emerald=20",
+                                    "minecraft:amethyst_shard=10",
+                                    "minecraft:experience_bottle=10",
+                                    // Uncommon - real bosses.
+                                    "minecraft:ancient_debris=2@5000",
+                                    "minecraft:netherite_scrap=3@5000",
+                                    "minecraft:echo_shard=2@8000",
+                                    // Rare - big fights only.
+                                    "minecraft:enchanted_golden_apple=1@10000"),
                             o -> o instanceof String);
 
             MILESTONE_MULTIPLIER = b
