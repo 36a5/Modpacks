@@ -94,11 +94,11 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > Twilight Forest ramps **2,000 → 26,000** (Naga easiest, Snow Queen hardest); the Aether, Cataclysm
 > and beyond climb to **40,000–90,000**; the **Ender Dragon 100,000**. Boss damage scales the same way.
 >
-> **Killing a boss levels you — and your whole party.** Everyone partied (`P`) and nearby gains Solo
-> Leveling levels by the boss's health: **5 full levels per 1,000 HP.** A 1k miniboss = 5 levels, the
-> ~11k Yeti ≈ 54, the 150k Ender Dragon **750**. These are whole levels *with their stat points* —
-> exact, no matter how much XP your next level would normally cost. Boss-hunting *is* how you level.
-> (Solo Leveling XP overall is also 3× faster on top.)
+> **Killing a boss gives Solo Leveling XP — to your whole party.** Everyone partied (`P`) and nearby
+> gains **5 XP per point of the boss's health**: a 1,000 HP miniboss = 5,000 XP, the 150,000 HP Ender
+> Dragon = **750,000**. Boss-hunting *is* how you level. (Solo Leveling XP is also 3× faster on top.)
+>
+> **→ [Full boss list — HP, damage and rewards](boss-rewards.md)**
 >
 > **Every boss drops a bounty at the corpse, scaled to its health** — grind materials you'd normally
 > mine for:

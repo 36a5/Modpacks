@@ -59,9 +59,9 @@ public final class ScalingCommand {
         KNOBS.put("bossDamageMultiplier", new Knob(
                 () -> ShababParty.Config.BOSS_DAMAGE_MULTIPLIER.get(),
                 v -> ShababParty.Config.BOSS_DAMAGE_MULTIPLIER.set(v)));
-        KNOBS.put("levelsPer10kHp", new Knob(
-                () -> ShababParty.Config.LEVELS_PER_10K_HP.get(),
-                v -> ShababParty.Config.LEVELS_PER_10K_HP.set(v)));
+        KNOBS.put("xpPerHp", new Knob(
+                () -> ShababParty.Config.XP_PER_HP.get(),
+                v -> ShababParty.Config.XP_PER_HP.set(v)));
         KNOBS.put("bountyHpThreshold", new Knob(
                 () -> ShababParty.Config.BOUNTY_HP_THRESHOLD.get(),
                 v -> ShababParty.Config.BOUNTY_HP_THRESHOLD.set(v)));

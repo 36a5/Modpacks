@@ -76,7 +76,7 @@ public class ShababParty {
         public static final ForgeConfigSpec.IntValue BOSS_LOOT_XP_MULTIPLIER;
 
         public static final ForgeConfigSpec.BooleanValue BOSS_LEVELS_ENABLED;
-        public static final ForgeConfigSpec.DoubleValue LEVELS_PER_10K_HP;
+        public static final ForgeConfigSpec.DoubleValue XP_PER_HP;
         public static final ForgeConfigSpec.DoubleValue BOUNTY_HP_THRESHOLD;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> HP_BOUNTY_ITEMS;
         public static final ForgeConfigSpec.DoubleValue MILESTONE_MULTIPLIER;
@@ -369,15 +369,15 @@ public class ShababParty {
                             "and rank like a normal level-up.")
                     .define("enabled", true);
 
-            LEVELS_PER_10K_HP = b
-                    .comment("Solo Leveling levels granted per 10,000 max health the dead boss had.",
-                            "50 -> 5 full levels per 1,000 HP: a 1,000 HP miniboss pays 5, a 10k boss 50, the",
-                            "150,000 HP Ender Dragon 750.",
+            XP_PER_HP = b
+                    .comment("Solo Leveling XP granted per 1 point of the dead boss's max health.",
+                            "5 -> a 1,000 HP miniboss pays 5,000 XP, the 150,000 HP Ender Dragon 750,000.",
                             "",
-                            "These are WHOLE levels, granted through the mod's own level-up path one at a time, so",
-                            "each comes with its stat points and the amount is exact - it does not drift with the",
-                            "rising XP-per-level cost the way an XP lump would.")
-                    .defineInRange("levelsPer10kHp", 50.0D, 0.0D, 1000.0D);
+                            "The XP is added to the killer's pool and the mod levels them up from it naturally, so how",
+                            "many levels it becomes depends on where they are on the XP curve - a big lump early is many",
+                            "levels, the same lump late is fewer. This stacks on top of the soloLevelingXPMultiplier",
+                            "gamerule.")
+                    .defineInRange("xpPerHp", 5.0D, 0.0D, 10000.0D);
 
             BOUNTY_HP_THRESHOLD = b
                     .comment("A boss must have at least this much max health to drop ANY bounty items.",

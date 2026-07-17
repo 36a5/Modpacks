@@ -18,7 +18,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import net.solocraft.network.SololevelingModVariables;
-import net.solocraft.procedures.LevelUpProcedure;
 
 /**
  * Killing a scaled boss grants Solo Leveling levels to the whole party in range - the way to level up
@@ -60,12 +59,12 @@ public final class BossLevels {
             return;
         }
 
-        // The reward is the boss's actual max health at death (m_21233_), not a per-tier constant:
-        // a harder boss always pays more, and retuning a boss with /scaling tier retunes its reward
-        // in the same stroke. 40 per 10k (default) -> the ~11k Yeti pays ~43, the 150k Dragon ~600.
+        // The reward is the boss's actual max health at death (m_21233_) times xpPerHp: a harder
+        // boss always pays more, and retuning a boss with /scaling tier retunes its reward in the
+        // same stroke. 5 per HP (default) -> the ~11k Yeti pays ~55k XP, the 150k Dragon 750k.
         final double maxHp = dead.m_21233_();
-        final int levels = (int) Math.floor(maxHp / 10000.0D * ShababParty.Config.LEVELS_PER_10K_HP.get());
-        if (levels <= 0) {
+        final double baseXp = maxHp * ShababParty.Config.XP_PER_HP.get();
+        if (baseXp <= 0.0D) {
             return;
         }
 
@@ -93,7 +92,7 @@ public final class BossLevels {
                                 + (int) (ShababParty.Config.NO_DEATH_BONUS.get() * 100) + "% reward!")
                         .m_130944_(ChatFormatting.AQUA), false);
             }
-            grant(member, (int) (levels * memberMult), skillPoints);
+            grant(member, baseXp * memberMult, skillPoints);
         }
     }
 
@@ -119,31 +118,18 @@ public final class BossLevels {
         return first;
     }
 
-    /** Bound the level-up loop so a pathological config or HP value cannot hang the server thread. */
-    private static final int MAX_LEVELS_PER_KILL = 5000;
-
-    private static void grant(final ServerPlayer player, final int levels, final double skillPoints) {
+    private static void grant(final ServerPlayer player, final double xp, final double skillPoints) {
         final SololevelingModVariables.PlayerVariables vars =
                 ((ICapabilityProvider) player)
                         .getCapability(SololevelingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
                         .orElse(null);
         if (vars == null || vars.MaxXP <= 0.0D) {
-            return; // not awakened as a hunter - nothing to level
+            return; // not awakened as a hunter - nothing to gain
         }
-
-        // WHOLE levels, not an XP lump. Adding levels*MaxXP to Xp drifts to fewer levels than asked,
-        // because each successive level costs more XP than the last. Instead we force the level-up
-        // condition (Xp >= MaxXP) and run the mod's own LevelUpProcedure once per level: each pass
-        // does Level++ with its stat points, so the count is exact and the stats stay correct. MaxXP
-        // is only recomputed by the mod on its own tick, so it holds steady across the loop and every
-        // level costs the same - which is exactly "N full levels no matter the XP required".
-        final int count = Math.min(levels, MAX_LEVELS_PER_KILL);
-        for (int i = 0; i < count; i++) {
-            vars.Xp = vars.MaxXP + 1.0D; // guarantee the threshold is met
-            LevelUpProcedure.execute(player.m_9236_(), // level()
-                    player.m_20185_(), player.m_20186_(), player.m_20189_(), player); // getX/Y/Z
-        }
-        vars.Xp = 0.0D; // no leftover partial progress from the last forced top-up
+        // Straight into the XP pool. The mod's LevelUpProcedure.onPlayerTick spends it into as many
+        // levels as it buys, each with its stat points, over the next ticks - so a 750k lump on the
+        // Ender Dragon cascades through the levels on its own without us touching Level.
+        vars.Xp += xp;
         vars.SkillPoints += skillPoints;
         vars.syncPlayerVariables(player);
     }
