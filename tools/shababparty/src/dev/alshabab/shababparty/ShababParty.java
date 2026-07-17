@@ -371,8 +371,13 @@ public class ShababParty {
 
             LEVELS_PER_10K_HP = b
                     .comment("Solo Leveling levels granted per 10,000 max health the dead boss had.",
-                            "40 -> a 10,000 HP boss pays ~40 levels, the 150,000 HP Ender Dragon ~600.")
-                    .defineInRange("levelsPer10kHp", 40.0D, 0.0D, 1000.0D);
+                            "50 -> 5 full levels per 1,000 HP: a 1,000 HP miniboss pays 5, a 10k boss 50, the",
+                            "150,000 HP Ender Dragon 750.",
+                            "",
+                            "These are WHOLE levels, granted through the mod's own level-up path one at a time, so",
+                            "each comes with its stat points and the amount is exact - it does not drift with the",
+                            "rising XP-per-level cost the way an XP lump would.")
+                    .defineInRange("levelsPer10kHp", 50.0D, 0.0D, 1000.0D);
 
             BOUNTY_HP_THRESHOLD = b
                     .comment("A boss must have at least this much max health to drop ANY bounty items.",

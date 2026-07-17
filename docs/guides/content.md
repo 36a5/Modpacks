@@ -95,9 +95,10 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > and beyond climb to **40,000–90,000**; the **Ender Dragon 100,000**. Boss damage scales the same way.
 >
 > **Killing a boss levels you — and your whole party.** Everyone partied (`P`) and nearby gains Solo
-> Leveling levels based on **how much health the boss had: ~40 levels per 10,000 HP.** The ~11k Yeti
-> pays ~43 levels; the 150k Ender Dragon ~600. Boss-hunting *is* how you level. (Solo Leveling XP
-> overall is also 3× faster now.)
+> Leveling levels by the boss's health: **5 full levels per 1,000 HP.** A 1k miniboss = 5 levels, the
+> ~11k Yeti ≈ 54, the 150k Ender Dragon **750**. These are whole levels *with their stat points* —
+> exact, no matter how much XP your next level would normally cost. Boss-hunting *is* how you level.
+> (Solo Leveling XP overall is also 3× faster on top.)
 >
 > **Every boss drops a bounty at the corpse, scaled to its health** — grind materials you'd normally
 > mine for:

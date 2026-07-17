@@ -18,6 +18,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import net.solocraft.network.SololevelingModVariables;
+import net.solocraft.procedures.LevelUpProcedure;
 
 /**
  * Killing a scaled boss grants Solo Leveling levels to the whole party in range - the way to level up
@@ -118,6 +119,9 @@ public final class BossLevels {
         return first;
     }
 
+    /** Bound the level-up loop so a pathological config or HP value cannot hang the server thread. */
+    private static final int MAX_LEVELS_PER_KILL = 5000;
+
     private static void grant(final ServerPlayer player, final int levels, final double skillPoints) {
         final SololevelingModVariables.PlayerVariables vars =
                 ((ICapabilityProvider) player)
@@ -126,7 +130,20 @@ public final class BossLevels {
         if (vars == null || vars.MaxXP <= 0.0D) {
             return; // not awakened as a hunter - nothing to level
         }
-        vars.Xp += levels * vars.MaxXP;
+
+        // WHOLE levels, not an XP lump. Adding levels*MaxXP to Xp drifts to fewer levels than asked,
+        // because each successive level costs more XP than the last. Instead we force the level-up
+        // condition (Xp >= MaxXP) and run the mod's own LevelUpProcedure once per level: each pass
+        // does Level++ with its stat points, so the count is exact and the stats stay correct. MaxXP
+        // is only recomputed by the mod on its own tick, so it holds steady across the loop and every
+        // level costs the same - which is exactly "N full levels no matter the XP required".
+        final int count = Math.min(levels, MAX_LEVELS_PER_KILL);
+        for (int i = 0; i < count; i++) {
+            vars.Xp = vars.MaxXP + 1.0D; // guarantee the threshold is met
+            LevelUpProcedure.execute(player.m_9236_(), // level()
+                    player.m_20185_(), player.m_20186_(), player.m_20189_(), player); // getX/Y/Z
+        }
+        vars.Xp = 0.0D; // no leftover partial progress from the last forced top-up
         vars.SkillPoints += skillPoints;
         vars.syncPlayerVariables(player);
     }
