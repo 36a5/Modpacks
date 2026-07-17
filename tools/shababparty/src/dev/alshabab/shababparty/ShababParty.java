@@ -86,6 +86,9 @@ public class ShababParty {
         public static final ForgeConfigSpec.DoubleValue SP_PER_10K_HP;
         public static final ForgeConfigSpec.DoubleValue PLAYER_DAMAGE_TAKEN;
 
+        public static final ForgeConfigSpec.BooleanValue PLAYER_POWER_ENABLED;
+        public static final ForgeConfigSpec.DoubleValue STRENGTH_DAMAGE_PER_POINT;
+
         public static final ForgeConfigSpec.BooleanValue SHADOW_SCALING_ENABLED;
         public static final ForgeConfigSpec.ConfigValue<List<? extends String>> SHADOW_ELITES;
         public static final ForgeConfigSpec.DoubleValue SHADOW_ELITE_FRACTION;
@@ -442,6 +445,21 @@ public class ShababParty {
                             "Stacks with the boss damage multipliers: a 10x boss hitting through 0.5 lands 5x.",
                             "Fall damage, lava, starving and other non-mob damage are untouched.")
                     .defineInRange("playerDamageTaken", 0.5D, 0.05D, 10.0D);
+
+            PLAYER_POWER_ENABLED = b
+                    .comment("Make the Solo Leveling Strength stat raise the damage a player deals.",
+                            "",
+                            "Solo Leveling already sets generic.attack_damage from Strength, but Epic Fight runs its own",
+                            "melee combat and normalises a hit to the weapon's own numbers, so the attribute change does",
+                            "not reach the damage a swing lands - a 10,000 Strength player hit as hard as a 100 one. This",
+                            "scales the FINAL damage instead, after Epic Fight, so Strength always matters.")
+                    .define("enabled", true);
+
+            STRENGTH_DAMAGE_PER_POINT = b
+                    .comment("Player outgoing damage is multiplied by (1 + Strength * this).",
+                            "0.005 -> Strength 100 = 1.5x, 1,000 = 6x, 10,000 = 51x. Raise it if high-Strength",
+                            "builds still feel weak against the scaled bosses; lower it if they trivialise them.")
+                    .defineInRange("strengthDamagePerPoint", 0.005D, 0.0D, 10.0D);
             b.pop();
 
             b.push("shadowScaling");

@@ -68,6 +68,9 @@ public final class ScalingCommand {
         KNOBS.put("playerDamageTaken", new Knob(
                 () -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.get(),
                 v -> ShababParty.Config.PLAYER_DAMAGE_TAKEN.set(v)));
+        KNOBS.put("strengthDamagePerPoint", new Knob(
+                () -> ShababParty.Config.STRENGTH_DAMAGE_PER_POINT.get(),
+                v -> ShababParty.Config.STRENGTH_DAMAGE_PER_POINT.set(v)));
         KNOBS.put("milestoneMultiplier", new Knob(
                 () -> ShababParty.Config.MILESTONE_MULTIPLIER.get(),
                 v -> ShababParty.Config.MILESTONE_MULTIPLIER.set(v)));
