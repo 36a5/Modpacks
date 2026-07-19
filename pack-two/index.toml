@@ -7028,11 +7028,6 @@ hash = "f2dac6ca0291f11a8f544bf38d8417fedcd25682dcc1fda2c4d6d3c9bc5f9e42"
 metafile = true
 
 [[files]]
-file = "mods/particle-effects.pw.toml"
-hash = "db548cce030c2c467f131af1437b15782c8cf21285e39d005650ac735bd6b67d"
-metafile = true
-
-[[files]]
 file = "mods/patchouli.pw.toml"
 hash = "b2cb681aaf3e6085148392a06d40899239dc299aaf5ce0adf168fc225d922c97"
 metafile = true
