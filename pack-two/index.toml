@@ -6048,10 +6048,6 @@ hash = "0af4859b1dcf39126ff0e0c4a2e5801a7e775e9aa7e0706bfb49360c4e363d80"
 metafile = true
 
 [[files]]
-file = "mods/colonyspeed-1.2.0.jar"
-hash = "aa462d38e417b86ddde15f61facd7566099ee4281e81111df5089e7a64450df9"
-
-[[files]]
 file = "mods/colorwheel.pw.toml"
 hash = "a85ba7ba18bb361e24447e4d15aabf988c391a110f77514301636b31397613e5"
 metafile = true
@@ -6682,11 +6678,6 @@ hash = "08a365f0717fbd5561ff746bc6c41185b0c84582a1cd834115b933266328a5ff"
 metafile = true
 
 [[files]]
-file = "mods/just-enough-resources-jer.pw.toml"
-hash = "2f4dd47f2ac99a55c332638116596bbdc38a06ac86336bb662e42c604c3a96e6"
-metafile = true
-
-[[files]]
 file = "mods/just-zoom.pw.toml"
 hash = "1b00016b104368daab12a28d92088fd95c5c33a1ac991f0072ca8870ae89983f"
 metafile = true
@@ -7169,10 +7160,6 @@ metafile = true
 file = "mods/server-browser.pw.toml"
 hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
-
-[[files]]
-file = "mods/shababparty-1.19.0.jar"
-hash = "2ba53e07e6d761b966dfd10b230e838eb7cc052bbb5358f48d622c587d1dbd53"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
