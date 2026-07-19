@@ -6,7 +6,7 @@ if (-not (Test-Path $runDir)) { New-Item -ItemType Directory $runDir | Out-Null 
 Set-Location $runDir
 
 # ── Settings ────────────────────────────────────────────────────────────────
-$PackUrl      = if ($env:PACK_URL) { $env:PACK_URL } else { "https://36a5.github.io/Modpacks/pack-two/pack.toml" }
+$PackUrl      = if ($env:PACK_URL) { $env:PACK_URL } else { "https://raw.githubusercontent.com/36a5/Modpacks/master/pack-two/pack.toml" }
 $McVersion    = "1.20.1"
 $ForgeVersion = "47.4.18"
 $Memory       = if ($env:MEMORY) { $env:MEMORY } else { "8G" }

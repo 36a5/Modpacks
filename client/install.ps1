@@ -28,8 +28,8 @@ $RuntimeDir   = "$env:LOCALAPPDATA\al-shabab\jre17"   # Java is shared across pa
 # Every pack MUST have a unique Slug: it becomes the instance/profile/gameDir name in
 # every launcher, so two packs never share one mods\ folder and clobber each other.
 $Packs = [ordered]@{
-    "1" = @{ Slug = "al-shabab";   Display = "al Shabab"; Url = "https://36a5.github.io/Modpacks/pack/pack.toml" }
-    "2" = @{ Slug = "al-shabab-2"; Display = "Shabab 2";  Url = "https://36a5.github.io/Modpacks/pack-two/pack.toml" }
+    "1" = @{ Slug = "al-shabab";   Display = "al Shabab"; Url = "https://raw.githubusercontent.com/36a5/Modpacks/master/pack/pack.toml" }
+    "2" = @{ Slug = "al-shabab-2"; Display = "Shabab 2";  Url = "https://raw.githubusercontent.com/36a5/Modpacks/master/pack-two/pack.toml" }
 }
 # $PackUrl / $InstanceName / $DisplayName are set once the pack is chosen (section 0).
 

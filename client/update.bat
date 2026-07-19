@@ -17,7 +17,7 @@ rem  already created once in your launcher.
 rem ============================================================
 
 setlocal
-set "PACK_URL=https://36a5.github.io/Modpacks/pack.toml"
+set "PACK_URL=https://raw.githubusercontent.com/36a5/Modpacks/master/pack/pack.toml"
 set "GAME_DIR=%APPDATA%\.minecraft"
 
 if not "%~1"=="" set "GAME_DIR=%~1"

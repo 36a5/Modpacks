@@ -15,7 +15,7 @@
 # ============================================================
 set -euo pipefail
 
-PACK_URL="https://36a5.github.io/Modpacks/pack.toml"
+PACK_URL="https://raw.githubusercontent.com/36a5/Modpacks/master/pack/pack.toml"
 
 if [ -n "${1:-}" ]; then
     GAME_DIR="$1"
