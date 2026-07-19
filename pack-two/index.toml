@@ -5678,10 +5678,6 @@ file = "mods/JustEnoughResources-1.20.1-1.4.0.247.jar"
 hash = "311d3a83db489d27b96cd15deb690ce64c78cffb552c25c3dff85956a14ec09e"
 
 [[files]]
-file = "mods/ParticleEffects-1.5.0+1.20.1+forge.jar"
-hash = "cce01d47db38bf5d369173108b80c74c7114860ddd421a26b142dcada9f074f7"
-
-[[files]]
 file = "mods/SLR Extended 2.1.1 HotFix.jar"
 hash = "83ea67560dfee78d22b2450c2e53bacb927cb877fc9028e2bf71db99a76f8355"
 
