@@ -5674,6 +5674,14 @@ hash = "aae6e3463d50f1a338ae73c6717d72f56f606dee44ddf457e37f8e056baabe3a"
 metafile = true
 
 [[files]]
+file = "mods/JustEnoughResources-1.20.1-1.4.0.247.jar"
+hash = "311d3a83db489d27b96cd15deb690ce64c78cffb552c25c3dff85956a14ec09e"
+
+[[files]]
+file = "mods/ParticleEffects-1.5.0+1.20.1+forge.jar"
+hash = "cce01d47db38bf5d369173108b80c74c7114860ddd421a26b142dcada9f074f7"
+
+[[files]]
 file = "mods/SLR Extended 2.1.1 HotFix.jar"
 hash = "83ea67560dfee78d22b2450c2e53bacb927cb877fc9028e2bf71db99a76f8355"
 
@@ -5801,6 +5809,10 @@ metafile = true
 file = "mods/audio-improvements.pw.toml"
 hash = "46bf974333d687bd02d2c0828d3b6aabedf700ab57fcb767d4b0d16a6fcb9a1d"
 metafile = true
+
+[[files]]
+file = "mods/auth-1.0.0.jar"
+hash = "5ea1ce527d10a35cb48ca882b4234111068b307e28f18d619176a0ffdc979467"
 
 [[files]]
 file = "mods/auth.pw.toml"
@@ -6046,6 +6058,10 @@ metafile = true
 file = "mods/collective.pw.toml"
 hash = "0af4859b1dcf39126ff0e0c4a2e5801a7e775e9aa7e0706bfb49360c4e363d80"
 metafile = true
+
+[[files]]
+file = "mods/colonyspeed-1.2.0.jar"
+hash = "aa462d38e417b86ddde15f61facd7566099ee4281e81111df5089e7a64450df9"
 
 [[files]]
 file = "mods/colorwheel.pw.toml"
@@ -6678,6 +6694,11 @@ hash = "08a365f0717fbd5561ff746bc6c41185b0c84582a1cd834115b933266328a5ff"
 metafile = true
 
 [[files]]
+file = "mods/just-enough-resources-jer.pw.toml"
+hash = "2f4dd47f2ac99a55c332638116596bbdc38a06ac86336bb662e42c604c3a96e6"
+metafile = true
+
+[[files]]
 file = "mods/just-zoom.pw.toml"
 hash = "1b00016b104368daab12a28d92088fd95c5c33a1ac991f0072ca8870ae89983f"
 metafile = true
@@ -7007,6 +7028,11 @@ hash = "f2dac6ca0291f11a8f544bf38d8417fedcd25682dcc1fda2c4d6d3c9bc5f9e42"
 metafile = true
 
 [[files]]
+file = "mods/particle-effects.pw.toml"
+hash = "db548cce030c2c467f131af1437b15782c8cf21285e39d005650ac735bd6b67d"
+metafile = true
+
+[[files]]
 file = "mods/patchouli.pw.toml"
 hash = "b2cb681aaf3e6085148392a06d40899239dc299aaf5ce0adf168fc225d922c97"
 metafile = true
@@ -7155,6 +7181,10 @@ metafile = true
 file = "mods/server-browser.pw.toml"
 hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
+
+[[files]]
+file = "mods/shababparty-1.19.0.jar"
+hash = "2ba53e07e6d761b966dfd10b230e838eb7cc052bbb5358f48d622c587d1dbd53"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
