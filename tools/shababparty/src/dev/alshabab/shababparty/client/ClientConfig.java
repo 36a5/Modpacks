@@ -70,7 +70,7 @@ public final class ClientConfig {
                         "number is still up add to its total instead of starting a new one.")
                 .defineInRange("lifetimeTicks", 40, 5, 200);
         SCALE = b.comment("Text size multiplier. Numbers are drawn at HUD scale, so this is absolute.")
-                .defineInRange("scale", 1.5D, 0.25D, 6.0D);
+                .defineInRange("scale", 2.5D, 0.25D, 8.0D);
         RISE_SPEED = b.comment("Blocks per second the number drifts upward.")
                 .defineInRange("riseSpeed", 0.35D, 0.0D, 1.0D);
         MAX_POPUPS = b.comment("Hard cap on simultaneous numbers. The oldest is dropped at the cap.")

@@ -57,8 +57,17 @@ import org.joml.Vector4f;
 @Mod.EventBusSubscriber(modid = ShababParty.MOD_ID, value = Dist.CLIENT)
 public final class ClientDamageNumbers {
 
-    /** Bold, via the legacy formatting code. Cheaper than styling a Component for one flag. */
-    private static final String BOLD = "§l";
+    /**
+     * Bold, via the legacy formatting code.
+     *
+     * <p>Written as a unicode escape rather than a literal section sign on purpose. javac decodes
+     * source with the platform default charset unless told otherwise, so a literal U+00A7 in a
+     * UTF-8 file arrives as two mangled characters -- which is exactly what happened: the bold code
+     * never formed and the mojibake was printed in front of every number. Unicode escapes are
+     * handled by the lexer before any of that can matter. build.sh now also passes -encoding UTF-8,
+     * but this line should not depend on it.
+     */
+    private static final String BOLD = "\u00A7l";
 
     private static final Map<Integer, Popup> POPUPS = new LinkedHashMap<>();
 

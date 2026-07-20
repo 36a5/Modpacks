@@ -96,7 +96,10 @@ mkdir -p "$BUILD/classes"
 
 # -proc:none: the mixin jar ships an annotation processor that generates refmaps and crashes without
 # gson on the processor path. The mixin references no Minecraft classes, so no refmap is needed.
-javac -proc:none -nowarn --release 17 \
+# -encoding UTF-8: without it javac decodes source with the platform default charset, which on this
+# machine is not UTF-8. A literal section sign in ClientDamageNumbers compiled to mojibake and got
+# printed in front of every damage number in game. Sources are UTF-8; say so.
+javac -proc:none -nowarn --release 17 -encoding UTF-8 \
     -cp "$CP" \
     -d "$(win "$BUILD/classes")" \
     $(find "$HERE/src" -name '*.java' -exec cygpath -w {} \;)
