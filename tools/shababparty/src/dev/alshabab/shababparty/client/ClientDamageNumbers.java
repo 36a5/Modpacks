@@ -132,7 +132,10 @@ public final class ClientDamageNumbers {
 
     @SubscribeEvent
     public static void onRenderLevel(final RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
+        // AFTER_WEATHER rather than AFTER_PARTICLES: it is the last stage before the level render
+        // ends, so rain and snow cannot paint over a number. AFTER_LEVEL is later still, but this
+        // pack ships Oculus and shader packs make that final stage unpredictable.
+        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_WEATHER) {
             return;
         }
         if (POPUPS.isEmpty() || !ClientConfig.ENABLED.get()) {
@@ -177,8 +180,17 @@ public final class ClientDamageNumbers {
             final Matrix4f matrix = pose.m_85850_().m_252922_();
             final float half = font.m_92895_(p.text) / 2.0F;
 
+            // SEE_THROUGH, not NORMAL. NORMAL resolves to RenderType.text, which is depth-tested,
+            // so any geometry nearer the camera than the hit point covers the number -- most often
+            // the mob you just hit, because the number spawns at its eyes and the mob's own head is
+            // between that point and you. SEE_THROUGH resolves to RenderType.textSeeThrough, which
+            // disables the depth test, so the number always wins.
+            //
+            // Vanilla nameplates draw SEE_THROUGH and then NORMAL on top, which is what produces
+            // the dim-through-walls, bright-in-the-open look. Only the first pass is wanted here:
+            // a damage number that is sometimes readable is not doing its job.
             font.m_271703_(p.text, -half, 0.0F, argb, false, matrix, buffers,
-                    Font.DisplayMode.NORMAL, 0, FULL_BRIGHT);
+                    Font.DisplayMode.SEE_THROUGH, 0, FULL_BRIGHT);
 
             pose.m_85849_();
         }
