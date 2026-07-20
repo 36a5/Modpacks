@@ -39,6 +39,13 @@ public class ShababParty {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
+        // Floating damage numbers are per-player display preferences, so their spec is CLIENT and
+        // lands in the client's own config directory - unlike everything in Config below, which is
+        // COMMON and server-authoritative. ClientConfig holds no net.minecraft.client types, so
+        // naming it here does not drag client classes onto a dedicated server.
+        ModLoadingContext.get().registerConfig(
+                ModConfig.Type.CLIENT, dev.alshabab.shababparty.client.ClientConfig.SPEC);
+
         // Forge watches the config file and fires Reloading when it changes on disk, so a hand-edit
         // to shababparty-common.toml on a running server also lands without a restart - the flat
         // knobs are read per-event anyway, and this drops BossScaling's parsed tier cache.
