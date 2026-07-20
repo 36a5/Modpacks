@@ -61,6 +61,32 @@ which lets G1 collect concurrently instead of stopping the world.
 
 ---
 
+## 3. Client and server on one machine (server `-Xms` lowered 2026-07-20)
+
+Section 2 pins the *client* to `-Xms8G -Xmx8G`, and `server/run/user_jvm_args.txt` had the same 8 GB
+floor. Each pre-commits its whole heap the instant the JVM starts, so running both on the dev box
+means **16 GB is committed before either has loaded a single mod** — on 32 GB, alongside Windows and
+Defender's scan hook.
+
+On 2026-07-20 the client and server were launched two seconds apart. Both then loaded 391 mods
+simultaneously, and 84 seconds in the server's garbage collector died with an
+`EXCEPTION_ACCESS_VIOLATION` reading `0xffffffffffffffff`, with 7.9 GB of physical memory left
+(`server/run/hs_err_pid7000.log`). The crashing thread was `GCTaskThread "GC Thread#4"` — no game or
+mod code on the stack, and the JVM's own heap was healthy at 4.6 GB of 8 GB. It was not an
+out-of-memory error inside the JVM; it was the OS unable to back a page the GC expected.
+
+The server is now `-Xms4G -Xmx8G`. Same ceiling, but the heap grows into it on demand instead of
+demanding all of it at the worst possible moment. This deliberately breaks the Aikar-flags rule that
+`Xms` should equal `Xmx` — that rule assumes a dedicated server box, which this is not. The client
+keeps its 8 GB floor, because there the resize pauses were the actual reported symptom.
+
+**This change lives in `server/run/user_jvm_args.txt`, which is gitignored.** A rebuilt server will
+silently go back to `-Xms8G` and this is written here so the reasoning survives that. The cheaper
+habit, if you would rather not touch the flags at all: **do not start the client and server at the
+same time.** Let one finish loading first.
+
+---
+
 ## What is left: the taste calls
 
 Each of these costs something real. None is a bug, and dropping any of them changes what the pack
