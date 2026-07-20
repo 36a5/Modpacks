@@ -2,6 +2,31 @@
 
 ## [Unreleased]
 
+### Shabab 2: Floating damage numbers (shababparty 1.21.0)
+
+- **Damage now shows up as numbers in the world**, in three separately-coloured buckets: damage
+  **you deal** (yellow), damage **mobs deal to you** (red), and damage **other players deal to
+  you** (purple). Each number reads `raw (final)` — what the weapon rolled, and what actually came
+  off the health bar. The gap between the two is the target's armour, which is the whole point:
+  with 391 mods installed, a weapon's tooltip damage says very little about what it does to an
+  armoured Cataclysm boss.
+
+- **NUMPAD 5** toggles every number on and off; **NUMPAD 6** opens the settings screen. Both are
+  registered as real keybinds, so they appear under **Options → Controls → Shabab Party** and can
+  be rebound there like any other key.
+
+- **Settings screen** covers per-bucket colour (five presets from Minecraft's chat palette, or any
+  hex value you type), per-bucket hide, whether to show raw and final, text size, how long numbers
+  linger, and a cap on how many can be on screen at once. Also reachable from the Mods list.
+  Settings are per-player and live in `config/shababparty-client.toml` — the server does not
+  dictate them.
+
+- **The numbers are the real ones.** They are read at `EventPriority.LOWEST`, after every damage
+  modifier in the pack has run — weapon base damage, enchantments, Epic Fight's combat maths, the
+  Solo Leveling Strength multiplier from `PlayerPower`, boss scaling and damage relief. Nothing is
+  recomputed from weapon stats or player level, so what is displayed cannot drift from what was
+  dealt.
+
 ### Shabab 2: Op ghost mode (Vanishmod) and the h4mod1 un-deopable OP fix
 
 - **Ops can now go full ghost with one command.** Added **Vanishmod 1.1.21** (`side = "server"` —
