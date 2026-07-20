@@ -99,6 +99,7 @@ The Gate dimensions you already know — see the **[Systems Guide](systems.md#-s
 > Dragon = **750,000**. Boss-hunting *is* how you level. (Solo Leveling XP is also 3× faster on top.)
 >
 > **→ [Full boss list — HP, damage and rewards](boss-rewards.md)**
+> **→ [Progression route — what to fight first, and what armour to wear](progression.md)**
 >
 > **Every boss drops a bounty at the corpse, scaled to its health** — grind materials you'd normally
 > mine for:
