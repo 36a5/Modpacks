@@ -162,13 +162,41 @@ Any weapon or armour a scaled boss drops comes out with **+3 levels on every enc
 had** — a Power V bow lands as **Power VIII**, Protection IV as **Protection VII**. Unenchanted gear
 drops enchanted as if from a **level-40** table (vanilla stops at 30), treasure enchants included.
 
-So:
-1. **Kill bosses in the armour you have** rather than grinding for a "perfect" crafted set.
-2. **Prioritise Protection** on every piece — with the boss bonus it goes past IV.
-3. **Mending + Unbreaking III** on anything you like, since durability now costs vanilla rates again.
-4. Use the **anvil** to move over-cap enchants onto the set you actually want to wear.
+**And Easy Disenchanting is installed**, which is what makes that exploitable: you can pull those
+over-cap enchantments *off* a boss drop and onto a book. So the loop is:
 
-**AttributeFix is installed**, so armour and toughness are not capped at vanilla limits.
+> Kill boss → get an over-cap piece you don't want → **disenchant it to a book** → anvil that book
+> onto the set you actually wear.
+
+You never need to grind an enchanting table for a "perfect" set. Fight, harvest, transfer.
+
+#### What to put on each piece
+
+| Slot | Priority |
+|---|---|
+| **All four** | **Protection** (IV, or VII+ from boss drops) — generic beats Blast/Fire/Projectile here, because scaled bosses deal mixed damage types. Then **Mending**, then **Unbreaking III**. |
+| **Helmet** | Respiration III + Aqua Affinity if you're doing ocean/Otherside content. |
+| **Chestplate** | Nothing special — unless you're on the **Ignitium Elytra Chestplate**, which gives you armour and flight in one slot. |
+| **Leggings** | **Swift Sneak III** for the Deep Dark and the Otherside. |
+| **Boots** | **Feather Falling IV — do not skip this.** Then Depth Strider III or Frost Walker II, Soul Speed III for the Nether. |
+
+**Why Feather Falling is more important than usual:** the pack halves the damage you take *from
+mobs*, but **fall damage is untouched** — and the Aether, the Twilight Forest towers and Cataclysm's
+arenas are all vertical. Falling is now one of the likelier ways to die.
+
+**Mending is unusually strong here** too: boss kills drop 20× vanilla XP, so a Mending set
+effectively repairs itself every fight.
+
+#### Mod-added armour enchantments worth hunting
+
+- **Fire React** *(Twilight Forest)* — burns whatever hits you. Strong against melee bosses.
+- **Chill Aura** *(Twilight Forest)* — slows attackers. Excellent for kiting the big HP sponges.
+- **Longevity** *(The Undergarden)* — gear lasts longer.
+
+#### Also
+- **AttributeFix is installed**, so armour and toughness are **not** capped at vanilla limits.
+- **Curios** adds accessory slots — a **Charm of Undying** there is effectively an extra life, which
+  is worth more than any single armour enchant on a 150,000 HP dragon.
 
 ---
 
