@@ -48,6 +48,14 @@ public class ShababParty {
 
         dev.alshabab.shababparty.network.Net.register();
 
+        // The damage-number settings screen, reachable from the Mods list as well as NUMPAD 6.
+        // The registration lives in ClientSetup rather than inline here: writing the
+        // ConfigScreenFactory lambda in this class put net/minecraft/client/gui/screens/Screen into
+        // the constant pool of a class the dedicated server loads at mod-construction time.
+        net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(
+                net.minecraftforge.api.distmarker.Dist.CLIENT,
+                () -> dev.alshabab.shababparty.client.ClientSetup::registerConfigScreen);
+
         // Forge watches the config file and fires Reloading when it changes on disk, so a hand-edit
         // to shababparty-common.toml on a running server also lands without a restart - the flat
         // knobs are read per-event anyway, and this drops BossScaling's parsed tier cache.
