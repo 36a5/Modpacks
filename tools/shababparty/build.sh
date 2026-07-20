@@ -103,6 +103,15 @@ javac -proc:none -nowarn --release 17 \
 
 cp -r "$HERE/res/." "$BUILD/classes/"
 
+# Stamp the real version into the jar's mods.toml. res/META-INF/mods.toml carried a hand-written
+# version that nobody ever bumped, so every build from 1.19.0 through 1.21.0 reported itself to
+# Forge as "1.2.0". That made the server log useless for answering "which shababparty jar is
+# actually loaded?" -- which is exactly the question that mattered when a stale jar and a fresh one
+# ended up in mods/ together. VERSION above is now the single source of truth.
+sed -i "s|^version=.*|version=\"$VERSION\"|" "$BUILD/classes/META-INF/mods.toml"
+grep -q "version=\"$VERSION\"" "$BUILD/classes/META-INF/mods.toml" \
+    || { echo "failed to stamp version into mods.toml" >&2; exit 1; }
+
 JAR="$BUILD/shababparty-$VERSION.jar"
 ( cd "$BUILD/classes" && jar --create --file "$JAR" --manifest META-INF/MANIFEST.MF -C . . )
 
