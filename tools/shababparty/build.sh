@@ -63,6 +63,11 @@ AUTHLIB_JAR="$LIB/com/mojang/authlib/4.0.43/authlib-4.0.43.jar"
 # FriendlyByteBuf extends io.netty.buffer.ByteBuf, so netty must resolve before any packet code can
 # call writeFloat/readFloat.
 NETTY_JAR="$LIB/io/netty/netty-buffer/4.1.82.Final/netty-buffer-4.1.82.Final.jar"
+# ByteBuf implements io.netty.util.ReferenceCounted, which lives in netty-common rather than
+# netty-buffer -- without it javac cannot complete the hierarchy and every buf call fails.
+NETTY_COMMON_JAR="$LIB/io/netty/netty-common/4.1.82.Final/netty-common-4.1.82.Final.jar"
+# Dist and @OnlyIn live in mergetool's api jar, not in any forge/fml jar.
+DISTMARKER_JAR="$LIB/net/minecraftforge/mergetool/1.1.5/mergetool-1.1.5-api.jar"
 # PoseStack.mulPose takes an org.joml.Quaternionf and Font.drawInBatch takes an org.joml.Matrix4f.
 JOML_JAR="$LIB/org/joml/joml/1.10.5/joml-1.10.5.jar"
 FTBTEAMS_JAR="$(ls "$MODS"/ftb-teams-forge-*.jar 2>/dev/null | head -1)"
@@ -74,7 +79,7 @@ GECKOLIB_JAR="$(ls "$MODS"/geckolib-forge-*.jar 2>/dev/null | head -1)"
 
 DEPS=("$MC_SRG" "$FORGE_JAR" "$FMLCORE_JAR" "$JAVAFML_JAR" "$EVENTBUS_JAR" "$LOG4J_JAR" \
       "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" \
-      "$GECKOLIB_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$JOML_JAR")
+      "$GECKOLIB_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$NETTY_COMMON_JAR" "$DISTMARKER_JAR" "$JOML_JAR")
 for j in "${DEPS[@]}"; do
     [ -f "$j" ] || { echo "missing compile dependency: $j" >&2; exit 1; }
 done

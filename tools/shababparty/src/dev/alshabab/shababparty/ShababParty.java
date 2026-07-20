@@ -46,6 +46,8 @@ public class ShababParty {
         ModLoadingContext.get().registerConfig(
                 ModConfig.Type.CLIENT, dev.alshabab.shababparty.client.ClientConfig.SPEC);
 
+        dev.alshabab.shababparty.network.Net.register();
+
         // Forge watches the config file and fires Reloading when it changes on disk, so a hand-edit
         // to shababparty-common.toml on a running server also lands without a restart - the flat
         // knobs are read per-event anyway, and this drops BossScaling's parsed tier cache.
