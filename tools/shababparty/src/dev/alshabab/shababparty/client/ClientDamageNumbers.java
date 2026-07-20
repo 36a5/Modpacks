@@ -37,6 +37,12 @@ public final class ClientDamageNumbers {
     /** Base world-units-per-pixel for in-world text -- the vanilla nameplate constant. */
     private static final float BASE_SCALE = 0.025F;
 
+    /** How far along your view a damage-taken number is anchored. See {@link #spawnPos}. */
+    private static final double SELF_FORWARD = 1.6D;
+
+    /** How far below eye level that number sits, so it clears the crosshair. */
+    private static final double SELF_DROP = 0.45D;
+
     private static final List<Popup> POPUPS = new ArrayList<>();
 
     private ClientDamageNumbers() {
@@ -84,7 +90,7 @@ public final class ClientDamageNumbers {
             return;
         }
 
-        final Vec3 at = victim.m_146892_();
+        final Vec3 at = spawnPos(mc, victim);
 
         // Same-tick hits would otherwise render exactly on top of each other. This is not polish:
         // Cataclysm's Meat Shredder ignores invincibility frames and Epic Fight combos land 3-5
@@ -99,6 +105,29 @@ public final class ClientDamageNumbers {
         while (POPUPS.size() > ClientConfig.MAX_POPUPS.get()) {
             POPUPS.remove(0);
         }
+    }
+
+    /**
+     * Where the number should appear in the world.
+     *
+     * <p>For anything you hit, that is the victim's eyes -- the number sits on the mob, which is
+     * what you want when comparing weapons.
+     *
+     * <p>For damage <em>you</em> take the victim is the local player, and the player's eye position
+     * is exactly where the camera sits in first person. Translating a popup there produces an
+     * offset of roughly zero, so the text lands inside the near clip plane and never draws: the
+     * mob-to-you and player-to-you buckets rendered nothing at all. Anchoring a short way along the
+     * view vector instead puts the number in front of you, slightly below the crosshair so it does
+     * not sit on top of it. The position is captured once here rather than tracked to the camera,
+     * so the number stays put in the world and drifts upward like every other popup instead of
+     * being welded to the middle of the screen.
+     */
+    private static Vec3 spawnPos(final Minecraft mc, final Entity victim) {
+        final Vec3 eye = victim.m_146892_();
+        if (victim != mc.f_91074_) {
+            return eye;
+        }
+        return eye.m_82549_(victim.m_20154_().m_82490_(SELF_FORWARD)).m_82492_(0.0D, SELF_DROP, 0.0D);
     }
 
     private static String format(final DamageNumberPacket p) {
