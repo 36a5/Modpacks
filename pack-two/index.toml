@@ -7174,8 +7174,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.20.0.jar"
-hash = "f0304329e4a12e89adf464f086a3b29d431acba2181a1661f28fd1c10f19f5c9"
+file = "mods/shababparty-1.21.0.jar"
+hash = "b550ee820742ce652e5b4275f9d8ae46c34795db16044985931fbb22bb42a892"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"

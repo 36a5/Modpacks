@@ -1,3 +1,17 @@
 {
-  "item.shababparty.stat_redistribution": "Reborn Elixir"
+  "item.shababparty.stat_redistribution": "Reborn Elixir",
+
+  "key.categories.shababparty": "Shabab Party",
+  "key.shababparty.toggle_damage_numbers": "Toggle Damage Numbers",
+  "key.shababparty.damage_numbers_config": "Damage Numbers Settings",
+
+  "shababparty.damagenumbers.title": "Damage Numbers",
+  "shababparty.damagenumbers.master": "Show damage numbers",
+  "shababparty.damagenumbers.outgoing": "Damage you deal",
+  "shababparty.damagenumbers.mob_to_you": "Mobs to you",
+  "shababparty.damagenumbers.player_to_you": "Players to you",
+  "shababparty.damagenumbers.show_raw": "Show raw damage",
+  "shababparty.damagenumbers.show_final": "Show final damage",
+  "shababparty.damagenumbers.keybinds": "Edit Keybinds",
+  "shababparty.damagenumbers.done": "Done"
 }
