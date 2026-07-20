@@ -30,7 +30,6 @@ public final class DamageNumbersScreen extends Screen {
 
     private Checkbox master;
     private Checkbox showRaw;
-    private Checkbox showFinal;
 
     private final Row[] rows = {
             new Row("shababparty.damagenumbers.outgoing",
@@ -101,12 +100,9 @@ public final class DamageNumbersScreen extends Screen {
         }
 
         y += 4;
-        this.showRaw = new Checkbox(left, y, 145, 20,
+        this.showRaw = new Checkbox(left, y, 300, 20,
                 Component.m_237115_("shababparty.damagenumbers.show_raw"), ClientConfig.SHOW_RAW.get());
         this.m_142416_(this.showRaw);
-        this.showFinal = new Checkbox(left + 155, y, 145, 20,
-                Component.m_237115_("shababparty.damagenumbers.show_final"), ClientConfig.SHOW_FINAL.get());
-        this.m_142416_(this.showFinal);
         y += ROW_HEIGHT + 6;
 
         this.m_142416_(Button.m_253074_(
@@ -173,7 +169,6 @@ public final class DamageNumbersScreen extends Screen {
     public void m_7379_() {
         ClientConfig.ENABLED.set(this.master.m_93840_());
         ClientConfig.SHOW_RAW.set(this.showRaw.m_93840_());
-        ClientConfig.SHOW_FINAL.set(this.showFinal.m_93840_());
 
         for (final Row row : this.rows) {
             row.enabled.set(row.checkbox.m_93840_());

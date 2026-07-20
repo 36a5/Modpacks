@@ -32,7 +32,6 @@ public final class ClientConfig {
     public static final ForgeConfigSpec.BooleanValue PLAYER_TO_YOU_ENABLED;
     public static final ForgeConfigSpec.ConfigValue<String> PLAYER_TO_YOU_COLOR;
     public static final ForgeConfigSpec.BooleanValue SHOW_RAW;
-    public static final ForgeConfigSpec.BooleanValue SHOW_FINAL;
     public static final ForgeConfigSpec.IntValue LIFETIME_TICKS;
     public static final ForgeConfigSpec.DoubleValue SCALE;
     public static final ForgeConfigSpec.DoubleValue RISE_SPEED;
@@ -60,14 +59,18 @@ public final class ClientConfig {
         PLAYER_TO_YOU_COLOR = b.comment("Six hex digits, no '#'.").define("color", "FF55FF");
         b.pop();
 
-        SHOW_RAW = b.comment("Show the weapon's roll before the target's armour reduces it.")
+        SHOW_RAW = b.comment(
+                        "true  = the weapon's roll, before the target's armour reduces it.",
+                        "false = the health actually removed.",
+                        "Whichever is chosen is also what the combo total sums.")
                 .define("showRaw", true);
-        SHOW_FINAL = b.comment("Show the health actually removed. With both on the format is 'raw (final)'.")
-                .define("showFinal", true);
-        LIFETIME_TICKS = b.comment("How long a number stays on screen, in ticks. 20 = one second.")
-                .defineInRange("lifetimeTicks", 20, 5, 100);
-        SCALE = b.comment("Text size multiplier.")
-                .defineInRange("scale", 1.0D, 0.25D, 4.0D);
+        LIFETIME_TICKS = b.comment(
+                        "How long a number stays on screen after its last hit, in ticks. 20 = one second.",
+                        "This is also the combo window: further hits on the same target while the",
+                        "number is still up add to its total instead of starting a new one.")
+                .defineInRange("lifetimeTicks", 40, 5, 200);
+        SCALE = b.comment("Text size multiplier. Numbers are drawn at HUD scale, so this is absolute.")
+                .defineInRange("scale", 1.5D, 0.25D, 6.0D);
         RISE_SPEED = b.comment("Blocks per second the number drifts upward.")
                 .defineInRange("riseSpeed", 0.35D, 0.0D, 1.0D);
         MAX_POPUPS = b.comment("Hard cap on simultaneous numbers. The oldest is dropped at the cap.")

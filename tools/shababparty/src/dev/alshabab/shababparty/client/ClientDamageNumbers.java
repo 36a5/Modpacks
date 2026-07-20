@@ -1,72 +1,112 @@
 package dev.alshabab.shababparty.client;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.vertex.PoseStack;
 import dev.alshabab.shababparty.ShababParty;
 import dev.alshabab.shababparty.network.DamageNumberPacket;
-import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
 import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.joml.Matrix4f;
+import org.joml.Vector4f;
 
 /**
- * The client's popup list, and the code that draws it.
+ * Floating damage numbers, drawn as a HUD overlay rather than as world geometry.
  *
- * <p>A popup holds a world position captured at spawn rather than a live entity reference: the
- * number should stay where the hit landed even if the mob walks away or dies on the same tick, and
- * holding an Entity would keep dead entities reachable for the popup's lifetime.
+ * <h2>Why the HUD and not the world</h2>
+ * The first version drew billboarded text during the level render. Three things were wrong with
+ * that, and they all have the same fix:
+ *
+ * <ul>
+ *   <li><b>Occlusion.</b> Depth-tested text is hidden by the mob you just hit. Switching to
+ *       SEE_THROUGH helped, but nothing drawn inside the level render can ever appear over the
+ *       inventory, the hotbar, or any other UI.</li>
+ *   <li><b>Shaders.</b> This pack ships Oculus. Shader packs restructure the level render and
+ *       reorder its stages, so text emitted mid-level is at their mercy.</li>
+ *   <li><b>Size.</b> World-space text shrinks with distance. On a large boss the anchor point is
+ *       far away and the number became unreadable exactly when it mattered most.</li>
+ * </ul>
+ *
+ * <p>So the world position is projected to screen coordinates and the text is drawn in GUI space,
+ * after the whole vanilla HUD. It is always on top of everything, always the same readable size,
+ * and completely outside whatever the shader pack is doing.
+ *
+ * <h2>One popup per target, not one per hit</h2>
+ * Hits used to spawn a popup each. Cataclysm's Meat Shredder ignores invincibility frames and Epic
+ * Fight combos land several hits per swing, so numbers piled onto the same few pixels and turned
+ * into unreadable mush. Now each target owns one popup that updates in place and accumulates a
+ * combo total, which is both legible and more useful: {@code 150 (450) x3} says this hit did 150,
+ * the combo has done 450, over three hits.
  */
 @Mod.EventBusSubscriber(modid = ShababParty.MOD_ID, value = Dist.CLIENT)
 public final class ClientDamageNumbers {
 
-    /** Full-bright. Damage numbers should not dim in a cave. */
-    private static final int FULL_BRIGHT = 0x00F000F0;
+    /** Bold, via the legacy formatting code. Cheaper than styling a Component for one flag. */
+    private static final String BOLD = "§l";
 
-    /** Base world-units-per-pixel for in-world text -- the vanilla nameplate constant. */
-    private static final float BASE_SCALE = 0.025F;
+    private static final Map<Integer, Popup> POPUPS = new LinkedHashMap<>();
 
-    /** How far along your view a damage-taken number is anchored. See {@link #spawnPos}. */
-    private static final double SELF_FORWARD = 1.6D;
-
-    /** How far below eye level that number sits, so it clears the crosshair. */
-    private static final double SELF_DROP = 0.45D;
-
-    private static final List<Popup> POPUPS = new ArrayList<>();
+    /**
+     * View state captured during the level render, where the camera and projection are known, and
+     * consumed during the HUD render, where they are not.
+     */
+    private static final Matrix4f VIEW_PROJ = new Matrix4f();
+    private static double camX;
+    private static double camY;
+    private static double camZ;
+    private static boolean viewReady;
 
     private ClientDamageNumbers() {
     }
 
     private static final class Popup {
-        private final double x;
-        private final double y;
-        private final double z;
-        private final String text;
+        private double x;
+        private double y;
+        private double z;
         private final int rgb;
-        private final int lifetime;
+        private float lastHit;
+        private float total;
+        private int hits;
         private int age;
 
         private Popup(final double x, final double y, final double z,
-                      final String text, final int rgb, final int lifetime) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.text = text;
+                      final int rgb, final float damage) {
             this.rgb = rgb;
-            this.lifetime = lifetime;
+            moveTo(x, y, z);
+            add(damage);
+        }
+
+        private void moveTo(final double nx, final double ny, final double nz) {
+            this.x = nx;
+            this.y = ny;
+            this.z = nz;
+        }
+
+        private void add(final float damage) {
+            this.lastHit = damage;
+            this.total += damage;
+            this.hits++;
+            this.age = 0;
         }
     }
+
+    /* ------------------------------------------------------------------ receiving */
 
     public static void accept(final DamageNumberPacket p) {
         if (!ClientConfig.ENABLED.get() || !ClientConfig.bucketEnabled(p.bucket)) {
@@ -85,151 +125,202 @@ public final class ClientDamageNumbers {
             return;
         }
 
-        final String text = format(p);
-        if (text.isEmpty()) {
+        final float damage = ClientConfig.SHOW_RAW.get() ? p.raw : p.finalAmount;
+        final Vec3 at = anchor(mc, victim);
+
+        // Key on target *and* bucket: a number for damage you dealt must never merge its combo into
+        // a number for damage you took, even in the odd case where both concern the same entity.
+        final int key = p.entityId * 4 + p.bucket;
+
+        final Popup existing = POPUPS.get(key);
+        if (existing != null) {
+            // Still on screen, so this hit belongs to the running combo.
+            existing.moveTo(at.f_82479_, at.f_82480_, at.f_82481_);
+            existing.add(damage);
             return;
         }
 
-        final Vec3 at = spawnPos(mc, victim);
+        POPUPS.put(key, new Popup(at.f_82479_, at.f_82480_, at.f_82481_,
+                ClientConfig.colorOf(p.bucket), damage));
 
-        // Same-tick hits would otherwise render exactly on top of each other. This is not polish:
-        // Cataclysm's Meat Shredder ignores invincibility frames and Epic Fight combos land 3-5
-        // hits per swing, so overlapping numbers are the normal case for the weapons most worth
-        // measuring. Derived from list size so it stays put frame to frame.
-        final double jitter = ((POPUPS.size() % 5) - 2) * 0.18D;
-
-        POPUPS.add(new Popup(at.f_82479_ + jitter, at.f_82480_, at.f_82481_,
-                text, ClientConfig.colorOf(p.bucket), ClientConfig.LIFETIME_TICKS.get()));
-
-        // Without a cap, a Meat Shredder held down in a crowd is an unbounded allocation.
-        while (POPUPS.size() > ClientConfig.MAX_POPUPS.get()) {
-            POPUPS.remove(0);
+        // Without a cap, a long fight in a crowd grows this map without bound.
+        final int cap = ClientConfig.MAX_POPUPS.get();
+        final Iterator<Integer> it = POPUPS.keySet().iterator();
+        while (POPUPS.size() > cap && it.hasNext()) {
+            it.next();
+            it.remove();
         }
     }
 
     /**
-     * Where the number should appear in the world.
+     * Where the number sits in the world.
      *
-     * <p>For anything you hit, that is the victim's eyes -- the number sits on the mob, which is
-     * what you want when comparing weapons.
+     * <p>Mid-body, not the eyes. On something the size of a Cataclysm boss the eye position is metres
+     * above the part of the model you are actually looking at, which put the number off in the
+     * corner of the screen while the fight happened somewhere else.
      *
-     * <p>For damage <em>you</em> take the victim is the local player, and the player's eye position
-     * is exactly where the camera sits in first person. Translating a popup there produces an
-     * offset of roughly zero, so the text lands inside the near clip plane and never draws: the
-     * mob-to-you and player-to-you buckets rendered nothing at all. Anchoring a short way along the
-     * view vector instead puts the number in front of you, slightly below the crosshair so it does
-     * not sit on top of it. The position is captured once here rather than tracked to the camera,
-     * so the number stays put in the world and drifts upward like every other popup instead of
-     * being welded to the middle of the screen.
+     * <p>For damage you take the victim is you, and your own mid-body is behind the camera in first
+     * person, so that anchors a short way along your view instead.
      */
-    private static Vec3 spawnPos(final Minecraft mc, final Entity victim) {
-        final Vec3 eye = victim.m_146892_();
-        if (victim != mc.f_91074_) {
-            return eye;
+    private static Vec3 anchor(final Minecraft mc, final Entity victim) {
+        if (victim == mc.f_91074_) {
+            return victim.m_146892_()
+                    .m_82549_(victim.m_20154_().m_82490_(SELF_FORWARD))
+                    .m_82492_(0.0D, SELF_DROP, 0.0D);
         }
-        return eye.m_82549_(victim.m_20154_().m_82490_(SELF_FORWARD)).m_82492_(0.0D, SELF_DROP, 0.0D);
+        return new Vec3(
+                victim.m_20185_(),
+                victim.m_20186_() + victim.m_20206_() * 0.5F,
+                victim.m_20189_());
     }
 
-    private static String format(final DamageNumberPacket p) {
-        final boolean raw = ClientConfig.SHOW_RAW.get();
-        final boolean fin = ClientConfig.SHOW_FINAL.get();
-        if (raw && fin) {
-            return trim(p.raw) + " (" + trim(p.finalAmount) + ")";
-        }
-        if (raw) {
-            return trim(p.raw);
-        }
-        if (fin) {
-            return trim(p.finalAmount);
-        }
-        return "";
-    }
+    /** How far along your view a damage-taken number is anchored. */
+    private static final double SELF_FORWARD = 1.6D;
 
-    /** One decimal place, with a trailing ".0" dropped -- "9" reads better than "9.0" mid-fight. */
-    private static String trim(final float value) {
-        final String s = String.format("%.1f", value);
-        return s.endsWith(".0") ? s.substring(0, s.length() - 2) : s;
-    }
+    /** How far below eye level that number sits, so it clears the crosshair. */
+    private static final double SELF_DROP = 0.45D;
+
+    /* --------------------------------------------------------------------- ticking */
 
     @SubscribeEvent
     public static void onClientTick(final TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.END || POPUPS.isEmpty()) {
             return;
         }
-        POPUPS.removeIf(p -> ++p.age >= p.lifetime);
+        final int lifetime = ClientConfig.LIFETIME_TICKS.get();
+        POPUPS.values().removeIf(p -> ++p.age >= lifetime);
     }
 
+    /* ------------------------------------------------------ capturing the view matrix */
+
+    /**
+     * Draws nothing. The camera and projection are only available inside the level render, and the
+     * text is drawn later in the HUD pass, so they are stashed here.
+     */
     @SubscribeEvent
     public static void onRenderLevel(final RenderLevelStageEvent event) {
-        // AFTER_WEATHER rather than AFTER_PARTICLES: it is the last stage before the level render
-        // ends, so rain and snow cannot paint over a number. AFTER_LEVEL is later still, but this
-        // pack ships Oculus and shader packs make that final stage unpredictable.
         if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_WEATHER) {
             return;
         }
-        if (POPUPS.isEmpty() || !ClientConfig.ENABLED.get()) {
+        final Vec3 cam = event.getCamera().m_90583_();
+        camX = cam.f_82479_;
+        camY = cam.f_82480_;
+        camZ = cam.f_82481_;
+        // clip = projection * modelview. The PoseStack here carries the camera rotation but not its
+        // translation, which is why positions are made camera-relative before transforming.
+        VIEW_PROJ.set(event.getProjectionMatrix()).mul(event.getPoseStack().m_85850_().m_252922_());
+        viewReady = true;
+    }
+
+    /* ---------------------------------------------------------------------- drawing */
+
+    @SubscribeEvent
+    public static void onRenderGui(final RenderGuiEvent.Post event) {
+        if (POPUPS.isEmpty() || !viewReady || !ClientConfig.ENABLED.get()) {
             return;
         }
 
         final Minecraft mc = Minecraft.m_91087_();
         final Font font = mc.f_91062_;
-        final Camera camera = event.getCamera();
-        final Vec3 camPos = camera.m_90583_();
-        final PoseStack pose = event.getPoseStack();
-        final MultiBufferSource.BufferSource buffers = mc.m_91269_().m_110104_();
+        final Window window = event.getWindow();
+        final int screenW = window.m_85445_();
+        final int screenH = window.m_85446_();
+
+        final GuiGraphics g = event.getGuiGraphics();
+        final PoseStack pose = g.m_280168_();
 
         final float partial = event.getPartialTick();
         final float scale = (float) (double) ClientConfig.SCALE.get();
         final float rise = (float) (double) ClientConfig.RISE_SPEED.get();
+        final int lifetime = ClientConfig.LIFETIME_TICKS.get();
 
-        for (final Popup p : POPUPS) {
+        // Drawn back to front so a nearer number covers a further one rather than interleaving.
+        final List<Popup> ordered = new ArrayList<>(POPUPS.values());
+        ordered.sort((a, b) -> Double.compare(dist2(b), dist2(a)));
+
+        for (final Popup p : ordered) {
             final float age = p.age + partial;
-            final float life = age / p.lifetime;
+            final float life = age / lifetime;
             if (life >= 1.0F) {
                 continue;
             }
 
-            final int alpha = (int) ((1.0F - life) * 255.0F);
+            // Hold full opacity for the first half, then fade. Fading from the instant it appears
+            // made numbers feel like they flickered.
+            final float opacity = life < 0.5F ? 1.0F : 1.0F - (life - 0.5F) * 2.0F;
+            final int alpha = (int) (opacity * 255.0F);
             if (alpha < 8) {
                 continue;
             }
+
+            final float worldY = (float) p.y + (age / 20.0F) * rise;
+            final Vector4f clip = new Vector4f(
+                    (float) (p.x - camX), worldY - (float) camY, (float) (p.z - camZ), 1.0F);
+            clip.mul(VIEW_PROJ);
+
+            // Behind the camera: w flips sign and the projection would mirror it onto the screen.
+            if (clip.w <= 0.0F) {
+                continue;
+            }
+
+            final float sx = (clip.x / clip.w * 0.5F + 0.5F) * screenW;
+            final float sy = (1.0F - (clip.y / clip.w * 0.5F + 0.5F)) * screenH;
+
+            final String text = format(p);
             final int argb = (alpha << 24) | p.rgb;
 
             pose.m_85836_();
-            pose.m_85837_(
-                    p.x - camPos.f_82479_,
-                    p.y - camPos.f_82480_ + (age / 20.0F) * rise,
-                    p.z - camPos.f_82481_);
-            // Billboard: adopting the camera's rotation makes the quad face the viewer. The
-            // negative x and y scale then flips it, because in-world text is otherwise mirrored
-            // and upside down.
-            pose.m_252781_(camera.m_253121_());
-            pose.m_85841_(-BASE_SCALE * scale, -BASE_SCALE * scale, BASE_SCALE * scale);
+            pose.m_85837_(sx, sy, 0.0D);
+            pose.m_85841_(scale, scale, 1.0F);
 
-            final Matrix4f matrix = pose.m_85850_().m_252922_();
-            final float half = font.m_92895_(p.text) / 2.0F;
-
-            // SEE_THROUGH, not NORMAL. NORMAL resolves to RenderType.text, which is depth-tested,
-            // so any geometry nearer the camera than the hit point covers the number -- most often
-            // the mob you just hit, because the number spawns at its eyes and the mob's own head is
-            // between that point and you. SEE_THROUGH resolves to RenderType.textSeeThrough, which
-            // disables the depth test, so the number always wins.
-            //
-            // Vanilla nameplates draw SEE_THROUGH and then NORMAL on top, which is what produces
-            // the dim-through-walls, bright-in-the-open look. Only the first pass is wanted here:
-            // a damage number that is sometimes readable is not doing its job.
-            font.m_271703_(p.text, -half, 0.0F, argb, false, matrix, buffers,
-                    Font.DisplayMode.SEE_THROUGH, 0, FULL_BRIGHT);
+            final int half = font.m_92895_(text) / 2;
+            // Drop shadow on: these are read against fire, lava and Nether brick, and unshadowed
+            // text disappears into all three.
+            g.m_280056_(font, text, -half, -font.f_92710_ / 2, argb, true);
 
             pose.m_85849_();
         }
+    }
 
-        buffers.m_109911_();
+    private static double dist2(final Popup p) {
+        final double dx = p.x - camX;
+        final double dy = p.y - camY;
+        final double dz = p.z - camZ;
+        return dx * dx + dy * dy + dz * dz;
+    }
+
+    /**
+     * {@code 150} for a single hit, {@code 150 (450) x3} once a combo is running -- this hit, the
+     * combo's running total, and how many hits are in it.
+     */
+    private static String format(final Popup p) {
+        final StringBuilder sb = new StringBuilder(BOLD).append(trim(p.lastHit));
+        if (p.hits > 1) {
+            sb.append(" (").append(trim(p.total)).append(") x").append(p.hits);
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Whole numbers below 1000, one decimal only when it carries information, and thousands
+     * abbreviated -- a Solo Leveling Strength build hits for six figures and "127431.6" is not a
+     * number anyone reads mid-swing.
+     */
+    private static String trim(final float value) {
+        if (value >= 10000.0F) {
+            return String.format("%.1fk", value / 1000.0F);
+        }
+        if (value >= 100.0F || value == Math.round(value)) {
+            return Integer.toString(Math.round(value));
+        }
+        final String s = String.format("%.1f", value);
+        return s.endsWith(".0") ? s.substring(0, s.length() - 2) : s;
     }
 
     /** Leaving a world must not carry its popups into the next one. */
     @SubscribeEvent
     public static void onLoggedOut(final ClientPlayerNetworkEvent.LoggingOut event) {
         POPUPS.clear();
+        viewReady = false;
     }
 }
