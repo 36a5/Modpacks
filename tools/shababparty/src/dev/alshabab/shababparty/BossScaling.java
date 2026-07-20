@@ -16,7 +16,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -145,8 +145,16 @@ public final class BossScaling {
         boss.m_21153_(boss.m_21233_()); // setHealth(getMaxHealth) - first application only
     }
 
+    /**
+     * LivingDamageEvent, NOT LivingHurtEvent, and that matters: armour durability is spent inside
+     * getDamageAfterArmorAbsorb, which runs between the two events and wears the armour in proportion
+     * to the damage it is stopping. Multiplying on the earlier event multiplied the armour wear too,
+     * and a 20x boss shredded a full set in a couple of hits. Scaling here leaves the durability cost
+     * at its vanilla value while the player still takes the full multiplied hit. Armour's mitigation
+     * is a percentage, so applying it before our multiplier protects exactly as much as it used to.
+     */
     @SubscribeEvent
-    public static void onHurt(final LivingHurtEvent event) {
+    public static void onHurt(final LivingDamageEvent event) {
         if (!ShababParty.Config.BOSS_SCALING_ENABLED.get()) {
             return;
         }

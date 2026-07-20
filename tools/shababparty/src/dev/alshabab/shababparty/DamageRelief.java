@@ -2,7 +2,7 @@ package dev.alshabab.shababparty;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -24,8 +24,14 @@ public final class DamageRelief {
     private DamageRelief() {
     }
 
+    /**
+     * LivingDamageEvent rather than LivingHurtEvent: armour durability is spent between the two, in
+     * proportion to the damage being stopped, so anything that rescales damage on the earlier event
+     * rescales armour wear with it. Both this and {@link BossScaling} therefore act here, leaving
+     * durability costs exactly vanilla.
+     */
     @SubscribeEvent
-    public static void onHurt(final LivingHurtEvent event) {
+    public static void onHurt(final LivingDamageEvent event) {
         if (!(event.getEntity() instanceof Player victim) || victim.m_9236_().m_5776_()) {
             return;
         }
