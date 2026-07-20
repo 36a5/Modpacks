@@ -7,7 +7,7 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
-VERSION=1.20.0
+VERSION=1.21.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"
@@ -16,7 +16,39 @@ MODS="$REPO/server/run/mods"
 # Minecraft here is vanilla-in-SRG-names. Forge's own patches (getCapability on Entity, and so on)
 # are binary-patched in as the game boots and exist in no jar on disk, so anything Forge adds to a
 # Minecraft class has to be reached through the Forge interface that declares it.
-MC_SRG="$LIB/net/minecraft/server/1.20.1-20230612.114412/server-1.20.1-20230612.114412-srg.jar"
+#
+# This is the *joined* jar -- client and server together. The server-only jar that used to be here
+# has no net.minecraft.client at all, so nothing client-side (keybinds, screens, world rendering)
+# could be compiled against it.
+#
+# It is deliberately NOT committed: it is Mojang's game code, this repo is public, and redistributing
+# the client binary is not ours to do. libs/ is gitignored and the jar is reconstructed locally from
+# the minecolonies-fork ForgeGradle cache, which every machine that has built that fork already has.
+MC_SRG="$HERE/libs/minecraft-1.20.1-joined-srg.jar"
+if [ ! -f "$MC_SRG" ]; then
+    FG_JOINED="$REPO/../minecolonies-fork/build/fg_cache/mcp/1.20.1-20230612.114412/joined"
+    FG_SRG="$(ls "$FG_JOINED"/*/rename/output.jar 2>/dev/null | head -1)"
+    if [ -n "$FG_SRG" ] && [ -f "$FG_SRG" ]; then
+        echo "bootstrapping $(basename "$MC_SRG") from the minecolonies-fork ForgeGradle cache"
+        mkdir -p "$HERE/libs"
+        cp "$FG_SRG" "$MC_SRG"
+    else
+        cat >&2 <<'MSG'
+error: tools/shababparty/libs/minecraft-1.20.1-joined-srg.jar is missing and could not be rebuilt.
+
+This is the joined (client+server) vanilla jar in SRG names. It is not committed to git on purpose --
+it is Mojang's code and this repo is public.
+
+To produce it, build the minecolonies fork once so ForgeGradle populates its cache:
+
+    cd ../../minecolonies-fork && ./gradlew build
+
+then re-run this script; it will copy the jar out of
+minecolonies-fork/build/fg_cache/mcp/1.20.1-20230612.114412/joined/*/rename/output.jar
+MSG
+        exit 1
+    fi
+fi
 FORGE_JAR="$LIB/net/minecraftforge/forge/1.20.1-47.4.18/forge-1.20.1-47.4.18-universal.jar"
 FMLCORE_JAR="$LIB/net/minecraftforge/fmlcore/1.20.1-47.4.18/fmlcore-1.20.1-47.4.18.jar"
 JAVAFML_JAR="$LIB/net/minecraftforge/javafmllanguage/1.20.1-47.4.18/javafmllanguage-1.20.1-47.4.18.jar"
@@ -28,6 +60,11 @@ MIXIN_JAR="$LIB/org/spongepowered/mixin/0.8.5/mixin-0.8.5.jar"
 # Component extends com.mojang.brigadier.Message, so brigadier must resolve for any chat code.
 BRIGADIER_JAR="$LIB/com/mojang/brigadier/1.1.8/brigadier-1.1.8.jar"
 AUTHLIB_JAR="$LIB/com/mojang/authlib/4.0.43/authlib-4.0.43.jar"
+# FriendlyByteBuf extends io.netty.buffer.ByteBuf, so netty must resolve before any packet code can
+# call writeFloat/readFloat.
+NETTY_JAR="$LIB/io/netty/netty-buffer/4.1.82.Final/netty-buffer-4.1.82.Final.jar"
+# PoseStack.mulPose takes an org.joml.Quaternionf and Font.drawInBatch takes an org.joml.Matrix4f.
+JOML_JAR="$LIB/org/joml/joml/1.10.5/joml-1.10.5.jar"
 FTBTEAMS_JAR="$(ls "$MODS"/ftb-teams-forge-*.jar 2>/dev/null | head -1)"
 FTBLIB_JAR="$(ls "$MODS"/ftb-library-forge-*.jar 2>/dev/null | head -1)"
 SOLO_JAR="$(ls "$MODS"/sololeveling-*.jar 2>/dev/null | head -1)"
@@ -36,7 +73,8 @@ SOLO_JAR="$(ls "$MODS"/sololeveling-*.jar 2>/dev/null | head -1)"
 GECKOLIB_JAR="$(ls "$MODS"/geckolib-forge-*.jar 2>/dev/null | head -1)"
 
 DEPS=("$MC_SRG" "$FORGE_JAR" "$FMLCORE_JAR" "$JAVAFML_JAR" "$EVENTBUS_JAR" "$LOG4J_JAR" \
-      "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" "$GECKOLIB_JAR" "$BRIGADIER_JAR")
+      "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" \
+      "$GECKOLIB_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$JOML_JAR")
 for j in "${DEPS[@]}"; do
     [ -f "$j" ] || { echo "missing compile dependency: $j" >&2; exit 1; }
 done

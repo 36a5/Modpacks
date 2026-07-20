@@ -16,5 +16,9 @@ server/world-backup-*/
 # scratch space for tools/ (scanned mod jars, generated CSVs)
 .cache/
 
+# Vanilla Minecraft compile dependency for tools/shababparty. Mojang's code, this repo is public --
+# not ours to redistribute. build.sh reconstructs it locally from the minecolonies-fork FG cache.
+tools/shababparty/libs/
+
 # preserved MineColonies colony backups (large zips, machine-local safety copies)
 server/colony-backups-safe/
