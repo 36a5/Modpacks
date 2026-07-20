@@ -372,3 +372,5 @@ key_key.epicfight.switch_vanilla_model_debug:key.keyboard.unknown
 key_gui.xaero_pac_key_open_menu:key.keyboard.o
 key_key.backpack:key.keyboard.unknown
 key_key.voice_chat_group_chat_toggle:key.keyboard.unknown
+key_key.shababparty.toggle_damage_numbers:key.keyboard.keypad.5
+key_key.shababparty.damage_numbers_config:key.keyboard.keypad.6

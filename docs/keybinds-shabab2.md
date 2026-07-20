@@ -5,10 +5,17 @@ themselves; the **Key** column is what `pack-two/configureddefaults/options.txt`
 fresh install. Rebinding in-game always wins — the preset is only applied when a player has
 no `options.txt` yet.
 
-**257 keybinds across 39 mods.** 223 are preset by the pack; the rest keep the mod's own default.
+**259 keybinds across 40 mods.** 225 are preset by the pack; the rest keep the mod's own default.
 
 - *unbound* = deliberately cleared, because the action is reachable another way.
 - *mod default* = the pack does not preset it, so whatever the mod ships with applies.
+
+## al Shabab — Party Systems
+
+| Key | Action | Keybind ID |
+|---|---|---|
+| `Keypad 6` | Damage Numbers Settings | `key.shababparty.damage_numbers_config` |
+| `Keypad 5` | Toggle Damage Numbers | `key.shababparty.toggle_damage_numbers` |
 
 ## AzureLib
 
