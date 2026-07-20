@@ -41,6 +41,18 @@ has both numbers, and Forge exposes no combined event. The stash is a small `Int
 `HashMap<Integer, Float>` cleared on consumption, with a defensive clear on `ServerTickEvent` so a
 cancelled `LivingDamageEvent` cannot leak an entry forever.
 
+**Both handlers run at `EventPriority.LOWEST`.** This is load-bearing, not a detail. The mod already
+mutates damage in three places at default priority — `PlayerPower` multiplies `LivingHurtEvent` by
+the Solo Leveling Strength stat, `BossScaling` and `DamageRelief` both scale `LivingDamageEvent`.
+Forge does not order same-priority handlers deterministically, so reading at `NORMAL` would
+intermittently miss the Strength multiplier and display a number that disagrees with the damage
+dealt. `LOWEST` runs last, so what is read is what landed: weapon base damage, enchantments, Epic
+Fight's combat maths, Solo Leveling Strength, boss scaling and damage relief, all applied.
+
+Nothing recomputes damage from weapon stats, enchantment levels or player level. That logic is owned
+by five different mods and any reimplementation would drift from the real number — which would
+defeat the entire purpose. The pipeline's output is the only trustworthy figure.
+
 Bucketing is decided server-side from attacker and victim, because only the server knows both:
 
 | Bucket | Condition | Packet recipient | Default colour |
