@@ -1286,25 +1286,31 @@ public final class DamageNumbersScreen extends Screen {
 }
 ```
 
-- [ ] **Step 2: Resolve the remaining SRG names used above**
+- [ ] **Step 2: (Reference) the screen-only SRG names used above**
 
-These were used in Step 1 and must be confirmed against the vendored jar before building, because a wrong one is a compile error you will otherwise hit blind:
+Every name in Step 1 was resolved from `srg_to_official_1.20.1.tsrg` before this plan was written. The ones that appear only in this task, for review purposes:
 
-```bash
-cd /c/Minecraft-dev-workspace
-for q in "client/gui/screens/Screen width" "client/gui/screens/Screen height" "client/gui/screens/Screen font" \
-         "client/gui/screens/Screen title" "client/gui/screens/Screen renderBackground" \
-         "network/chat/Component translatable" "client/gui/components/EditBox setMaxLength" \
-         "client/gui/components/AbstractWidget getX" "client/gui/components/AbstractWidget getWidth" \
-         "client/gui/components/Button\$Builder pos" "client/gui/components/Button\$Builder size" \
-         "client/gui/components/Button\$Builder build"; do python /tmp/srg.py $q; done
-```
+| SRG | Official |
+|---|---|
+| `f_96543_` | `Screen.width` |
+| `f_96544_` | `Screen.height` |
+| `f_96547_` | `Screen.font` |
+| `f_96539_` | `Screen.title` |
+| `m_280273_` | `Screen.renderBackground(GuiGraphics)` |
+| `m_237115_` | `Component.translatable(String)` |
+| `m_94199_` | `EditBox.setMaxLength(int)` |
+| `m_252754_` | `AbstractWidget.getX()` |
+| `m_5711_` | `AbstractWidget.getWidth()` |
+| `m_252794_` | `Button.Builder.pos(int,int)` |
+| `m_253046_` | `Button.Builder.size(int,int)` |
+| `m_253136_` | `Button.Builder.build()` |
 
-Expected mapping (substitute into Step 1 if any differ):
-`f_96543_` = width, `f_96544_` = height, `f_96547_` = font, `f_96539_` = title,
-`m_280273_` = renderBackground, `m_237115_` = Component.translatable, `m_94199_` = EditBox.setMaxLength,
-`m_252754_` = getX, `m_5711_` = getWidth, `m_252794_` = Builder.pos, `m_253046_` = Builder.size,
-`m_253136_` = Builder.build.
+To re-derive any name yourself, the mapping file is at
+`minecolonies-fork/build/fg_cache/de/oceanlabs/mcp/mcp_config/1.20.1-20230612.114412/srg_to_official_1.20.1.tsrg`.
+Format is `tsrg2`: an unindented `<srg-class> <official-class>` line, then tab-indented members —
+`<srg> <official>` for fields, `<srg> <descriptor> <official>` for methods. Grep the class line, then
+read the block under it. Note the direction: the file is keyed by SRG name, so to go from a readable
+name to an SRG one you search the *second* column.
 
 - [ ] **Step 3: Register the Mods-list entry point**
 
