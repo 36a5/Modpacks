@@ -33,9 +33,17 @@ public final class Net {
                 DamageNumberPacket::encode,
                 DamageNumberPacket::decode,
                 DamageNumberPacket::handle);
+        CHANNEL.registerMessage(1, TrackUpdatePacket.class,
+                TrackUpdatePacket::encode,
+                TrackUpdatePacket::decode,
+                TrackUpdatePacket::handle);
     }
 
     public static void toPlayer(final ServerPlayer player, final DamageNumberPacket packet) {
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), packet);
+    }
+
+    public static void toPlayer(final ServerPlayer player, final TrackUpdatePacket packet) {
         CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), packet);
     }
 }
