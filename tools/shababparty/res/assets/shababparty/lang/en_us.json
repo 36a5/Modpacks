@@ -10,6 +10,7 @@
   "shababparty.damagenumbers.outgoing": "Damage you deal",
   "shababparty.damagenumbers.mob_to_you": "Mobs to you",
   "shababparty.damagenumbers.player_to_you": "Players to you",
+  "shababparty.damagenumbers.ally_to_mob": "Other players to mobs",
   "shababparty.damagenumbers.show_raw": "Show raw damage (before armour) instead of final",
   "shababparty.damagenumbers.keybinds": "Edit Keybinds",
   "shababparty.damagenumbers.done": "Done"

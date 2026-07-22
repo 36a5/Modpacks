@@ -19,6 +19,8 @@ public final class DamageNumberPacket {
     public static final int OUTGOING = 0;
     public static final int MOB_TO_YOU = 1;
     public static final int PLAYER_TO_YOU = 2;
+    /** Damage another player dealt to a mob near you -- so a party can read each other's hits. */
+    public static final int ALLY_TO_MOB = 3;
 
     public final int entityId;
     public final float raw;

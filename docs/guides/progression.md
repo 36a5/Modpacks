@@ -133,7 +133,12 @@ deaths are announced server-wide with fireworks.
 | Cataclysm — Ancient Remnant | 75,000 | Hardest non-dragon fight |
 | **Ender Dragon** | **150,000** | The wall. Pays **750,000 XP**. |
 
-The Ender Dragon is deliberately last and deliberately enormous. Bring the whole server.
+The Ender Dragon is deliberately last and deliberately enormous. Bring the whole server — and know
+it now fights back in **four phases**: Shadow phantom waves at 75% and 50%, a fire **Void barrage**
+once it enrages at 50%, and at 25% a **second wind** where it heals once and summons the netherite
+**Herald of the Void**. Kill the Herald (guaranteed netherite sword drop) before it wipes the raid,
+then take the dragon down. Thresholds scale off the dragon's own max HP, so the 150,000-HP scaled
+dragon runs the same phases.
 
 ---
 

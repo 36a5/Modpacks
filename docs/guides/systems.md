@@ -94,6 +94,13 @@ full of monsters and a boss.
 - Higher rank = stronger monsters, better rewards.
 - A Gate stays open for **4 days** before it closes on its own.
 
+**Coming back:** when you leave a Gate — cleared, timed out, or just walked into the exit — you are
+put back at the **exact spot you entered from**, in the **exact dimension** you were in. Enter a Gate
+from your base, the Aether, the Twilight Forest, wherever — that is where you return. This also
+applies to the **Punishment Zone**: serve your time and you land back where you were dragged from,
+not at a random Overworld spot. Every player is tracked separately, so two people clearing the same
+Gate each go back to their own doorstep.
+
 ### 🚀 Teleporting to a Gate
 
 When a Gate opens, **everyone** gets a chat line with its coordinates and a **`[ TELEPORT ]`**

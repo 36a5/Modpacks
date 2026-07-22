@@ -31,6 +31,8 @@ public final class ClientConfig {
     public static final ForgeConfigSpec.ConfigValue<String> MOB_TO_YOU_COLOR;
     public static final ForgeConfigSpec.BooleanValue PLAYER_TO_YOU_ENABLED;
     public static final ForgeConfigSpec.ConfigValue<String> PLAYER_TO_YOU_COLOR;
+    public static final ForgeConfigSpec.BooleanValue ALLY_TO_MOB_ENABLED;
+    public static final ForgeConfigSpec.ConfigValue<String> ALLY_TO_MOB_COLOR;
     public static final ForgeConfigSpec.BooleanValue SHOW_RAW;
     public static final ForgeConfigSpec.IntValue LIFETIME_TICKS;
     public static final ForgeConfigSpec.DoubleValue SCALE;
@@ -57,6 +59,11 @@ public final class ClientConfig {
         b.comment("Damage other players deal to you.").push("playerToYou");
         PLAYER_TO_YOU_ENABLED = b.define("enabled", true);
         PLAYER_TO_YOU_COLOR = b.comment("Six hex digits, no '#'.").define("color", "FF55FF");
+        b.pop();
+
+        b.comment("Damage other players deal to mobs near you.").push("allyToMob");
+        ALLY_TO_MOB_ENABLED = b.define("enabled", true);
+        ALLY_TO_MOB_COLOR = b.comment("Six hex digits, no '#'.").define("color", "55FFFF");
         b.pop();
 
         SHOW_RAW = b.comment(
@@ -90,6 +97,8 @@ public final class ClientConfig {
                 return parseColor(MOB_TO_YOU_COLOR.get(), 0xFF5555);
             case DamageNumberPacket.PLAYER_TO_YOU:
                 return parseColor(PLAYER_TO_YOU_COLOR.get(), 0xFF55FF);
+            case DamageNumberPacket.ALLY_TO_MOB:
+                return parseColor(ALLY_TO_MOB_COLOR.get(), 0x55FFFF);
             default:
                 return parseColor(OUTGOING_COLOR.get(), 0xFFFF55);
         }
@@ -101,6 +110,8 @@ public final class ClientConfig {
                 return MOB_TO_YOU_ENABLED.get();
             case DamageNumberPacket.PLAYER_TO_YOU:
                 return PLAYER_TO_YOU_ENABLED.get();
+            case DamageNumberPacket.ALLY_TO_MOB:
+                return ALLY_TO_MOB_ENABLED.get();
             default:
                 return OUTGOING_ENABLED.get();
         }

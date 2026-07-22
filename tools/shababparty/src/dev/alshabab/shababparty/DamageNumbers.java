@@ -5,6 +5,7 @@ import java.util.Map;
 
 import dev.alshabab.shababparty.network.DamageNumberPacket;
 import dev.alshabab.shababparty.network.Net;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -44,6 +45,13 @@ public final class DamageNumbers {
 
     private static final Map<Integer, Float> RAW = new HashMap<>();
 
+    /**
+     * How close another player must be to a mob to be shown the hit, squared. 48 blocks - roughly a
+     * shared-fight range, and well inside the render distance where the victim entity actually exists
+     * on the viewer's client (out of range the packet is dropped harmlessly, see ClientDamageNumbers).
+     */
+    private static final double ALLY_RADIUS_SQ = 48.0D * 48.0D;
+
     private DamageNumbers() {
     }
 
@@ -78,6 +86,19 @@ public final class DamageNumbers {
         if (!selfInflicted && attacker instanceof ServerPlayer dealer) {
             Net.toPlayer(dealer, new DamageNumberPacket(
                     victimId, rawAmount, finalAmount, DamageNumberPacket.OUTGOING));
+
+            // Show the hit to everyone else nearby too, so a party fighting a shared target reads each
+            // other's damage. Only for mobs: a player hitting a player is PvP, already covered below by
+            // PLAYER_TO_YOU, and broadcasting it would leak how hard people hit in duels. The dealer is
+            // skipped - they already have their own OUTGOING number on this victim.
+            if (!(victim instanceof Player) && victim.m_9236_() instanceof ServerLevel level) {
+                for (final ServerPlayer viewer : level.m_6907_()) { // players() - already this dimension
+                    if (viewer != dealer && viewer.m_20280_(victim) <= ALLY_RADIUS_SQ) { // distanceToSqr
+                        Net.toPlayer(viewer, new DamageNumberPacket(
+                                victimId, rawAmount, finalAmount, DamageNumberPacket.ALLY_TO_MOB));
+                    }
+                }
+            }
         }
 
         if (victim instanceof ServerPlayer target) {

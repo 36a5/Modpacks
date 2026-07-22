@@ -2,6 +2,52 @@
 
 ## [Unreleased]
 
+### Shabab 2: Gates and the Punishment Zone return you to where you entered (slb-return datapack)
+
+- **The mod always dropped you in the Overworld** when you left a Gate dungeon or the Punishment
+  Zone — at its own saved/random point, never where you actually came from. Enter a Gate from the
+  Twilight Forest, the Aether, the Nether, or just a base the mod had not recorded, and you came out
+  somewhere you had never been. Two players clearing one Gate were both flung to the mod's single
+  stored point.
+
+- **Now you return to the exact block and the exact dimension you entered from.** A per-player
+  invisible `marker` rides along through every safe dimension, recording the last spot you stood in;
+  the instant you step into a Gate or the Punishment Zone it freezes there and its chunk is
+  force-loaded so it survives while you are away. When the mod spits you back out, the datapack
+  overrides its drop and sends you to the marker. Every player is tracked independently, so a whole
+  party each land back on their own doorstep, in whatever dimension that was.
+
+- Pure datapack (`config/paxi/datapacks/slb-return`), loaded by Paxi on the server. No mod, no jar
+  change — the Solo Leveling mod is closed-source and this needed no patch to it. Covers all 11 Gate
+  dungeon dimensions and the `system_void` Punishment Zone.
+
+### Shabab 2: Damage numbers now show *other players'* hits on mobs (shababparty 1.22.0)
+
+- The floating damage numbers already showed damage **you** dealt, and damage dealt **to you**. They
+  said nothing about the person fighting the same boss next to you. **Now a fourth bucket — "Other
+  players to mobs" (aqua by default) — shows every hit your allies land on a shared target**, so a
+  party can read each other's damage in a group fight.
+
+- Server-side, the hit is broadcast to every player within 48 blocks of the mob in the same
+  dimension, at `EventPriority.LOWEST` like the existing buckets, so the number is the real
+  post-everything figure. The dealer is skipped — they already see their own hit. **Mobs only**:
+  player-versus-player damage stays private to the two duelists (still covered by "Players to you").
+
+- New bucket has its own colour, on/off toggle and hex field in **Options → Controls → Shabab Party
+  → Damage Numbers Settings**, exactly like the other three. Per-player, client-side config.
+
+### Shabab 2: The Ender Dragon is a four-phase fight (slb-endgame datapack)
+
+- Vanilla's dragon has one script. This stages it: **75%** a Shadow phantom wave and first-blood
+  cry; **50%** enrage — a bigger wave plus a **Void barrage** raining fire on random fighters;
+  **25%** a **second wind** where the dragon heals once and summons the **Herald of the Void**, a
+  netherite mini-boss (permanent Resistance, hits hard, guaranteed sword drop). Thresholds are read
+  from the dragon's own max health, so it works on the 150,000-HP boss-scaled dragon too.
+
+- Pure datapack (`config/paxi/datapacks/slb-endgame`), Paxi-loaded, cheap (drives only a live
+  dragon). No mod to install. Full-scale new dungeons/bosses remain the job of the pack's structure
+  mods (Cataclysm, Bosses'Rise, Mowzie's) — this adds an endgame the whole server has to coordinate.
+
 ### Shabab 2: Floating damage numbers (shababparty 1.21.0)
 
 - **Damage now shows up as numbers in the world**, in three separately-coloured buckets: damage

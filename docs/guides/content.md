@@ -183,6 +183,14 @@ appear, and they will end you if you treat them like the normal version.
 **Dragon Mounts: Legacy** — hatch a dragon egg and ride it. The Ender Dragon also drops much more
 here (**EnderDragon Loot**).
 
+**The Ender Dragon is now a four-phase fight** (Shabab 2 datapack, no mod to install):
+- **75% health** — *first blood*: a flight of Shadow phantoms drops onto everyone fighting.
+- **50% health** — *enrage*: a bigger phantom wave, plus a **Void barrage** that rains fire straight
+  down on random players — keep moving.
+- **25% health** — *second wind*: the dragon heals hard **once**, and the **Herald of the Void**
+  answers — a netherite-clad mini-boss that hits like a truck and **always drops its sword** (its
+  armour has a chance too). Kill the Herald, then finish the dragon.
+
 ---
 
 ## 🐺 Mobs

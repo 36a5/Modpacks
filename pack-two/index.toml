@@ -2250,6 +2250,58 @@ file = "config/paxi/datapacks/shabab-gate/pack.mcmeta"
 hash = "57a3e2a0e8e9260862b375cf8db6aa4cef5687274a55759fbdf5e5e9acb61caa"
 
 [[files]]
+file = "config/paxi/datapacks/slb-endgame/data/minecraft/tags/functions/load.json"
+hash = "ff6087b97575f8e5faefb49ca487d111931add335985822b41c58255235eb96f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/minecraft/tags/functions/tick.json"
+hash = "0d6ab5dc81e36c043c1344ecd4c5bf1a80d85b10cd3c9ed0741aa68ee0f7ee50"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/barrage.mcfunction"
+hash = "ef53ea56f04751f06193f1c05470b8eefa06ad2719faba151f843ec5ee2a3229"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/herald.mcfunction"
+hash = "0661e02e26a523f8d2b3e19e82980b441ab75d665b2598b90b63595075791500"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/init.mcfunction"
+hash = "37f78b60f4e18b3d52b4a09efaae6c818e993f89d5395292474a8c7c1fe02c25"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/phase2.mcfunction"
+hash = "4f32072f25f0cdc16dfe16fecb141188060ee025bcdc869f93ee94c767f9f591"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/phase3.mcfunction"
+hash = "c97935451c4bf9d18b6db36ab55e45dae4926cd940511a45817cc901ce4c6b1f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/phase4.mcfunction"
+hash = "fa8064ff11c97b3267fda6d240ea9f67a3ed8d381008a6ca06f706eb035d61bf"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/tick.mcfunction"
+hash = "80e7c526b9bf06ada8a43a84e8824d08991aee8d2d1d16deefae489ae242e3f4"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/wave.mcfunction"
+hash = "12e0fdd9058f2df78604e7899096c41ca35711da2167a2e4befdefdef516196f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/load.mcfunction"
+hash = "ca65584fa9f21660c1dbbde72e64d4e705d65d9ddc260edc2ad39a6222ebe5d1"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/tick.mcfunction"
+hash = "d92b2203081fa0c7ca36f2d871495d7947c203bce80838b0b5a4f74d14126743"
+
+[[files]]
+file = "config/paxi/datapacks/slb-endgame/pack.mcmeta"
+hash = "1cbaa476b0fc81b55bca556995d8edfa5100d2f9f435b920b0e5395e06d2e2a6"
+
+[[files]]
 file = "config/paxi/datapacks/slb-gates/data/minecraft/tags/functions/load.json"
 hash = "2284f2b6d1168a0001bc3f3992ad5d7628285efd5a54854d43c6dd4992a61684"
 
@@ -2396,6 +2448,46 @@ hash = "366041f22dfa68fcbfa5bf5c13424f3e6d9e23bd6ba1cdc1944bb8d8895ec972"
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/pack.mcmeta"
 hash = "f8e80959640919b7c27f760092a3868ff646d7e4615de940965769d2a418ae5e"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/minecraft/tags/functions/load.json"
+hash = "e4e80ad10ad26a12fb542f78591d6a98e57a14977472cbc56e18ac1b80335f7f"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/minecraft/tags/functions/tick.json"
+hash = "f6e572b7bd3ec2557e3994a57423b3fbd89d4f6ab9502f75ee1ed7e4fadebcba"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/enter.mcfunction"
+hash = "440bcf2a5e428d0fd6b2859d159f503e8cf923d1a6afc6a18c89ee5586a0d7eb"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/follow.mcfunction"
+hash = "e4bda08598135afd1759719853b9864ec1f778a4cefed3129891de901d4fee38"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/load.mcfunction"
+hash = "ea7dbe967e52ac62adbd113f25f34136dc363e59d356e1e364622e7b346bb9c9"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/restore.mcfunction"
+hash = "482e82e7b3f2f5c78d25c61bc8be1c63cbb9c216256b90471d780f35f5812b9c"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/setup.mcfunction"
+hash = "75bd893d7c5048c6bda13c7e8459790a6615ac0f64dd0cab1f61979887205adb"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/functions/tick.mcfunction"
+hash = "e22f61d2c49bf0fffc50f52fcf253c5143136ba04030ab4682ce3a1406109f25"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/data/slb_return/predicates/in_solo.json"
+hash = "144faa272789c1b019336e0fbb70914c33f1f9fa53cd383597c37ffee532eb4a"
+
+[[files]]
+file = "config/paxi/datapacks/slb-return/pack.mcmeta"
+hash = "12ab60e9ba33f9cf2183924c9f4b6622a3c4ac56d3bdd0ea549224c78a58e973"
 
 [[files]]
 file = "config/paxi/resourcepack_load_order.json"
@@ -7174,8 +7266,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.21.0.jar"
-hash = "462aeee66b97d8c061eb0a89b93f35f359ab46bb47804dbfc01f53f9c5c79d72"
+file = "mods/shababparty-1.22.0.jar"
+hash = "1522474cbb426fb03d401217f47e1d814b8f270915353e9d135153297da69fb5"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"

@@ -38,6 +38,8 @@ public final class DamageNumbersScreen extends Screen {
                     ClientConfig.MOB_TO_YOU_ENABLED, ClientConfig.MOB_TO_YOU_COLOR, 0xFF5555),
             new Row("shababparty.damagenumbers.player_to_you",
                     ClientConfig.PLAYER_TO_YOU_ENABLED, ClientConfig.PLAYER_TO_YOU_COLOR, 0xFF55FF),
+            new Row("shababparty.damagenumbers.ally_to_mob",
+                    ClientConfig.ALLY_TO_MOB_ENABLED, ClientConfig.ALLY_TO_MOB_COLOR, 0x55FFFF),
     };
 
     private static final class Row {
