@@ -2259,7 +2259,7 @@ hash = "0d6ab5dc81e36c043c1344ecd4c5bf1a80d85b10cd3c9ed0741aa68ee0f7ee50"
 
 [[files]]
 file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/barrage.mcfunction"
-hash = "ef53ea56f04751f06193f1c05470b8eefa06ad2719faba151f843ec5ee2a3229"
+hash = "d9828b5202a2629705e8e0faa610a85766e2ad61613ea5204dad681b7b260a7a"
 
 [[files]]
 file = "config/paxi/datapacks/slb-endgame/data/slb_endgame/functions/dragon/herald.mcfunction"
@@ -2471,7 +2471,7 @@ hash = "ea7dbe967e52ac62adbd113f25f34136dc363e59d356e1e364622e7b346bb9c9"
 
 [[files]]
 file = "config/paxi/datapacks/slb-return/data/slb_return/functions/restore.mcfunction"
-hash = "482e82e7b3f2f5c78d25c61bc8be1c63cbb9c216256b90471d780f35f5812b9c"
+hash = "bded763055a0ce807715273e64c0c4c174aa55373946cd689ae0d27fb6f3e910"
 
 [[files]]
 file = "config/paxi/datapacks/slb-return/data/slb_return/functions/setup.mcfunction"
