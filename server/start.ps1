@@ -119,6 +119,37 @@ if ((Test-Path $botDir) -and (Test-Path (Join-Path $botDir ".env"))) {
     Write-Host "[al-shabab] Discord bots present but no .env - skipping (copy .env.example to .env)."
 }
 
+# ── Router ports via UPnP ───────────────────────────────────────────────────
+# The ISP router's admin page is locked, so a manual port forward is not possible. The router
+# does accept UPnP, which lets this PC open the ports itself. Mappings are lost when the router
+# reboots or DHCP hands this PC a new address, so they are re-created on every boot, pointed at
+# whatever the current LAN address is. Failure here only warns: the server still runs on LAN.
+function Open-RouterPorts {
+    $ports = @(
+        @{ Port = 25565; Proto = "TCP"; Name = "Minecraft al-shabab" },
+        @{ Port = 24454; Proto = "UDP"; Name = "Minecraft voice chat" }
+    )
+    try {
+        $lanIp = (Get-NetIPConfiguration | Where-Object { $_.IPv4DefaultGateway -and $_.NetAdapter.Status -eq "Up" } |
+                  Where-Object { $_.IPv4DefaultGateway.NextHop -like "192.168.*" } | Select-Object -First 1).IPv4Address.IPAddress
+        if (-not $lanIp) { Write-Warning "UPnP: no LAN address found, skipping port mapping."; return }
+        $col = (New-Object -ComObject HNetCfg.NATUPnP).StaticPortMappingCollection
+        if ($null -eq $col) { Write-Warning "UPnP: router did not answer. Friends outside the LAN may not reach the server."; return }
+        foreach ($p in $ports) {
+            $existing = $col | Where-Object { $_.ExternalPort -eq $p.Port -and $_.Protocol -eq $p.Proto }
+            if ($existing -and $existing.InternalClient -eq $lanIp) { continue }
+            if ($existing) { $col.Remove($p.Port, $p.Proto) }
+            $null = $col.Add($p.Port, $p.Proto, $p.Port, $lanIp, $true, $p.Name)
+            Write-Host "[al-shabab] UPnP: $($p.Proto) $($p.Port) -> ${lanIp}:$($p.Port)"
+        }
+        Write-Host "[al-shabab] UPnP: router ports open for $lanIp."
+    } catch {
+        Write-Warning "UPnP port mapping failed: $($_.Exception.Message)"
+    }
+}
+
+Open-RouterPorts
+
 try {
     & .\run.bat nogui
 } finally {
