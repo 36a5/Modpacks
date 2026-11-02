@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "CustomSkinLoader/CustomSkinLoader.json"
+hash = "6b3658cf68b1b9b113ebd47d7bd0ebd6ba726fd5efe59a52f6d73d44177654e9"
+
+[[files]]
 file = "abnormals-compat.pw.toml"
 hash = "83367e861cc4d2f2d91e40df4448fb8ce6556fa1d341b01df05c6aeaa3f28e64"
 metafile = true
@@ -3059,7 +3063,7 @@ hash = "b5ae0f1685b3136c29758855f06e1eb4fa9878ef78d25b7adcbcd88391074c86"
 
 [[files]]
 file = "configureddefaults/CustomSkinLoader/CustomSkinLoader.json"
-hash = "d29b5f62687f3a2769da2dbcf7677f0fa7416eb4d7a10a5ec9acaeec60cc8c4a"
+hash = "6b3658cf68b1b9b113ebd47d7bd0ebd6ba726fd5efe59a52f6d73d44177654e9"
 
 [[files]]
 file = "configureddefaults/README.md"

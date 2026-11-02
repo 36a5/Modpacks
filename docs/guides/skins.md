@@ -10,6 +10,7 @@ hosts, in this order:
 
 | Order | Host | Who it's for |
 |---|---|---|
+| 0 | **Server overrides** | Set by the admin. Only used when someone else's skin shows up for your name (see below). |
 | 1 | **Ely.by** | Anyone. Free, no Minecraft account needed. **This is the one to use.** |
 | 2 | **TLauncher** | TLauncher players who already set a skin inside the launcher. |
 | 3 | **LittleSkin** | Alternative host, if you already have an account there. |
@@ -54,6 +55,7 @@ Fine for testing, useless for showing off.
 | Still Steve after uploading | Your Ely.by username and your in-game username don't match exactly (capitalisation counts). |
 | Skin changed but the game shows the old one | Skins are cached for 30 minutes. Restart the game, or delete `.minecraft/CustomSkinLoader/cache/`. |
 | Worked yesterday, Steve today | The skin host was down. CustomSkinLoader falls back to the next host in the list, and to Steve if none answer. |
+| Someone else's skin shows for you | Another person uses your name on a skin site checked before yours (often TLauncher). Send the admin your skin `.png`. They add it to the repo's `skins/` folder, which is checked first. |
 | Want to see what it's doing | Read `.minecraft/CustomSkinLoader/CustomSkinLoader.log` — it names the host it fetched each player from. |
 
 Do **not** edit `.minecraft/CustomSkinLoader/CustomSkinLoader.json` unless you know what you're

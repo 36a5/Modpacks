@@ -1,0 +1,51 @@
+{
+  "version": "15.0.1",
+  "loadlist": [
+    {
+      "name": "ShababOverrides",
+      "type": "Legacy",
+      "checkPNG": true,
+      "skin": "https://raw.githubusercontent.com/36a5/Modpacks/master/skins/{USERNAME}.png",
+      "model": "auto"
+    },
+    {
+      "name": "ElyBy",
+      "type": "ElyByAPI",
+      "root": "http://skinsystem.ely.by/textures/"
+    },
+    {
+      "name": "TLauncher",
+      "type": "ElyByAPI",
+      "root": "https://auth.tlauncher.org/skin/profile/texture/login/"
+    },
+    {
+      "name": "LittleSkin",
+      "type": "CustomSkinAPI",
+      "root": "https://littleskin.cn/csl/"
+    },
+    {
+      "name": "Mojang",
+      "type": "MojangAPI",
+      "apiRoot": "https://api.mojang.com/",
+      "sessionRoot": "https://sessionserver.mojang.com/"
+    },
+    {
+      "name": "LocalSkin",
+      "type": "Legacy",
+      "checkPNG": true,
+      "skin": "LocalSkin/skins/{USERNAME}.png",
+      "model": "auto",
+      "cape": "LocalSkin/capes/{USERNAME}.png"
+    }
+  ],
+  "enableTransparentSkin": true,
+  "forceLoadAllTextures": true,
+  "enableCape": true,
+  "threadPoolSize": 8,
+  "enableLogStdOut": false,
+  "cacheExpiry": 30,
+  "forceUpdateSkull": false,
+  "enableLocalProfileCache": false,
+  "enableCacheAutoClean": true,
+  "forceDisableCache": false
+}

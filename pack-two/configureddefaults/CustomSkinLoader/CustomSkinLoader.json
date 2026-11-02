@@ -2,6 +2,13 @@
   "version": "15.0.1",
   "loadlist": [
     {
+      "name": "ShababOverrides",
+      "type": "Legacy",
+      "checkPNG": true,
+      "skin": "https://raw.githubusercontent.com/36a5/Modpacks/master/skins/{USERNAME}.png",
+      "model": "auto"
+    },
+    {
       "name": "ElyBy",
       "type": "ElyByAPI",
       "root": "http://skinsystem.ely.by/textures/"
