@@ -10,7 +10,7 @@ title @s actionbar [{"text":"Join code: ","color":"gold"},{"text":"/trigger join
 # 10 minutes of grace, then out. Same window as the password step - deliberately long, because
 # a player staring at a loading screen is not a player refusing to type.
 scoreboard players add @s shabab.gatewait 1
-execute if score @s shabab.gatewait matches 12000.. run function auth:kick
+execute if score @s shabab.gatewait matches 12000.. run function shabab_gate:kick
 
 # code == 0 means the gate is switched off, and every player's trigger also starts at 0, so
 # they pass here immediately. Set a real code to arm it (see load.mcfunction).

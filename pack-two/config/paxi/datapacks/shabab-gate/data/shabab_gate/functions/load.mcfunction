@@ -4,6 +4,11 @@ scoreboard objectives add shabab.gate dummy
 scoreboard objectives add shabab.wait dummy
 scoreboard objectives add shabab.gatewait dummy
 scoreboard objectives add shabab.tries dummy
+# Counts how many times a player has left. Above 0 on an online player = they just rejoined.
+scoreboard objectives add shabab.left minecraft.custom:minecraft.leave_game
+# Waiting timers only make sense for the current visit, so a restart starts everyone from zero.
+scoreboard players reset * shabab.wait
+scoreboard players reset * shabab.gatewait
 scoreboard objectives add joincode trigger
 
 # The join code. 0 = gate disabled (everyone walks straight through), which is the shipped

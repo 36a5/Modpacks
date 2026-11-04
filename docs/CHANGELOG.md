@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Shabab 2: login gate no longer freezes players
+
+- The login and join-code timers (`shabab.wait`, `shabab.gatewait`) carried over between visits.
+  A player who had spent 10 minutes on the login screen in total, across several sessions, hit
+  the limit the moment they joined. The "kick" at that limit was Auth's `auth:kick`, which fires
+  two billion forced particles at the player and freezes their game on "Joining world..." on
+  every rejoin.
+- Timers now reset on every join (`shabab.left` leave counter) and on every server start.
+- Every kick in `shabab-gate` is now a real `/kick` with a message, and `auth:kick` is overridden
+  to do the same.
+
 ### Shabab 2: rarer Gates, no Gate teleport, XP for normal mobs, faster chunks
 
 - **Gates no longer have a [TP] button.** The `slb-gates` datapack still announces each new Gate on

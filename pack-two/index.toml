@@ -2218,6 +2218,10 @@ file = "config/paxi/datapacks/ichphilipp-s-endcity-better-end-1-18-1.zip"
 hash = "29f133eb00798f3440719f5fdec9ca46de0311fb97e480cb19bdbc3f610f8048"
 
 [[files]]
+file = "config/paxi/datapacks/shabab-gate/data/auth/functions/kick.mcfunction"
+hash = "39ae747afc7cff2544673d4741f9f53451ba2f8a4dee04c48204e0dec0a0672e"
+
+[[files]]
 file = "config/paxi/datapacks/shabab-gate/data/minecraft/tags/functions/load.json"
 hash = "d62fe9eca838e052b2c8181ba702ff82e2cb1db007bef9df82d4e02096417a2a"
 
@@ -2227,27 +2231,35 @@ hash = "974755d2d0924ee7e691817ab0cb1379be4498614b49f61e2659537185494731"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/gate.mcfunction"
-hash = "e9503939795b1a283e954194d5bf524324955ef5f0339d3dbff890e0b5f23a4b"
+hash = "491dc41d879beaf1cebc3e66d08c2932bf37ad979bac921fd757eaee3bfe3d14"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/hud_on.mcfunction"
 hash = "f982a29e90d72e90b2efa2803376a556997f23a15547e0e459da5209e91f9ae4"
 
 [[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/kick.mcfunction"
+hash = "ab12107308407a8b3684087390c342477711408b4bd806a5da9909c238300f64"
+
+[[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/load.mcfunction"
-hash = "529cc9868f4ba888c0572a8607ddb303ded183ac531c648dc420d11c865bb465"
+hash = "58281a960215521b3b100a7d045c20dfc54f9c0e74e9d39da315f292b61d8e5c"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/pass.mcfunction"
 hash = "88a6886bc7ca61497c4519635e8e16a5045e75eec5d8c6f2cb3ae2f369b9fbb8"
 
 [[files]]
+file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/rejoin.mcfunction"
+hash = "95e182b182bd030b82335588fcbdbb0390b7b5f711e84e3289c7c45030e667d0"
+
+[[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/tick.mcfunction"
-hash = "61a475c3b9a0a1d43f9d74c78c1edef1500ae0098a636216a7a17039e14346bd"
+hash = "ff083fcba5d1be539b584a74dabd8069694870603db4f1061b4dcff2bb80b697"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/data/shabab_gate/functions/wrong.mcfunction"
-hash = "f04fab04afc3ce89fe51df3840b0aa577c163247e28120ab28f91bf0ce5bb49e"
+hash = "8c0d40e388bc750a1ae33b11501c94a3d1e1ffa3ea5b16e135edbf35065c83aa"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-gate/pack.mcmeta"
