@@ -2355,7 +2355,7 @@ hash = "873e2f46d0b4c65b90413e06a155449e44981a01ca1624d920ffeaacba4116b5"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/data/slb_gates/tags/entity_types/gates.json"
-hash = "43680dfb3f33db32fa2b746e67024efeeebb402269a7397cbcfccb2fe3ac6f8c"
+hash = "0ac4c1a46fc17432a64993d19a46ff66a73b4a156db6ca6a86e2797f52ed0351"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/pack.mcmeta"
