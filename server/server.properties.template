@@ -11,10 +11,11 @@
 # world starts on the full baseline.
 
 [enforce]
-# The server is bound by its single tick thread. Distance is the biggest lever, and 8/6
-# is already generous for a 224-mod pack. simulation-distance is what actually costs
-# ticks; view-distance mostly costs bandwidth and chunk loading.
-view-distance=8
+# The server is bound by its single tick thread. simulation-distance is what actually costs
+# ticks, so it stays at 6. view-distance only costs bandwidth and chunk loading, and the
+# world is pregenerated with Chunky, so the server reads chunks from disk instead of
+# generating them. 12 lets players see much further without touching tick time.
+view-distance=12
 simulation-distance=6
 
 # sync-chunk-writes=true fsyncs every chunk save, on the server thread, so each save
@@ -26,6 +27,9 @@ sync-chunk-writes=false
 entity-broadcast-range-percentage=80
 
 network-compression-threshold=256
+
+# Anyone may build at spawn. Ops are not the only builders on this server.
+spawn-protection=0
 max-players=20
 
 # online-mode=false lets TLauncher / non-premium players join. Decided 2026-07-11 as the
@@ -49,5 +53,4 @@ enforce-whitelist=false
 
 motd=Shabab 2 - Solo Leveling Gates, BMC4 & more
 difficulty=normal
-spawn-protection=0
 enable-command-block=true

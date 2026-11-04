@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+### Shabab 2: rarer Gates, no Gate teleport, XP for normal mobs, faster chunks
+
+- **Gates no longer have a [TP] button.** The `slb-gates` datapack still announces each new Gate on
+  one line with its name and coordinates, but players have to walk there. The trigger that served
+  the button is removed, so old buttons in chat history do nothing.
+- **Gates open far less often.** `soloGateDelay` goes from the mod default of 400 seconds (about one
+  every 7 minutes) to 7200 (one every 2 hours of server uptime). Set in `slb-gates` load.
+- **Normal hostile mobs pay a little Solo Leveling XP** (shababparty 1.23.0, `[vanillaMobXp]` in
+  `shababparty-common.toml`). 0.8 base XP a kill, times the 3x XP gamerule, is 2.4 XP: about 10
+  zombies for level 1, 70 for level 10. Passive animals and Solo Leveling's own mobs are untouched.
+  Party members in range get the same share as normal XP.
+- **Chunks:** view-distance 8 to 12 (simulation-distance stays 6), Chunk Sending raised from 5 to
+  15 chunks per tick, and Chunky added (server only) to pregenerate the world.
+- **Numeric ping in the tab list:** Better Ping Display added (client only).
+- **Night skips at 30% of players asleep:** new `shabab-rules` datapack sets
+  `playersSleepingPercentage 30`.
+- **A welcome for endry:** every time endry joins, a title and chat line ("This is your gift (I Love YOU)")
+  shows for endry only, about 10 seconds after they load in. In `shabab-rules`.
+- **Spawn protection off:** `spawn-protection=0` moved to the enforced part of
+  `server.properties.template`.
+
 ### Shabab 2: Gates and the Punishment Zone return you to where you entered (slb-return datapack)
 
 - **The mod always dropped you in the Overworld** when you left a Gate dungeon or the Punishment

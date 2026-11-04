@@ -7,7 +7,7 @@
     "",
     "portal_12 is NOT here on purpose: it is the 'Dungeon Exit Portal' that stands inside a Gate",
     "dungeon. It never calls PortalSpawnProcedure. Including it announced a brand new Gate, with a",
-    "teleport button, every time anyone walked into a dungeon."
+    "dungeon. It never calls PortalSpawnProcedure. Including it announced a brand new Gate every time anyone walked into a dungeon."
   ],
   "values": [
     "sololeveling:portal",

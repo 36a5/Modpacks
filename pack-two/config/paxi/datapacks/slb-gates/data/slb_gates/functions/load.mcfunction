@@ -1,22 +1,23 @@
-# Shabab 2 - Gate teleport buttons
+# Shabab 2 - Gate announcements
 #
-# Solo Leveling announces a new Gate itself, but as flat text: you read the coordinates
-# and walk. This replaces that line with one that carries a [TELEPORT] button.
+# Solo Leveling announces a new Gate itself, but as three wrapped lines of flat text. This
+# replaces it with one tidy line: the Gate's name and coordinates. Players walk there.
 #
-# The button cannot run /tp — only two players are OP and /tp needs level 2. It runs
-# `/trigger`, which every player may use, and the tick function does the teleport on
-# their behalf.
+# There used to be a [TP] button on that line. It was removed on purpose: Gates are meant
+# to be found, not teleported to. The old slb_gate trigger objective is dropped below so a
+# button still sitting in someone's chat history does nothing when clicked.
 #
-# slb_gate : trigger. The player writes a Gate's slot number here by clicking the button.
-# slb_gid  : slot number, held by the Gate entity. Slots run 1..9 and are recycled, which
-#            is why the button text can be a fixed literal per slot (1.20.1 has no macros).
-# slb_pos  : scratch — the coordinates a Gate is announced with, and the tp result flag.
-scoreboard objectives add slb_gate trigger
-scoreboard objectives add slb_gid dummy
+# slb_pos : scratch, the coordinates a Gate is announced with.
+scoreboard objectives remove slb_gate
+scoreboard objectives remove slb_gid
 scoreboard objectives add slb_pos dummy
 
-# The mod's own announcement is redundant once ours carries the same coordinates plus a
-# button, and two lines per Gate is noise.
+# The mod's own announcement is redundant once ours carries the same coordinates, and two
+# lines per Gate is noise.
 gamerule soloGateNotification false
+
+# How often a new Gate opens, in seconds of server uptime. The mod default is 400 (about one
+# every 7 minutes), which buried the world in Gates. 7200 = one every 2 hours.
+gamerule soloGateDelay 7200
 
 tellraw @a[tag=slb_admin] {"text":"[slb-gates] datapack loaded","color":"dark_gray"}

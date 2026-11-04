@@ -883,7 +883,7 @@ hash = "8ebfbb7b6a212920031cc85b9d872a0f974fc704a30dcc39a7bdd0b10fe94aa6"
 
 [[files]]
 file = "config/chunksending.json"
-hash = "e589c5988aa0f23e08400df47ef156a61eea1978f2161ba014da278c28a60ac7"
+hash = "ac2483fd0b5ac595ecf45781b91043bfc4d9405c8af74a3f5e8b527ed38a1cc3"
 
 [[files]]
 file = "config/citadel-common.toml"
@@ -2254,6 +2254,30 @@ file = "config/paxi/datapacks/shabab-gate/pack.mcmeta"
 hash = "57a3e2a0e8e9260862b375cf8db6aa4cef5687274a55759fbdf5e5e9acb61caa"
 
 [[files]]
+file = "config/paxi/datapacks/shabab-rules/data/minecraft/tags/functions/load.json"
+hash = "618211799836cfb3bf33f8f88220a4daa1a219d6753f97d0613f45e65e00d816"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-rules/data/minecraft/tags/functions/tick.json"
+hash = "8f47fc3598d772a4954aa27ae44b7659838ad261d2f3a6a58c8cc9633c69904c"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/load.mcfunction"
+hash = "21e29bd8d7339838f09c08b7eac5b56376c485b5e24a4732078e0e8565ea4ab2"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/tick.mcfunction"
+hash = "639cac051c2b79f07001730d6445a93f7ef9aae6d85624292d8c4366719d9512"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/welcome_endry.mcfunction"
+hash = "4822ef8f64b7304b6f4a30d898825c7ab59fb4064f8a4f2ffb4d6aebeb5a9cde"
+
+[[files]]
+file = "config/paxi/datapacks/shabab-rules/pack.mcmeta"
+hash = "d8170b38e788a3e4dad6d88ea4155bdf44889aef0934fa6570fc0370a74cdce2"
+
+[[files]]
 file = "config/paxi/datapacks/slb-endgame/data/minecraft/tags/functions/load.json"
 hash = "ff6087b97575f8e5faefb49ca487d111931add335985822b41c58255235eb96f"
 
@@ -2314,68 +2338,28 @@ file = "config/paxi/datapacks/slb-gates/data/minecraft/tags/functions/tick.json"
 hash = "f803d1874d0fea5a562a1e170caa12961b09f72b1c2e8783c0177a36073b7602"
 
 [[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/1.mcfunction"
-hash = "30de99e267eba19ef5d2d70281c40ee50d7d21eb76edb431b5d939bc69465a43"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/2.mcfunction"
-hash = "cee1ed9c57ac775251cc7c9882ecf5661d805f8b4b08d62ed94dcc969eac9840"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/3.mcfunction"
-hash = "daef7d7e718a1124ba30899a46b04f10813cb8449ecb056089c0eab2c2c1c89f"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/4.mcfunction"
-hash = "47392e001dd211b648d0ae8a548ab0f4a5fd76889d34224eb48d304aff9f5cc1"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/5.mcfunction"
-hash = "c8083da476d88900c3c32cc534f430af4e551ab0038bda19b813c94b5275150c"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/6.mcfunction"
-hash = "772fc8637eaa15c23e92b1170c9779009a1f44c3a8c7ad7246518c0072e311d5"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/7.mcfunction"
-hash = "0055bef3869000fac8709cb1cd66de077b9d95c1f8f46a71506c7482adc577f3"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/8.mcfunction"
-hash = "4b33ebcb5b93762808b789d4c7374d285de22f2f1e8f0a261ab0064f35ad19a0"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce/9.mcfunction"
-hash = "5acdf2f220aa8f6a8f1a8398442af2ab00110071fbb3d435fd035606d581986d"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/do_tp.mcfunction"
-hash = "074cd1e79a00ce060cf532589b4320d7b2112fbbd1fb61d8eee2c910416fa743"
+file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/announce.mcfunction"
+hash = "a1941090d91eb9d5ac9a86491695444d7eabd69353d9536c83a59c4831aa425b"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/load.mcfunction"
-hash = "be901e5f034a38c91284847f59397619e8220eb5fd716ee11f3268af7788fe4f"
+hash = "de6ab5e5e1dfa3ee863d96a846ba07a84bd007b36e7f538aa16092a6e846ba8d"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/new_gate.mcfunction"
-hash = "9f64bc972ae17ed8babe2b5feadacbcd1d0c147cae6f2973a4fc5b735cf6262d"
-
-[[files]]
-file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/teleport.mcfunction"
-hash = "c81b5a76a9cb741e53ad2a27edecf80b709cae49f5f4db03220161e9ec181d77"
+hash = "3ff8b4aed729287f8516e0ebbe59f527bcfc8c9634aff5583a4506a5ee0149db"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/data/slb_gates/functions/tick.mcfunction"
-hash = "37c46132084502060ba5b977cae8b375fcdb0150fbfc4cc161b5c8d5eec45b17"
+hash = "873e2f46d0b4c65b90413e06a155449e44981a01ca1624d920ffeaacba4116b5"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/data/slb_gates/tags/entity_types/gates.json"
-hash = "5f4d777f3a81cba153005aa05808547e96e0129a96d8d3d27b96e7883f757213"
+hash = "43680dfb3f33db32fa2b746e67024efeeebb402269a7397cbcfccb2fe3ac6f8c"
 
 [[files]]
 file = "config/paxi/datapacks/slb-gates/pack.mcmeta"
-hash = "f1c5e76c2f1af420dcc3d714b363de59779f436530522d949788ebeac42b2890"
+hash = "5502eb2058528177c20db2568c842f3c6e875dda8a83ca6002652730250a9d5c"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/minecraft/tags/functions/load.json"
@@ -5972,6 +5956,11 @@ hash = "044bb7a0b26348cd286ac0db4ff266d5527be16e2c6bb58eb9a538830746a4d8"
 metafile = true
 
 [[files]]
+file = "mods/better-ping-display.pw.toml"
+hash = "777eb31bb0687b66bec8f9e5c3cf3b43030add8fcdf3f0c7db07f0e30208a820"
+metafile = true
+
+[[files]]
 file = "mods/better-world-loading.pw.toml"
 hash = "32842ad946071b012b84e1d016a9ebc4c68886d16c305fc53ad560d5c61c99be"
 metafile = true
@@ -6114,6 +6103,11 @@ metafile = true
 [[files]]
 file = "mods/chunk-sending-forge-fabric.pw.toml"
 hash = "3a23f02d78b21b593844c538c0a74dfc33a8c8d61de9f7a8ded83b11aa8de4f7"
+metafile = true
+
+[[files]]
+file = "mods/chunky.pw.toml"
+hash = "2274e08910d949f9962383e2314e8d42490f2e8195782786392614d0f0879629"
 metafile = true
 
 [[files]]
@@ -7270,8 +7264,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.22.0.jar"
-hash = "1522474cbb426fb03d401217f47e1d814b8f270915353e9d135153297da69fb5"
+file = "mods/shababparty-1.23.0.jar"
+hash = "5bae02c59d41a25048ab1b2a45d2943addcfd667995fd8451345ca0010431f5f"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"

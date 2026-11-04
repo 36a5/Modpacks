@@ -113,6 +113,9 @@ public class ShababParty {
         public static final ForgeConfigSpec.DoubleValue SHADOW_DAMAGE_PER_INTELLIGENCE;
         public static final ForgeConfigSpec.IntValue SHADOW_RESYNC_TICKS;
 
+        public static final ForgeConfigSpec.BooleanValue VANILLA_MOB_XP_ENABLED;
+        public static final ForgeConfigSpec.DoubleValue VANILLA_MOB_XP;
+
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
@@ -521,6 +524,21 @@ public class ShababParty {
                     .comment("How often, in ticks, loaded shadows are re-synced to their owner's current stats.",
                             "20 ticks = 1 second. This is what makes an already-summoned army track its Monarch.")
                     .defineInRange("resyncIntervalTicks", 100, 20, 1200);
+            b.pop();
+
+            b.push("vanillaMobXp");
+            VANILLA_MOB_XP_ENABLED = b
+                    .comment("Pay a little Solo Leveling XP for hostile mobs that are not Solo Leveling's own",
+                            "(zombies, skeletons, other mods' monsters). Solo Leveling pays nothing for them while",
+                            "the soloDungeonProgressionOnly gamerule is on. Passive animals never pay.",
+                            "Shared with the killer's party the same way as normal XP when shareXpWithParty is on.")
+                    .define("enabled", true);
+
+            VANILLA_MOB_XP = b
+                    .comment("Base XP per kill, before the player's own XP multiplier and soloLevelingXPMultiplier / 10.",
+                            "A level needs 16 * level + 8 XP. With the gamerule at 30, 0.8 here pays 2.4 XP a kill:",
+                            "10 zombies for level 1, 70 for level 10, 330 for level 50.")
+                    .defineInRange("xpPerKill", 0.8D, 0.0D, 1000.0D);
             b.pop();
 
             SPEC = b.build();
