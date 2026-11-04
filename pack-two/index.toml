@@ -2258,24 +2258,12 @@ file = "config/paxi/datapacks/shabab-rules/data/minecraft/tags/functions/load.js
 hash = "618211799836cfb3bf33f8f88220a4daa1a219d6753f97d0613f45e65e00d816"
 
 [[files]]
-file = "config/paxi/datapacks/shabab-rules/data/minecraft/tags/functions/tick.json"
-hash = "8f47fc3598d772a4954aa27ae44b7659838ad261d2f3a6a58c8cc9633c69904c"
-
-[[files]]
 file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/load.mcfunction"
-hash = "21e29bd8d7339838f09c08b7eac5b56376c485b5e24a4732078e0e8565ea4ab2"
-
-[[files]]
-file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/tick.mcfunction"
-hash = "639cac051c2b79f07001730d6445a93f7ef9aae6d85624292d8c4366719d9512"
-
-[[files]]
-file = "config/paxi/datapacks/shabab-rules/data/shabab_rules/functions/welcome_endry.mcfunction"
-hash = "4822ef8f64b7304b6f4a30d898825c7ab59fb4064f8a4f2ffb4d6aebeb5a9cde"
+hash = "f7ec0b8492fb7431d727922a4d18c8ad650bb86879d3f52d2a6daa12e7e128a9"
 
 [[files]]
 file = "config/paxi/datapacks/shabab-rules/pack.mcmeta"
-hash = "d8170b38e788a3e4dad6d88ea4155bdf44889aef0934fa6570fc0370a74cdce2"
+hash = "ffffc87f260ca57ae923ceb770d3a04a78845f739ac8a171db32e5afbc7fb2e1"
 
 [[files]]
 file = "config/paxi/datapacks/slb-endgame/data/minecraft/tags/functions/load.json"
@@ -7264,8 +7252,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.23.0.jar"
-hash = "5bae02c59d41a25048ab1b2a45d2943addcfd667995fd8451345ca0010431f5f"
+file = "mods/shababparty-1.24.0.jar"
+hash = "9238cab141992494e728c10a56888d626180abbf309a204bea5750a7ab524a04"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"

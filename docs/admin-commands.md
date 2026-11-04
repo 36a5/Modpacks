@@ -130,24 +130,23 @@ Useful gamerules:
 
 ---
 
-## Gates — the teleport button (`slb-gates` datapack)
+## Gates (`slb-gates` datapack)
 
-When a Gate opens, everyone gets **one line** with the Gate's name, its coordinates and a `[TP]`
-button. Clicking it runs `/trigger slb_gate set <n>` — **not** `/tp`, because only two players are
-OP and `/tp` needs level 2. The datapack does the teleport on the player's behalf.
+When a Gate opens, everyone gets **one line** with the Gate's name and coordinates. There is no
+teleport button: players walk there.
 
 ```
-⚡ Gate - Ant Nest   X -31901 Y 76 Z 4571   [TP]
+⚡ Gate - Ant Nest   X -31901 Y 76 Z 4571   closes in 4 days
 ```
 
-The Gate's name is its own — the announce function runs *as the Gate entity*, so `{"selector":"@s"}`
-prints whatever the mod calls it, and that is how Solo Leveling distinguishes what is inside:
+The Gate's name is its own. The announce function runs *as the Gate entity*, so `{"selector":"@s"}`
+prints whatever the mod calls it, and that is how Solo Leveling tells what is inside:
 
 | Entity | Name shown |
 |---|---|
 | `portal` | D Rank Gate |
 | `portal_1` | Gate (random dungeon) |
-| `portal_s` | Gate (Kamish — S rank) |
+| `portal_s` | Gate (Kamish, S rank) |
 | `portal_sewers` | Gate - Goblin Sewers |
 | `portal_beru` | Gate - Ant Nest |
 | `portal_lush` | Gate - Lush Cave |
@@ -157,18 +156,40 @@ prints whatever the mod calls it, and that is how Solo Leveling distinguishes wh
 | `random_cave_large` | Gate - Giant Spider |
 | `red_gate` | Gate (Red Gate) |
 
-`portal_job_change` is excluded — it is personal to whoever used a Job Key. **`portal_12` is
-excluded too**: it is the *Dungeon Exit Portal* that stands inside a dungeon, not a Gate that
-appears in the world. The entity-type tag is otherwise exactly the set of entities whose spawn code
-calls `PortalSpawnProcedure`.
-
-Gates are given slot numbers 1–9, recycled. A tenth Gate takes slot 1 back, and the oldest
-Gate's button stops working rather than sending someone to the wrong place.
+`portal_job_change` is excluded, since it is personal to whoever used a Job Key. **`portal_12` is
+excluded too**: it is the *Dungeon Exit Portal* inside a dungeon, not a Gate in the world.
 
 | Task | Command |
 |---|---|
+| How often Gates open (seconds of uptime) | `/gamerule soloGateDelay 7200` (the datapack sets 7200 on every boot; edit its `load.mcfunction` to change it for good) |
+| Stop Gates opening at all | `/gamerule soloGateSpawning false` |
 | See the live Gates the mod knows about | `/slr @s Debug CurrentGatesStatus` |
-| Turn the buttons off | `/datapack disable "file/slb-gates"` — then set `soloGateNotification` back to `true`, or nobody hears about Gates at all |
+
+---
+
+## Welcome messages (`/welcome`, shababparty)
+
+A personal message shown to one player only, about 10 seconds after they join, every time they
+join: a big title, a subtitle, the same text as a chat line, and a chime. Ops only.
+
+| Task | Command |
+|---|---|
+| Set or change a player's message | `/welcome set <player> <title> \| <subtitle>` |
+| Remove it | `/welcome off <player>` |
+| Show it to them right now | `/welcome test <player>` |
+| See every message | `/welcome list` |
+
+```
+/welcome set endry This is your gift | (I Love YOU)
+/welcome set Abdulrhman-S &bWelcome back, boss | &7the server missed you
+```
+
+- The subtitle (after `|`) is optional.
+- Colours use `&`: `&6` gold, `&d` pink, `&c` red, `&b` aqua, `&a` green, `&l` bold, `&o` italic.
+  With no codes, the title is gold and bold and the subtitle pink and italic.
+- The player does not have to be online or have joined before. Names are not case-sensitive.
+- Messages are saved in `world/shababparty-welcome.properties`, so they survive restarts and
+  pack updates, and a fresh world starts with none.
 
 ---
 

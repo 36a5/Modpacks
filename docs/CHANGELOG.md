@@ -18,8 +18,9 @@
 - **Numeric ping in the tab list:** Better Ping Display added (client only).
 - **Night skips at 30% of players asleep:** new `shabab-rules` datapack sets
   `playersSleepingPercentage 30`.
-- **A welcome for endry:** every time endry joins, a title and chat line ("This is your gift (I Love YOU)")
-  shows for endry only, about 10 seconds after they load in. In `shabab-rules`.
+- **Personal welcome messages** (shababparty 1.24.0): `/welcome set <player> <title> | <subtitle>`,
+  `/welcome off`, `/welcome test`, `/welcome list`. Shown to that player only, about 10 seconds
+  after each join. Stored per world. Replaces the hardcoded endry message.
 - **Spawn protection off:** `spawn-protection=0` moved to the enforced part of
   `server.properties.template`.
 

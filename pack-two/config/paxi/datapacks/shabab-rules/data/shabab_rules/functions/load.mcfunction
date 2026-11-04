@@ -5,8 +5,7 @@
 # Comforts' sleeping bags and hammocks follow this gamerule as well.
 gamerule playersSleepingPercentage 30
 
-# endry's welcome. sr_left counts how many times a player has left the game, so a score
-# above 0 on a player who is online means they just rejoined. sr_wait holds the message
-# back about 10 seconds, until the client has finished loading and can actually show a title.
-scoreboard objectives add sr_left minecraft.custom:minecraft.leave_game
-scoreboard objectives add sr_wait dummy
+# Personal join messages moved to the /welcome command (shababparty). These objectives belonged
+# to the old hardcoded version and are dropped here.
+scoreboard objectives remove sr_left
+scoreboard objectives remove sr_wait
