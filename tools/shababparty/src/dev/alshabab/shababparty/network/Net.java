@@ -37,6 +37,14 @@ public final class Net {
                 TrackUpdatePacket::encode,
                 TrackUpdatePacket::decode,
                 TrackUpdatePacket::handle);
+        CHANNEL.registerMessage(2, DeviceHelloPacket.class,
+                DeviceHelloPacket::encode,
+                DeviceHelloPacket::decode,
+                DeviceHelloPacket::handle);
+    }
+
+    public static void toServer(final DeviceHelloPacket packet) {
+        CHANNEL.sendToServer(packet);
     }
 
     public static void toPlayer(final ServerPlayer player, final DamageNumberPacket packet) {

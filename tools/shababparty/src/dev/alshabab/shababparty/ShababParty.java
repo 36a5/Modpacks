@@ -116,6 +116,9 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue VANILLA_MOB_XP_ENABLED;
         public static final ForgeConfigSpec.DoubleValue VANILLA_MOB_XP;
 
+        public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_ENABLED;
+        public static final ForgeConfigSpec.IntValue DEVICE_LOGIN_TRUST_DAYS;
+
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
@@ -539,6 +542,20 @@ public class ShababParty {
                             "A level needs 16 * level + 8 XP. With the gamerule at 30, 0.8 here pays 2.4 XP a kill:",
                             "10 zombies for level 1, 70 for level 10, 330 for level 50.")
                     .defineInRange("xpPerKill", 0.8D, 0.0D, 1000.0D);
+            b.pop();
+
+            b.push("deviceLogin");
+            DEVICE_LOGIN_ENABLED = b
+                    .comment("Skip the Auth password for a player joining from a device they have logged in from",
+                            "before. Each client keeps a random key in <user home>/.shababparty/device-id and sends",
+                            "it on join; the server remembers a hash of it per player name after a normal password",
+                            "login. A new device, or a client without this mod, still has to type the password.")
+                    .define("enabled", true);
+
+            DEVICE_LOGIN_TRUST_DAYS = b
+                    .comment("A remembered device is forgotten after this many days without being used.",
+                            "Each automatic login resets the count.")
+                    .defineInRange("trustDays", 30, 1, 3650);
             b.pop();
 
             SPEC = b.build();

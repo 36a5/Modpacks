@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### Shabab 2: no password on a device you have used before
+
+- shababparty 1.25.0. Each player's game makes a random device key once and keeps it in
+  `<user home>/.shababparty/device-id`, outside the modpack folder, so updates and reinstalls keep it.
+- After a normal Auth password login, the server remembers that device for that player name (it
+  stores only a SHA-256 hash). Next join from the same device, the server runs `function auth:login`
+  for them and they skip `/trigger login`.
+- A new device, someone else using the same name, or a client without the mod still gets the normal
+  password prompt. Auth itself is unchanged.
+- Remembered devices expire after 30 days unused (`[deviceLogin] trustDays` in
+  `shababparty-common.toml`). Operators can clear a player with `/devices forget <player>` and see
+  everyone with `/devices list`.
+
 ### Shabab 2: login gate no longer freezes players
 
 - The login and join-code timers (`shabab.wait`, `shabab.gatewait`) carried over between visits.

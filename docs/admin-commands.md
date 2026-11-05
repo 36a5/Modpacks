@@ -193,6 +193,23 @@ join: a big title, a subtitle, the same text as a chat line, and a chime. Ops on
 
 ---
 
+## Remembered devices (`/devices`, shababparty)
+
+A player who logs in with their password is remembered on that computer. Next time they join from
+it, they are logged in automatically, with "Welcome back. Logged in automatically on this device."
+A different computer still asks for the password, and is remembered after that.
+
+| Command | What it does |
+|---|---|
+| `/devices` or `/devices list` | Every player with remembered devices, how many, and when last used |
+| `/devices forget <player>` | Forget all of that player's devices. Use it after a password reset, or if they logged in on someone else's computer |
+
+- Devices unused for 30 days are forgotten by themselves (`[deviceLogin] trustDays`).
+- Turn the whole thing off with `[deviceLogin] enabled = false` in `shababparty-common.toml`.
+- The key lives on the player's computer in `<user home>/.shababparty/device-id`. Deleting that file
+  makes the computer a new device.
+- Stored on the server in `world/shababparty-devices.properties` (hashes only, no keys, no passwords).
+
 ## Gate kills & the leaderboard
 
 Gate kills are counted by the `gate_kills` datapack into a `pk_total` scoreboard, and only
