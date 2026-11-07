@@ -51,4 +51,9 @@ fi
 echo "-Xms${MEMORY} -Xmx${MEMORY} -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20" > user_jvm_args.txt
 
 echo "eula=true" > eula.txt
+
+# The picture next to the server in the multiplayer list (64x64, kept in the repo next to this script)
+if [ -f ../server-icon.png ]; then
+    cp ../server-icon.png server-icon.png
+fi
 exec ./run.sh nogui
