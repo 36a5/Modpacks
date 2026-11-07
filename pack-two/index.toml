@@ -955,7 +955,7 @@ hash = "943e1c3672b8a03f27519b357091133205119c7b3db2fcc4c25b597cabf8926d"
 
 [[files]]
 file = "config/crash_assistant/modlist.json"
-hash = "0bb18e76bc3947f93de9ec7db4a421d97883384055d44ebf1f8e9c9e63dffce7"
+hash = "4fe2c14514e7021ab22c89b05f0f26f4c9934bc2d512d2fe433a8af2ffdeb8c6"
 
 [[files]]
 file = "config/crash_assistant/scripts/log_analysis/example.jexl"
@@ -3979,7 +3979,7 @@ hash = "943e1c3672b8a03f27519b357091133205119c7b3db2fcc4c25b597cabf8926d"
 
 [[files]]
 file = "defaultconfigs/crash_assistant/modlist.json"
-hash = "0bb18e76bc3947f93de9ec7db4a421d97883384055d44ebf1f8e9c9e63dffce7"
+hash = "4fe2c14514e7021ab22c89b05f0f26f4c9934bc2d512d2fe433a8af2ffdeb8c6"
 
 [[files]]
 file = "defaultconfigs/crash_assistant/scripts/log_analysis/example.jexl"
@@ -6742,11 +6742,6 @@ metafile = true
 [[files]]
 file = "mods/item-highlighter.pw.toml"
 hash = "a905e45f361d2548cb1a84de83b99f781ca58dd5542d4b5acf67fac444264609"
-metafile = true
-
-[[files]]
-file = "mods/item-split-bug-fix.pw.toml"
-hash = "4e298e96ee911560b738f26f77e126d9408e34e0e131fc399844f98b8f1a02b4"
 metafile = true
 
 [[files]]

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Shabab 2: anvil crash removed
+
+- Removed Item Split Bug Fix. On 2026-11-07 it crashed the server with a `StackOverflowError` in
+  Easy Anvils' `ModAnvilMenu`. Item Split Bug Fix strips an empty NBT tag from an item every time a
+  slot is read. Easy Anvils sees that as a slot change and recomputes the result, which puts the
+  empty tag back. The two loop until the stack runs out, and the server tick dies.
+- All that mod did was make some split stacks merge again. Nothing in the world or anyone's
+  inventory depended on it.
+
 ### Shabab 2: no password on a device you have used before
 
 - shababparty 1.25.0. Each player's game makes a random device key once and keeps it in
