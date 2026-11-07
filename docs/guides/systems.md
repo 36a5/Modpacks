@@ -11,11 +11,11 @@ pack defaults (chosen so no two abilities or menus share a key).
 The server runs in **offline mode** (so TLauncher / non-premium accounts can play), protected
 by two layers:
 
-1. **Password (Auth mod)** — you're frozen in spectator until you set one:
-   - First join: `T` → `/trigger register set yourPassword`
-   - Every join after: `T` → `/trigger login set yourPassword`
-   - **Numbers only.** You get 3 tries, and 10 minutes — enough time for a slow client to
-     finish loading before it asks you for anything.
+1. **Your computer (Auth mod + shababparty)**: on your first join your computer claims your
+   username and logs you in by itself, no password. Another computer joining as you is held in
+   spectator and asked for a password. To play from a second computer, set one on your usual
+   computer with `/trigger changepassword set 1234` (numbers only), then
+   `/trigger login set 1234` once on the other. You get 3 tries and 10 minutes.
 2. **Join-code gate** — then you're held in adventure mode + blindness until you type the
    server's join code (posted at the top of the server channel):
    - `T` → `/trigger joincode set 1234` (with the real code)

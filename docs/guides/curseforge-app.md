@@ -65,22 +65,18 @@ Copy the **join code** from the Discord `#server-info` channel and type it into 
 You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
 forever and never asked again.
 
-## Step 4 — Register your password (first join only)
+## Step 4: Logging in (nothing to type)
 
-The server runs offline-mode so that friends without Minecraft accounts can play. Everyone sets
-a password on their first join, premium accounts included.
+The server runs offline-mode so friends without Minecraft accounts can play too. Instead of a
+password, your computer claims your username the first time you join, and logs you in by itself
+from then on. Anyone joining under your name from another computer is asked for a password they
+don't have.
 
-You'll spawn unable to move. Press `T`:
+**Playing from a second computer?** On your usual one, set a password (numbers only):
 ```
-/trigger register set myPassword123
+/trigger changepassword set 1234
 ```
-
-Every join after:
-```
-/trigger login set myPassword123
-```
-
-Change it later: `/trigger change_password set newPassword`
+Then on the other computer, type `/trigger login set 1234` once. It is remembered after that.
 
 ---
 

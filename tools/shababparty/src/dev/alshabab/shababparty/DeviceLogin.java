@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -48,8 +49,10 @@ import net.minecraftforge.fml.common.Mod;
  *       device they are on is remembered for that name.</li>
  *   <li>When they join again with a remembered device, the server runs Auth's own
  *       {@code function auth:login} for them, exactly what a correct password does.</li>
- *   <li>A new device, an unknown name, or a client without this mod falls through to the normal
- *       password prompt. Nothing about Auth itself changes.</li>
+ *   <li>A brand new name (never registered, not an operator) is registered on its first device
+ *       without /register: see {@link #claimName}. Switch off with claimNewNames.</li>
+ *   <li>A new device for a registered name, or a client without this mod, falls through to the
+ *       normal password prompt. Nothing about Auth itself changes.</li>
  * </ul>
  *
  * <p>Remembered devices expire after trustDays without use. Operators can clear a player's
@@ -81,6 +84,8 @@ public final class DeviceLogin {
     private static final Map<UUID, String> ONLINE_KEYS = new HashMap<>();
     /** Online players waiting for the auto-login check, with ticks left. */
     private static final Map<UUID, Integer> PENDING = new HashMap<>();
+
+    private static final SecureRandom RANDOM = new SecureRandom();
 
     private static File file;
     private static int tickCounter;
@@ -223,12 +228,19 @@ public final class DeviceLogin {
 
     private static void tryAutoLogin(final MinecraftServer server, final ServerPlayer player) {
         final Set<String> tags = player.m_19880_(); // getTags
-        if (!tags.contains(TAG_REGISTERED) || tags.contains(TAG_LOGGED) || tags.contains(TAG_BYPASS)) {
-            return; // never registered, already in, or an Auth bypass account
+        if (tags.contains(TAG_LOGGED) || tags.contains(TAG_BYPASS)) {
+            return; // already in, or an Auth bypass account
         }
         final String hash = ONLINE_KEYS.get(player.m_20148_());
+        if (hash == null) {
+            return;
+        }
+        if (!tags.contains(TAG_REGISTERED)) {
+            claimName(server, player, hash);
+            return;
+        }
         final Map<String, Long> devices = TRUSTED.get(player.m_6302_().toLowerCase()); // getScoreboardName
-        if (hash == null || devices == null) {
+        if (devices == null) {
             return;
         }
         final Long lastUsed = devices.get(hash);
@@ -239,11 +251,44 @@ public final class DeviceLogin {
         devices.put(hash, now);
         save();
 
-        // Auth's own login, run as the player: m_129892_ = getCommands, m_230957_ = performPrefixedCommand,
-        // m_20203_ = createCommandSourceStack, m_81324_ = withSuppressedOutput, m_81325_ = withPermission.
-        server.m_129892_().m_230957_(player.m_20203_().m_81324_().m_81325_(2), "function auth:login");
+        runAs(server, player, "function auth:login");
         player.m_213846_(Component.m_237113_("§aWelcome back. Logged in automatically on this device.")); // sendSystemMessage
         ShababParty.LOGGER.info("Device login for {}", player.m_6302_());
+    }
+
+    /**
+     * First join of a new name: no /register. Auth keeps the password as a number in the register
+     * score, and its own tick registers anyone whose register score is non-zero and then logs them
+     * in. Setting that score to a random number nobody knows registers the player without a
+     * password prompt, and remembering this device at the same moment means it is the only one that
+     * gets in without one. Anyone else joining under the name later meets Auth's normal login
+     * prompt and a password they cannot know.
+     */
+    private static void claimName(final MinecraftServer server, final ServerPlayer player, final String hash) {
+        if (!ShababParty.Config.DEVICE_LOGIN_CLAIM_NEW_NAMES.get() || player.m_20310_(2)) { // hasPermissions
+            return; // switched off, or an operator: they keep the normal /register
+        }
+        final int password = 1 + RANDOM.nextInt(Integer.MAX_VALUE - 1);
+        runAs(server, player, "scoreboard players set @s register " + password);
+
+        TRUSTED.computeIfAbsent(player.m_6302_().toLowerCase(), k -> new HashMap<>())
+                .put(hash, System.currentTimeMillis());
+        save();
+        player.m_213846_(Component.m_237113_(
+                "§aWelcome! This computer now owns the name " + player.m_6302_()
+                        + ", so you never need a password here.\n"
+                        + "§7Want to play from another computer too? On this one, type "
+                        + "§f/trigger changepassword set <numbers>§7 and use that password there."));
+        ShababParty.LOGGER.info("{} claimed their name on a new device without /register", player.m_6302_());
+    }
+
+    /**
+     * Runs a command as the player with permission level 2 and no chat feedback. m_129892_ =
+     * getCommands, m_230957_ = performPrefixedCommand, m_20203_ = createCommandSourceStack,
+     * m_81324_ = withSuppressedOutput, m_81325_ = withPermission.
+     */
+    private static void runAs(final MinecraftServer server, final ServerPlayer player, final String command) {
+        server.m_129892_().m_230957_(player.m_20203_().m_81324_().m_81325_(2), command);
     }
 
     private static void rememberIfLogged(final ServerPlayer player) {

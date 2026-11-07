@@ -195,9 +195,19 @@ join: a big title, a subtitle, the same text as a chat line, and a chime. Ops on
 
 ## Remembered devices (`/devices`, shababparty)
 
-A player who logs in with their password is remembered on that computer. Next time they join from
-it, they are logged in automatically, with "Welcome back. Logged in automatically on this device."
-A different computer still asks for the password, and is remembered after that.
+New players never see `/register`. On a brand new name's first join, shababparty sets its Auth
+password to a random number nobody knows and remembers that computer, so the name belongs to that
+computer. Operators are skipped and still register normally.
+
+A player who logs in with their password is remembered on that computer too. Next time they join
+from it, they are logged in automatically, with "Welcome back. Logged in automatically on this
+device." A different computer still asks for the password, and is remembered after that.
+
+| Situation | What to do |
+|---|---|
+| Player wants a second computer | They type `/trigger changepassword set <numbers>` on their usual computer, then `/trigger login set <numbers>` once on the new one |
+| Player lost their usual computer | `/scoreboard players set <player> register 1234` (works offline), tell them `1234`, they log in with it and then change it |
+| Bring back `/register` for new players | `[deviceLogin] claimNewNames = false` in the server's `config/shababparty-common.toml`, then restart |
 
 | Command | What it does |
 |---|---|

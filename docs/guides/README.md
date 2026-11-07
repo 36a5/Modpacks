@@ -45,6 +45,10 @@ server runs. None of them require you to download a mod by hand.
 
 ## After you're in: the things every player asks about
 
+### What do I do?
+Follow the **[Playthrough](playthrough.md)**: one route from your first tree to the Ender Dragon
+that takes you through every major mod on the way.
+
 ### Shaders
 Three shaderpacks come preinstalled — you do not download them.
 **Options → Video Settings → Shader Packs**, then pick one:
@@ -80,19 +84,22 @@ holds everything — right-click it to take your stuff back. Then:
 Every key every mod in the pack registers is listed in **[Shabab 2 keybinds](../keybinds-shabab2.md)**.
 
 ### Logging in to the server
-Because the server is offline-mode, it makes you set a password the first time you join, and
-then asks for the server's join code.
+You don't type anything. The first time you join, your computer claims your username, and from
+then on that computer logs you in by itself.
+
+Anyone else who joins under your name from a different computer is asked for a password they
+don't have, so your base and chests stay yours.
+
+**Playing from a second computer** (or after reinstalling Windows): set a password first, on the
+computer you normally play on:
 
 | When | Command to type in chat |
 |---|---|
-| First join ever | `/trigger register set yourPassword` (**numbers only**) |
-| Every join after | `/trigger login set yourPassword` |
-| Changing it later | `/trigger change_password set newPassword` |
-| Once, after logging in | `/trigger joincode set 1234` — the code from `#server-info` |
+| On your usual computer | `/trigger changepassword set 1234` (**numbers only**, pick your own) |
+| On the other computer | `/trigger login set 1234` |
 
-You can't move or break blocks until you're through both. This is what stops someone joining
-under your name and emptying your chests. **You get 10 minutes and 3 tries at each step** — if
-your game is still loading, nothing is counting against you, so don't panic.
+After that one login, the second computer is remembered too. Lost access to your usual computer?
+Ask an admin.
 
 ### Maps
 Press **`M`** for the full world map, and the minimap sits in the corner. Waystones you find

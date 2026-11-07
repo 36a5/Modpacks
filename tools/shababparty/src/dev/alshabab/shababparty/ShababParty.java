@@ -118,6 +118,7 @@ public class ShababParty {
 
         public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_ENABLED;
         public static final ForgeConfigSpec.IntValue DEVICE_LOGIN_TRUST_DAYS;
+        public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_CLAIM_NEW_NAMES;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -556,6 +557,14 @@ public class ShababParty {
                     .comment("A remembered device is forgotten after this many days without being used.",
                             "Each automatic login resets the count.")
                     .defineInRange("trustDays", 30, 1, 3650);
+
+            DEVICE_LOGIN_CLAIM_NEW_NAMES = b
+                    .comment("A new player (never registered with Auth, not an operator) skips /register: their",
+                            "first device claims the name. The server sets their Auth password to a random number",
+                            "nobody knows and remembers the device, so only that device gets in without a password.",
+                            "To play from another computer they set a password on the first one with",
+                            "/trigger changepassword set <numbers>. false brings back /register for new players.")
+                    .define("claimNewNames", true);
             b.pop();
 
             SPEC = b.build();

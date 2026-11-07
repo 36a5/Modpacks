@@ -41,11 +41,8 @@ A window opens, asks which launcher you use, and does everything:
 3. Press **Play**. **The first launch takes 3–8 minutes** and may look frozen. It isn't — Forge
    is building caches. Later launches take about a minute.
 4. **Multiplayer → Add Server**, address: `SERVER_ADDRESS` *(ask the admin)*.
-5. Join. You'll spawn unable to move — press `T` and type:
-   ```
-   /trigger register set yourPassword
-   ```
-   Every join after that: `/trigger login set yourPassword`
+5. Join. That's it: no password to type. Your computer claims your username the first time
+   you join and logs you in by itself after that.
 
 That's everything. You're in.
 
@@ -65,12 +62,9 @@ Shabab-2026
 You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
 forever and never asked again.
 
-Right after that, set your personal password so nobody can join as you:
-
-```
-/trigger register set yourPassword
-```
-Every later join: `/trigger login set yourPassword`
+You don't need a password: your computer claims your username on your first join. To play
+from a second computer, type `/trigger changepassword set 1234` on your usual one first, then
+`/trigger login set 1234` once on the other.
 
 ## Updating
 

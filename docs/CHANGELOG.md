@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### Shabab 2: no /register for new players
+
+- shababparty 1.26.0. A brand new name's first join no longer asks for `/trigger register`. The
+  server sets the player's Auth password (the `register` score) to a random number nobody knows,
+  Auth registers and logs them in on its next tick, and that computer is remembered for the name.
+- Someone joining under that name from another computer meets Auth's normal login prompt and a
+  password they cannot know. To add a second computer, the player sets a password on the first one
+  with `/trigger changepassword set <numbers>`.
+- Operators are skipped and still register with a password. Players who already registered keep
+  their password and remembered devices.
+- `[deviceLogin] claimNewNames = false` in `shababparty-common.toml` brings `/register` back.
+- Player guides updated, and the wrong `change_password` trigger name in them is now `changepassword`.
+
 ### Shabab 2: anvil crash removed
 
 - Removed Item Split Bug Fix. On 2026-11-07 it crashed the server with a `StackOverflowError` in

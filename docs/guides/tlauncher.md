@@ -108,26 +108,15 @@ Copy the **join code** from the Discord `#server-info` channel and type it into 
 You get **3 attempts and 90 seconds**, then you are kicked. Once accepted you are remembered
 forever and never asked again.
 
-## Step 7 — Register your password (first join only)
+## Step 7: Logging in (nothing to type)
 
-The moment you spawn you won't be able to move. That's intentional. Type this in chat
-(press `T` to open chat):
+Offline mode means anyone could connect using your username, so the server ties your name to
+your computer instead: the first time you join, your computer claims the name, and it logs you
+in by itself from then on. Someone joining as you from another computer is asked for a password
+they don't have.
 
-```
-/trigger register set myPassword123
-```
-
-Replace `myPassword123` with a password you'll remember. You can move now.
-
-**Every time you join after this**, type:
-```
-/trigger login set myPassword123
-```
-
-To change it later: `/trigger change_password set newPassword`
-
-This exists because offline mode means anyone could connect using your username. The password
-is what stops them.
+**Playing from a second computer?** On your usual one, type `/trigger changepassword set 1234`
+(numbers only, pick your own). Then type `/trigger login set 1234` once on the other computer.
 
 ---
 
