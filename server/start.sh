@@ -27,9 +27,24 @@ if [ ! -f packwiz-installer-bootstrap.jar ]; then
     curl -fsSL -o packwiz-installer-bootstrap.jar "$BOOTSTRAP_URL"
 fi
 echo "[al-shabab] Syncing pack from ${PACK_URL}..."
-if ! java -jar packwiz-installer-bootstrap.jar -g -s server "$PACK_URL"; then
-    echo "[al-shabab] Pack sync FAILED - refusing to start the server without mods."
-    exit 1
+synced=0
+for attempt in 1 2 3; do
+    if java -jar packwiz-installer-bootstrap.jar -g -s server "$PACK_URL"; then
+        synced=1
+        break
+    fi
+    echo "[al-shabab] Pack sync failed (attempt ${attempt} of 3)."
+    [ "$attempt" -lt 3 ] && sleep 20
+done
+if [ "$synced" -eq 0 ]; then
+    # A failed sync is usually GitHub being down or serving a stale index. If an earlier sync
+    # already installed the pack, start on that instead of staying offline until GitHub recovers.
+    if [ -f packwiz.json ] && compgen -G "mods/*.jar" > /dev/null; then
+        echo "[al-shabab] Starting with the mods from the last successful sync."
+    else
+        echo "[al-shabab] Pack sync FAILED and no earlier install exists - refusing to start without mods."
+        exit 1
+    fi
 fi
 
 # JVM args consumed by Forge's run.sh
