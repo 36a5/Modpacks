@@ -119,6 +119,8 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_ENABLED;
         public static final ForgeConfigSpec.IntValue DEVICE_LOGIN_TRUST_DAYS;
         public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_CLAIM_NEW_NAMES;
+        public static final ForgeConfigSpec.BooleanValue JOIN_PROTECTION_ENABLED;
+        public static final ForgeConfigSpec.IntValue JOIN_PROTECTION_TIMEOUT_SECONDS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -565,6 +567,17 @@ public class ShababParty {
                             "To play from another computer they set a password on the first one with",
                             "/trigger changepassword set <numbers>. false brings back /register for new players.")
                     .define("claimNewNames", true);
+            b.pop();
+
+            b.push("joinProtection");
+            JOIN_PROTECTION_ENABLED = b
+                    .comment("Hold every joining player in spectator mode until they press a key, move the mouse,",
+                            "open a screen, chat or run a command, so nothing can hurt them while their game is",
+                            "still on the loading screen. They go back to their game mode at the spot they joined.")
+                    .define("enabled", true);
+            JOIN_PROTECTION_TIMEOUT_SECONDS = b
+                    .comment("Release the protection after this many seconds even without input.")
+                    .defineInRange("timeoutSeconds", 600, 10, 86400);
             b.pop();
 
             SPEC = b.build();

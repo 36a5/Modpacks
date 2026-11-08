@@ -240,6 +240,18 @@ Chapter locks: Job `sololeveling:awakened`, Nether `minecraft:story/enter_the_ne
 `minecraft:story/enter_the_end`, after the dragon `minecraft:end/kill_dragon`. The secret entry
 unlocks with `minecraft:adventure/sleep_in_bed`.
 
+## Join protection (shababparty)
+
+Every joining player is a spectator until their client reports a key press, mouse movement or an
+open screen (or they chat, run a command, interact, or 10 minutes pass). They then get their game
+mode back at the spot they joined. While protected and logged in, their action bar says "You are
+safe until you press a key or move the mouse."
+
+| Problem | What to do |
+|---|---|
+| A player seems stuck as spectator | They have not pressed anything yet. Any key releases it. If their client lacks the mod, moving the mouse releases it server-side, and the 10-minute timeout always does |
+| Turn it off | `[joinProtection] enabled = false` in the server's `config/shababparty-common.toml`, restart |
+
 ## Herobrine (From The Fog)
 
 Config lives in the world's scoreboard, so it is set from the console once and survives restarts.

@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### Shabab 2: safe until you press a key
+
+- shababparty 1.29.0. Every player who joins is held in spectator mode until they take control:
+  a key held, the mouse moved, a screen opened, a chat message or a command. Spectators cannot be
+  hurt, are ignored by mobs and do not fall, so the seconds (or minute) on "Loading terrain" are
+  safe. On release they get their game mode back at the exact spot they joined.
+- Falling does not end the protection; only input does. A client without the mod is released
+  when its position or view changes on the server, and everyone is released after 10 minutes
+  (`[joinProtection] timeoutSeconds`). `[joinProtection] enabled = false` turns it off.
+- Works with Auth: players still logging in stay in Auth's spectator mode as before; the
+  protection keeps them in it through the login until they press a key.
+
 ### Shabab 2: the Shabab Guide book, three QoL mods, and Herobrine
 
 - **Shabab Guide** (shababparty 1.28.0, a Patchouli book). Craft it from a Book and any Sapling.

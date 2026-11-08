@@ -88,6 +88,10 @@ Every key every mod in the pack registers is listed in **[Shabab 2 keybinds](../
 You don't type anything. The first time you join, your computer claims your username, and from
 then on that computer logs you in by itself.
 
+You arrive as a spectator and nothing can touch you until you press a key or move the mouse.
+That is on purpose: your game may still be on "Loading terrain" while you are already standing
+in the world. Press any key when you are ready and you are back in survival where you logged out.
+
 Anyone else who joins under your name from a different computer is asked for a password they
 don't have, so your base and chests stay yours.
 

@@ -41,9 +41,17 @@ public final class Net {
                 DeviceHelloPacket::encode,
                 DeviceHelloPacket::decode,
                 DeviceHelloPacket::handle);
+        CHANNEL.registerMessage(3, ReadyPacket.class,
+                ReadyPacket::encode,
+                ReadyPacket::decode,
+                ReadyPacket::handle);
     }
 
     public static void toServer(final DeviceHelloPacket packet) {
+        CHANNEL.sendToServer(packet);
+    }
+
+    public static void toServer(final ReadyPacket packet) {
         CHANNEL.sendToServer(packet);
     }
 
