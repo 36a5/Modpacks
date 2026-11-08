@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### Shabab 2: shadow soldiers no longer crash the server
+
+- shababparty 1.27.0. On 2026-11-08 at 04:26 an Igris shadow left in the Nether crashed the
+  server. Every Solo Leveling shadow (the `#minecraft:shadows` tag: Igris, Beru, Tusk, Kamish, the
+  orcs and goblins) calls `getOwner().isAlive()` each tick, and its death handler reads the owner's
+  data, without checking for null. The owner is null whenever they are offline or in another
+  dimension. Neruina caught the first error, retried, hit the same null, and crashed the server on
+  purpose.
+- New `ShadowGuard`: a tamed shadow whose owner cannot be found is removed with a puff of smoke
+  before Solo Leveling's tick or death code runs. That is what Solo Leveling itself means to do
+  with an ownerless shadow; it just never got there. The owner summons the shadow again from the
+  shadow menu as before.
+
 ### Shabab 2: no /register for new players
 
 - shababparty 1.26.0. A brand new name's first join no longer asks for `/trigger register`. The
