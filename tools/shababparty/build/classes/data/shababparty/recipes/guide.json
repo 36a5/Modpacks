@@ -1,5 +1,6 @@
 {
-  "type": "patchouli:shapeless_book_recipe",
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "minecraft:book"
@@ -8,5 +9,7 @@
       "tag": "minecraft:saplings"
     }
   ],
-  "book": "shababparty:guide"
+  "result": {
+    "item": "shababparty:guide"
+  }
 }

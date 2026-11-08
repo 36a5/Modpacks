@@ -35,6 +35,9 @@ public class ShababParty {
     public static final RegistryObject<Item> STAT_REDISTRIBUTION =
             ITEMS.register("stat_redistribution", StatRedistributionItem::new);
 
+    /** The Shabab Guide, a Patchouli book with its own item so JEI lists it. See GuideBookItem. */
+    public static final RegistryObject<Item> GUIDE = ITEMS.register("guide", GuideBookItem::new);
+
     public ShababParty() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

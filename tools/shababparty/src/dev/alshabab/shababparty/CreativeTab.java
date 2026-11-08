@@ -30,6 +30,7 @@ public final class CreativeTab {
         // what a RegistryObject is.
         if (TOOLS_TAB.equals(event.getTabKey().m_135782_())) {
             event.accept(ShababParty.STAT_REDISTRIBUTION);
+            event.accept(ShababParty.GUIDE);
         }
     }
 }

@@ -230,7 +230,7 @@ Patchouli reads the chapters on the client.
 
 | Task | Command |
 |---|---|
-| Give a player the book | `/give <player> patchouli:guide_book{"patchouli:book":"shababparty:guide"}` |
+| Give a player the book | `/give <player> shababparty:guide` |
 | Unlock a chapter for a player by hand | grant its advancement, e.g. `/advancement grant <player> only twilightforest:root` |
 
 Chapter locks: Job `sololeveling:awakened`, Nether `minecraft:story/enter_the_nether`, Twilight

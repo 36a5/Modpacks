@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Shabab 2: the Shabab Guide shows up in JEI
+
+- shababparty 1.30.0. The guide is now its own item, `shababparty:guide`, instead of a variant
+  of Patchouli's shared book item. JEI hid it before, because it tells Patchouli books apart only
+  by NBT. Search "Shabab Guide" in JEI for the recipe (Book + any Sapling). It is also in the
+  Tools & Utilities creative tab. Old copies from `/give` still open the same book.
+
 ### Shabab 2: safe until you press a key
 
 - shababparty 1.29.0. Every player who joins is held in spectator mode until they take control:

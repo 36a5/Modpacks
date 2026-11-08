@@ -7,7 +7,7 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
-VERSION=1.29.0
+VERSION=1.30.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"
@@ -76,10 +76,12 @@ SOLO_JAR="$(ls "$MODS"/sololeveling-*.jar 2>/dev/null | head -1)"
 # Solo Leveling's AfterImageEntity implements GeckoLib's GeoEntity, so javac has to be able to
 # resolve that interface before it can load the entity class at all.
 GECKOLIB_JAR="$(ls "$MODS"/geckolib-forge-*.jar 2>/dev/null | head -1)"
+# GuideBookItem opens the Shabab Guide through Patchouli's API.
+PATCHOULI_JAR="$(ls "$MODS"/Patchouli-*.jar 2>/dev/null | head -1)"
 
 DEPS=("$MC_SRG" "$FORGE_JAR" "$FMLCORE_JAR" "$JAVAFML_JAR" "$EVENTBUS_JAR" "$LOG4J_JAR" \
       "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" \
-      "$GECKOLIB_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$NETTY_COMMON_JAR" "$DISTMARKER_JAR" "$JOML_JAR")
+      "$GECKOLIB_JAR" "$PATCHOULI_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$NETTY_COMMON_JAR" "$DISTMARKER_JAR" "$JOML_JAR")
 for j in "${DEPS[@]}"; do
     [ -f "$j" ] || { echo "missing compile dependency: $j" >&2; exit 1; }
 done
