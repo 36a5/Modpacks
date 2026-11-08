@@ -223,8 +223,10 @@ device." A different computer still asks for the password, and is remembered aft
 ## The Shabab Guide book (shababparty)
 
 A Patchouli book, crafted from a Book and any Sapling. Its text lives in
-`tools/shababparty/res/data/shababparty/patchouli_books/guide/en_us/` (one JSON per chapter in
-`categories/`, one per entry in `entries/<chapter>/`). Edit, rebuild shababparty, push, restart.
+`tools/shababparty/res/assets/shababparty/patchouli_books/guide/en_us/` (one JSON per chapter in
+`categories/`, one per entry in `entries/<chapter>/`; the cover is `res/data/.../guide/book.json`).
+Edit, rebuild shababparty, push, restart. Players need the update to see text changes, since
+Patchouli reads the chapters on the client.
 
 | Task | Command |
 |---|---|
