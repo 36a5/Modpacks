@@ -1,0 +1,33 @@
+{
+  "name": "First food",
+  "icon": "farmersdelight:cooking_pot",
+  "category": "shababparty:start",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Kill animals for meat, then get $(bold)Farmer's Delight$() going as early as you can. Its meals are far better than vanilla food and give long buffs.$(br2)Rice, tomatoes, cabbages and onions grow in wild patches. Grab seeds of each the first time you see them."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "farmersdelight:flint_knife",
+      "text": "A $(bold)Flint Knife$() first, iron later. Knives cut ingredients on the Cutting Board and get extra drops from animals."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "farmersdelight:cutting_board",
+      "text": "Place the $(bold)Cutting Board$(), put an ingredient on it, and hit it with a knife or tool."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "farmersdelight:cooking_pot",
+      "text": "The $(bold)Cooking Pot$() needs heat under it: a campfire, fire, or a Stove. Put ingredients in, take meals out."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "farmersdelight:stove",
+      "text": "The $(bold)Stove$() is a better campfire. Put a $(bold)Skillet$() on it to fry. Add-ons (Ocean's, Crabber's, My Nether's, Ender's, Twilight's Flavors, Delightful, Autochef's) add more food as you reach new places."
+    }
+  ],
+  "read_by_default": true
+}

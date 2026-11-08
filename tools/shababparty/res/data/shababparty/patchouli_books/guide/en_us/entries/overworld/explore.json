@@ -1,0 +1,27 @@
+{
+  "name": "Exploring",
+  "icon": "naturescompass:naturescompass",
+  "category": "shababparty:overworld",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Xaero's Minimap$() (top right) and $(bold)World Map$() ($(bold)M$()). Set waypoints for everything."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "naturescompass:naturescompass",
+      "text": "$(bold)Nature's Compass$(): pick any biome and it points there. Biomes come from Biomes O' Plenty, Geophilic, Climate Rivers and Stony Cliffs."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "explorerscompass:explorerscompass",
+      "text": "$(bold)Explorer's Compass$(): the same for structures. Pick a dungeon, tower or city and walk. Hundreds of structure types are in this pack: When Dungeons Arise, YUNG's, Dungeons and Taverns, Stalwart Dungeons, Repurposed Structures, Structory, Explorations, Formations, Moog's Voyager and more."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "alexsmobs:animal_dictionary",
+      "text": "$(bold)Alex's Mobs$() is everywhere: about 80 animals, most with a use. Craft the $(bold)Animal Dictionary$() to read about them. $(bold)Friends & Foes$() adds the Copper Golem, Moobloom, Glare, Rascal and Iceologer."
+    }
+  ]
+}

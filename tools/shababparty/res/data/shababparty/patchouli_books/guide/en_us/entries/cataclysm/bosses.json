@@ -1,0 +1,31 @@
+{
+  "name": "The Cataclysm bosses",
+  "icon": "cataclysm:burning_ashes",
+  "category": "shababparty:cataclysm",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "L_Ender's Cataclysm bosses live in big arenas across the Overworld, Nether and End.$(br2)$(bold)Netherite Monstrosity$() 12,000 HP: Nether.$(br)$(bold)Ender Guardian$() 16,000 HP: walk to the altar; the floor drops you into the arena."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "cataclysm:burning_ashes",
+      "text": "$(bold)Ignis$() 22,000 HP: kill the Ignited Revenants for $(bold)Burning Ashes$(), use them on the Altar of Fire. Drops $(bold)Ignitium$(): the best armour in the pack, and an Ignitium Elytra Chestplate."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "cataclysm:abyssal_sacrifice",
+      "text": "$(bold)Maledictus$() 22,000 HP: right-click its grave.$(br)$(bold)The Harbinger$() and $(bold)Scylla$() 32,000 HP: their own structures.$(br)$(bold)The Leviathan$() 48,000 HP: Sunken City, Abyssal Sacrifice into the Altar of the Abyss."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Ancient Remnant$() 75,000 HP: the hardest non-dragon fight.$(br2)Cataclysm armour has abilities on keys: $(bold)[$() ability, $(bold)]$() helmet, $(bold),$() chestplate, $(bold).$() boots.$(br2)Bosses over 50,000 HP pay raw Skill Points and are announced to the whole server."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Around the same power level, try:$(br)$(bold)Bosses'Rise$(): souls-like bosses (Infernal Dragon, Kraken and others), each one's drop unlocks the next. Bind the Dodge Roll key first.$(br)$(bold)Mowzie's Mobs$(): Barako the Sun Chief.$(br)$(bold)Born in Chaos$(): Sir Pumpkinhead, Fallen Chaos Knight, Nightmare Stalker."
+    }
+  ],
+  "advancement": "minecraft:story/enter_the_nether"
+}

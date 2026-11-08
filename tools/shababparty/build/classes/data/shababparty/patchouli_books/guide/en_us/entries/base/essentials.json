@@ -1,0 +1,37 @@
+{
+  "name": "Base essentials",
+  "icon": "waystones:waystone",
+  "category": "shababparty:base",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Pick a spot, claim it with $(bold)O$(), and build these as the materials arrive."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "magnumtorch:diamond_magnum_torch",
+      "text": "A $(bold)Magnum Torch$() stops mob spawns in a big radius. The Diamond one stops hostile mobs. Put one in the middle of the base."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "waystones:waystone",
+      "text": "$(bold)Waystones$(): teleport between waystones you have visited. Natural ones spawn in villages; craft your own for home."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "storagenetwork:master",
+      "text": "$(bold)Simple Storage Network$(): a Storage Network Master, Storage Nodes on your chests, and a Request Table. Every chest in one searchable screen."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "elevatorid:elevator_white",
+      "text": "$(bold)Elevator$(): stack two elevator blocks in a column. Jump to go up, sneak to go down."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "xpbook:xp_tome",
+      "text": "An $(bold)XP Tome$() stores your XP so you never lose it to a death. Fill it before a boss fight."
+    }
+  ]
+}

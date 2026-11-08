@@ -1,0 +1,8 @@
+{
+  "name": "Shabab Guide",
+  "landing_text": "One route through the whole pack, from your first tree to the Ender Dragon. Chapters open as you reach new places, so you always see what matters now.$(br2)For any recipe, hover the item in JEI (the list on the right of your inventory) and press $(bold)R$(). JEI is always right; this book tells you $(bold)what$() to make and $(bold)why$().",
+  "book_texture": "patchouli:textures/gui/book_purple.png",
+  "model": "patchouli:book_purple",
+  "show_progress": true,
+  "version": 1
+}

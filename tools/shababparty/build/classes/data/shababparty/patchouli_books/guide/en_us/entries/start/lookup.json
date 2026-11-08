@@ -1,0 +1,21 @@
+{
+  "name": "Looking things up",
+  "icon": "minecraft:book",
+  "category": "shababparty:start",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)JEI$(): the item list on the right of your inventory. Hover an item, press $(bold)R$() for how to make it, $(bold)U$() for what it is used in. Type $(bold)@twilightforest$() to list everything from one mod.$(br2)$(bold)Jade$(): look at any block or mob for its name, mod and health."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Just Enough Resources$(): ore heights and mob drops, inside JEI. Look an ore up before you dig.$(br2)$(bold)Just Enough Breeding / Professions$(): what each animal eats, what each villager job block is.$(br2)$(bold)Enchantment Descriptions$(): hover a book and it says what the enchantment does."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)FTB Quests$(): the book icon at the top left of your inventory. Chapters for every dimension, with rewards.$(br2)$(bold)AppleSkin$(): hover food to see how much hunger and saturation it gives.$(br2)Several mods ship their own guide book. If you find one, read it."
+    }
+  ],
+  "read_by_default": true
+}

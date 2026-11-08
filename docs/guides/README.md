@@ -46,8 +46,9 @@ server runs. None of them require you to download a mod by hand.
 ## After you're in: the things every player asks about
 
 ### What do I do?
-Follow the **[Playthrough](playthrough.md)**: one route from your first tree to the Ender Dragon
-that takes you through every major mod on the way.
+Craft the **Shabab Guide** (a Book plus any Sapling). It is the same route as the
+**[Playthrough](playthrough.md)** here, from your first tree to the Ender Dragon, and its chapters
+open as you reach new places.
 
 ### Shaders
 Three shaderpacks come preinstalled — you do not download them.

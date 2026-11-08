@@ -1,0 +1,13 @@
+{
+  "name": "The Everdawn",
+  "icon": "blue_skies:zeal_lighter",
+  "category": "shababparty:skies",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The warm half of Blue Skies. Same rule: local tools only. The Gatekeeper's second frame brought you here; the Everbright frame is in another Gatekeeper's house."
+    }
+  ],
+  "advancement": "blue_skies:everdawn/enter"
+}

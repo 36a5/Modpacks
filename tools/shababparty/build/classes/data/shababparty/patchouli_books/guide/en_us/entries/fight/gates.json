@@ -1,0 +1,17 @@
+{
+  "name": "Your first Gates",
+  "icon": "sololeveling:instance_dungeon_key",
+  "category": "shababparty:fight",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "When chat says a $(bold)Gate$() has opened, take the coordinates and go. Ranks run E, D, C, B, A, S. Start with E and D.$(br2)Clear the boss before the timer ends. Fail and the monsters break out into the Overworld.$(br2)You return to the spot you entered from. Kills inside Gates count for the leaderboard."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "sololeveling:yellowkey",
+      "text": "Inside Solo Leveling dungeons some passages are sealed with a $(bold)padlock block$(). Hold the matching key (yellow, blue or red) and right-click the lock to open it. Keys come from the System's reward boxes. Keep every key you get."
+    }
+  ]
+}

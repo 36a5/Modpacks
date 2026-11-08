@@ -1,0 +1,17 @@
+{
+  "name": "MineColonies",
+  "icon": "minecolonies:blockhuttownhall",
+  "category": "shababparty:side",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecolonies:supplycampdeployer",
+      "text": "Build a town with NPC workers. Craft a $(bold)Supply Camp$(), place it, get the $(bold)Town Hall$() and $(bold)Builder's Hut$(), then hire citizens and place huts: farmer, miner, guard, cook and more. They build from your materials."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Good co-op project: one player keeps the builders fed while the others bring materials."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "abood shush",
+  "icon": "minecraft:sculk_shrieker",
+  "category": "shababparty:start",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You found it.$(br2)$(bold)d7oom$() was here.$(br2)$(italic)abood shush.$()$(br2)Now go back to playing. Nobody saw anything."
+    }
+  ],
+  "advancement": "minecraft:adventure/sleep_in_bed",
+  "secret": true
+}

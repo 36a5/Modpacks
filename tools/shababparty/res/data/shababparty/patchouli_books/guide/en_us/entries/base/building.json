@@ -1,0 +1,27 @@
+{
+  "name": "Building blocks",
+  "icon": "chipped:carpenters_table",
+  "category": "shababparty:base",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "This pack is full of building mods. Use them; nobody else will."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "chipped:carpenters_table",
+      "text": "$(bold)Chipped$(): a set of workbenches that turn any block into dozens of variants. One per material type."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "handcrafted:oak_chair",
+      "text": "$(bold)Handcrafted$() and $(bold)Another Furniture$(): chairs, tables, beds, shelves, counters."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "supplementaries:globe",
+      "text": "$(bold)Supplementaries$() and $(bold)Amendments$(): jars, sacks, signposts, flags, globes, item shelves, ropes.$(br2)Also Twigs, Decorative Blocks, Stoneworks, Diagonal Fences and Walls, Vertical Slabs, Quark, Toni's Lanterns, Hearths, Gallery and Multi-Piston."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "The Ender Dragon",
+  "icon": "minecraft:dragon_head",
+  "category": "shababparty:end",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Ender Dragon has $(bold)150,000 HP$() and pays $(bold)750,000 XP$(). It fights in four phases.$(br2)$(bold)75%$(): Shadow phantoms dive on everyone.$(br)$(bold)50%$(): enrage. More phantoms and a Void barrage of fire from above. Keep moving."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)25%$(): second wind. It heals once and summons the $(bold)Herald of the Void$(), a netherite mini-boss. Kill the Herald first; it always drops its sword.$(br)Then finish the dragon."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Bring Ignitium or the best set you have, Protection VII from boss drops, Feather Falling, a Charm of Undying, Farmer's Delight meals, and a party."
+    }
+  ],
+  "advancement": "minecraft:story/enter_the_end"
+}

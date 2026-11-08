@@ -1,0 +1,17 @@
+{
+  "name": "Dragons and pets",
+  "icon": "dragonmounts:dragon_egg",
+  "category": "shababparty:side",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "dragonmounts:dragon_egg",
+      "text": "$(bold)Dragon Mounts: Legacy$(): hatch a dragon egg and raise it into a mount. The breed depends on where the egg hatches, so try different places. The Ender Dragon's egg is the first you will get."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)RevampedWolf$(): better wolves.$(br)$(bold)Pet Cemetery$(): bring a dead pet back.$(br)$(bold)Incubation$(): chicken nests and egg handling."
+    }
+  ]
+}

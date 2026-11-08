@@ -1,0 +1,16 @@
+{
+  "name": "First minibosses",
+  "icon": "mowziesmobs:wrought_helmet",
+  "category": "shababparty:overworld",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The first real fights, and they pay in diamonds.$(br2)$(bold)Mutant Zombie / Skeleton / Creeper$(): 800 to 1,200 HP, Overworld at night.$(br)$(bold)The Conjurer$(): 900 HP, a theatre in a Dark Forest. Fight through the illagers first.$(br)$(bold)Ferrous Wroughtnaut$(): 1,200 HP, the Wrought Chamber underground."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Frostmaw$(): 1,500 HP, snowy mountains (the big pile of fur).$(br)$(bold)Lord Pumpkinhead$(): 2,000 HP, a Born in Chaos structure.$(br2)Also watch for Born in Chaos horror mobs, Illager Invasion and Raided raids, and It Takes a Pillage outposts. Raids are much worse than vanilla."
+    }
+  ]
+}

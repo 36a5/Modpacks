@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### Shabab 2: the Shabab Guide book, three QoL mods, and Herobrine
+
+- **Shabab Guide** (shababparty 1.28.0, a Patchouli book). Craft it from a Book and any Sapling.
+  Fourteen chapters follow the playthrough guide from the first tree to the Ender Dragon. The early
+  chapters are open from the start; the Nether, Twilight Forest, Aether, Blue Skies, Undergarden,
+  Deep Places, Cataclysm, Job and End chapters unlock when a player first gets there (advancement
+  locked), with a progress bar on the cover. One secret entry unlocks after sleeping in a bed.
+- **AppleSkin**: food tooltips and the hunger bar show hunger and saturation.
+- **Explorer's Compass**: a compass that points to any structure you pick.
+- **Trade Cycling**: a button in the villager trade screen rerolls trades nobody has used yet.
+- **From The Fog** (Herobrine). He stalks from a distance, stands behind you, watches through
+  windows, opens doors, and jump-scares. He never damages anyone. Server config: sightings set to
+  common, no start delay, torch stealing, base burning, sleep blocking and the crash prank are off.
+  See `docs/admin-commands.md` for the config commands.
+
 ### Shabab 2: shadow soldiers no longer crash the server
 
 - shababparty 1.27.0. On 2026-11-08 at 04:26 an Igris shadow left in the Nether crashed the

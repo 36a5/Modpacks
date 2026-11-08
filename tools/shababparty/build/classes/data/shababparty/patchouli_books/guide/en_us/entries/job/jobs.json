@@ -1,0 +1,21 @@
+{
+  "name": "The Job Change Quest",
+  "icon": "sololeveling:job_key",
+  "category": "shababparty:job",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "At $(bold)level 40$() the System gives you a $(bold)Job Change Quest Key$(). Clear the quest and you get one of three jobs.$(br2)$(bold)Shadow Monarch$(): raise dead mobs as shadow soldiers. Igris, Tusk and Beru get half your health and armour, others a quarter. Their damage scales with your Intelligence."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Grand Mage$(): magic damage.$(br)$(bold)Frost Monarch$(): ice.$(br2)Do the quest again to re-roll; you never get the same job twice in a row. You get another key every 50 levels from level 100."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Shadow Monarch tips$()$(br)Shadows are called from the shadow menu in the System panel. They vanish when you log out, die or change dimension. That is normal: call them again. Beat Igris in his Gate and right-click his body 3 times to raise him."
+    }
+  ],
+  "advancement": "sololeveling:awakened"
+}

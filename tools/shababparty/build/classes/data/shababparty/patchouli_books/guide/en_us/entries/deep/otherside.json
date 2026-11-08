@@ -1,0 +1,18 @@
+{
+  "name": "The Otherside",
+  "icon": "deeperdarker:warden_chestplate",
+  "category": "shababparty:deep",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Write down your portal coordinates. The Otherside is huge and you cannot easily find your way out."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "deeperdarker:resonarium",
+      "text": "Gear: $(bold)Resonarium$() and Warden-themed items. Swift Sneak on your leggings."
+    }
+  ],
+  "advancement": "deeperdarker:main/enter_otherside"
+}

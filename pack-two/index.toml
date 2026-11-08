@@ -5857,6 +5857,11 @@ hash = "db41e89c14e8d4e21903b385ef34a548ef48da36385e1c2f8c44e212eb7c4f69"
 metafile = true
 
 [[files]]
+file = "mods/appleskin.pw.toml"
+hash = "8d0321177fed4a0b48554c40158b43db62f6cdaa768f584ef6a11575dfaa6223"
+metafile = true
+
+[[files]]
 file = "mods/architectury-api.pw.toml"
 hash = "5e9edd1fd2395f14a0c8a4acbdbdd61e1047be1f0033deb3140d2ce0d093e9d8"
 metafile = true
@@ -6455,6 +6460,11 @@ hash = "663f15df36a34300cb85730f7764d46f0589901f57e6123fa6ec9a53d776c083"
 metafile = true
 
 [[files]]
+file = "mods/explorers-compass.pw.toml"
+hash = "0db85b53cd32bb1d23c33273deaef58bd0f0429a180d171e3f02fe0ab86b0fe2"
+metafile = true
+
+[[files]]
 file = "mods/extra-compat.pw.toml"
 hash = "2b3148d77fbc22a068d7f1afd44de9d261ca35538da52025747ca2b0bf02ff67"
 metafile = true
@@ -6567,6 +6577,11 @@ metafile = true
 [[files]]
 file = "mods/friends-and-foes-forge.pw.toml"
 hash = "d7e93654d8f8ba58742e86d26cbd9e7f563be4f8c9683f52d72777a3807d7078"
+metafile = true
+
+[[files]]
+file = "mods/from-the-fog.pw.toml"
+hash = "c2fb39a9d55078a3929cfee2b922b725704d0fdff4b24936b2c0d1500061885d"
 metafile = true
 
 [[files]]
@@ -7259,8 +7274,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.27.0.jar"
-hash = "9d5f0afc6486fee16d9e647552272facb2efb1d2842c23ee24e933d023928cb9"
+file = "mods/shababparty-1.28.0.jar"
+hash = "5359f3c91f0b9688fbf2d3c419a9177e1de66aefa0c6d2e2aaeaa1ba3e3f5082"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
@@ -7475,6 +7490,11 @@ metafile = true
 [[files]]
 file = "mods/tpaplusplus.pw.toml"
 hash = "2c445cbc656349e6bcc8b23095c13af4f134a1860bf3b4c7d9b13827b1ffe4ba"
+metafile = true
+
+[[files]]
+file = "mods/trade-cycling.pw.toml"
+hash = "7e1a756df25f645bc5e3dd434d0c673ca30c70c1482a84b11b0065e08cf51e6d"
 metafile = true
 
 [[files]]

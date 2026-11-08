@@ -1,0 +1,12 @@
+{
+  "name": "Immersive Vehicles",
+  "icon": "mts:mts.fuelpump",
+  "category": "shababparty:side",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Cars, trucks, planes and helicopters from the Official Content Pack. Craft the vehicle benches, build parts, assemble, fuel up at a pump.$(br2)A plane is the fastest way to cross the map before you have an elytra."
+    }
+  ]
+}

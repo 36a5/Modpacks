@@ -1,0 +1,27 @@
+{
+  "name": "Day one",
+  "icon": "minecraft:wooden_axe",
+  "category": "shababparty:start",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Punch a tree.$() FallingTree is installed: break the bottom log with an axe and the whole tree comes down.$(br2)Make a crafting table, wooden tools, then stone tools. Mouse Tweaks lets you drag and scroll stacks. Middle-click in any inventory to sort it."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Carry On$(): hold $(bold)Left Shift$() and right-click a chest or small animal with an empty hand to pick it up and carry it. Moving a full chest to a new base is one trip."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "comforts:sleeping_bag_white",
+      "text": "A $(bold)sleeping bag$() skips the night without moving your spawn point, so you can sleep anywhere while exploring. A $(bold)hammock$() skips the day the same way. Any wool colour works."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "inmis:frayed_backpack",
+      "text": "Craft the first $(bold)Inmis backpack$(). $(bold)H$() opens it while it is in your inventory. Each tier (Frayed, Plated, Gilded, Bejeweled, Blazing, Withered, Endless) is made from the one before, so keep upgrading it. See $(bold)@inmis$() in JEI."
+    }
+  ],
+  "read_by_default": true
+}

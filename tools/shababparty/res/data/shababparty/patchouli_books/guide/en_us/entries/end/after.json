@@ -1,0 +1,17 @@
+{
+  "name": "After the dragon",
+  "icon": "minecraft:elytra",
+  "category": "shababparty:end",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)BetterEnd$() turns the outer islands into full biomes with Thallasium, Terminite and Aeternium gear. YUNG's Better End Island rebuilds the main island. Moog's End Structures and the reworked End Cities."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Elytra$(): wear it in the Elytra Slot so you keep your chestplate.$(br)$(bold)Ender's Delight$(): End cooking.$(br)$(bold)Enderdragon Loot$(): the dragon drops much more than vanilla.$(br2)Every first kill pays double. Kill every boss once before you farm any of them."
+    }
+  ],
+  "advancement": "minecraft:end/kill_dragon"
+}

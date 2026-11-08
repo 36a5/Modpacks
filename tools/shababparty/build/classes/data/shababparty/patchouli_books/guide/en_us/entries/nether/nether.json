@@ -1,0 +1,27 @@
+{
+  "name": "The Nether",
+  "icon": "minecraft:netherrack",
+  "category": "shababparty:nether",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Five mods rebuild the biomes (BetterNether, Bygone, Soulful, Jaden's, Formations) and two rebuild the buildings (YUNG's Fortresses, Moog's Structures).$(br2)$(bold)My Nether's Delight$() adds Nether cooking. $(bold)Bartering Station$() trades gold with piglins by itself. $(bold)Nether Chested$() puts chests on striders."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "betternether:cincinnasite_ingot",
+      "text": "New gear and ores from BetterNether: $(bold)Cincinnasite$() and $(bold)Nether Ruby$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "advancednetherite:netherite_diamond_chestplate",
+      "text": "Get ancient debris and go $(bold)netherite$(). Then $(bold)Advanced Netherite$() upgrades netherite gear with iron, gold, emerald and diamond tiers. Look up $(bold)@advancednetherite$() in JEI."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The $(bold)Wither$() (4,000 HP) and the $(bold)Warden$() (6,000 HP) are your next real fights. The Warden matters: it drops the Heart of the Deep, which opens the Otherside.$(br2)Careful: the Nether also has Cataclysm's $(bold)Netherite Monstrosity$() (12,000 HP). Leave it for later."
+    }
+  ],
+  "advancement": "minecraft:story/enter_the_nether"
+}

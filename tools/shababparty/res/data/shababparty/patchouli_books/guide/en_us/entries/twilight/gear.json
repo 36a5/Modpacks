@@ -1,0 +1,29 @@
+{
+  "name": "Things to make here",
+  "icon": "twilightforest:fiery_chestplate",
+  "category": "shababparty:twilight",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "twilightforest:knightmetal_ingot",
+      "text": "$(bold)Ironwood$() and $(bold)Steeleaf$() gear early, $(bold)Knightmetal$() from the Knight Stronghold."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "twilightforest:fiery_chestplate",
+      "text": "$(bold)Fiery$() from the Hydra and $(bold)Phantom$() from the Knight Phantom carry you out of this dimension."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "twilightforest:uncrafting_table",
+      "text": "The $(bold)Uncrafting Table$() takes crafted items back apart. Great for salvaging boss gear."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "twilightforest:magic_map",
+      "text": "$(bold)Magic Map$() and $(bold)Maze Map$() find structures and solve the Labyrinth. Twilight's Flavors & Delight adds Twilight cooking. Boss trophies and Umbral Skies gloves link the Forest to the Aether."
+    }
+  ],
+  "advancement": "twilightforest:root"
+}

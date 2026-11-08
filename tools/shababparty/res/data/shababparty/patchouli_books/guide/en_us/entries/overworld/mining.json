@@ -1,0 +1,16 @@
+{
+  "name": "Mining",
+  "icon": "minecraft:iron_pickaxe",
+  "category": "shababparty:overworld",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Vein Mining$(): hold $(bold)Caps Lock$() while breaking an ore to mine the whole vein.$(br2)YUNG's Better Mineshafts and Cave Biomes make caves worth exploring. $(bold)Galosphere$() adds crystal caves with Silver (Sterling armour) and new mobs. $(bold)Goblin Traders$() live underground and trade things no villager will."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Do not mine for diamonds for long. $(bold)Bosses drop them$(): about 5 diamonds per 1,000 HP of boss. See $(l:overworld/minibosses)First minibosses$(/l)."
+    }
+  ]
+}

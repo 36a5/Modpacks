@@ -1,0 +1,17 @@
+{
+  "name": "Team up",
+  "icon": "minecraft:white_banner",
+  "category": "shababparty:start",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Party up with your friends with $(bold)P$() (FTB Teams). Party members share boss XP and Gate XP.$(br2)Claim your base with $(bold)O$() (Open Parties and Claims): claim the chunks around it and add your party. Claimed chunks are safe from other players and from explosions."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Voice chat$(): $(bold)\\$() opens the voice menu, $(bold)-$() makes a group. Proximity voice is on by default.$(br2)$(bold)Ping Wheel$(): $(bold)Right Shift$() drops a marker your party sees."
+    }
+  ],
+  "read_by_default": true
+}

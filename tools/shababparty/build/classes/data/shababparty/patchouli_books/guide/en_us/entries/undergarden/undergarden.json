@@ -1,0 +1,18 @@
+{
+  "name": "The Undergarden",
+  "icon": "undergarden:utherium_chestplate",
+  "category": "shababparty:undergarden",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "undergarden:cloggrum_ingot",
+      "text": "Gear: $(bold)Cloggrum$(), then $(bold)Froststeel$() and $(bold)Utherium$()."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Boss: the $(bold)Forgotten Guardian$(), 16,000 HP.$(br2)Everything here poisons you. Bring plenty of food and milk, and light everything."
+    }
+  ],
+  "advancement": "undergarden:undergarden/enter_undergarden"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Find a village",
+  "icon": "minecraft:emerald",
+  "category": "shababparty:start",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Villages are rebuilt by ChoiceTheorem's Overhauled Village, Towns and Towers, Villages & Pillages and Moog's Missing Villages: bigger, and every biome has its own style.$(br2)$(bold)Guard Villagers$() protect them. Give a guard better gear and they get stronger."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "bountiful:bountyboard",
+      "text": "A $(bold)Bounty Board$() in the village posts tasks for rewards. Easy early emeralds."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tradingpost:trading_post",
+      "text": "Place a $(bold)Trading Post$() near villagers and you see every nearby trade in one screen. $(bold)Trade Cycling$() adds a button in the trade screen that rerolls a villager's trades if nobody has traded with them yet."
+    }
+  ],
+  "read_by_default": true
+}

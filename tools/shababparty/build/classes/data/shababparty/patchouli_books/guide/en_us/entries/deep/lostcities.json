@@ -1,0 +1,13 @@
+{
+  "name": "The Lost Cities",
+  "icon": "minecraft:wither_skeleton_skull",
+  "category": "shababparty:deep",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Not a portal but a ritual: put a $(bold)bed on top of two Diamond Blocks$(), surround it with $(bold)6 skulls$(), and sleep in it.$(br2)A whole world of ruined skyscrapers full of loot and mobs."
+    }
+  ],
+  "advancement": "minecraft:story/enter_the_nether"
+}

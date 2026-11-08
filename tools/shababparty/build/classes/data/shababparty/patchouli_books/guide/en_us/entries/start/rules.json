@@ -1,0 +1,25 @@
+{
+  "name": "How this server plays",
+  "icon": "minecraft:iron_sword",
+  "category": "shababparty:start",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Five rules change how you play here.$(br2)$(bold)1.$() You take half damage from mobs, but bosses have huge health pools. Fights are long, not unfair. Fall damage is $(bold)not$() halved, so Feather Falling matters more than usual."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)2.$() Dying does not scatter your items. You leave a $(bold)corpse$() holding everything. $(bold)/back$() takes you to your death spot once a minute. After one hour the corpse rots and anyone can loot it, so go get your gear."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)3.$() Bosses are how you level. Every boss pays Solo Leveling XP to your whole nearby party and drops diamonds, emeralds and more. The first kill of each boss type pays double. A fight where nobody in the party dies pays 50% more."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)4.$() $(bold)Gates$() (Solo Leveling dungeons) open about every 2 hours of server time. Chat announces each one with coordinates. You walk there; there is no teleport.$(br2)$(bold)5.$() Night is skipped when 30% of online players sleep."
+    }
+  ],
+  "read_by_default": true
+}

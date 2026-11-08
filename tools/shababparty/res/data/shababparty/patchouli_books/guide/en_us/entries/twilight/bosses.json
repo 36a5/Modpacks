@@ -1,0 +1,21 @@
+{
+  "name": "The boss ladder",
+  "icon": "twilightforest:naga_scale",
+  "category": "shababparty:twilight",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Kill the bosses in order. Each one unlocks the next area; skipping ahead gets you blocked.$(br2)$(bold)1. Naga$() 2,000 HP: Naga Scale armour.$(br)$(bold)2. Lich$() 3,500 HP: Lich scepters.$(br)$(bold)3. Minoshroom$() 5,500 HP: bosses from here also drop ancient debris and netherite scrap."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)4. Hydra$() 8,000 HP: Fiery Blood for Fiery armour and tools. Echo shards start dropping.$(br)$(bold)5. Knight Phantom$() 11,000 HP: Phantom armour. Enchanted golden apples start dropping.$(br)$(bold)6. Ur-Ghast$() 15,000 HP: the Dark Tower."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)7. Alpha Yeti$() 20,000 HP: Yeti armour.$(br)$(bold)8. Snow Queen$() 26,000 HP: the Aurora Palace, end of the Forest.$(br2)By the end of the Forest you should be several hundred levels into Solo Leveling."
+    }
+  ],
+  "advancement": "twilightforest:root"
+}

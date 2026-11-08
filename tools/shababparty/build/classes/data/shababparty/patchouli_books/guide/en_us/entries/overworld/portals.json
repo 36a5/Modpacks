@@ -1,0 +1,25 @@
+{
+  "name": "Where next: every portal",
+  "icon": "minecraft:obsidian",
+  "category": "shababparty:overworld",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Every dimension and how to open it. Each one gets its own chapter in this book when you first arrive.$(br2)$(bold)Nether$(): the vanilla obsidian portal.$(br2)$(bold)Twilight Forest$(): a 2x2 pool of water, flowers or mushrooms on the grass around it, throw in a diamond. The best first dimension."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Aether$(): a Glowstone frame, pour water into it.$(br2)$(bold)Blue Skies$(): find a Gatekeeper's house in plains, mountains or snow. Buy his Zeal Lighter with emeralds and light his frame. One frame leads to the Everbright, another to the Everdawn."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "undergarden:catalyst",
+      "text": "$(bold)Undergarden$(): craft a Catalyst (4 iron, 4 gold, 1 diamond). Build a Stone Brick or Deepslate Brick frame in the Overworld and right-click the inside with it."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Otherside$(): kill the Warden for the Heart of the Deep, clear the sculk off the big archway in an Ancient City, right-click the frame with the Heart.$(br2)$(bold)Lost Cities$(): a bed on top of two Diamond Blocks, surrounded by 6 skulls. Sleep in it.$(br2)$(bold)The End$(): the vanilla stronghold portal. Go last."
+    }
+  ]
+}

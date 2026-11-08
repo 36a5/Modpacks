@@ -220,6 +220,44 @@ device." A different computer still asks for the password, and is remembered aft
   makes the computer a new device.
 - Stored on the server in `world/shababparty-devices.properties` (hashes only, no keys, no passwords).
 
+## The Shabab Guide book (shababparty)
+
+A Patchouli book, crafted from a Book and any Sapling. Its text lives in
+`tools/shababparty/res/data/shababparty/patchouli_books/guide/en_us/` (one JSON per chapter in
+`categories/`, one per entry in `entries/<chapter>/`). Edit, rebuild shababparty, push, restart.
+
+| Task | Command |
+|---|---|
+| Give a player the book | `/give <player> patchouli:guide_book{"patchouli:book":"shababparty:guide"}` |
+| Unlock a chapter for a player by hand | grant its advancement, e.g. `/advancement grant <player> only twilightforest:root` |
+
+Chapter locks: Job `sololeveling:awakened`, Nether `minecraft:story/enter_the_nether`, Twilight
+`twilightforest:root`, Aether `aether:enter_aether`, Blue Skies `blue_skies:everbright/enter` and
+`blue_skies:everdawn/enter`, Undergarden `undergarden:undergarden/enter_undergarden`, Deep Dark
+`deeperdarker:main/root`, Otherside `deeperdarker:main/enter_otherside`, End
+`minecraft:story/enter_the_end`, after the dragon `minecraft:end/kill_dragon`. The secret entry
+unlocks with `minecraft:adventure/sleep_in_bed`.
+
+## Herobrine (From The Fog)
+
+Config lives in the world's scoreboard, so it is set from the console once and survives restarts.
+`/function fromthefog:admin/config` opens the clickable menu in game (op only). The server's
+settings, and the command for each:
+
+| Setting | Command |
+|---|---|
+| Sightings common (he appears often) | `function watching:config/sighting_chance/1_common` |
+| No start delay | `function watching:config/start_delay/off` |
+| Does not steal torches | `function watching:config/disappearing_torches/false` |
+| Does not burn bases | `function watching:config/burning_base/false` |
+| Does not block sleeping | `function watching:config/no_sleep/false` |
+| Jump scares on, crash prank off | `function watching:config/jumpscare/true`, `function watching:config/crash/false` |
+| Noise when you spot him | `function watching:config/spot_noise/true` |
+
+Everything else is the mod default (stalking, creeping up behind you, window watching, ghost
+doors, ghost mining, nightmares, footsteps, signs, candles). He never damages players.
+`function fromthefog:admin/sightings` lists the forced-sighting commands for pranks.
+
 ## Gate kills & the leaderboard
 
 Gate kills are counted by the `gate_kills` datapack into a `pk_total` scoreboard, and only

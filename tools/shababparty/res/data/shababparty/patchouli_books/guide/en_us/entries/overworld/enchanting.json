@@ -1,0 +1,16 @@
+{
+  "name": "Enchanting",
+  "icon": "minecraft:enchanting_table",
+  "category": "shababparty:overworld",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Easy Magic$(): the table keeps items, and you re-roll the offers.$(br)$(bold)Easy Anvils$(): anvils keep their items and are easier to use.$(br)$(bold)Easy Disenchanting$(): pull enchantments off an item onto a book.$(br)$(bold)XP Tome$(): store your XP in a book."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The trick: bosses drop gear enchanted past the vanilla limit (Protection VII, Power VIII). Disenchant the pieces you do not want and put those books on the set you wear."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "The Everbright",
+  "icon": "blue_skies:pyrope_gem",
+  "category": "shababparty:skies",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Make the local tools and armour: $(bold)Pyrope$(), $(bold)Aquite$(), $(bold)Diopside$(), $(bold)Charoite$(), $(bold)Horizonite$(). Tools from outside the dimension work badly here.$(br2)Bosses across both dimensions: Summoner 20,000 HP, Starlit Crusher 24,000, Alchemist 28,000, Arachnarch 32,000."
+    }
+  ],
+  "advancement": "blue_skies:everbright/enter"
+}

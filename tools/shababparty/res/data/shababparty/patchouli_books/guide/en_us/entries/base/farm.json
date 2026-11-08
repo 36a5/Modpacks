@@ -1,0 +1,16 @@
+{
+  "name": "Farming and seasons",
+  "icon": "minecraft:wheat",
+  "category": "shababparty:base",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Serene Seasons$() is on: crops only grow in their seasons. Check the crop's tooltip, and craft a $(bold)Calendar$() to see the season.$(br2)Farmer villagers replant (Smarter Farmers). Chickens use nests (Incubation)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "An $(bold)enchanting room$() with Easy Magic: the table keeps your lapis and item inside, and you can re-roll the offered enchantments. See $(l:overworld/enchanting)Enchanting$(/l)."
+    }
+  ]
+}

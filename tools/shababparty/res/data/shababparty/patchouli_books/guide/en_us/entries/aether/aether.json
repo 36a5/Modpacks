@@ -1,0 +1,28 @@
+{
+  "name": "Aether progression",
+  "icon": "aether:skyroot_pickaxe",
+  "category": "shababparty:aether",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Expanded by Aether: Redux, Deep Aether, Lost Content, Aether Villages and several small add-ons.$(br2)Ride a $(bold)Moa$() or a $(bold)Flying Pig$(). Do not fall off. Feather Falling."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "aether:skyroot_pickaxe",
+      "text": "$(bold)Skyroot$() tools first (double drops from Aether blocks), then Holystone, Zanite, and $(bold)Gravitite$() (high jump). Collect $(bold)Ambrosium$() for torches and healing."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "aether:bronze_dungeon_key",
+      "text": "Dungeons in order, each needs the key from the last:$(br)$(bold)Slider$() (Bronze) 22,000 HP.$(br)$(bold)Valkyrie Queen$() (Silver) 32,000 HP: Valkyrie armour.$(br)$(bold)Sun Spirit$() (Gold) 42,000 HP: Phoenix armour, fire immune."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "deep_aether:stratus_chestplate",
+      "text": "$(bold)Deep Aether$(): Skyjade and $(bold)Stratus$() gear, top tier. Its boss is the Eye of the Storm (45,000 HP). $(bold)Lost Content$(): the Aerwhale King (52,000 HP). Treasure Reforging lets you reforge dungeon loot."
+    }
+  ],
+  "advancement": "aether:enter_aether"
+}

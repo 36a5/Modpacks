@@ -1,0 +1,22 @@
+{
+  "name": "Gear up",
+  "icon": "minecraft:diamond_chestplate",
+  "category": "shababparty:overworld",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Full $(bold)iron$(), then $(bold)diamond$(), then $(bold)netherite$() (see $(l:nether/nether)the Nether$(/l))."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "galosphere:sterling_chestplate",
+      "text": "$(bold)Sterling$() armour from Galosphere silver is a good side option before diamond."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "voidtotem:totem_of_void_undying",
+      "text": "Put a $(bold)Charm of Undying$() or $(bold)Void Totem$() in your Curios slot when you get one. It is an extra life that also saves you from falling into the void."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Reborn Elixir",
+  "icon": "shababparty:stat_redistribution",
+  "category": "shababparty:job",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "shababparty:stat_redistribution",
+      "text": "A $(bold)Reborn Elixir$() refunds every stat point if you want to rebuild. $(bold)/invest 50$() makes each + in the stats panel spend 50 points at once."
+    }
+  ],
+  "advancement": "sololeveling:awakened"
+}

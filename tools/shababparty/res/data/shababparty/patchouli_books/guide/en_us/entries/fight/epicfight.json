@@ -1,0 +1,21 @@
+{
+  "name": "Epic Fight",
+  "icon": "epicfight:skillbook",
+  "category": "shababparty:fight",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Combat here is $(bold)Epic Fight$(): combos, dodges, guards, and a special move per weapon.$(br2)$(bold)K$() switches Battle and Mining mode. Combos only work in Battle mode.$(br2)Left-click combos, hold right-click to guard, $(bold)Mouse 5$() dodges, $(bold)N$() locks on, $(bold)=$() fires your weapon's innate skill."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "epicfight:skillbook",
+      "text": "$(bold)Skill Books$() drop from any mob you kill yourself (about 2.5%). Right-click to learn, then press $(bold)`$() to open the Skill Editor and slot it. Passives always work; weapon skills need the right weapon type."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Weapons of Miracles$() and $(bold)EpicFight: Resurrection$() add more weapons and skills to the same system. $(bold)Shield Expansion$() makes shields matter: time your block for a parry.$(br2)Spend twenty minutes fighting zombies in Battle mode before your first boss. It is a different game."
+    }
+  ]
+}

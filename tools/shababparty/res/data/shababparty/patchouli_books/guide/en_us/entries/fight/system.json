@@ -1,0 +1,20 @@
+{
+  "name": "Solo Leveling: the System",
+  "icon": "sololeveling:class_chooser",
+  "category": "shababparty:fight",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "This is the headline system and you level it the whole time you play.$(br2)$(bold);$() opens the System panel: level, stats, skills, job.$(br2)Every level gives stat points. $(bold)Strength$() multiplies all your damage. $(bold)Vitality$() keeps you alive. $(bold)Intelligence$() powers shadow soldiers later."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)'$() shows your quest info. Do the $(bold)Daily Quest$(). Skipping it sends you to the Punishment Zone, and you come back exactly where you left.$(br2)$(bold)Z X C V$() are job abilities, $(bold)R$() uses the selected skill, $(bold)B$() cycles skills."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Stat points at every stage$()$(br)Levels 1 to 40: Strength and Vitality, about even.$(br)After your job: Strength until bosses melt; Intelligence first if you are Shadow Monarch.$(br)Before 20,000 HP bosses: Vitality.$(br)Endgame: respec with a $(l:job/reborn)Reborn Elixir$(/l)."
+    }
+  ]
+}
