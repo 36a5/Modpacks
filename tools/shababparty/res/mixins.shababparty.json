@@ -6,7 +6,8 @@
   "mixins": [
     "TamableAnimalMixin",
     "Ability4WipMixin",
-    "PlayerListAccessor"
+    "PlayerListAccessor",
+    "PlayerExhaustionMixin"
   ],
   "client": [
     "ClientTeamManagerImplMixin"

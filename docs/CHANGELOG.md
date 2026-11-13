@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Shabab 2: normal speed, slower hunger at high levels
+
+- shababparty 1.34.0. Walking and sprinting are back to normal speed whatever your Agility. Your
+  Agility speed now only kicks in while the dash is on (C outside combat mode), so a dashing
+  player is as fast as their stats.
+- Hunger drains slower the higher your level: level 100 at 2/3 speed, 200 at half, 600 at a
+  quarter, never slower than a tenth. Admins tune it under `[hunger]` and turn the speed change
+  off under `[speed]` in `shababparty-common.toml`.
+
 ### Shabab 2: set any Solo Leveling level
 
 - shababparty 1.32.0. New admin command `/sllevel <players> set <level>` and

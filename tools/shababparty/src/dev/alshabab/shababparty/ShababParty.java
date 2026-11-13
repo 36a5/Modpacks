@@ -125,6 +125,10 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue JOIN_PROTECTION_ENABLED;
         public static final ForgeConfigSpec.IntValue JOIN_PROTECTION_TIMEOUT_SECONDS;
         public static final ForgeConfigSpec.BooleanValue PUNISHMENT_DRAGON_ENABLED;
+        public static final ForgeConfigSpec.BooleanValue HUNGER_SCALING_ENABLED;
+        public static final ForgeConfigSpec.DoubleValue HUNGER_PER_LEVEL;
+        public static final ForgeConfigSpec.DoubleValue HUNGER_MIN_FACTOR;
+        public static final ForgeConfigSpec.BooleanValue NORMAL_SPEED_ENABLED;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -592,6 +596,28 @@ public class ShababParty {
                             "spawns at full health on the next visit. Killed, it stays dead until the zone empties.",
                             "Killing it gives no XP, loot or Solo Leveling levels.")
                     .define("enabled", true);
+            b.pop();
+
+            b.push("hunger");
+            HUNGER_SCALING_ENABLED = b
+                    .comment("Make hunger drain slower as a player's Solo Leveling level goes up. Every bit of",
+                            "exhaustion (sprinting, jumping, fighting, healing) is multiplied by",
+                            "1 / (1 + level * perLevel), but never below minFactor.")
+                    .define("enabled", true);
+            HUNGER_PER_LEVEL = b
+                    .comment("0.005: level 100 drains at 2/3 speed, level 200 at 1/2, level 600 at 1/4.")
+                    .defineInRange("perLevel", 0.005D, 0.0D, 1.0D);
+            HUNGER_MIN_FACTOR = b
+                    .comment("Hunger never drains slower than this fraction of normal.")
+                    .defineInRange("minFactor", 0.1D, 0.0D, 1.0D);
+            b.pop();
+
+            b.push("speed");
+            NORMAL_SPEED_ENABLED = b
+                    .comment("Keep walking and sprinting at vanilla speed whatever the Agility stat. Only the",
+                            "Solo Leveling dash (C outside combat mode) uses Agility, so a dashing player is as",
+                            "fast as their stats. false brings back Agility-boosted sprinting all the time.")
+                    .define("normalSpeed", true);
             b.pop();
 
             SPEC = b.build();
