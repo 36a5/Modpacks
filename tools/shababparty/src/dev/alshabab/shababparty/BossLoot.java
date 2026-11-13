@@ -57,7 +57,7 @@ public final class BossLoot {
             return;
         }
         final LivingEntity dead = event.getEntity();
-        if (dead.m_9236_().m_5776_() || !BossScaling.isScaled(dead)) {
+        if (dead.m_9236_().m_5776_() || !BossScaling.isScaled(dead) || PunishmentDragon.isPunisher(dead)) {
             return;
         }
 
@@ -144,7 +144,8 @@ public final class BossLoot {
 
     @SubscribeEvent
     public static void onExperience(final LivingExperienceDropEvent event) {
-        if (!ShababParty.Config.BOSS_LOOT_ENABLED.get() || !BossScaling.isScaled(event.getEntity())) {
+        if (!ShababParty.Config.BOSS_LOOT_ENABLED.get() || !BossScaling.isScaled(event.getEntity())
+                || PunishmentDragon.isPunisher(event.getEntity())) {
             return;
         }
         final int multiplier = ShababParty.Config.BOSS_LOOT_XP_MULTIPLIER.get();

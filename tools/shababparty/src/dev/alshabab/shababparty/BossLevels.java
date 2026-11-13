@@ -50,7 +50,7 @@ public final class BossLevels {
         }
         final LivingEntity dead = event.getEntity();
         final Level level = dead.m_9236_();
-        if (level.m_5776_() || !BossScaling.isScaled(dead)) {
+        if (level.m_5776_() || !BossScaling.isScaled(dead) || PunishmentDragon.isPunisher(dead)) {
             return;
         }
 

@@ -124,6 +124,7 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue DEVICE_LOGIN_CLAIM_NEW_NAMES;
         public static final ForgeConfigSpec.BooleanValue JOIN_PROTECTION_ENABLED;
         public static final ForgeConfigSpec.IntValue JOIN_PROTECTION_TIMEOUT_SECONDS;
+        public static final ForgeConfigSpec.BooleanValue PUNISHMENT_DRAGON_ENABLED;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -581,6 +582,16 @@ public class ShababParty {
             JOIN_PROTECTION_TIMEOUT_SECONDS = b
                     .comment("Release the protection after this many seconds even without input.")
                     .defineInRange("timeoutSeconds", 600, 10, 86400);
+            b.pop();
+
+            b.push("punishmentDragon");
+            PUNISHMENT_DRAGON_ENABLED = b
+                    .comment("Players sent to Solo Leveling's Punishment Zone (sololeveling:survival_dimension) are",
+                            "moved to one arena at 0,0 of that dimension and an Ender Dragon spawns there. It has",
+                            "the Ender Dragon's bossScaling tier. It vanishes when the zone is empty and a fresh one",
+                            "spawns at full health on the next visit. Killed, it stays dead until the zone empties.",
+                            "Killing it gives no XP, loot or Solo Leveling levels.")
+                    .define("enabled", true);
             b.pop();
 
             SPEC = b.build();

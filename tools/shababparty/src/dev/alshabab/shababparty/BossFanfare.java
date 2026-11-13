@@ -38,7 +38,8 @@ public final class BossFanfare {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBossDeath(final LivingDeathEvent event) {
         final LivingEntity dead = event.getEntity();
-        if (!(dead.m_9236_() instanceof ServerLevel level) || !BossScaling.isScaled(dead)) {
+        if (!(dead.m_9236_() instanceof ServerLevel level) || !BossScaling.isScaled(dead)
+                || PunishmentDragon.isPunisher(dead)) {
             return;
         }
         final double maxHp = dead.m_21233_(); // getMaxHealth

@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Shabab 2: a dragon guards the Punishment Zone
+
+- shababparty 1.31.0. Skip your Daily Quest and the Punishment Zone now has an Ender Dragon waiting
+  in it, as strong as the one in the End. Everyone sent there lands in the same arena at 0,0 of the
+  zone, because that is where the dragon flies. Leaving works as before: when your time is up you
+  go back to where you were taken from.
+- It disappears as soon as the zone is empty, and the next visit gets a fresh one at full health.
+  Kill it and it stays dead until everyone has left.
+- Killing it gives nothing: no XP, no loot, no Solo Leveling levels.
+- Admins can turn it off with `[punishmentDragon] enabled = false` in `shababparty-common.toml`.
+
 ### Shabab 2: the Shabab Guide shows up in JEI
 
 - shababparty 1.30.0. The guide is now its own item, `shababparty:guide`, instead of a variant
