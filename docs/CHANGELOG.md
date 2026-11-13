@@ -6,7 +6,11 @@
 
 - shababparty 1.32.0. New admin command `/sllevel <players> set <level>` and
   `/sllevel <players> add <levels>` (permission level 3). The mod's own `/slr level` stops at 500;
-  this one goes up to 1,000,000. It changes the level only, not stats or skill points.
+  this one goes up to 1,000,000.
+- shababparty 1.33.0. `/sllevel` now pays out levels the way a real level-up does: +1 to all six
+  stats per level, the Hunter rank every 25 levels (up to the top rank), Fatigue cleared. Lowering
+  a level takes the same amounts back. Free skill points are not touched, because real level-ups
+  do not give any either.
 
 ### Shabab 2: a dragon guards the Punishment Zone
 

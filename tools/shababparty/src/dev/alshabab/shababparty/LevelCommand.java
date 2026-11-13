@@ -21,10 +21,9 @@ import net.solocraft.network.SololevelingModVariables;
 /**
  * /sllevel &lt;players&gt; set|add &lt;amount&gt;: sets a Solo Leveling level with no cap.
  *
- * The mod's own /slr level stops at 500 and recalculates stats as it goes. Players here level far past
- * that through play, so admins need a way to set any level. This writes the Level variable only and
- * syncs it to the client; stats and skill points are left as they are, the same as a level that came
- * from play before the stats were spent.
+ * The mod's own /slr level stops at 500. Players here level far past that through play, so admins need
+ * a way to set any level. Each level added or removed is applied the way a real level-up applies it
+ * (see {@link #applyLevelChange}), then synced to the client.
  */
 @Mod.EventBusSubscriber(modid = ShababParty.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class LevelCommand {
@@ -62,7 +61,7 @@ public final class LevelCommand {
                 continue;
             }
             final double level = Math.max(0, Math.min(MAX_LEVEL, add ? vars.Level + amount : amount));
-            vars.Level = level;
+            applyLevelChange(vars, (int) vars.Level, (int) level);
             vars.syncPlayerVariables(player);
             final String text = player.m_7755_().getString() + " is now level " + (long) level;
             ctx.getSource().m_288197_(() -> Component.m_237113_(text), true); // sendSuccess
@@ -72,5 +71,36 @@ public final class LevelCommand {
             ctx.getSource().m_81352_(Component.m_237113_("No Solo Leveling data on those players.")); // sendFailure
         }
         return done;
+    }
+
+    /**
+     * Does what Solo Leveling's own LevelUpProcedure does for the same number of levels, so a level set
+     * here is worth exactly what a level earned through XP is worth:
+     * <ul>
+     * <li>+1 Vitality, Strength, Intelligence, Perception, Speed and Durability per level. The mod
+     * distributes these itself; a level-up grants no free skill points.</li>
+     * <li>Hunter rank +1 for every multiple of 25 crossed, capped at 6, the mod's top rank.</li>
+     * <li>Fatigue cleared on the way up.</li>
+     * </ul>
+     * Going down reverses it: each stat loses one per level (never below 0) and the rank drops by the
+     * multiples of 25 crossed (never below 0). Free skill points are left alone in both directions.
+     */
+    static void applyLevelChange(final SololevelingModVariables.PlayerVariables vars, final int from, final int to) {
+        final int delta = to - from;
+        vars.Level = to;
+        if (delta == 0) {
+            return;
+        }
+        vars.Vitality = Math.max(0.0D, vars.Vitality + delta);
+        vars.Strength = Math.max(0.0D, vars.Strength + delta);
+        vars.Intelligence = Math.max(0.0D, vars.Intelligence + delta);
+        vars.perception = Math.max(0.0D, vars.perception + delta);
+        vars.Speed = Math.max(0.0D, vars.Speed + delta);
+        vars.Durability = Math.max(0.0D, vars.Durability + delta);
+        final int rankSteps = to / 25 - from / 25;
+        vars.HunterRank = Math.max(0.0D, Math.min(6.0D, vars.HunterRank + rankSteps));
+        if (delta > 0) {
+            vars.Fatigue = 0.0D;
+        }
     }
 }
