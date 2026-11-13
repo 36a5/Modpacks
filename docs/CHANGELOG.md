@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Shabab 2: set any Solo Leveling level
+
+- shababparty 1.32.0. New admin command `/sllevel <players> set <level>` and
+  `/sllevel <players> add <levels>` (permission level 3). The mod's own `/slr level` stops at 500;
+  this one goes up to 1,000,000. It changes the level only, not stats or skill points.
+
 ### Shabab 2: a dragon guards the Punishment Zone
 
 - shababparty 1.31.0. Skip your Daily Quest and the Punishment Zone now has an Ender Dragon waiting

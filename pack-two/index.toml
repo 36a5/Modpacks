@@ -2386,6 +2386,10 @@ file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/shadow.mcfunc
 hash = "cce75ed76e9748659cca20aa4ee569c0ea79df38137a3939e852ee83ed8695fe"
 
 [[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/white_flames.mcfunction"
+hash = "6c7629d2e95e6d1aa6b3e8a22a5552afa2fd1a4b1a018ba737320daadf39ac42"
+
+[[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/keys.mcfunction"
 hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
@@ -2395,7 +2399,7 @@ hash = "b21750d85e3394b038d253f7766c156908ece5db95f1524b5e2f2610e15e2402"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
-hash = "f55ff1e1b4f60b2022276d21be6a71a84d8a7ea10d5a9bbfcb7eb2b3b518ebdf"
+hash = "51102caed015f0b7c83d96bc7f39ddf78110d042f66f0c729b829b3192989a29"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/any.mcfunction"
@@ -2418,12 +2422,16 @@ file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/not_shadow.m
 hash = "b3c775d31f42b78a5158b3fe96587845e1bc70101a0e7405f917326c8dea7fcb"
 
 [[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/random.mcfunction"
+hash = "f55ff1e1b4f60b2022276d21be6a71a84d8a7ea10d5a9bbfcb7eb2b3b518ebdf"
+
+[[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/strip_white_flames.mcfunction"
 hash = "e05af06ae2b8dcfe68a7720f8c2d136ce6200fef94c8741cfdda7b5dd1d511eb"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/tick.mcfunction"
-hash = "aeda1adef13166589e1169417913c398b58e965ff9c1f7c6cb215ed628b534f6"
+hash = "371584ccfc651534bcd2c110034cbcf20c64c944b2e1189a2a0e72ff56f718e7"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_half.json"
@@ -7274,8 +7282,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.31.0.jar"
-hash = "18008d5bb8c9b1b483a2766d2f9a1ecebf306f1900e20c29dd5f171dd5557027"
+file = "mods/shababparty-1.32.0.jar"
+hash = "e3bc67f9e24885a30e68e985e2dfeb41ef4d030a38fd60810bd64f362fd4cd41"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
