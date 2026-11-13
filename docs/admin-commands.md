@@ -85,7 +85,7 @@ is a real entity selector, so `@s`, `@p` and `@a` all work.
 
 > **`job MonarchOfWhiteFlames` does not stick — unless the player is on the allowlist.** The
 > `slb-jobs` datapack re-rolls anyone holding JOB=4 into one of the three allowed jobs within a
-> tick. The exception is the allowlist in `slb_jobs:tick`, which currently holds **Abdulrhman-S**:
+> tick. The exception is the allowlist in `slb_jobs:tick`, which currently holds **Abdulrhman-S** and **endry** (anyone else carrying the `slb_wf_ok` tag loses it every tick):
 >
 > ```mcfunction
 > execute as @a[name=Abdulrhman-S] run tag @s add slb_wf_ok

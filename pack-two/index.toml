@@ -2387,7 +2387,7 @@ hash = "cce75ed76e9748659cca20aa4ee569c0ea79df38137a3939e852ee83ed8695fe"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/job/white_flames.mcfunction"
-hash = "6c7629d2e95e6d1aa6b3e8a22a5552afa2fd1a4b1a018ba737320daadf39ac42"
+hash = "dc5a46485edbe21249f3ed2ee60137d56d87351e27ff36291eea54a66eb6995d"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/keys.mcfunction"
@@ -2395,11 +2395,11 @@ hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
-hash = "b21750d85e3394b038d253f7766c156908ece5db95f1524b5e2f2610e15e2402"
+hash = "2aa1393a493d836a3982695a3a8c6f7b632207eb8033495b1e8715adbc43ec25"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
-hash = "51102caed015f0b7c83d96bc7f39ddf78110d042f66f0c729b829b3192989a29"
+hash = "30691352a9ef63c60d641f84416e2d0b43012e52a56730eb50d3602f2ade661f"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/any.mcfunction"
@@ -2431,7 +2431,7 @@ hash = "e05af06ae2b8dcfe68a7720f8c2d136ce6200fef94c8741cfdda7b5dd1d511eb"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/tick.mcfunction"
-hash = "371584ccfc651534bcd2c110034cbcf20c64c944b2e1189a2a0e72ff56f718e7"
+hash = "c618b51bf381ce536e617c501d0e597ceb69c044ec4383b8b463301a38e0bc3a"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_half.json"

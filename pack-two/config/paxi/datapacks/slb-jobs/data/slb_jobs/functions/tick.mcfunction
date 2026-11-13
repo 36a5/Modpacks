@@ -16,8 +16,10 @@ execute as @a if score @s sl_jct matches 0 if score @s sl_jct_prev matches 1.. r
 # Monarch of White Flames is not available on this server, however it was come by - except to
 # the players on this allowlist, who keep it. The tag is re-applied every tick rather than set
 # once, so it survives a player NBT wipe and needs no manual /tag after a reset.
+tag @a[name=!Abdulrhman-S,name=!endry] remove slb_wf_ok
 execute as @a[name=Abdulrhman-S] run tag @s add slb_wf_ok
-execute as @a[name=Abdulrhman-S,tag=!slb_wf_done] run tag @s add slb_wf_next
+execute as @a[name=endry] run tag @s add slb_wf_ok
+execute as @a[name=Abdulrhman-S,tag=!slb_wf_done] run tag @s add slb_wf_track
 execute as @a[tag=!slb_wf_ok] if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
 
 # Bonus Job Change Quest Keys.
