@@ -1,6 +1,6 @@
 slr @s job MonarchOfWhiteFlames
-tag @s add slb_wf_done
-tag @s remove slb_wf_track
+tag @s add slb_wf_done2
+tag @s remove slb_wf_track2
 title @s title {"text":"MONARCH OF WHITE FLAMES","color":"white","bold":true}
 title @s subtitle {"text":"The flames answer you.","color":"gray","italic":true}
 playsound minecraft:entity.blaze.shoot master @s ~ ~ ~ 0.8 0.6

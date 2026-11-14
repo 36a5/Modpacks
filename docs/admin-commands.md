@@ -92,10 +92,11 @@ is a real entity selector, so `@s`, `@p` and `@a` all work.
 > execute as @a[tag=!slb_wf_ok] if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
 > ```
 >
-> To let someone else keep it, add a second `name=` line. To take it back, remove theirs — the
-> strip fires on the next tick. Note that the Job Change Quest still never *awards* White Flames to
-> anyone, allowlisted or not: an allowlisted player has to be given it with `/slr`, and if they run
-> the quest again they will be re-rolled off it like everyone else.
+> To let someone else keep it, add a second `name=` line. To take it back, remove theirs; the
+> strip fires on the next tick. Allowlisted players also get it from the quest itself: their
+> 11th job change (counted from 2026-11-14 in the `slb_wf_try` score) awards White Flames
+> instead of a random job, once each. Check progress with
+> `/scoreboard players get <player> slb_wf_try`. Nobody else can ever roll it.
 
 ### The job rules on this server (`slb-jobs` datapack)
 

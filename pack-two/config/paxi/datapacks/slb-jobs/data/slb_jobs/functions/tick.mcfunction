@@ -5,13 +5,8 @@ execute as @a store result score @s sl_job run data get entity @s ForgeCaps."sol
 execute as @a store result score @s sl_jct run data get entity @s ForgeCaps."sololeveling:player_variables".JobChange_timer
 execute as @a store result score @s sl_level run data get entity @s ForgeCaps."sololeveling:player_variables".Level
 
-# The quest's ending cutscene just started: remember what they are now, so the re-roll at
-# the end of it can avoid handing back the same job.
-execute as @a if score @s sl_jct matches 1.. if score @s sl_jct_prev matches 0 run scoreboard players operation @s sl_job_pre = @s sl_job
-
-# The cutscene just ended. The mod has, one instruction ago, set them to Shadow Monarch.
-# Overwrite that with the roll.
-execute as @a if score @s sl_jct matches 0 if score @s sl_jct_prev matches 1.. run function slb_jobs:roll
+# The end of the quest is no longer watched here. shababparty's JobChangeTalkMixin skips the
+# mod's ending cutscene and calls slb_jobs:quest_done itself, once per finished run.
 
 # Monarch of White Flames is not available on this server, however it was come by - except to
 # the players on this allowlist, who keep it. The tag is re-applied every tick rather than set
@@ -19,7 +14,7 @@ execute as @a if score @s sl_jct matches 0 if score @s sl_jct_prev matches 1.. r
 tag @a[name=!Abdulrhman-S,name=!endry] remove slb_wf_ok
 execute as @a[name=Abdulrhman-S] run tag @s add slb_wf_ok
 execute as @a[name=endry] run tag @s add slb_wf_ok
-execute as @a[name=Abdulrhman-S,tag=!slb_wf_done] run tag @s add slb_wf_track
+execute as @a[tag=slb_wf_ok,tag=!slb_wf_done2] run tag @s add slb_wf_track2
 execute as @a[tag=!slb_wf_ok] if score @s sl_job matches 4 run function slb_jobs:strip_white_flames
 
 # Bonus Job Change Quest Keys.

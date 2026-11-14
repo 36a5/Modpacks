@@ -116,7 +116,13 @@ working — scroll up and click a newer one, or just go to the newest.
 ### 💼 Jobs — and how to re-roll them
 
 Reach **level 40** and the System hands you a **Job Change Quest Key**. Use it, clear the quest,
-and you awaken into **one of three jobs, chosen at random**:
+and you awaken into **one of three jobs, chosen at random**.
+
+After Igris falls, every portal in the room opens at once and its Demon Knights all come out
+together, glowing. Kill them all and the quest ends right there, no waiting out the timer and no
+story in chat: your new job lands straight away.
+
+The three jobs:
 
 | Job | |
 |---|---|

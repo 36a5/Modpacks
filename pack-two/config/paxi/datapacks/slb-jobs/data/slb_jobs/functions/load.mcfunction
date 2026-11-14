@@ -38,7 +38,7 @@ scoreboard objectives add sl_tier dummy
 scoreboard objectives add sl_keys dummy
 scoreboard objectives add sl_r dummy
 scoreboard objectives add sl_const dummy
-scoreboard objectives add slb_wf_count dummy
+scoreboard objectives add slb_wf_try dummy
 scoreboard players set #50 sl_const 50
 
 # Triple Solo Leveling's XP rate. The mod default is 10; this makes normal kills and the boss
