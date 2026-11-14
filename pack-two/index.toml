@@ -2370,6 +2370,18 @@ file = "config/paxi/datapacks/slb-jobs/data/minecraft/tags/functions/tick.json"
 hash = "52588f43c3d06b052b3975ffcd5f5d0f1bf6df83c8daf9ca98d48a277cd08c52"
 
 [[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily.mcfunction"
+hash = "044dad9a7bba5a6b8717bd4af9fe7dfcd42e1f999c362fdf394e73ae7e3d6a1c"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily/check.mcfunction"
+hash = "514e13a7d1c205ad01965aeff708c31c0dbcc5de15e86b6ef183eca604ca3269"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily/player.mcfunction"
+hash = "02fa5bca8a58645887ac892f4a7d2911d3d9ddbd309e0f66c2892b68041f8136"
+
+[[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/grant_key.mcfunction"
 hash = "04852f0cf1e1c140170a0c182ac54515368849f77c29d6caa66ce55df4927e96"
 
@@ -2395,7 +2407,7 @@ hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
-hash = "b99b2ee0bd42c68c7455654fbd851462e10c3b6a2c0b16847c458fcc9337df88"
+hash = "556512ce14a01604d12b71a3a13900b8e694d7ff2d911e3878b4502819d512c2"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/quest_done.mcfunction"

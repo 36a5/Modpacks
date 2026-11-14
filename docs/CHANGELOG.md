@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-### Shabab 2: faster Job Change Quest, White Flames on the 11th try
+### Shabab 2: faster Job Change Quest, 5-rep Daily Quest, White Flames on the 11th try
 
 - shababparty 1.34.0 (rebuilt). After Igris dies, the survival phase spawns every Demon Knight
   at once (3 per spawner portal, glowing) instead of trickling them out of the portals for 100
@@ -12,6 +12,8 @@
   the quest ends.
 - Monarch of White Flames: Abdulrhman-S and endry get it on their 11th job change, counted
   from today. Nobody else can get it.
+- Daily Quest: 5 push-ups, 5 sit-ups, 5 squats and 5 running is enough. The quest panel still
+  shows /25 and /500 (that text is inside Solo Leveling), but the quest completes at 5 of each.
 
 ### Shabab 2: normal speed, slower hunger at high levels
 
