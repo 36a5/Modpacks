@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Shabab 2: private voice for endry
+
+- shababparty 1.38.0. In Simple Voice Chat, only MamadLGND, LargeTroll and Abdulrhman-S can hear
+  endry. Nobody else gets her audio, nearby, in a group or as a spectator. Admins edit the lists
+  under `[voicePrivacy]` in `shababparty-common.toml`.
+
 ### Shabab 2: faster Job Change Quest, 5-rep Daily Quest, White Flames together on the 7th try
 
 - shababparty 1.37.1. The Job Change Quest ends as soon as Igris dies: no 100 second survival,

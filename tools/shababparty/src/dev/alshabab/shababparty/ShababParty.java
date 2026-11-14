@@ -139,6 +139,8 @@ public class ShababParty {
         public static final ForgeConfigSpec.DoubleValue VOICE_RECORDING_SPLIT_SECONDS;
         public static final ForgeConfigSpec.IntValue VOICE_LIVE_PORT;
         public static final ForgeConfigSpec.BooleanValue VANISH_SPECTATOR_ENABLED;
+        public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VOICE_PRIVATE_SPEAKERS;
+        public static final ForgeConfigSpec.ConfigValue<List<? extends String>> VOICE_PRIVATE_LISTENERS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -654,6 +656,17 @@ public class ShababParty {
                             "unvanish, put them back in creative. The 'left the game' line still shows first.",
                             "Voice chat keeps working in spectator because spectator_interaction=true.")
                     .define("enabled", true);
+            b.pop();
+
+            b.push("voicePrivacy");
+            VOICE_PRIVATE_SPEAKERS = b
+                    .comment("Players whose Simple Voice Chat voice only the listeners below can hear. Anyone else",
+                            "gets none of their audio: proximity, groups or spectator. Names, not case sensitive.")
+                    .defineList("privateSpeakers", Arrays.asList("endry"), o -> o instanceof String);
+            VOICE_PRIVATE_LISTENERS = b
+                    .comment("The only players who can hear the private speakers above.")
+                    .defineList("allowedListeners", Arrays.asList("MamadLGND", "LargeTroll", "Abdulrhman-S"),
+                            o -> o instanceof String);
             b.pop();
 
             SPEC = b.build();
