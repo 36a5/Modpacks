@@ -2407,19 +2407,11 @@ hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
-hash = "66c90cd4f7612ac08725cd2539bfc1b6a13e032ac4db1b42637791fdeb453b8f"
+hash = "556512ce14a01604d12b71a3a13900b8e694d7ff2d911e3878b4502819d512c2"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/quest_done.mcfunction"
 hash = "9bb55de5878cabf0d96283e8284cef97e99725bcfb9dd2248ab4ff1c309c390a"
-
-[[files]]
-file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/quest_wave.mcfunction"
-hash = "69cb4463ff75eca478a131a9392dc273f3777a8b5b265163db74979606f1ea57"
-
-[[files]]
-file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/quest_wave/player.mcfunction"
-hash = "3ca2661fb4efc44e92ff1d2396c980c62daeebb90912d8e31b345c65a28ac1b5"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
@@ -2464,10 +2456,6 @@ hash = "46ade56f716f338c581b41eaac34600eaba014c426331b912bb0d000f6aa59bb"
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_third.json"
 hash = "366041f22dfa68fcbfa5bf5c13424f3e6d9e23bd6ba1cdc1944bb8d8895ec972"
-
-[[files]]
-file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/tags/entity_types/knights.json"
-hash = "fad35731693d58052a8614d0852198db23081ae6b9251182414269e41bf9abc8"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/pack.mcmeta"
@@ -7310,8 +7298,8 @@ hash = "605c1641f148f224d6b9df013bc6b1e8ae2abb9f89a077960c619023ea44f96a"
 metafile = true
 
 [[files]]
-file = "mods/shababparty-1.37.0.jar"
-hash = "05d9bcd89958c683e397841e68a0a47119039d125983dc7daf2524ca651a506c"
+file = "mods/shababparty-1.37.1.jar"
+hash = "a63af5a758623513e31b7888e4ef4b0846fb61eba8586ecdcc0ae4e4f7727e43"
 
 [[files]]
 file = "mods/shield-expansion.pw.toml"
