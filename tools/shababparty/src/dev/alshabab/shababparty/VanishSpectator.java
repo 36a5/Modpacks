@@ -4,7 +4,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import redstonedubstep.mods.vanishmod.api.PlayerVanishEvent;
 
 /**
@@ -14,8 +13,11 @@ import redstonedubstep.mods.vanishmod.api.PlayerVanishEvent;
  * to that event, so this works with the raw /vanish command (no datapack function or selector needed).
  * Doing it in code also sidesteps Vanishmod's disableCommandTargeting, which hides a vanished player
  * from @s and @a so a command-based "gamemode spectator @s" after vanishing matches nobody.
+ *
+ * Not an @EventBusSubscriber on purpose. Vanishmod is server-only in the pack, and auto-subscription
+ * reflects over this class on every side, which throws NoClassDefFoundError for PlayerVanishEvent on
+ * clients and takes the whole mod down. ShababParty registers it only when Vanishmod is loaded.
  */
-@Mod.EventBusSubscriber(modid = ShababParty.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class VanishSpectator {
 
     private VanishSpectator() {

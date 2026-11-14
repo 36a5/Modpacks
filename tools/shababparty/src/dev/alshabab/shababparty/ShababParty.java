@@ -51,6 +51,12 @@ public class ShababParty {
 
         dev.alshabab.shababparty.network.Net.register();
 
+        // Vanishmod is server-only, so its classes are missing on clients. VanishSpectator names one
+        // in a method signature; it must only be touched when the mod is present.
+        if (net.minecraftforge.fml.ModList.get().isLoaded("vanishmod")) {
+            net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(VanishSpectator.class);
+        }
+
         // The damage-number settings screen, reachable from the Mods list as well as NUMPAD 6.
         // The registration lives in ClientSetup rather than inline here: writing the
         // ConfigScreenFactory lambda in this class put net/minecraft/client/gui/screens/Screen into
