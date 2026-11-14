@@ -53,6 +53,7 @@ public class VoiceRecorder implements de.maxhenkel.voicechat.api.VoicechatPlugin
     private Path baseDir;
     private final Map<UUID, Speaker> speakers = new ConcurrentHashMap<>();
     private ScheduledExecutorService janitor;
+    private final VoiceLiveStream live = new VoiceLiveStream();
 
     @Override
     public String getPluginId() {
@@ -78,6 +79,10 @@ public class VoiceRecorder implements de.maxhenkel.voicechat.api.VoicechatPlugin
         janitor.scheduleAtFixedRate(this::closeIdle, 1, 1, TimeUnit.SECONDS);
         // Flush everything if the JVM is stopping (stop command, crash, reboot).
         Runtime.getRuntime().addShutdownHook(new Thread(this::closeAll, "shabab-voice-flush"));
+        int livePort = ShababParty.Config.VOICE_LIVE_PORT.get();
+        if (livePort > 0) {
+            live.start(livePort);
+        }
         LOG.info("voice recorder loaded; recording {} to {}",
                 ShababParty.Config.VOICE_RECORDING_ENABLED.get() ? "ON" : "OFF (set [voiceRecording] enabled=true)",
                 baseDir);
@@ -128,6 +133,7 @@ public class VoiceRecorder implements de.maxhenkel.voicechat.api.VoicechatPlugin
                 }
                 speaker.write(pcm);
                 speaker.lastWrite = now;
+                live.send(speaker.name, pcm);
                 // A rough loudness level (0-100) so a live meter has something to show, at most 5/sec
                 // so it does not flood latest.log.
                 if (now - speaker.lastLevelLog >= 200) {

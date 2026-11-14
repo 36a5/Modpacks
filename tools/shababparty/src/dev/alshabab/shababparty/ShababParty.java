@@ -137,6 +137,7 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue NORMAL_SPEED_ENABLED;
         public static final ForgeConfigSpec.BooleanValue VOICE_RECORDING_ENABLED;
         public static final ForgeConfigSpec.DoubleValue VOICE_RECORDING_SPLIT_SECONDS;
+        public static final ForgeConfigSpec.IntValue VOICE_LIVE_PORT;
         public static final ForgeConfigSpec.BooleanValue VANISH_SPECTATOR_ENABLED;
 
         static {
@@ -640,6 +641,11 @@ public class ShababParty {
                     .comment("Start a new file once a player has been silent this many seconds, so each",
                             "stretch of talking becomes its own clip.")
                     .defineInRange("splitGapSeconds", 2.0D, 0.2D, 60.0D);
+            VOICE_LIVE_PORT = b
+                    .comment("Also stream the decoded voice live on this port, bound to 127.0.0.1 only so it",
+                            "is reachable just through ssh on the server itself. 0 turns it off. Needs",
+                            "enabled=true above. Read once at startup; changing it needs a restart.")
+                    .defineInRange("liveStreamPort", 0, 0, 65535);
             b.pop();
 
             b.push("vanishSpectator");
