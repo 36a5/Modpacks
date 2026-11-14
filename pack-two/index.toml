@@ -2371,11 +2371,11 @@ hash = "52588f43c3d06b052b3975ffcd5f5d0f1bf6df83c8daf9ca98d48a277cd08c52"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily.mcfunction"
-hash = "044dad9a7bba5a6b8717bd4af9fe7dfcd42e1f999c362fdf394e73ae7e3d6a1c"
+hash = "74bb787b8ce7026c907334e4e4878878e570a33a61b1da4268e2219a3f7d3cc8"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily/check.mcfunction"
-hash = "514e13a7d1c205ad01965aeff708c31c0dbcc5de15e86b6ef183eca604ca3269"
+hash = "6725918928a39447685cfc34f59f60d7d9e28771cac2a22b6a700e833a642fcc"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/daily/player.mcfunction"

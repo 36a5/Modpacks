@@ -77,9 +77,9 @@ is a real entity selector, so `@s`, `@p` and `@a` all work.
 /slr <player> job <Reset|ShadowMonarch|GrandMage|FrostMonarch|MonarchOfWhiteFlames>
 /slr <player> gold <Set|Add> <amount>
 /slr <player> Stats <skillpoints|strength|vitality|agility|sense|intelligence> <Set|Add> <amount>
-/slr <player> DungeonBreak                   # force a dungeon break
-/slr <player> TriggerPenaltyZone
-/slr <player> FinishDaily
+/slr <player> OP DungeonBreak                 # force a dungeon break
+/slr <player> OP TriggerPenaltyZone
+/slr <player> OP FinishDaily
 /slr <player> Debug <Dimension|ClearedGates|CurrentGatesStatus>
 ```
 
