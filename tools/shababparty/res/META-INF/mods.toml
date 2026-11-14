@@ -56,7 +56,7 @@ XP from a kill is paid to every party member in range, inside dungeon portals an
 [[dependencies.shababparty]]
     modId="voicechat"
     mandatory=false
-    versionRange="[2.5,)"
+    versionRange="[1.20.1-2.5,)"
     ordering="AFTER"
     side="SERVER"
 

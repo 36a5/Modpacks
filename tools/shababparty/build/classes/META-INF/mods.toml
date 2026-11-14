@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="shababparty"
-version="1.36.1"
+version="1.36.2"
 displayName="al Shabab — Party Systems"
 description='''
 Makes parties work on this pack.
@@ -56,7 +56,7 @@ XP from a kill is paid to every party member in range, inside dungeon portals an
 [[dependencies.shababparty]]
     modId="voicechat"
     mandatory=false
-    versionRange="[2.5,)"
+    versionRange="[1.20.1-2.5,)"
     ordering="AFTER"
     side="SERVER"
 
