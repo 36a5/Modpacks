@@ -129,6 +129,8 @@ public class ShababParty {
         public static final ForgeConfigSpec.DoubleValue HUNGER_PER_LEVEL;
         public static final ForgeConfigSpec.DoubleValue HUNGER_MIN_FACTOR;
         public static final ForgeConfigSpec.BooleanValue NORMAL_SPEED_ENABLED;
+        public static final ForgeConfigSpec.BooleanValue VOICE_RECORDING_ENABLED;
+        public static final ForgeConfigSpec.DoubleValue VOICE_RECORDING_SPLIT_SECONDS;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -618,6 +620,19 @@ public class ShababParty {
                             "Solo Leveling dash (C outside combat mode) uses Agility, so a dashing player is as",
                             "fast as their stats. false brings back Agility-boosted sprinting all the time.")
                     .define("normalSpeed", true);
+            b.pop();
+
+            b.push("voiceRecording");
+            VOICE_RECORDING_ENABLED = b
+                    .comment("Record every player's Simple Voice Chat microphone audio to WAV files under",
+                            "the server's voice-recordings/<player>/ folder. This is for the owner's own",
+                            "private family server where everyone knows and agreed their voice is captured",
+                            "for a home AI project. OFF by default: it only records when this is true.")
+                    .define("enabled", false);
+            VOICE_RECORDING_SPLIT_SECONDS = b
+                    .comment("Start a new file once a player has been silent this many seconds, so each",
+                            "stretch of talking becomes its own clip.")
+                    .defineInRange("splitGapSeconds", 2.0D, 0.2D, 60.0D);
             b.pop();
 
             SPEC = b.build();
