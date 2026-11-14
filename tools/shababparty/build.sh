@@ -7,7 +7,7 @@
 # exchange there is nothing to download, nothing to decompile, and the build is a few seconds.
 set -euo pipefail
 
-VERSION=1.35.0
+VERSION=1.36.0
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
 LIB="$REPO/server/run/libraries"
@@ -81,10 +81,12 @@ PATCHOULI_JAR="$(ls "$MODS"/Patchouli-*.jar 2>/dev/null | head -1)"
 # VoiceRecorder is a Simple Voice Chat server plugin; its de.maxhenkel.voicechat.api classes are
 # bundled inside the voicechat forge jar.
 VOICECHAT_JAR="$(ls "$MODS"/voicechat-forge-*.jar 2>/dev/null | head -1)"
+# VanishSpectator reacts to Vanishmod's redstonedubstep.mods.vanishmod.api.PlayerVanishEvent.
+VANISHMOD_JAR="$(ls "$MODS"/Vanishmod-*.jar 2>/dev/null | head -1)"
 
 DEPS=("$MC_SRG" "$FORGE_JAR" "$FMLCORE_JAR" "$JAVAFML_JAR" "$EVENTBUS_JAR" "$LOG4J_JAR" \
       "$NIGHTCONFIG_JAR" "$MIXIN_JAR" "$AUTHLIB_JAR" "$FTBTEAMS_JAR" "$FTBLIB_JAR" "$SOLO_JAR" \
-      "$GECKOLIB_JAR" "$PATCHOULI_JAR" "$VOICECHAT_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$NETTY_COMMON_JAR" "$DISTMARKER_JAR" "$JOML_JAR")
+      "$GECKOLIB_JAR" "$PATCHOULI_JAR" "$VOICECHAT_JAR" "$VANISHMOD_JAR" "$BRIGADIER_JAR" "$NETTY_JAR" "$NETTY_COMMON_JAR" "$DISTMARKER_JAR" "$JOML_JAR")
 for j in "${DEPS[@]}"; do
     [ -f "$j" ] || { echo "missing compile dependency: $j" >&2; exit 1; }
 done

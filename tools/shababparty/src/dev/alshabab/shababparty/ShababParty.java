@@ -131,6 +131,7 @@ public class ShababParty {
         public static final ForgeConfigSpec.BooleanValue NORMAL_SPEED_ENABLED;
         public static final ForgeConfigSpec.BooleanValue VOICE_RECORDING_ENABLED;
         public static final ForgeConfigSpec.DoubleValue VOICE_RECORDING_SPLIT_SECONDS;
+        public static final ForgeConfigSpec.BooleanValue VANISH_SPECTATOR_ENABLED;
 
         static {
             ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -633,6 +634,14 @@ public class ShababParty {
                     .comment("Start a new file once a player has been silent this many seconds, so each",
                             "stretch of talking becomes its own clip.")
                     .defineInRange("splitGapSeconds", 2.0D, 0.2D, 60.0D);
+            b.pop();
+
+            b.push("vanishSpectator");
+            VANISH_SPECTATOR_ENABLED = b
+                    .comment("When a player vanishes with Vanishmod's /vanish, put them in spectator; when they",
+                            "unvanish, put them back in creative. The 'left the game' line still shows first.",
+                            "Voice chat keeps working in spectator because spectator_interaction=true.")
+                    .define("enabled", true);
             b.pop();
 
             SPEC = b.build();
