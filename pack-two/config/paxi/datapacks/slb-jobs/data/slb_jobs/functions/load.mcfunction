@@ -44,6 +44,7 @@ scoreboard objectives add sl_d_push dummy
 scoreboard objectives add sl_d_sit dummy
 scoreboard objectives add sl_d_squat dummy
 scoreboard objectives add sl_d_run dummy
+scoreboard objectives add sl_q_t dummy
 scoreboard players set #50 sl_const 50
 
 # Triple Solo Leveling's XP rate. The mod default is 10; this makes normal kills and the boss
@@ -52,5 +53,7 @@ gamerule soloLevelingXPMultiplier 30
 
 # Daily Quest at 5 of each (self-rescheduling, once a second).
 function slb_jobs:daily
+# Job Change Quest straggler pull (self-rescheduling, every 10 ticks).
+function slb_jobs:quest_wave
 
 tellraw @a[tag=slb_admin] {"text":"[slb-jobs] datapack loaded","color":"dark_gray"}
