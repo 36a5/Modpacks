@@ -93,10 +93,11 @@ is a real entity selector, so `@s`, `@p` and `@a` all work.
 > ```
 >
 > To let someone else keep it, add a second `name=` line. To take it back, remove theirs; the
-> strip fires on the next tick. Allowlisted players also get it from the quest itself: their
-> 11th job change (counted from 2026-11-14 in the `slb_wf_try` score) awards White Flames
-> instead of a random job, once each. Check progress with
-> `/scoreboard players get <player> slb_wf_try`. Nobody else can ever roll it.
+> strip fires on the next tick. Allowlisted players also get it from the quest, but only
+> together: every finished run counts in `slb_wf_try` (solo runs too), and when both of them finish
+> within 60 seconds of each other and that run is the 7th or later for either one, both become
+> Monarch of White Flames at once. A solo run never gives it. After that, job changes keep it.
+> Check progress with `/scoreboard players get <player> slb_wf_try`.
 
 ### The job rules on this server (`slb-jobs` datapack)
 

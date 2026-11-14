@@ -2407,7 +2407,7 @@ hash = "58eabe5339f1a4abf24f2baa8b3ad8a958fad74dfcc0a1b3076effeaef1a8416"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/load.mcfunction"
-hash = "556512ce14a01604d12b71a3a13900b8e694d7ff2d911e3878b4502819d512c2"
+hash = "10063c81c51639b5e7b2b13c675d81744614cd6458008124c50e1dead3f7f606"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/quest_done.mcfunction"
@@ -2415,7 +2415,7 @@ hash = "9bb55de5878cabf0d96283e8284cef97e99725bcfb9dd2248ab4ff1c309c390a"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll.mcfunction"
-hash = "9899f4db247f3ac7f6f9a9ccfec801e46d02e36f084fb701feab4330d37333a8"
+hash = "e0b2e3e8c72c030e4963ebed45c1f451bf4d6ee64ce18695d57a99e5ca8f5549"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/roll/any.mcfunction"
@@ -2448,6 +2448,22 @@ hash = "e05af06ae2b8dcfe68a7720f8c2d136ce6200fef94c8741cfdda7b5dd1d511eb"
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/tick.mcfunction"
 hash = "341710c203c1da6522c1a07665b9fc64423a2b97c45b18964359d168b6fe377e"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/wf/award_pair.mcfunction"
+hash = "33906577279e36c2783a4dd0270b07a85fd01223b7e810440a21c09efe9a7bb1"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/wf/finish.mcfunction"
+hash = "010ba9ae2b351882776c23732a1b0e7eaaed45af2a7076e708f6b4982dd7f4f5"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/wf/keep.mcfunction"
+hash = "ef3c750a6b62fc32973b2ce5d3563f252b018a9748882977440d6e7eb7b12d5d"
+
+[[files]]
+file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/functions/wf/partner_check.mcfunction"
+hash = "0ea620a80e82975949e00286cf796c5e59fc0cfdfde03ef301b2d07dc26156c7"
 
 [[files]]
 file = "config/paxi/datapacks/slb-jobs/data/slb_jobs/predicates/one_half.json"

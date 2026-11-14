@@ -39,6 +39,7 @@ scoreboard objectives add sl_keys dummy
 scoreboard objectives add sl_r dummy
 scoreboard objectives add sl_const dummy
 scoreboard objectives add slb_wf_try dummy
+scoreboard objectives add slb_wf_at dummy
 scoreboard objectives add sl_d_on dummy
 scoreboard objectives add sl_d_push dummy
 scoreboard objectives add sl_d_sit dummy

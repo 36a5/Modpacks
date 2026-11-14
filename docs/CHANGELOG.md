@@ -2,14 +2,16 @@
 
 ## [Unreleased]
 
-### Shabab 2: faster Job Change Quest, 5-rep Daily Quest, White Flames on the 11th try
+### Shabab 2: faster Job Change Quest, 5-rep Daily Quest, White Flames together on the 7th try
 
 - shababparty 1.37.1. The Job Change Quest ends as soon as Igris dies: no 100 second survival,
   no knight wave. The spawner portals close and the new job lands about a second later.
 - The 25 second chat cutscene at the end of the quest is gone. The new job is given the moment
   the quest ends.
-- Monarch of White Flames: Abdulrhman-S and endry get it on their 11th job change, counted
-  from today. Nobody else can get it.
+- Monarch of White Flames: only Abdulrhman-S and endry, and only together. Both finish a Job
+  Change Quest within 60 seconds of each other on a run that is the 7th or later for either of
+  them, and both get it at once. Solo runs count toward the 7 but never give it. Once you have it,
+  later job changes keep it. Nobody else can get it.
 - Daily Quest: 5 push-ups, 5 sit-ups, 5 squats and 5 running is enough. The quest panel still
   shows /25 and /500 (that text is inside Solo Leveling), but the quest completes at 5 of each.
 
