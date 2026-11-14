@@ -660,8 +660,8 @@ public class ShababParty {
 
             b.push("voicePrivacy");
             VOICE_PRIVATE_SPEAKERS = b
-                    .comment("Players whose Simple Voice Chat voice only the listeners below can hear. Anyone else",
-                            "gets none of their audio: proximity, groups or spectator. Names, not case sensitive.")
+                    .comment("Players who, in Simple Voice Chat, are heard only by the listeners below and hear only",
+                            "them in return: proximity, groups or spectator. Names, not case sensitive.")
                     .defineList("privateSpeakers", Arrays.asList("endry"), o -> o instanceof String);
             VOICE_PRIVATE_LISTENERS = b
                     .comment("The only players who can hear the private speakers above.")

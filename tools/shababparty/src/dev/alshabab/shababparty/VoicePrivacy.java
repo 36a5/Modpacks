@@ -19,8 +19,8 @@ import net.minecraft.world.entity.player.Player;
  * Simple Voice Chat posts one SoundPacketEvent per listener for every piece of audio it is about
  * to send: EntitySoundPacketEvent for normal proximity talk, LocationalSoundPacketEvent and
  * StaticSoundPacketEvent for groups, spectators and the like. Cancelling the event drops that
- * audio for that one listener only. So when the speaker is on [voicePrivacy] privateSpeakers and
- * the listener is not on allowedListeners, the packet is cancelled and they hear nothing.
+ * audio for that one listener only. It works both ways: a player on [voicePrivacy]
+ * privateSpeakers is heard only by players on allowedListeners, and hears only them in return.
  *
  * This only touches what is sent to other players. The speaker's own microphone stream, which
  * VoiceRecorder reads through MicrophonePacketEvent, is unaffected.
@@ -45,14 +45,19 @@ public class VoicePrivacy implements VoicechatPlugin {
 
     private void filter(final SoundPacketEvent<?> event) {
         final String speaker = nameOf(event.getSenderConnection());
-        if (speaker == null || !contains(ShababParty.Config.VOICE_PRIVATE_SPEAKERS.get(), speaker)) {
-            return;
-        }
         final String listener = nameOf(event.getReceiverConnection());
-        if (listener != null && contains(ShababParty.Config.VOICE_PRIVATE_LISTENERS.get(), listener)) {
-            return;
+        if (speaker == null || listener == null) {
+            return; // audio a plugin plays, not a player talking
         }
-        event.cancel();
+        final List<? extends String> privates = ShababParty.Config.VOICE_PRIVATE_SPEAKERS.get();
+        final List<? extends String> allowed = ShababParty.Config.VOICE_PRIVATE_LISTENERS.get();
+        // Both ways: nobody outside the allowed list hears a private player, and a private player
+        // hears nobody outside it either.
+        if (contains(privates, speaker) && !contains(allowed, listener)) {
+            event.cancel();
+        } else if (contains(privates, listener) && !contains(allowed, speaker)) {
+            event.cancel();
+        }
     }
 
     private static boolean contains(final List<? extends String> names, final String name) {
